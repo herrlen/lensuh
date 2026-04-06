@@ -398,5 +398,8 @@
       "confirm": "Passwort bestätigen",
       "submit": "Passwort zurücksetzen"
     }
+  },
+  "seo": {
+    "page": "Seite {{ number }}"
   }
 }

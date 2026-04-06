@@ -398,5 +398,8 @@
       "confirm": "Confirmer le mot de passe",
       "submit": "Réinitialiser"
     }
+  },
+  "seo": {
+    "page": "Page {{ number }}"
   }
 }

@@ -1,0 +1,80 @@
+{%- comment -%}
+  Central SEO Meta Tag Snippet
+  Renders: <title>, meta description, canonical, robots
+  Include in layout/theme.liquid <head>
+  {% render 'seo-meta' %}
+{%- endcomment -%}
+
+{%- comment -%} — Dynamic <title> — {%- endcomment -%}
+<title>
+  {%- case template.name -%}
+    {%- when 'index' -%}
+      {{ page_title }}
+    {%- when 'product' -%}
+      {{ product.title }} | {{ shop.name }}
+    {%- when 'collection' -%}
+      {{ collection.title }} | {{ shop.name }}
+    {%- when 'page' -%}
+      {{ page.title }} | {{ shop.name }}
+    {%- when 'blog' -%}
+      {{ blog.title }} | {{ shop.name }}
+    {%- when 'article' -%}
+      {{ article.title }} | {{ blog.title }} | {{ shop.name }}
+    {%- when 'search' -%}
+      {{ 'search.title' | t }} | {{ shop.name }}
+    {%- when '404' -%}
+      {{ 'general.404.title' | t }} | {{ shop.name }}
+    {%- else -%}
+      {{ page_title }}{% unless page_title contains shop.name %} | {{ shop.name }}{% endunless %}
+  {%- endcase -%}
+  {%- if current_page != 1 %} &ndash; {{ 'seo.page' | t: number: current_page }}{% endif -%}
+</title>
+
+{%- comment -%} — Meta Description — {%- endcomment -%}
+{%- liquid
+  assign seo_description = page_description
+
+  if seo_description == blank
+    case template.name
+      when 'product'
+        assign seo_description = product.description | strip_html | truncate: 160
+      when 'collection'
+        assign seo_description = collection.description | strip_html | truncate: 160
+      when 'article'
+        assign seo_description = article.excerpt_or_content | strip_html | truncate: 160
+      when 'page'
+        assign seo_description = page.content | strip_html | truncate: 160
+      when 'blog'
+        assign seo_description = blog.title | append: ' — ' | append: shop.name
+    endcase
+  endif
+
+  if seo_description == blank
+    assign seo_description = shop.description | strip_html | truncate: 160
+  endif
+-%}
+
+{%- if seo_description != blank -%}
+  <meta name="description" content="{{ seo_description | escape }}">
+{%- endif -%}
+
+{%- comment -%} — Canonical URL — {%- endcomment -%}
+<link rel="canonical" href="{{ canonical_url }}">
+
+{%- comment -%} — Robots — {%- endcomment -%}
+{%- liquid
+  assign robots_content = 'index, follow'
+
+  if template.name == 'search'
+    assign robots_content = 'noindex, follow'
+  endif
+
+  if current_tags.size > 0
+    assign robots_content = 'noindex, follow'
+  endif
+
+  if template.name == 'collection' and current_page > 1
+    assign robots_content = 'noindex, follow'
+  endif
+-%}
+<meta name="robots" content="{{ robots_content }}">

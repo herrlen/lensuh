@@ -398,5 +398,8 @@
       "confirm": "Conferma password",
       "submit": "Reimposta"
     }
+  },
+  "seo": {
+    "page": "Pagina {{ number }}"
   }
 }

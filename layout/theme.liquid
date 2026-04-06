@@ -5,32 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
 
-  <title>
-    {{ page_title }}
-    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
-  </title>
+  {% comment %} SEO: Title + Meta + Canonical + Robots {% endcomment %}
+  {%- render 'seo-meta' -%}
 
-  {%- if page_description -%}
-    <meta name="description" content="{{ page_description | escape }}">
-  {%- endif -%}
+  {% comment %} SEO: Hreflang (International) {% endcomment %}
+  {%- render 'seo-hreflang' -%}
 
-  {% render 'meta-tags' %}
-
-  <link rel="canonical" href="{{ canonical_url }}">
+  {% comment %} SEO: Open Graph + Twitter Cards {% endcomment %}
+  {%- render 'seo-social' -%}
 
   {%- if settings.favicon != blank -%}
     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
   {%- endif -%}
 
-  {% comment %} CSS {% endcomment %}
-  {{ 'base.css' | asset_url | stylesheet_tag }}
-
   {% comment %} Preconnect {% endcomment %}
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
+  {% comment %} CSS {% endcomment %}
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+
+  {% comment %} Structured Data {% endcomment %}
   {%- render 'schema-organization' -%}
 
   {{ content_for_header }}

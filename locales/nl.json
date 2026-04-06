@@ -398,5 +398,8 @@
       "confirm": "Wachtwoord bevestigen",
       "submit": "Resetten"
     }
+  },
+  "seo": {
+    "page": "Pagina {{ number }}"
   }
 }

@@ -13,8 +13,25 @@
 {%- liquid
   assign max_width = max_width | default: 1200
   assign sizes = sizes | default: '100vw'
-  assign alt_text = alt | default: image.alt | escape
   assign loading = loading | default: 'lazy'
+
+  assign alt_text = alt
+  if alt_text == blank
+    assign alt_text = image.alt
+  endif
+  if alt_text == blank and product != blank
+    assign alt_text = product.title
+  endif
+  if alt_text == blank and collection != blank
+    assign alt_text = collection.title
+  endif
+  if alt_text == blank and page != blank
+    assign alt_text = page.title
+  endif
+  if alt_text == blank and article != blank
+    assign alt_text = article.title
+  endif
+  assign alt_text = alt_text | escape
 -%}
 
 {%- if image != blank -%}
