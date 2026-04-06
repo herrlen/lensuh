@@ -1,0 +1,65 @@
+<header class="header" data-section-id="{{ section.id }}" data-section-type="header">
+  <div class="header__inner page-width">
+    {%- if section.settings.logo -%}
+      <a href="/" class="header__logo">
+        {{ section.settings.logo | image_url: width: 200 | image_tag:
+          class: 'header__logo-image',
+          alt: shop.name,
+          loading: 'lazy',
+          widths: '100, 150, 200'
+        }}
+      </a>
+    {%- else -%}
+      <a href="/" class="header__logo header__logo--text">
+        {{ shop.name }}
+      </a>
+    {%- endif -%}
+
+    <nav class="header__nav" aria-label="{{ 'accessibility.navigation' | t }}">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" class="header__nav-link{% if link.active %} header__nav-link--active{% endif %}">
+          {{ link.title }}
+        </a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="header__actions">
+      <a href="{{ routes.search_url }}" class="header__action" aria-label="{{ 'accessibility.search' | t }}">
+        {% render 'icon', icon: 'search' %}
+      </a>
+      <a href="{{ routes.account_url }}" class="header__action" aria-label="{{ 'accessibility.account' | t }}">
+        {% render 'icon', icon: 'account' %}
+      </a>
+      <a href="{{ routes.cart_url }}" class="header__action header__cart" aria-label="{{ 'accessibility.cart' | t }}">
+        {% render 'icon', icon: 'cart' %}
+        <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.header.settings.logo.label"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:sections.header.settings.menu.label",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "t:sections.header.settings.sticky.label",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,102 @@
+{
+  "accessibility": {
+    "skip_to_content": "Saltar al contenido",
+    "navigation": "Navegación",
+    "search": "Buscar",
+    "account": "Cuenta",
+    "cart": "Carrito"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  },
+  "sections": {
+    "header_group": { "name": "Grupo de encabezado" },
+    "footer_group": { "name": "Grupo de pie de página" },
+    "header": {
+      "name": "Encabezado",
+      "settings": {
+        "logo": { "label": "Imagen del logo" },
+        "menu": { "label": "Menú" },
+        "sticky": { "label": "Encabezado fijo" }
+      }
+    },
+    "footer": {
+      "name": "Pie de página",
+      "blocks": {
+        "menu": {
+          "name": "Menú",
+          "settings": {
+            "heading": { "label": "Encabezado" },
+            "menu": { "label": "Menú" }
+          }
+        },
+        "text": {
+          "name": "Texto",
+          "settings": {
+            "heading": { "label": "Encabezado" },
+            "text": { "label": "Texto" }
+          }
+        }
+      }
+    },
+    "announcement_bar": {
+      "name": "Barra de anuncios",
+      "label": "Anuncio",
+      "settings": {
+        "background_color": { "label": "Color de fondo" },
+        "text_color": { "label": "Color del texto" }
+      },
+      "blocks": {
+        "announcement": {
+          "name": "Anuncio",
+          "settings": {
+            "text": { "label": "Texto" },
+            "link": { "label": "Enlace" }
+          }
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "colors": {
+      "name": "Colores",
+      "settings": {
+        "primary": { "label": "Primario" },
+        "secondary": { "label": "Secundario" },
+        "accent": { "label": "Acento" },
+        "background": { "label": "Fondo" },
+        "text": { "label": "Texto" }
+      }
+    },
+    "typography": {
+      "name": "Tipografía",
+      "settings": {
+        "font_heading": { "label": "Fuente de títulos" },
+        "font_body": { "label": "Fuente del cuerpo" },
+        "font_body_scale": { "label": "Escala de fuente" }
+      }
+    },
+    "layout": {
+      "name": "Diseño",
+      "settings": {
+        "page_width": { "label": "Ancho de página" },
+        "spacing_sections": { "label": "Espacio entre secciones" }
+      }
+    },
+    "social": {
+      "name": "Redes sociales",
+      "settings": {
+        "info": "URL completa (ej: https://instagram.com/tunombre)"
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "image": {
+          "label": "Imagen favicon",
+          "info": "32x32px .png recomendado"
+        }
+      }
+    }
+  }
+}

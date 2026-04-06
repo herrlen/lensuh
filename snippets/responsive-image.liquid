@@ -1,0 +1,30 @@
+{%- comment -%}
+  Renders a responsive image with lazy loading.
+  Usage:
+    {% render 'responsive-image',
+      image: section.settings.image,
+      max_width: 1200,
+      sizes: '(min-width: 750px) 50vw, 100vw',
+      alt: 'Alt text',
+      class: 'my-class'
+    %}
+{%- endcomment -%}
+
+{%- liquid
+  assign max_width = max_width | default: 1200
+  assign sizes = sizes | default: '100vw'
+  assign alt_text = alt | default: image.alt | escape
+  assign loading = loading | default: 'lazy'
+-%}
+
+{%- if image != blank -%}
+  {{ image | image_url: width: max_width | image_tag:
+    alt: alt_text,
+    loading: loading,
+    sizes: sizes,
+    widths: '165, 360, 535, 750, 1100, 1500',
+    class: class
+  }}
+{%- else -%}
+  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+{%- endif -%}

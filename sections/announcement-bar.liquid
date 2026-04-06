@@ -1,0 +1,63 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="announcement-bar" data-section-id="{{ section.id }}" role="region" aria-label="{{ 'sections.announcement_bar.label' | t }}">
+    <div class="announcement-bar__inner page-width">
+      {%- for block in section.blocks -%}
+        <a
+          {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+          class="announcement-bar__message"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.text }}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.announcement_bar.name",
+  "class": "section-announcement-bar",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.announcement_bar.settings.background_color.label",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.announcement_bar.settings.text_color.label",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement_bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.text.label",
+          "default": "Welcome to our store"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

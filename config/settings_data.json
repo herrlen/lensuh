@@ -1,0 +1,12 @@
+{
+  "current": {
+    "color_primary": "#1A1A1A",
+    "color_secondary": "#F5F5F5",
+    "color_accent": "#0055FF",
+    "color_background": "#FFFFFF",
+    "color_text": "#1A1A1A",
+    "font_body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 40
+  }
+}

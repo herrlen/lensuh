@@ -1,0 +1,325 @@
+/* ============================================================
+   LenSuh — Base CSS (S0 Skeleton)
+   ============================================================ */
+
+/* --- Reset & Box Model --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: calc(var(--font-body-scale, 100) * 16 / 100 * 1px);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body-family, sans-serif);
+  font-weight: var(--font-body-weight, 400);
+  font-style: var(--font-body-style, normal);
+  color: var(--color-text, #1A1A1A);
+  background-color: var(--color-background, #FFFFFF);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- CSS Custom Properties --- */
+:root {
+  --color-primary: {{ settings.color_primary }};
+  --color-secondary: {{ settings.color_secondary }};
+  --color-accent: {{ settings.color_accent }};
+  --color-background: {{ settings.color_background }};
+  --color-text: {{ settings.color_text }};
+
+  --font-heading-family: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+  --font-heading-weight: {{ settings.font_heading.weight }};
+  --font-heading-style: {{ settings.font_heading.style }};
+  --font-body-family: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+  --font-body-weight: {{ settings.font_body.weight }};
+  --font-body-style: {{ settings.font_body.style }};
+  --font-body-scale: {{ settings.font_body_scale }};
+
+  --page-width: {{ settings.page_width }}px;
+  --spacing-sections: {{ settings.spacing_sections }}px;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-family, sans-serif);
+  font-weight: var(--font-heading-weight, 700);
+  font-style: var(--font-heading-style, normal);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Layout --- */
+.page-width {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.main-content {
+  padding-top: var(--spacing-sections);
+  padding-bottom: var(--spacing-sections);
+}
+
+/* --- Accessibility --- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.skip-to-content-link:focus {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-background);
+  clip: auto !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+.focus-visible:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.focus-visible:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* --- Header --- */
+.header {
+  position: relative;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 4rem;
+}
+
+.header__logo {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header__logo-image {
+  max-height: 40px;
+  width: auto;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header__nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.header__nav-link:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.header__nav-link--active {
+  opacity: 0.7;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__action {
+  display: flex;
+  text-decoration: none;
+}
+
+.header__action:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.header__cart {
+  position: relative;
+}
+
+.header__cart-count {
+  font-size: 0.625rem;
+  font-weight: 700;
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0 4px;
+}
+
+/* --- Announcement Bar --- */
+.announcement-bar {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.announcement-bar__message {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+/* --- Footer --- */
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: var(--spacing-sections) 0;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer__heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.footer__menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__menu a {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer__menu a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.footer__text {
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+/* --- Toast Notification --- */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  background: var(--color-primary);
+  color: var(--color-background);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.toast--visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Responsive --- */
+@media (max-width: 749px) {
+  .header__nav {
+    display: none;
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}

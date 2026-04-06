@@ -1,0 +1,102 @@
+{
+  "accessibility": {
+    "skip_to_content": "Ga naar inhoud",
+    "navigation": "Navigatie",
+    "search": "Zoeken",
+    "account": "Account",
+    "cart": "Winkelwagen"
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden."
+  },
+  "sections": {
+    "header_group": { "name": "Headergroep" },
+    "footer_group": { "name": "Footergroep" },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "logo": { "label": "Logo-afbeelding" },
+        "menu": { "label": "Menu" },
+        "sticky": { "label": "Vaste header" }
+      }
+    },
+    "footer": {
+      "name": "Footer",
+      "blocks": {
+        "menu": {
+          "name": "Menu",
+          "settings": {
+            "heading": { "label": "Koptekst" },
+            "menu": { "label": "Menu" }
+          }
+        },
+        "text": {
+          "name": "Tekst",
+          "settings": {
+            "heading": { "label": "Koptekst" },
+            "text": { "label": "Tekst" }
+          }
+        }
+      }
+    },
+    "announcement_bar": {
+      "name": "Aankondigingsbalk",
+      "label": "Aankondiging",
+      "settings": {
+        "background_color": { "label": "Achtergrondkleur" },
+        "text_color": { "label": "Tekstkleur" }
+      },
+      "blocks": {
+        "announcement": {
+          "name": "Aankondiging",
+          "settings": {
+            "text": { "label": "Tekst" },
+            "link": { "label": "Link" }
+          }
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "colors": {
+      "name": "Kleuren",
+      "settings": {
+        "primary": { "label": "Primair" },
+        "secondary": { "label": "Secundair" },
+        "accent": { "label": "Accent" },
+        "background": { "label": "Achtergrond" },
+        "text": { "label": "Tekst" }
+      }
+    },
+    "typography": {
+      "name": "Typografie",
+      "settings": {
+        "font_heading": { "label": "Koplettertype" },
+        "font_body": { "label": "Broodtekst lettertype" },
+        "font_body_scale": { "label": "Lettertypeschaal" }
+      }
+    },
+    "layout": {
+      "name": "Layout",
+      "settings": {
+        "page_width": { "label": "Paginabreedte" },
+        "spacing_sections": { "label": "Ruimte tussen secties" }
+      }
+    },
+    "social": {
+      "name": "Sociale media",
+      "settings": {
+        "info": "Volledige URL (bijv. https://instagram.com/jouwnnaam)"
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "image": {
+          "label": "Favicon-afbeelding",
+          "info": "32x32px .png aanbevolen"
+        }
+      }
+    }
+  }
+}

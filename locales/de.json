@@ -1,0 +1,116 @@
+{
+  "accessibility": {
+    "skip_to_content": "Zum Inhalt springen",
+    "navigation": "Navigation",
+    "search": "Suche",
+    "account": "Konto",
+    "cart": "Warenkorb"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Deine Geschenkkarte",
+      "subtext": "Deine Geschenkkarte",
+      "gift_card_code": "Geschenkkarten-Code",
+      "redeem_html": "Verwende diesen Code an der Kasse: <strong>{{ value }}</strong>",
+      "shop_link": "Weiter einkaufen",
+      "add_to_apple_wallet": "Zu Apple Wallet hinzufügen"
+    }
+  },
+  "sections": {
+    "header_group": {
+      "name": "Header-Gruppe"
+    },
+    "footer_group": {
+      "name": "Footer-Gruppe"
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "logo": { "label": "Logo-Bild" },
+        "menu": { "label": "Menü" },
+        "sticky": { "label": "Fixierter Header" }
+      }
+    },
+    "footer": {
+      "name": "Footer",
+      "blocks": {
+        "menu": {
+          "name": "Menü",
+          "settings": {
+            "heading": { "label": "Überschrift" },
+            "menu": { "label": "Menü" }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "heading": { "label": "Überschrift" },
+            "text": { "label": "Text" }
+          }
+        }
+      }
+    },
+    "announcement_bar": {
+      "name": "Ankündigungsleiste",
+      "label": "Ankündigung",
+      "settings": {
+        "background_color": { "label": "Hintergrundfarbe" },
+        "text_color": { "label": "Textfarbe" }
+      },
+      "blocks": {
+        "announcement": {
+          "name": "Ankündigung",
+          "settings": {
+            "text": { "label": "Text" },
+            "link": { "label": "Link" }
+          }
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "colors": {
+      "name": "Farben",
+      "settings": {
+        "primary": { "label": "Primär" },
+        "secondary": { "label": "Sekundär" },
+        "accent": { "label": "Akzent" },
+        "background": { "label": "Hintergrund" },
+        "text": { "label": "Text" }
+      }
+    },
+    "typography": {
+      "name": "Typografie",
+      "settings": {
+        "font_heading": { "label": "Überschrift-Schrift" },
+        "font_body": { "label": "Text-Schrift" },
+        "font_body_scale": { "label": "Textschrift-Skalierung" }
+      }
+    },
+    "layout": {
+      "name": "Layout",
+      "settings": {
+        "page_width": { "label": "Seitenbreite" },
+        "spacing_sections": { "label": "Abstand zwischen Sektionen" }
+      }
+    },
+    "social": {
+      "name": "Soziale Medien",
+      "settings": {
+        "info": "Vollständige URL (z.B. https://instagram.com/deinname)"
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "image": {
+          "label": "Favicon-Bild",
+          "info": "32x32px .png empfohlen"
+        }
+      }
+    }
+  }
+}

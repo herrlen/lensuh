@@ -1,0 +1,16 @@
+{%- comment -%}
+  Creates focus trap anchors for modal/drawer.
+  Place at the start and end of the modal content.
+  JS logic lives in theme.js → trapFocus()
+
+  Usage:
+    {% render 'focus-trap', type: 'start' %}
+    ... modal content ...
+    {% render 'focus-trap', type: 'end' %}
+{%- endcomment -%}
+
+{%- if type == 'start' -%}
+  <span class="focus-trap focus-trap--start" tabindex="0" aria-hidden="true"></span>
+{%- elsif type == 'end' -%}
+  <span class="focus-trap focus-trap--end" tabindex="0" aria-hidden="true"></span>
+{%- endif -%}

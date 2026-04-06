@@ -1,0 +1,102 @@
+{
+  "accessibility": {
+    "skip_to_content": "Passer au contenu",
+    "navigation": "Navigation",
+    "search": "Rechercher",
+    "account": "Compte",
+    "cart": "Panier"
+  },
+  "footer": {
+    "rights": "Tous droits réservés."
+  },
+  "sections": {
+    "header_group": { "name": "Groupe d'en-tête" },
+    "footer_group": { "name": "Groupe de pied de page" },
+    "header": {
+      "name": "En-tête",
+      "settings": {
+        "logo": { "label": "Image du logo" },
+        "menu": { "label": "Menu" },
+        "sticky": { "label": "En-tête fixe" }
+      }
+    },
+    "footer": {
+      "name": "Pied de page",
+      "blocks": {
+        "menu": {
+          "name": "Menu",
+          "settings": {
+            "heading": { "label": "Titre" },
+            "menu": { "label": "Menu" }
+          }
+        },
+        "text": {
+          "name": "Texte",
+          "settings": {
+            "heading": { "label": "Titre" },
+            "text": { "label": "Texte" }
+          }
+        }
+      }
+    },
+    "announcement_bar": {
+      "name": "Barre d'annonce",
+      "label": "Annonce",
+      "settings": {
+        "background_color": { "label": "Couleur de fond" },
+        "text_color": { "label": "Couleur du texte" }
+      },
+      "blocks": {
+        "announcement": {
+          "name": "Annonce",
+          "settings": {
+            "text": { "label": "Texte" },
+            "link": { "label": "Lien" }
+          }
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "colors": {
+      "name": "Couleurs",
+      "settings": {
+        "primary": { "label": "Primaire" },
+        "secondary": { "label": "Secondaire" },
+        "accent": { "label": "Accent" },
+        "background": { "label": "Arrière-plan" },
+        "text": { "label": "Texte" }
+      }
+    },
+    "typography": {
+      "name": "Typographie",
+      "settings": {
+        "font_heading": { "label": "Police des titres" },
+        "font_body": { "label": "Police du corps" },
+        "font_body_scale": { "label": "Échelle de la police" }
+      }
+    },
+    "layout": {
+      "name": "Mise en page",
+      "settings": {
+        "page_width": { "label": "Largeur de page" },
+        "spacing_sections": { "label": "Espacement entre sections" }
+      }
+    },
+    "social": {
+      "name": "Réseaux sociaux",
+      "settings": {
+        "info": "URL complète (ex : https://instagram.com/votrenom)"
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "image": {
+          "label": "Image favicon",
+          "info": "32x32px .png recommandé"
+        }
+      }
+    }
+  }
+}
