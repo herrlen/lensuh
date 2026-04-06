@@ -1,0 +1,38 @@
+<section class="main-order" data-section-id="{{ section.id }}">
+  <div class="main-order__inner page-width">
+    <h1 class="main-order__title">{{ 'customer.order.title' | t: name: order.name }}</h1>
+    <p>{{ 'customer.order.date' | t }}: {{ order.created_at | date: format: 'abbreviated_date' }}</p>
+
+    <table class="main-order__table">
+      <thead>
+        <tr>
+          <th>{{ 'customer.order.product' | t }}</th>
+          <th>{{ 'customer.order.quantity' | t }}</th>
+          <th>{{ 'customer.order.total' | t }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for line_item in order.line_items -%}
+          <tr>
+            <td><a href="{{ line_item.url }}">{{ line_item.title }}</a></td>
+            <td>{{ line_item.quantity }}</td>
+            <td>{{ line_item.final_line_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+
+    <p class="main-order__total">
+      {{ 'customer.order.total' | t }}: {{ order.total_net_amount | money }}
+    </p>
+
+    <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main_order.name",
+  "tag": "section"
+}
+{% endschema %}

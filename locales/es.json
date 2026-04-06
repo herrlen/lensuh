@@ -4,7 +4,9 @@
     "navigation": "Navegación",
     "search": "Buscar",
     "account": "Cuenta",
-    "cart": "Carrito"
+    "cart": "Carrito",
+    "previous": "Anterior",
+    "next": "Siguiente"
   },
   "footer": {
     "rights": "Todos los derechos reservados."
@@ -20,7 +22,18 @@
     }
   },
   "general": {
-    "fetch_error": "Algo salió mal. Por favor, inténtalo de nuevo."
+    "fetch_error": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "404": {
+      "title": "Página no encontrada",
+      "text": "La página que buscas no existe.",
+      "link": "Seguir comprando"
+    },
+    "password": {
+      "title": "Próximamente",
+      "label": "Contraseña",
+      "placeholder": "Tu contraseña",
+      "submit": "Entrar"
+    }
   },
   "products": {
     "product": {
@@ -29,7 +42,10 @@
       "unavailable": "No disponible",
       "price": "Precio",
       "quantity": "Cantidad",
-      "description": "Descripción"
+      "description": "Descripción",
+      "share": "Compartir",
+      "sku": "Ref.",
+      "variant": "Variante"
     }
   },
   "cart": {
@@ -61,14 +77,24 @@
     "title": "Páginas"
   },
   "sections": {
-    "header_group": { "name": "Grupo de encabezado" },
-    "footer_group": { "name": "Grupo de pie de página" },
+    "header_group": {
+      "name": "Grupo de encabezado"
+    },
+    "footer_group": {
+      "name": "Grupo de pie de página"
+    },
     "header": {
       "name": "Encabezado",
       "settings": {
-        "logo": { "label": "Imagen del logo" },
-        "menu": { "label": "Menú" },
-        "sticky": { "label": "Encabezado fijo" }
+        "logo": {
+          "label": "Imagen del logo"
+        },
+        "menu": {
+          "label": "Menú"
+        },
+        "sticky": {
+          "label": "Encabezado fijo"
+        }
       }
     },
     "footer": {
@@ -77,15 +103,23 @@
         "menu": {
           "name": "Menú",
           "settings": {
-            "heading": { "label": "Encabezado" },
-            "menu": { "label": "Menú" }
+            "heading": {
+              "label": "Encabezado"
+            },
+            "menu": {
+              "label": "Menú"
+            }
           }
         },
         "text": {
           "name": "Texto",
           "settings": {
-            "heading": { "label": "Encabezado" },
-            "text": { "label": "Texto" }
+            "heading": {
+              "label": "Encabezado"
+            },
+            "text": {
+              "label": "Texto"
+            }
           }
         }
       }
@@ -94,17 +128,146 @@
       "name": "Barra de anuncios",
       "label": "Anuncio",
       "settings": {
-        "background_color": { "label": "Color de fondo" },
-        "text_color": { "label": "Color del texto" }
+        "background_color": {
+          "label": "Color de fondo"
+        },
+        "text_color": {
+          "label": "Color del texto"
+        }
       },
       "blocks": {
         "announcement": {
           "name": "Anuncio",
           "settings": {
-            "text": { "label": "Texto" },
-            "link": { "label": "Enlace" }
+            "text": {
+              "label": "Texto"
+            },
+            "link": {
+              "label": "Enlace"
+            }
           }
         }
+      }
+    },
+    "main_product": {
+      "name": "Producto",
+      "blocks": {
+        "title": {
+          "name": "Título",
+          "settings": {
+            "show_vendor": {
+              "label": "Mostrar fabricante"
+            }
+          }
+        },
+        "price": {
+          "name": "Precio"
+        },
+        "variant_picker": {
+          "name": "Selector de variantes"
+        },
+        "buy_buttons": {
+          "name": "Botones de compra"
+        },
+        "description": {
+          "name": "Descripción"
+        },
+        "share": {
+          "name": "Compartir"
+        },
+        "sku": {
+          "name": "Ref."
+        },
+        "custom_text": {
+          "name": "Texto personalizado",
+          "settings": {
+            "text": {
+              "label": "Texto"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Colección"
+    },
+    "main_collection_list": {
+      "name": "Lista de colecciones"
+    },
+    "main_page": {
+      "name": "Página"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Artículo",
+      "settings": {
+        "show_author": {
+          "label": "Mostrar autor"
+        },
+        "show_date": {
+          "label": "Mostrar fecha"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Carrito"
+    },
+    "main_search": {
+      "name": "Búsqueda"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Contraseña"
+    },
+    "main_account": {
+      "name": "Cuenta"
+    },
+    "main_login": {
+      "name": "Iniciar sesión"
+    },
+    "main_register": {
+      "name": "Registro"
+    },
+    "main_order": {
+      "name": "Pedido"
+    },
+    "main_addresses": {
+      "name": "Direcciones"
+    },
+    "main_activate_account": {
+      "name": "Activar cuenta"
+    },
+    "main_reset_password": {
+      "name": "Restablecer contraseña"
+    },
+    "image_banner": {
+      "name": "Banner de imagen",
+      "settings": {
+        "image": {
+          "label": "Imagen"
+        },
+        "heading": {
+          "label": "Título"
+        },
+        "text": {
+          "label": "Texto"
+        },
+        "button_label": {
+          "label": "Texto del botón"
+        },
+        "button_link": {
+          "label": "Enlace del botón"
+        },
+        "full_width": {
+          "label": "Ancho completo"
+        }
+      },
+      "presets": {
+        "name": "Banner de imagen"
       }
     }
   },
@@ -112,26 +275,46 @@
     "colors": {
       "name": "Colores",
       "settings": {
-        "primary": { "label": "Primario" },
-        "secondary": { "label": "Secundario" },
-        "accent": { "label": "Acento" },
-        "background": { "label": "Fondo" },
-        "text": { "label": "Texto" }
+        "primary": {
+          "label": "Primario"
+        },
+        "secondary": {
+          "label": "Secundario"
+        },
+        "accent": {
+          "label": "Acento"
+        },
+        "background": {
+          "label": "Fondo"
+        },
+        "text": {
+          "label": "Texto"
+        }
       }
     },
     "typography": {
       "name": "Tipografía",
       "settings": {
-        "font_heading": { "label": "Fuente de títulos" },
-        "font_body": { "label": "Fuente del cuerpo" },
-        "font_body_scale": { "label": "Escala de fuente" }
+        "font_heading": {
+          "label": "Fuente de títulos"
+        },
+        "font_body": {
+          "label": "Fuente del cuerpo"
+        },
+        "font_body_scale": {
+          "label": "Escala de fuente"
+        }
       }
     },
     "layout": {
       "name": "Diseño",
       "settings": {
-        "page_width": { "label": "Ancho de página" },
-        "spacing_sections": { "label": "Espacio entre secciones" }
+        "page_width": {
+          "label": "Ancho de página"
+        },
+        "spacing_sections": {
+          "label": "Espacio entre secciones"
+        }
       }
     },
     "social": {
@@ -148,6 +331,72 @@
           "info": "32x32px .png recomendado"
         }
       }
+    }
+  },
+  "blog": {
+    "comments": {
+      "title": "Comentarios",
+      "form_title": "Dejar un comentario",
+      "name": "Nombre",
+      "email": "Email",
+      "body": "Comentario",
+      "submit": "Publicar"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mi cuenta",
+      "welcome": "Bienvenido, {{ name }}",
+      "logout": "Cerrar sesión",
+      "return": "Volver a la cuenta"
+    },
+    "orders": {
+      "title": "Historial de pedidos",
+      "order_number": "Pedido",
+      "date": "Fecha",
+      "total": "Total",
+      "status": "Estado",
+      "none": "Aún no has realizado ningún pedido."
+    },
+    "order": {
+      "title": "Pedido {{ name }}",
+      "date": "Fecha",
+      "product": "Producto",
+      "quantity": "Cantidad",
+      "total": "Total"
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "email": "Email",
+      "password": "Contraseña",
+      "submit": "Entrar",
+      "forgot_password": "¿Olvidaste tu contraseña?",
+      "create_account": "Crear cuenta"
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "first_name": "Nombre",
+      "last_name": "Apellido",
+      "email": "Email",
+      "password": "Contraseña",
+      "submit": "Crear"
+    },
+    "addresses": {
+      "title": "Tus direcciones",
+      "default": "Predeterminada"
+    },
+    "activate_account": {
+      "title": "Activar cuenta",
+      "subtext": "Crea tu contraseña para activar tu cuenta.",
+      "password": "Contraseña",
+      "confirm": "Confirmar contraseña",
+      "submit": "Activar cuenta"
+    },
+    "reset_password": {
+      "title": "Restablecer contraseña",
+      "password": "Contraseña",
+      "confirm": "Confirmar contraseña",
+      "submit": "Restablecer"
     }
   }
 }

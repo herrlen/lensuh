@@ -2,6 +2,15 @@
   "sections": {
     "main": {
       "type": "main-product",
+      "blocks": {
+        "title": { "type": "title", "settings": { "show_vendor": true } },
+        "price": { "type": "price" },
+        "variant_picker": { "type": "variant_picker" },
+        "buy_buttons": { "type": "buy_buttons" },
+        "description": { "type": "description" },
+        "share": { "type": "share" }
+      },
+      "block_order": ["title", "price", "variant_picker", "buy_buttons", "description", "share"],
       "settings": {}
     }
   },

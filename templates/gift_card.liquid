@@ -30,7 +30,8 @@
         >
       </div>
 
-      <p>{{ 'gift_cards.issued.redeem_html' | t: value: gift_card.balance | money, shop_url: shop.url }}</p>
+      {%- assign gift_card_value = gift_card.balance | money -%}
+      <p>{{ 'gift_cards.issued.redeem_html' | t: value: gift_card_value, shop_url: shop.url }}</p>
 
       {% if gift_card.pass_url %}
         <a href="{{ gift_card.pass_url }}" class="gift-card__apple-wallet">

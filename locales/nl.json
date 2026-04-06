@@ -4,7 +4,9 @@
     "navigation": "Navigatie",
     "search": "Zoeken",
     "account": "Account",
-    "cart": "Winkelwagen"
+    "cart": "Winkelwagen",
+    "previous": "Vorige",
+    "next": "Volgende"
   },
   "footer": {
     "rights": "Alle rechten voorbehouden."
@@ -20,7 +22,18 @@
     }
   },
   "general": {
-    "fetch_error": "Er ging iets mis. Probeer het opnieuw."
+    "fetch_error": "Er ging iets mis. Probeer het opnieuw.",
+    "404": {
+      "title": "Pagina niet gevonden",
+      "text": "De pagina die je zoekt bestaat niet.",
+      "link": "Verder winkelen"
+    },
+    "password": {
+      "title": "Binnenkort beschikbaar",
+      "label": "Wachtwoord",
+      "placeholder": "Je wachtwoord",
+      "submit": "Invoeren"
+    }
   },
   "products": {
     "product": {
@@ -29,7 +42,10 @@
       "unavailable": "Niet beschikbaar",
       "price": "Prijs",
       "quantity": "Aantal",
-      "description": "Beschrijving"
+      "description": "Beschrijving",
+      "share": "Delen",
+      "sku": "Art.nr.",
+      "variant": "Variant"
     }
   },
   "cart": {
@@ -61,14 +77,24 @@
     "title": "Pagina's"
   },
   "sections": {
-    "header_group": { "name": "Headergroep" },
-    "footer_group": { "name": "Footergroep" },
+    "header_group": {
+      "name": "Headergroep"
+    },
+    "footer_group": {
+      "name": "Footergroep"
+    },
     "header": {
       "name": "Header",
       "settings": {
-        "logo": { "label": "Logo-afbeelding" },
-        "menu": { "label": "Menu" },
-        "sticky": { "label": "Vaste header" }
+        "logo": {
+          "label": "Logo-afbeelding"
+        },
+        "menu": {
+          "label": "Menu"
+        },
+        "sticky": {
+          "label": "Vaste header"
+        }
       }
     },
     "footer": {
@@ -77,15 +103,23 @@
         "menu": {
           "name": "Menu",
           "settings": {
-            "heading": { "label": "Koptekst" },
-            "menu": { "label": "Menu" }
+            "heading": {
+              "label": "Koptekst"
+            },
+            "menu": {
+              "label": "Menu"
+            }
           }
         },
         "text": {
           "name": "Tekst",
           "settings": {
-            "heading": { "label": "Koptekst" },
-            "text": { "label": "Tekst" }
+            "heading": {
+              "label": "Koptekst"
+            },
+            "text": {
+              "label": "Tekst"
+            }
           }
         }
       }
@@ -94,17 +128,146 @@
       "name": "Aankondigingsbalk",
       "label": "Aankondiging",
       "settings": {
-        "background_color": { "label": "Achtergrondkleur" },
-        "text_color": { "label": "Tekstkleur" }
+        "background_color": {
+          "label": "Achtergrondkleur"
+        },
+        "text_color": {
+          "label": "Tekstkleur"
+        }
       },
       "blocks": {
         "announcement": {
           "name": "Aankondiging",
           "settings": {
-            "text": { "label": "Tekst" },
-            "link": { "label": "Link" }
+            "text": {
+              "label": "Tekst"
+            },
+            "link": {
+              "label": "Link"
+            }
           }
         }
+      }
+    },
+    "main_product": {
+      "name": "Product",
+      "blocks": {
+        "title": {
+          "name": "Titel",
+          "settings": {
+            "show_vendor": {
+              "label": "Fabrikant tonen"
+            }
+          }
+        },
+        "price": {
+          "name": "Prijs"
+        },
+        "variant_picker": {
+          "name": "Variantkiezer"
+        },
+        "buy_buttons": {
+          "name": "Koopknoppen"
+        },
+        "description": {
+          "name": "Beschrijving"
+        },
+        "share": {
+          "name": "Delen"
+        },
+        "sku": {
+          "name": "Art.nr."
+        },
+        "custom_text": {
+          "name": "Aangepaste tekst",
+          "settings": {
+            "text": {
+              "label": "Tekst"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Collectie"
+    },
+    "main_collection_list": {
+      "name": "Collectielijst"
+    },
+    "main_page": {
+      "name": "Pagina"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Artikel",
+      "settings": {
+        "show_author": {
+          "label": "Auteur tonen"
+        },
+        "show_date": {
+          "label": "Datum tonen"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Winkelwagen"
+    },
+    "main_search": {
+      "name": "Zoeken"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Wachtwoord"
+    },
+    "main_account": {
+      "name": "Account"
+    },
+    "main_login": {
+      "name": "Inloggen"
+    },
+    "main_register": {
+      "name": "Registreren"
+    },
+    "main_order": {
+      "name": "Bestelling"
+    },
+    "main_addresses": {
+      "name": "Adressen"
+    },
+    "main_activate_account": {
+      "name": "Account activeren"
+    },
+    "main_reset_password": {
+      "name": "Wachtwoord resetten"
+    },
+    "image_banner": {
+      "name": "Afbeeldingsbanner",
+      "settings": {
+        "image": {
+          "label": "Afbeelding"
+        },
+        "heading": {
+          "label": "Koptekst"
+        },
+        "text": {
+          "label": "Tekst"
+        },
+        "button_label": {
+          "label": "Knoptekst"
+        },
+        "button_link": {
+          "label": "Knoplink"
+        },
+        "full_width": {
+          "label": "Volledige breedte"
+        }
+      },
+      "presets": {
+        "name": "Afbeeldingsbanner"
       }
     }
   },
@@ -112,26 +275,46 @@
     "colors": {
       "name": "Kleuren",
       "settings": {
-        "primary": { "label": "Primair" },
-        "secondary": { "label": "Secundair" },
-        "accent": { "label": "Accent" },
-        "background": { "label": "Achtergrond" },
-        "text": { "label": "Tekst" }
+        "primary": {
+          "label": "Primair"
+        },
+        "secondary": {
+          "label": "Secundair"
+        },
+        "accent": {
+          "label": "Accent"
+        },
+        "background": {
+          "label": "Achtergrond"
+        },
+        "text": {
+          "label": "Tekst"
+        }
       }
     },
     "typography": {
       "name": "Typografie",
       "settings": {
-        "font_heading": { "label": "Koplettertype" },
-        "font_body": { "label": "Broodtekst lettertype" },
-        "font_body_scale": { "label": "Lettertypeschaal" }
+        "font_heading": {
+          "label": "Koplettertype"
+        },
+        "font_body": {
+          "label": "Broodtekst lettertype"
+        },
+        "font_body_scale": {
+          "label": "Lettertypeschaal"
+        }
       }
     },
     "layout": {
       "name": "Layout",
       "settings": {
-        "page_width": { "label": "Paginabreedte" },
-        "spacing_sections": { "label": "Ruimte tussen secties" }
+        "page_width": {
+          "label": "Paginabreedte"
+        },
+        "spacing_sections": {
+          "label": "Ruimte tussen secties"
+        }
       }
     },
     "social": {
@@ -148,6 +331,72 @@
           "info": "32x32px .png aanbevolen"
         }
       }
+    }
+  },
+  "blog": {
+    "comments": {
+      "title": "Reacties",
+      "form_title": "Laat een reactie achter",
+      "name": "Naam",
+      "email": "E-mail",
+      "body": "Reactie",
+      "submit": "Plaatsen"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mijn account",
+      "welcome": "Welkom, {{ name }}",
+      "logout": "Uitloggen",
+      "return": "Terug naar account"
+    },
+    "orders": {
+      "title": "Bestelgeschiedenis",
+      "order_number": "Bestelling",
+      "date": "Datum",
+      "total": "Totaal",
+      "status": "Status",
+      "none": "Je hebt nog geen bestellingen geplaatst."
+    },
+    "order": {
+      "title": "Bestelling {{ name }}",
+      "date": "Datum",
+      "product": "Product",
+      "quantity": "Aantal",
+      "total": "Totaal"
+    },
+    "login": {
+      "title": "Inloggen",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "submit": "Inloggen",
+      "forgot_password": "Wachtwoord vergeten?",
+      "create_account": "Account aanmaken"
+    },
+    "register": {
+      "title": "Account aanmaken",
+      "first_name": "Voornaam",
+      "last_name": "Achternaam",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "submit": "Aanmaken"
+    },
+    "addresses": {
+      "title": "Je adressen",
+      "default": "Standaard"
+    },
+    "activate_account": {
+      "title": "Account activeren",
+      "subtext": "Maak je wachtwoord aan om je account te activeren.",
+      "password": "Wachtwoord",
+      "confirm": "Wachtwoord bevestigen",
+      "submit": "Account activeren"
+    },
+    "reset_password": {
+      "title": "Wachtwoord resetten",
+      "password": "Wachtwoord",
+      "confirm": "Wachtwoord bevestigen",
+      "submit": "Resetten"
     }
   }
 }

@@ -71,6 +71,127 @@
           }
         }
       }
+    },
+    "main_product": {
+      "name": "Product",
+      "blocks": {
+        "title": {
+          "name": "Title",
+          "settings": {
+            "show_vendor": {
+              "label": "Show vendor"
+            }
+          }
+        },
+        "price": {
+          "name": "Price"
+        },
+        "variant_picker": {
+          "name": "Variant picker"
+        },
+        "buy_buttons": {
+          "name": "Buy buttons"
+        },
+        "description": {
+          "name": "Description"
+        },
+        "share": {
+          "name": "Share"
+        },
+        "sku": {
+          "name": "SKU"
+        },
+        "custom_text": {
+          "name": "Custom text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Collection"
+    },
+    "main_collection_list": {
+      "name": "Collection list"
+    },
+    "main_page": {
+      "name": "Page"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Article",
+      "settings": {
+        "show_author": {
+          "label": "Show author"
+        },
+        "show_date": {
+          "label": "Show date"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Cart"
+    },
+    "main_search": {
+      "name": "Search"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Password"
+    },
+    "main_account": {
+      "name": "Account"
+    },
+    "main_login": {
+      "name": "Login"
+    },
+    "main_register": {
+      "name": "Register"
+    },
+    "main_order": {
+      "name": "Order"
+    },
+    "main_addresses": {
+      "name": "Addresses"
+    },
+    "main_activate_account": {
+      "name": "Activate account"
+    },
+    "main_reset_password": {
+      "name": "Reset password"
+    },
+    "image_banner": {
+      "name": "Image banner",
+      "settings": {
+        "image": {
+          "label": "Image"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link"
+        },
+        "full_width": {
+          "label": "Full width"
+        }
+      },
+      "presets": {
+        "name": "Image banner"
+      }
     }
   },
   "settings_schema": {

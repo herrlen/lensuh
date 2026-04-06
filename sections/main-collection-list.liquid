@@ -1,0 +1,33 @@
+<section class="main-collection-list" data-section-id="{{ section.id }}">
+  <div class="main-collection-list__inner page-width">
+    <h1 class="main-collection-list__title">{{ 'collections.general.title' | t }}</h1>
+
+    <div class="main-collection-list__grid" role="list">
+      {%- for collection in collections -%}
+        {%- if collection.handle != 'frontpage' -%}
+          <div class="main-collection-list__item" role="listitem">
+            <a href="{{ collection.url }}" class="main-collection-list__card">
+              {%- if collection.image -%}
+                {% render 'responsive-image',
+                  image: collection.image,
+                  max_width: 600,
+                  sizes: '(min-width: 990px) 25vw, 50vw'
+                %}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+              <h2 class="main-collection-list__card-title">{{ collection.title }}</h2>
+            </a>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main_collection_list.name",
+  "tag": "section"
+}
+{% endschema %}

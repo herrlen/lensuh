@@ -1,0 +1,27 @@
+<section class="main-addresses" data-section-id="{{ section.id }}">
+  <div class="main-addresses__inner page-width">
+    <h1 class="main-addresses__title">{{ 'customer.addresses.title' | t }}</h1>
+
+    <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+
+    {%- if customer.addresses.size > 0 -%}
+      <div class="main-addresses__list" role="list">
+        {%- for address in customer.addresses -%}
+          <div class="main-addresses__item" role="listitem">
+            <p>{{ address | format_address }}</p>
+            {%- if address == customer.default_address -%}
+              <span class="main-addresses__default">{{ 'customer.addresses.default' | t }}</span>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main_addresses.name",
+  "tag": "section"
+}
+{% endschema %}

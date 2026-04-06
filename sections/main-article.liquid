@@ -1,0 +1,94 @@
+{%- render 'schema-breadcrumb' -%}
+
+<article class="main-article" data-section-id="{{ section.id }}" data-section-type="article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="main-article__inner page-width">
+    <header class="main-article__header">
+      <h1 class="main-article__title" itemprop="headline">{{ article.title }}</h1>
+      <div class="main-article__meta">
+        {%- if section.settings.show_author -%}
+          <span class="main-article__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">{{ article.author }}</span>
+          </span>
+        {%- endif -%}
+        {%- if section.settings.show_date -%}
+          <time class="main-article__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}" itemprop="datePublished">
+            {{ article.published_at | date: format: 'abbreviated_date' }}
+          </time>
+        {%- endif -%}
+      </div>
+    </header>
+
+    {%- if article.image -%}
+      <div class="main-article__image" itemprop="image">
+        {% render 'responsive-image',
+          image: article.image,
+          max_width: 1200,
+          sizes: '(min-width: 990px) 66vw, 100vw',
+          loading: 'eager'
+        %}
+      </div>
+    {%- endif -%}
+
+    <div class="main-article__content rte" itemprop="articleBody">
+      {{ article.content }}
+    </div>
+
+    {%- if blog.comments_enabled? -%}
+      <div class="main-article__comments">
+        <h2>{{ 'blog.comments.title' | t }}</h2>
+
+        {%- if article.comments_count > 0 -%}
+          <div class="main-article__comments-list">
+            {%- for comment in article.comments -%}
+              <div class="main-article__comment">
+                <p class="main-article__comment-author">{{ comment.author }}</p>
+                <time class="main-article__comment-date" datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">
+                  {{ comment.created_at | date: format: 'abbreviated_date' }}
+                </time>
+                <div class="main-article__comment-body">{{ comment.content }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- form 'new_comment', article -%}
+          <h3>{{ 'blog.comments.form_title' | t }}</h3>
+          <div class="main-article__comment-form">
+            <label for="comment-author">{{ 'blog.comments.name' | t }}</label>
+            <input type="text" id="comment-author" name="comment[author]" required>
+
+            <label for="comment-email">{{ 'blog.comments.email' | t }}</label>
+            <input type="email" id="comment-email" name="comment[email]" required>
+
+            <label for="comment-body">{{ 'blog.comments.body' | t }}</label>
+            <textarea id="comment-body" name="comment[body]" required></textarea>
+
+            <button type="submit" class="btn btn--primary">{{ 'blog.comments.submit' | t }}</button>
+          </div>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "t:sections.main_article.name",
+  "tag": "section",
+  "class": "section-main-article",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "t:sections.main_article.settings.show_author.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "t:sections.main_article.settings.show_date.label",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -71,6 +71,127 @@
           }
         }
       }
+    },
+    "main_product": {
+      "name": "Producto",
+      "blocks": {
+        "title": {
+          "name": "Título",
+          "settings": {
+            "show_vendor": {
+              "label": "Mostrar fabricante"
+            }
+          }
+        },
+        "price": {
+          "name": "Precio"
+        },
+        "variant_picker": {
+          "name": "Selector de variantes"
+        },
+        "buy_buttons": {
+          "name": "Botones de compra"
+        },
+        "description": {
+          "name": "Descripción"
+        },
+        "share": {
+          "name": "Compartir"
+        },
+        "sku": {
+          "name": "Ref."
+        },
+        "custom_text": {
+          "name": "Texto personalizado",
+          "settings": {
+            "text": {
+              "label": "Texto"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Colección"
+    },
+    "main_collection_list": {
+      "name": "Lista de colecciones"
+    },
+    "main_page": {
+      "name": "Página"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Artículo",
+      "settings": {
+        "show_author": {
+          "label": "Mostrar autor"
+        },
+        "show_date": {
+          "label": "Mostrar fecha"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Carrito"
+    },
+    "main_search": {
+      "name": "Búsqueda"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Contraseña"
+    },
+    "main_account": {
+      "name": "Cuenta"
+    },
+    "main_login": {
+      "name": "Iniciar sesión"
+    },
+    "main_register": {
+      "name": "Registro"
+    },
+    "main_order": {
+      "name": "Pedido"
+    },
+    "main_addresses": {
+      "name": "Direcciones"
+    },
+    "main_activate_account": {
+      "name": "Activar cuenta"
+    },
+    "main_reset_password": {
+      "name": "Restablecer contraseña"
+    },
+    "image_banner": {
+      "name": "Banner de imagen",
+      "settings": {
+        "image": {
+          "label": "Imagen"
+        },
+        "heading": {
+          "label": "Título"
+        },
+        "text": {
+          "label": "Texto"
+        },
+        "button_label": {
+          "label": "Texto del botón"
+        },
+        "button_link": {
+          "label": "Enlace del botón"
+        },
+        "full_width": {
+          "label": "Ancho completo"
+        }
+      },
+      "presets": {
+        "name": "Banner de imagen"
+      }
     }
   },
   "settings_schema": {

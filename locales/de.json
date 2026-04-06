@@ -4,7 +4,9 @@
     "navigation": "Navigation",
     "search": "Suche",
     "account": "Konto",
-    "cart": "Warenkorb"
+    "cart": "Warenkorb",
+    "previous": "Zurück",
+    "next": "Weiter"
   },
   "footer": {
     "rights": "Alle Rechte vorbehalten."
@@ -20,7 +22,18 @@
     }
   },
   "general": {
-    "fetch_error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    "fetch_error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "404": {
+      "title": "Seite nicht gefunden",
+      "text": "Die gesuchte Seite existiert nicht.",
+      "link": "Weiter einkaufen"
+    },
+    "password": {
+      "title": "Demnächst verfügbar",
+      "label": "Passwort",
+      "placeholder": "Dein Passwort",
+      "submit": "Eingeben"
+    }
   },
   "products": {
     "product": {
@@ -29,7 +42,10 @@
       "unavailable": "Nicht verfügbar",
       "price": "Preis",
       "quantity": "Menge",
-      "description": "Beschreibung"
+      "description": "Beschreibung",
+      "share": "Teilen",
+      "sku": "Artikelnr.",
+      "variant": "Variante"
     }
   },
   "cart": {
@@ -70,9 +86,15 @@
     "header": {
       "name": "Header",
       "settings": {
-        "logo": { "label": "Logo-Bild" },
-        "menu": { "label": "Menü" },
-        "sticky": { "label": "Fixierter Header" }
+        "logo": {
+          "label": "Logo-Bild"
+        },
+        "menu": {
+          "label": "Menü"
+        },
+        "sticky": {
+          "label": "Fixierter Header"
+        }
       }
     },
     "footer": {
@@ -81,15 +103,23 @@
         "menu": {
           "name": "Menü",
           "settings": {
-            "heading": { "label": "Überschrift" },
-            "menu": { "label": "Menü" }
+            "heading": {
+              "label": "Überschrift"
+            },
+            "menu": {
+              "label": "Menü"
+            }
           }
         },
         "text": {
           "name": "Text",
           "settings": {
-            "heading": { "label": "Überschrift" },
-            "text": { "label": "Text" }
+            "heading": {
+              "label": "Überschrift"
+            },
+            "text": {
+              "label": "Text"
+            }
           }
         }
       }
@@ -98,17 +128,146 @@
       "name": "Ankündigungsleiste",
       "label": "Ankündigung",
       "settings": {
-        "background_color": { "label": "Hintergrundfarbe" },
-        "text_color": { "label": "Textfarbe" }
+        "background_color": {
+          "label": "Hintergrundfarbe"
+        },
+        "text_color": {
+          "label": "Textfarbe"
+        }
       },
       "blocks": {
         "announcement": {
           "name": "Ankündigung",
           "settings": {
-            "text": { "label": "Text" },
-            "link": { "label": "Link" }
+            "text": {
+              "label": "Text"
+            },
+            "link": {
+              "label": "Link"
+            }
           }
         }
+      }
+    },
+    "main_product": {
+      "name": "Produkt",
+      "blocks": {
+        "title": {
+          "name": "Titel",
+          "settings": {
+            "show_vendor": {
+              "label": "Hersteller anzeigen"
+            }
+          }
+        },
+        "price": {
+          "name": "Preis"
+        },
+        "variant_picker": {
+          "name": "Variantenauswahl"
+        },
+        "buy_buttons": {
+          "name": "Kaufen-Buttons"
+        },
+        "description": {
+          "name": "Beschreibung"
+        },
+        "share": {
+          "name": "Teilen"
+        },
+        "sku": {
+          "name": "Artikelnr."
+        },
+        "custom_text": {
+          "name": "Eigener Text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Kollektion"
+    },
+    "main_collection_list": {
+      "name": "Kollektionsliste"
+    },
+    "main_page": {
+      "name": "Seite"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Artikel",
+      "settings": {
+        "show_author": {
+          "label": "Autor anzeigen"
+        },
+        "show_date": {
+          "label": "Datum anzeigen"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Warenkorb"
+    },
+    "main_search": {
+      "name": "Suche"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Passwort"
+    },
+    "main_account": {
+      "name": "Konto"
+    },
+    "main_login": {
+      "name": "Anmelden"
+    },
+    "main_register": {
+      "name": "Registrieren"
+    },
+    "main_order": {
+      "name": "Bestellung"
+    },
+    "main_addresses": {
+      "name": "Adressen"
+    },
+    "main_activate_account": {
+      "name": "Konto aktivieren"
+    },
+    "main_reset_password": {
+      "name": "Passwort zurücksetzen"
+    },
+    "image_banner": {
+      "name": "Bild-Banner",
+      "settings": {
+        "image": {
+          "label": "Bild"
+        },
+        "heading": {
+          "label": "Überschrift"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button-Text"
+        },
+        "button_link": {
+          "label": "Button-Link"
+        },
+        "full_width": {
+          "label": "Volle Breite"
+        }
+      },
+      "presets": {
+        "name": "Bild-Banner"
       }
     }
   },
@@ -116,26 +275,46 @@
     "colors": {
       "name": "Farben",
       "settings": {
-        "primary": { "label": "Primär" },
-        "secondary": { "label": "Sekundär" },
-        "accent": { "label": "Akzent" },
-        "background": { "label": "Hintergrund" },
-        "text": { "label": "Text" }
+        "primary": {
+          "label": "Primär"
+        },
+        "secondary": {
+          "label": "Sekundär"
+        },
+        "accent": {
+          "label": "Akzent"
+        },
+        "background": {
+          "label": "Hintergrund"
+        },
+        "text": {
+          "label": "Text"
+        }
       }
     },
     "typography": {
       "name": "Typografie",
       "settings": {
-        "font_heading": { "label": "Überschrift-Schrift" },
-        "font_body": { "label": "Text-Schrift" },
-        "font_body_scale": { "label": "Textschrift-Skalierung" }
+        "font_heading": {
+          "label": "Überschrift-Schrift"
+        },
+        "font_body": {
+          "label": "Text-Schrift"
+        },
+        "font_body_scale": {
+          "label": "Textschrift-Skalierung"
+        }
       }
     },
     "layout": {
       "name": "Layout",
       "settings": {
-        "page_width": { "label": "Seitenbreite" },
-        "spacing_sections": { "label": "Abstand zwischen Sektionen" }
+        "page_width": {
+          "label": "Seitenbreite"
+        },
+        "spacing_sections": {
+          "label": "Abstand zwischen Sektionen"
+        }
       }
     },
     "social": {
@@ -152,6 +331,72 @@
           "info": "32x32px .png empfohlen"
         }
       }
+    }
+  },
+  "blog": {
+    "comments": {
+      "title": "Kommentare",
+      "form_title": "Kommentar hinterlassen",
+      "name": "Name",
+      "email": "E-Mail",
+      "body": "Kommentar",
+      "submit": "Kommentar absenden"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mein Konto",
+      "welcome": "Willkommen, {{ name }}",
+      "logout": "Abmelden",
+      "return": "Zurück zum Konto"
+    },
+    "orders": {
+      "title": "Bestellverlauf",
+      "order_number": "Bestellung",
+      "date": "Datum",
+      "total": "Gesamt",
+      "status": "Status",
+      "none": "Du hast noch keine Bestellungen aufgegeben."
+    },
+    "order": {
+      "title": "Bestellung {{ name }}",
+      "date": "Datum",
+      "product": "Produkt",
+      "quantity": "Menge",
+      "total": "Gesamt"
+    },
+    "login": {
+      "title": "Anmelden",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "forgot_password": "Passwort vergessen?",
+      "create_account": "Konto erstellen"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Erstellen"
+    },
+    "addresses": {
+      "title": "Deine Adressen",
+      "default": "Standard"
+    },
+    "activate_account": {
+      "title": "Konto aktivieren",
+      "subtext": "Erstelle dein Passwort, um dein Konto zu aktivieren.",
+      "password": "Passwort",
+      "confirm": "Passwort bestätigen",
+      "submit": "Konto aktivieren"
+    },
+    "reset_password": {
+      "title": "Passwort zurücksetzen",
+      "password": "Passwort",
+      "confirm": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen"
     }
   }
 }

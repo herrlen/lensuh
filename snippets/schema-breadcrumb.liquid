@@ -1,0 +1,112 @@
+{%- comment -%}
+  JSON-LD BreadcrumbList Schema (Schema.org)
+  Dynamically builds breadcrumb based on template type.
+  Include in templates: {% render 'schema-breadcrumb' %}
+{%- endcomment -%}
+
+{%- assign breadcrumb_count = 0 -%}
+
+{%- if template.name == 'product' -%}
+  {%- if product.collections.size > 0 -%}
+    {%- assign bc_collection_title = product.collections.first.title -%}
+    {%- assign bc_collection_url = product.collections.first.url -%}
+    {%- assign breadcrumb_count = 2 -%}
+  {%- else -%}
+    {%- assign breadcrumb_count = 1 -%}
+  {%- endif -%}
+
+{%- elsif template.name == 'collection' -%}
+  {%- assign breadcrumb_count = 1 -%}
+
+{%- elsif template.name == 'page' -%}
+  {%- assign breadcrumb_count = 1 -%}
+
+{%- elsif template.name == 'blog' -%}
+  {%- assign breadcrumb_count = 1 -%}
+
+{%- elsif template.name == 'article' -%}
+  {%- assign breadcrumb_count = 2 -%}
+
+{%- elsif template.name == 'search' -%}
+  {%- assign breadcrumb_count = 1 -%}
+{%- endif -%}
+
+{%- if breadcrumb_count > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": {{ shop.name | json }},
+      "item": {{ request.origin | append: routes.root_url | json }}
+    }
+
+    {%- if template.name == 'product' -%}
+      {%- if bc_collection_title -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ bc_collection_title | json }},
+        "item": {{ request.origin | append: bc_collection_url | json }}
+      }
+      ,{
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ product.title | json }}
+      }
+      {%- else -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ product.title | json }}
+      }
+      {%- endif -%}
+
+    {%- elsif template.name == 'collection' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ collection.title | json }}
+      }
+
+    {%- elsif template.name == 'page' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ page.title | json }}
+      }
+
+    {%- elsif template.name == 'blog' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ blog.title | json }}
+      }
+
+    {%- elsif template.name == 'article' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ blog.title | json }},
+        "item": {{ request.origin | append: blog.url | json }}
+      }
+      ,{
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ article.title | json }}
+      }
+
+    {%- elsif template.name == 'search' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ 'search.title' | t | json }}
+      }
+    {%- endif -%}
+  ]
+}
+</script>
+{%- endif -%}

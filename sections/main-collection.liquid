@@ -1,0 +1,56 @@
+{%- render 'schema-breadcrumb' -%}
+
+<section class="main-collection" data-section-id="{{ section.id }}" data-section-type="collection">
+  <div class="main-collection__inner page-width">
+    <header class="main-collection__header">
+      <h1 class="main-collection__title">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}
+        <div class="main-collection__description rte">{{ collection.description }}</div>
+      {%- endif -%}
+    </header>
+
+    {%- if collection.products.size > 0 -%}
+      <p class="main-collection__count" aria-live="polite">
+        {{ 'collections.general.items_count' | t: count: collection.products_count }}
+      </p>
+      <div class="main-collection__grid" role="list">
+        {%- for product in collection.products -%}
+          <div class="main-collection__item" role="listitem">
+            <a href="{{ product.url }}" class="main-collection__card">
+              <div class="main-collection__card-media">
+                {%- if product.featured_image -%}
+                  {% render 'responsive-image',
+                    image: product.featured_image,
+                    max_width: 600,
+                    sizes: '(min-width: 990px) 25vw, (min-width: 750px) 33vw, 50vw',
+                    alt: product.title
+                  %}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              <div class="main-collection__card-info">
+                <h2 class="main-collection__card-title">{{ product.title }}</h2>
+                <p class="main-collection__card-price" data-price-wrapper>{{ product.price | money }}</p>
+              </div>
+            </a>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        {% render 'pagination', paginate: paginate %}
+      {%- endif -%}
+    {%- else -%}
+      <p>{{ 'collections.general.no_products' | t }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main_collection.name",
+  "tag": "section",
+  "class": "section-main-collection"
+}
+{% endschema %}

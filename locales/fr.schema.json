@@ -71,6 +71,127 @@
           }
         }
       }
+    },
+    "main_product": {
+      "name": "Produit",
+      "blocks": {
+        "title": {
+          "name": "Titre",
+          "settings": {
+            "show_vendor": {
+              "label": "Afficher le fabricant"
+            }
+          }
+        },
+        "price": {
+          "name": "Prix"
+        },
+        "variant_picker": {
+          "name": "Sélecteur de variantes"
+        },
+        "buy_buttons": {
+          "name": "Boutons d'achat"
+        },
+        "description": {
+          "name": "Description"
+        },
+        "share": {
+          "name": "Partager"
+        },
+        "sku": {
+          "name": "Réf."
+        },
+        "custom_text": {
+          "name": "Texte personnalisé",
+          "settings": {
+            "text": {
+              "label": "Texte"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Collection"
+    },
+    "main_collection_list": {
+      "name": "Liste de collections"
+    },
+    "main_page": {
+      "name": "Page"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Article",
+      "settings": {
+        "show_author": {
+          "label": "Afficher l'auteur"
+        },
+        "show_date": {
+          "label": "Afficher la date"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Panier"
+    },
+    "main_search": {
+      "name": "Recherche"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Mot de passe"
+    },
+    "main_account": {
+      "name": "Compte"
+    },
+    "main_login": {
+      "name": "Connexion"
+    },
+    "main_register": {
+      "name": "Inscription"
+    },
+    "main_order": {
+      "name": "Commande"
+    },
+    "main_addresses": {
+      "name": "Adresses"
+    },
+    "main_activate_account": {
+      "name": "Activer le compte"
+    },
+    "main_reset_password": {
+      "name": "Réinitialiser le mot de passe"
+    },
+    "image_banner": {
+      "name": "Bannière image",
+      "settings": {
+        "image": {
+          "label": "Image"
+        },
+        "heading": {
+          "label": "Titre"
+        },
+        "text": {
+          "label": "Texte"
+        },
+        "button_label": {
+          "label": "Texte du bouton"
+        },
+        "button_link": {
+          "label": "Lien du bouton"
+        },
+        "full_width": {
+          "label": "Pleine largeur"
+        }
+      },
+      "presets": {
+        "name": "Bannière image"
+      }
     }
   },
   "settings_schema": {

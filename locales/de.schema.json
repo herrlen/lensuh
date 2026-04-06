@@ -71,6 +71,127 @@
           }
         }
       }
+    },
+    "main_product": {
+      "name": "Produkt",
+      "blocks": {
+        "title": {
+          "name": "Titel",
+          "settings": {
+            "show_vendor": {
+              "label": "Hersteller anzeigen"
+            }
+          }
+        },
+        "price": {
+          "name": "Preis"
+        },
+        "variant_picker": {
+          "name": "Variantenauswahl"
+        },
+        "buy_buttons": {
+          "name": "Kaufen-Buttons"
+        },
+        "description": {
+          "name": "Beschreibung"
+        },
+        "share": {
+          "name": "Teilen"
+        },
+        "sku": {
+          "name": "Artikelnr."
+        },
+        "custom_text": {
+          "name": "Eigener Text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Kollektion"
+    },
+    "main_collection_list": {
+      "name": "Kollektionsliste"
+    },
+    "main_page": {
+      "name": "Seite"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Artikel",
+      "settings": {
+        "show_author": {
+          "label": "Autor anzeigen"
+        },
+        "show_date": {
+          "label": "Datum anzeigen"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Warenkorb"
+    },
+    "main_search": {
+      "name": "Suche"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Passwort"
+    },
+    "main_account": {
+      "name": "Konto"
+    },
+    "main_login": {
+      "name": "Anmelden"
+    },
+    "main_register": {
+      "name": "Registrieren"
+    },
+    "main_order": {
+      "name": "Bestellung"
+    },
+    "main_addresses": {
+      "name": "Adressen"
+    },
+    "main_activate_account": {
+      "name": "Konto aktivieren"
+    },
+    "main_reset_password": {
+      "name": "Passwort zurücksetzen"
+    },
+    "image_banner": {
+      "name": "Bild-Banner",
+      "settings": {
+        "image": {
+          "label": "Bild"
+        },
+        "heading": {
+          "label": "Überschrift"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button-Text"
+        },
+        "button_link": {
+          "label": "Button-Link"
+        },
+        "full_width": {
+          "label": "Volle Breite"
+        }
+      },
+      "presets": {
+        "name": "Bild-Banner"
+      }
     }
   },
   "settings_schema": {

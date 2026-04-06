@@ -1,0 +1,26 @@
+{%- comment -%}
+  JSON-LD Review Schema (Schema.org)
+  Renders aggregateRating + individual reviews from metafields.
+  Include on product pages: {% render 'schema-review', product: product %}
+
+  Expected metafields:
+    product.metafields.reviews.rating       → { rating: "4.5", scale_min: "1", scale_max: "5" }
+    product.metafields.reviews.rating_count  → number
+{%- endcomment -%}
+
+{%- comment -%}
+  Note: Review schema is embedded within schema-product.liquid as aggregateRating.
+  This snippet handles standalone review display if additional review data
+  is available via metafields (e.g., from a reviews app).
+
+  Individual reviews can be added here when the shop uses a reviews app
+  that stores review data in metafields.
+{%- endcomment -%}
+
+{%- if product.metafields.reviews.rating.value != blank -%}
+  {%- comment -%}
+    aggregateRating is already included in schema-product.liquid.
+    This snippet is a placeholder for individual Review objects
+    when review content metafields become available.
+  {%- endcomment -%}
+{%- endif -%}

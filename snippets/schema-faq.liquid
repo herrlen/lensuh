@@ -1,0 +1,29 @@
+{%- comment -%}
+  JSON-LD FAQPage Schema (Schema.org)
+  Reads question/answer blocks from section.
+  Include in FAQ sections: {% render 'schema-faq', blocks: section.blocks %}
+{%- endcomment -%}
+
+{%- assign faq_blocks = blocks | where: 'type', 'faq_item' -%}
+{%- if faq_blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for block in faq_blocks -%}
+      {%- if block.settings.question != blank and block.settings.answer != blank -%}
+    {
+      "@type": "Question",
+      "name": {{ block.settings.question | json }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ block.settings.answer | strip_html | json }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}

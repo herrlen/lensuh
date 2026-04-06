@@ -1,0 +1,55 @@
+<section class="main-search" data-section-id="{{ section.id }}" data-section-type="search">
+  <div class="main-search__inner page-width">
+    <h1 class="main-search__title">{{ 'search.title' | t }}</h1>
+
+    <form action="{{ routes.search_url }}" method="get" role="search">
+      <label for="search-input-{{ section.id }}" class="visually-hidden">{{ 'search.title' | t }}</label>
+      <input
+        type="search"
+        id="search-input-{{ section.id }}"
+        name="q"
+        value="{{ search.terms | escape }}"
+        placeholder="{{ 'search.placeholder' | t }}"
+        class="main-search__input"
+      >
+      <button type="submit" class="btn btn--primary">{{ 'search.title' | t }}</button>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <p class="main-search__count" aria-live="polite">
+          {{ 'search.results_count' | t: count: search.results_count }}
+        </p>
+        <div class="main-search__results" role="list">
+          {%- for result in search.results -%}
+            <div class="main-search__result" role="listitem">
+              <a href="{{ result.url }}">
+                {%- if result.featured_image -%}
+                  {% render 'responsive-image',
+                    image: result.featured_image,
+                    max_width: 150,
+                    sizes: '150px'
+                  %}
+                {%- endif -%}
+                <h2 class="main-search__result-title">{{ result.title }}</h2>
+                {%- if result.price -%}
+                  <p class="main-search__result-price" data-price-wrapper>{{ result.price | money }}</p>
+                {%- endif -%}
+              </a>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p>{{ 'search.no_results' | t: terms: search.terms }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main_search.name",
+  "tag": "section",
+  "class": "section-main-search"
+}
+{% endschema %}

@@ -4,7 +4,9 @@
     "navigation": "Navigation",
     "search": "Search",
     "account": "Account",
-    "cart": "Cart"
+    "cart": "Cart",
+    "previous": "Previous",
+    "next": "Next"
   },
   "footer": {
     "rights": "All rights reserved."
@@ -20,7 +22,18 @@
     }
   },
   "general": {
-    "fetch_error": "Something went wrong. Please try again."
+    "fetch_error": "Something went wrong. Please try again.",
+    "404": {
+      "title": "Page not found",
+      "text": "The page you were looking for does not exist.",
+      "link": "Continue shopping"
+    },
+    "password": {
+      "title": "Opening soon",
+      "label": "Password",
+      "placeholder": "Your password",
+      "submit": "Enter"
+    }
   },
   "products": {
     "product": {
@@ -29,7 +42,10 @@
       "unavailable": "Unavailable",
       "price": "Price",
       "quantity": "Quantity",
-      "description": "Description"
+      "description": "Description",
+      "share": "Share",
+      "sku": "SKU",
+      "variant": "Variant"
     }
   },
   "cart": {
@@ -70,9 +86,15 @@
     "header": {
       "name": "Header",
       "settings": {
-        "logo": { "label": "Logo image" },
-        "menu": { "label": "Menu" },
-        "sticky": { "label": "Sticky header" }
+        "logo": {
+          "label": "Logo image"
+        },
+        "menu": {
+          "label": "Menu"
+        },
+        "sticky": {
+          "label": "Sticky header"
+        }
       }
     },
     "footer": {
@@ -81,15 +103,23 @@
         "menu": {
           "name": "Menu",
           "settings": {
-            "heading": { "label": "Heading" },
-            "menu": { "label": "Menu" }
+            "heading": {
+              "label": "Heading"
+            },
+            "menu": {
+              "label": "Menu"
+            }
           }
         },
         "text": {
           "name": "Text",
           "settings": {
-            "heading": { "label": "Heading" },
-            "text": { "label": "Text" }
+            "heading": {
+              "label": "Heading"
+            },
+            "text": {
+              "label": "Text"
+            }
           }
         }
       }
@@ -98,17 +128,146 @@
       "name": "Announcement bar",
       "label": "Announcement",
       "settings": {
-        "background_color": { "label": "Background color" },
-        "text_color": { "label": "Text color" }
+        "background_color": {
+          "label": "Background color"
+        },
+        "text_color": {
+          "label": "Text color"
+        }
       },
       "blocks": {
         "announcement": {
           "name": "Announcement",
           "settings": {
-            "text": { "label": "Text" },
-            "link": { "label": "Link" }
+            "text": {
+              "label": "Text"
+            },
+            "link": {
+              "label": "Link"
+            }
           }
         }
+      }
+    },
+    "main_product": {
+      "name": "Product",
+      "blocks": {
+        "title": {
+          "name": "Title",
+          "settings": {
+            "show_vendor": {
+              "label": "Show vendor"
+            }
+          }
+        },
+        "price": {
+          "name": "Price"
+        },
+        "variant_picker": {
+          "name": "Variant picker"
+        },
+        "buy_buttons": {
+          "name": "Buy buttons"
+        },
+        "description": {
+          "name": "Description"
+        },
+        "share": {
+          "name": "Share"
+        },
+        "sku": {
+          "name": "SKU"
+        },
+        "custom_text": {
+          "name": "Custom text",
+          "settings": {
+            "text": {
+              "label": "Text"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Collection"
+    },
+    "main_collection_list": {
+      "name": "Collection list"
+    },
+    "main_page": {
+      "name": "Page"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Article",
+      "settings": {
+        "show_author": {
+          "label": "Show author"
+        },
+        "show_date": {
+          "label": "Show date"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Cart"
+    },
+    "main_search": {
+      "name": "Search"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Password"
+    },
+    "main_account": {
+      "name": "Account"
+    },
+    "main_login": {
+      "name": "Login"
+    },
+    "main_register": {
+      "name": "Register"
+    },
+    "main_order": {
+      "name": "Order"
+    },
+    "main_addresses": {
+      "name": "Addresses"
+    },
+    "main_activate_account": {
+      "name": "Activate account"
+    },
+    "main_reset_password": {
+      "name": "Reset password"
+    },
+    "image_banner": {
+      "name": "Image banner",
+      "settings": {
+        "image": {
+          "label": "Image"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link"
+        },
+        "full_width": {
+          "label": "Full width"
+        }
+      },
+      "presets": {
+        "name": "Image banner"
       }
     }
   },
@@ -116,26 +275,46 @@
     "colors": {
       "name": "Colors",
       "settings": {
-        "primary": { "label": "Primary" },
-        "secondary": { "label": "Secondary" },
-        "accent": { "label": "Accent" },
-        "background": { "label": "Background" },
-        "text": { "label": "Text" }
+        "primary": {
+          "label": "Primary"
+        },
+        "secondary": {
+          "label": "Secondary"
+        },
+        "accent": {
+          "label": "Accent"
+        },
+        "background": {
+          "label": "Background"
+        },
+        "text": {
+          "label": "Text"
+        }
       }
     },
     "typography": {
       "name": "Typography",
       "settings": {
-        "font_heading": { "label": "Heading font" },
-        "font_body": { "label": "Body font" },
-        "font_body_scale": { "label": "Body font size scale" }
+        "font_heading": {
+          "label": "Heading font"
+        },
+        "font_body": {
+          "label": "Body font"
+        },
+        "font_body_scale": {
+          "label": "Body font size scale"
+        }
       }
     },
     "layout": {
       "name": "Layout",
       "settings": {
-        "page_width": { "label": "Page width" },
-        "spacing_sections": { "label": "Space between sections" }
+        "page_width": {
+          "label": "Page width"
+        },
+        "spacing_sections": {
+          "label": "Space between sections"
+        }
       }
     },
     "social": {
@@ -152,6 +331,72 @@
           "info": "32x32px .png recommended"
         }
       }
+    }
+  },
+  "blog": {
+    "comments": {
+      "title": "Comments",
+      "form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "body": "Comment",
+      "submit": "Post comment"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "My account",
+      "welcome": "Welcome, {{ name }}",
+      "logout": "Log out",
+      "return": "Back to account"
+    },
+    "orders": {
+      "title": "Order history",
+      "order_number": "Order",
+      "date": "Date",
+      "total": "Total",
+      "status": "Status",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Date",
+      "product": "Product",
+      "quantity": "Quantity",
+      "total": "Total"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "forgot_password": "Forgot your password?",
+      "create_account": "Create account"
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    },
+    "addresses": {
+      "title": "Your addresses",
+      "default": "Default"
+    },
+    "activate_account": {
+      "title": "Activate account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "confirm": "Confirm password",
+      "submit": "Activate account"
+    },
+    "reset_password": {
+      "title": "Reset password",
+      "password": "Password",
+      "confirm": "Confirm password",
+      "submit": "Reset password"
     }
   }
 }

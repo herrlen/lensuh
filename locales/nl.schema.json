@@ -71,6 +71,127 @@
           }
         }
       }
+    },
+    "main_product": {
+      "name": "Product",
+      "blocks": {
+        "title": {
+          "name": "Titel",
+          "settings": {
+            "show_vendor": {
+              "label": "Fabrikant tonen"
+            }
+          }
+        },
+        "price": {
+          "name": "Prijs"
+        },
+        "variant_picker": {
+          "name": "Variantkiezer"
+        },
+        "buy_buttons": {
+          "name": "Koopknoppen"
+        },
+        "description": {
+          "name": "Beschrijving"
+        },
+        "share": {
+          "name": "Delen"
+        },
+        "sku": {
+          "name": "Art.nr."
+        },
+        "custom_text": {
+          "name": "Aangepaste tekst",
+          "settings": {
+            "text": {
+              "label": "Tekst"
+            }
+          }
+        }
+      }
+    },
+    "main_collection": {
+      "name": "Collectie"
+    },
+    "main_collection_list": {
+      "name": "Collectielijst"
+    },
+    "main_page": {
+      "name": "Pagina"
+    },
+    "main_blog": {
+      "name": "Blog"
+    },
+    "main_article": {
+      "name": "Artikel",
+      "settings": {
+        "show_author": {
+          "label": "Auteur tonen"
+        },
+        "show_date": {
+          "label": "Datum tonen"
+        }
+      }
+    },
+    "main_cart": {
+      "name": "Winkelwagen"
+    },
+    "main_search": {
+      "name": "Zoeken"
+    },
+    "main_404": {
+      "name": "404"
+    },
+    "main_password": {
+      "name": "Wachtwoord"
+    },
+    "main_account": {
+      "name": "Account"
+    },
+    "main_login": {
+      "name": "Inloggen"
+    },
+    "main_register": {
+      "name": "Registreren"
+    },
+    "main_order": {
+      "name": "Bestelling"
+    },
+    "main_addresses": {
+      "name": "Adressen"
+    },
+    "main_activate_account": {
+      "name": "Account activeren"
+    },
+    "main_reset_password": {
+      "name": "Wachtwoord resetten"
+    },
+    "image_banner": {
+      "name": "Afbeeldingsbanner",
+      "settings": {
+        "image": {
+          "label": "Afbeelding"
+        },
+        "heading": {
+          "label": "Koptekst"
+        },
+        "text": {
+          "label": "Tekst"
+        },
+        "button_label": {
+          "label": "Knoptekst"
+        },
+        "button_link": {
+          "label": "Knoplink"
+        },
+        "full_width": {
+          "label": "Volledige breedte"
+        }
+      },
+      "presets": {
+        "name": "Afbeeldingsbanner"
+      }
     }
   },
   "settings_schema": {

@@ -1,0 +1,23 @@
+<section class="main-activate" data-section-id="{{ section.id }}">
+  <div class="main-activate__inner page-width">
+    <h1 class="main-activate__title">{{ 'customer.activate_account.title' | t }}</h1>
+    <p>{{ 'customer.activate_account.subtext' | t }}</p>
+
+    {%- form 'activate_customer_password' -%}
+      <label for="activate-password">{{ 'customer.activate_account.password' | t }}</label>
+      <input type="password" id="activate-password" name="customer[password]" autocomplete="new-password" required>
+
+      <label for="activate-password-confirm">{{ 'customer.activate_account.confirm' | t }}</label>
+      <input type="password" id="activate-password-confirm" name="customer[password_confirmation]" autocomplete="new-password" required>
+
+      <button type="submit" class="btn btn--primary">{{ 'customer.activate_account.submit' | t }}</button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.main_activate_account.name",
+  "tag": "section"
+}
+{% endschema %}
