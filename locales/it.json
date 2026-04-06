@@ -9,6 +9,57 @@
   "footer": {
     "rights": "Tutti i diritti riservati."
   },
+  "gift_cards": {
+    "issued": {
+      "title": "La tua carta regalo",
+      "subtext": "La tua carta regalo",
+      "gift_card_code": "Codice carta regalo",
+      "redeem_html": "Usa questo codice al checkout: <strong>{{ value }}</strong>",
+      "shop_link": "Continua gli acquisti",
+      "add_to_apple_wallet": "Aggiungi a Apple Wallet"
+    }
+  },
+  "general": {
+    "fetch_error": "Qualcosa è andato storto. Riprova."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Aggiungi al carrello",
+      "sold_out": "Esaurito",
+      "unavailable": "Non disponibile",
+      "price": "Prezzo",
+      "quantity": "Quantità",
+      "description": "Descrizione"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Carrello",
+      "empty": "Il tuo carrello è vuoto",
+      "updated": "Carrello aggiornato",
+      "subtotal": "Subtotale",
+      "checkout": "Vai alla cassa",
+      "continue_shopping": "Continua gli acquisti",
+      "remove": "Rimuovi",
+      "note": "Nota dell'ordine"
+    }
+  },
+  "collections": {
+    "general": {
+      "title": "Collezioni",
+      "no_products": "Nessun prodotto trovato",
+      "items_count": "{{ count }} prodotti"
+    }
+  },
+  "search": {
+    "title": "Ricerca",
+    "placeholder": "Cerca...",
+    "no_results": "Nessun risultato per \"{{ terms }}\"",
+    "results_count": "{{ count }} risultati"
+  },
+  "pages": {
+    "title": "Pagine"
+  },
   "sections": {
     "header_group": { "name": "Gruppo intestazione" },
     "footer_group": { "name": "Gruppo piè di pagina" },

@@ -9,6 +9,57 @@
   "footer": {
     "rights": "Alle rechten voorbehouden."
   },
+  "gift_cards": {
+    "issued": {
+      "title": "Je cadeaukaart",
+      "subtext": "Je cadeaukaart",
+      "gift_card_code": "Cadeaukaartcode",
+      "redeem_html": "Gebruik deze code bij het afrekenen: <strong>{{ value }}</strong>",
+      "shop_link": "Verder winkelen",
+      "add_to_apple_wallet": "Toevoegen aan Apple Wallet"
+    }
+  },
+  "general": {
+    "fetch_error": "Er ging iets mis. Probeer het opnieuw."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "In winkelwagen",
+      "sold_out": "Uitverkocht",
+      "unavailable": "Niet beschikbaar",
+      "price": "Prijs",
+      "quantity": "Aantal",
+      "description": "Beschrijving"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Winkelwagen",
+      "empty": "Je winkelwagen is leeg",
+      "updated": "Winkelwagen bijgewerkt",
+      "subtotal": "Subtotaal",
+      "checkout": "Afrekenen",
+      "continue_shopping": "Verder winkelen",
+      "remove": "Verwijderen",
+      "note": "Opmerking bij bestelling"
+    }
+  },
+  "collections": {
+    "general": {
+      "title": "Collecties",
+      "no_products": "Geen producten gevonden",
+      "items_count": "{{ count }} producten"
+    }
+  },
+  "search": {
+    "title": "Zoeken",
+    "placeholder": "Zoeken...",
+    "no_results": "Geen resultaten voor \"{{ terms }}\"",
+    "results_count": "{{ count }} resultaten"
+  },
+  "pages": {
+    "title": "Pagina's"
+  },
   "sections": {
     "header_group": { "name": "Headergroep" },
     "footer_group": { "name": "Footergroep" },

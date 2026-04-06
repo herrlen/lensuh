@@ -19,6 +19,47 @@
       "add_to_apple_wallet": "Zu Apple Wallet hinzufügen"
     }
   },
+  "general": {
+    "fetch_error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "In den Warenkorb",
+      "sold_out": "Ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "price": "Preis",
+      "quantity": "Menge",
+      "description": "Beschreibung"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Warenkorb",
+      "empty": "Dein Warenkorb ist leer",
+      "updated": "Warenkorb aktualisiert",
+      "subtotal": "Zwischensumme",
+      "checkout": "Zur Kasse",
+      "continue_shopping": "Weiter einkaufen",
+      "remove": "Entfernen",
+      "note": "Bestellhinweis"
+    }
+  },
+  "collections": {
+    "general": {
+      "title": "Kollektionen",
+      "no_products": "Keine Produkte gefunden",
+      "items_count": "{{ count }} Produkte"
+    }
+  },
+  "search": {
+    "title": "Suche",
+    "placeholder": "Suchen...",
+    "no_results": "Keine Ergebnisse für \"{{ terms }}\"",
+    "results_count": "{{ count }} Ergebnisse"
+  },
+  "pages": {
+    "title": "Seiten"
+  },
   "sections": {
     "header_group": {
       "name": "Header-Gruppe"

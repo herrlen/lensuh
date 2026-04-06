@@ -9,6 +9,57 @@
   "footer": {
     "rights": "Tous droits réservés."
   },
+  "gift_cards": {
+    "issued": {
+      "title": "Votre carte cadeau",
+      "subtext": "Votre carte cadeau",
+      "gift_card_code": "Code de la carte cadeau",
+      "redeem_html": "Utilisez ce code lors du paiement : <strong>{{ value }}</strong>",
+      "shop_link": "Continuer vos achats",
+      "add_to_apple_wallet": "Ajouter à Apple Wallet"
+    }
+  },
+  "general": {
+    "fetch_error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Ajouter au panier",
+      "sold_out": "Épuisé",
+      "unavailable": "Indisponible",
+      "price": "Prix",
+      "quantity": "Quantité",
+      "description": "Description"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Panier",
+      "empty": "Votre panier est vide",
+      "updated": "Panier mis à jour",
+      "subtotal": "Sous-total",
+      "checkout": "Passer à la caisse",
+      "continue_shopping": "Continuer vos achats",
+      "remove": "Supprimer",
+      "note": "Note de commande"
+    }
+  },
+  "collections": {
+    "general": {
+      "title": "Collections",
+      "no_products": "Aucun produit trouvé",
+      "items_count": "{{ count }} produits"
+    }
+  },
+  "search": {
+    "title": "Recherche",
+    "placeholder": "Rechercher...",
+    "no_results": "Aucun résultat pour \"{{ terms }}\"",
+    "results_count": "{{ count }} résultats"
+  },
+  "pages": {
+    "title": "Pages"
+  },
   "sections": {
     "header_group": { "name": "Groupe d'en-tête" },
     "footer_group": { "name": "Groupe de pied de page" },

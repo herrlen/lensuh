@@ -1,7 +1,7 @@
 <header class="header" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="header__inner page-width">
     {%- if section.settings.logo -%}
-      <a href="/" class="header__logo">
+      <a href="{{ routes.root_url }}" class="header__logo">
         {{ section.settings.logo | image_url: width: 200 | image_tag:
           class: 'header__logo-image',
           alt: shop.name,
@@ -10,7 +10,7 @@
         }}
       </a>
     {%- else -%}
-      <a href="/" class="header__logo header__logo--text">
+      <a href="{{ routes.root_url }}" class="header__logo header__logo--text">
         {{ shop.name }}
       </a>
     {%- endif -%}

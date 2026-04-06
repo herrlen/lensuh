@@ -1,0 +1,138 @@
+{
+  "sections": {
+    "header_group": {
+      "name": "Gruppo intestazione"
+    },
+    "footer_group": {
+      "name": "Gruppo piè di pagina"
+    },
+    "header": {
+      "name": "Intestazione",
+      "settings": {
+        "logo": {
+          "label": "Immagine logo"
+        },
+        "menu": {
+          "label": "Menu"
+        },
+        "sticky": {
+          "label": "Intestazione fissa"
+        }
+      }
+    },
+    "footer": {
+      "name": "Piè di pagina",
+      "blocks": {
+        "menu": {
+          "name": "Menu",
+          "settings": {
+            "heading": {
+              "label": "Titolo"
+            },
+            "menu": {
+              "label": "Menu"
+            }
+          }
+        },
+        "text": {
+          "name": "Testo",
+          "settings": {
+            "heading": {
+              "label": "Titolo"
+            },
+            "text": {
+              "label": "Testo"
+            }
+          }
+        }
+      }
+    },
+    "announcement_bar": {
+      "name": "Barra annunci",
+      "label": "Annuncio",
+      "settings": {
+        "background_color": {
+          "label": "Colore di sfondo"
+        },
+        "text_color": {
+          "label": "Colore del testo"
+        }
+      },
+      "blocks": {
+        "announcement": {
+          "name": "Annuncio",
+          "settings": {
+            "text": {
+              "label": "Testo"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "colors": {
+      "name": "Colori",
+      "settings": {
+        "primary": {
+          "label": "Primario"
+        },
+        "secondary": {
+          "label": "Secondario"
+        },
+        "accent": {
+          "label": "Accento"
+        },
+        "background": {
+          "label": "Sfondo"
+        },
+        "text": {
+          "label": "Testo"
+        }
+      }
+    },
+    "typography": {
+      "name": "Tipografia",
+      "settings": {
+        "font_heading": {
+          "label": "Font titoli"
+        },
+        "font_body": {
+          "label": "Font corpo"
+        },
+        "font_body_scale": {
+          "label": "Scala del font"
+        }
+      }
+    },
+    "layout": {
+      "name": "Layout",
+      "settings": {
+        "page_width": {
+          "label": "Larghezza pagina"
+        },
+        "spacing_sections": {
+          "label": "Spaziatura tra sezioni"
+        }
+      }
+    },
+    "social": {
+      "name": "Social media",
+      "settings": {
+        "info": "URL completo (es: https://instagram.com/tuonome)"
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "image": {
+          "label": "Immagine favicon",
+          "info": "32x32px .png consigliato"
+        }
+      }
+    }
+  }
+}

@@ -27,13 +27,24 @@
   {% comment %} CSS {% endcomment %}
   {{ 'base.css' | asset_url | stylesheet_tag }}
 
-  {% comment %} Preconnect to Shopify CDN {% endcomment %}
+  {% comment %} Preconnect {% endcomment %}
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
   {{ content_for_header }}
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    window.theme = window.theme || {};
+    window.theme.strings = {
+      addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartUpdated: {{ 'cart.general.updated' | t | json }},
+      fetchError: {{ 'general.fetch_error' | t | json }},
+      searchNoResults: {{ 'search.no_results' | t | json }}
+    };
   </script>
 </head>
 

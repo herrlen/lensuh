@@ -46,6 +46,32 @@ body {
 
   --page-width: {{ settings.page_width }}px;
   --spacing-sections: {{ settings.spacing_sections }}px;
+
+  /* Spacing scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 999px;
+
+  /* Z-Index scale */
+  --z-header: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+  --z-app-overlay: 9000;
+
+  /* Responsive breakpoints (reference only, use in @media) */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 750px;
+  --breakpoint-lg: 990px;
+  --breakpoint-xl: 1200px;
 }
 
 /* --- Typography --- */
@@ -132,7 +158,7 @@ video {
 /* --- Header --- */
 .header {
   position: relative;
-  z-index: 100;
+  z-index: var(--z-header);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -288,7 +314,7 @@ video {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 9999;
+  z-index: var(--z-toast);
   background: var(--color-primary);
   color: var(--color-background);
   padding: 0.75rem 1.25rem;
