@@ -1,0 +1,53 @@
+{%- comment -%}
+  Predictive Search with aria-combobox pattern.
+  Shopify Predictive Search API (/search/suggest.json).
+  Results: Products, Collections, Pages, Articles.
+  Usage: {% render 'predictive-search' %}
+{%- endcomment -%}
+
+{%- if settings.predictive_search_enabled -%}
+  <div
+    id="predictive-search"
+    class="predictive-search"
+    data-predictive-search
+    data-max-results="{{ settings.predictive_search_max | default: 4 }}"
+    aria-hidden="true"
+  >
+    <div class="predictive-search__inner page-width">
+      <div class="predictive-search__field" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="predictive-search-results">
+        <label for="predictive-search-input" class="visually-hidden">{{ 'search.title' | t }}</label>
+        <input
+          type="search"
+          id="predictive-search-input"
+          class="predictive-search__input"
+          placeholder="{{ 'search.placeholder' | t }}"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-autocomplete="list"
+          aria-controls="predictive-search-results"
+          data-predictive-search-input
+        >
+        <button type="button" class="predictive-search__close" data-search-close aria-label="{{ 'header.search.close' | t }}">
+          {% render 'icon', icon: 'close' %}
+        </button>
+      </div>
+
+      <div
+        id="predictive-search-results"
+        class="predictive-search__results"
+        role="listbox"
+        aria-label="{{ 'search.title' | t }}"
+        data-predictive-search-results
+        aria-live="polite"
+      >
+        {%- comment -%} Results populated by JS {%- endcomment -%}
+      </div>
+
+      <a href="{{ routes.search_url }}" class="predictive-search__view-all" data-search-view-all hidden>
+        {{ 'search.view_all' | t }}
+      </a>
+    </div>
+  </div>
+{%- endif -%}

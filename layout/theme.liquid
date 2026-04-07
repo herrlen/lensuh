@@ -59,7 +59,11 @@
       freeShippingReached: {{ 'cart.free_shipping.reached' | t | json }},
       freeShippingRemaining: {{ 'cart.free_shipping.remaining_js' | t | json }},
       pickupAvailable: {{ 'products.pickup.available' | t | json }},
-      pickupUnavailable: {{ 'products.pickup.unavailable' | t | json }}
+      pickupUnavailable: {{ 'products.pickup.unavailable' | t | json }},
+      searchProducts: {{ 'search.types.products' | t | json }},
+      searchCollections: {{ 'search.types.collections' | t | json }},
+      searchPages: {{ 'search.types.pages' | t | json }},
+      searchArticles: {{ 'search.types.articles' | t | json }}
     };
     window.theme.currency = {{ cart.currency.iso_code | json }};
   </script>
@@ -72,6 +76,8 @@
 
   {% sections 'header-group' %}
 
+  {% render 'breadcrumbs' %}
+
   <main id="MainContent" class="main-content" role="main" tabindex="-1">
     {{ content_for_layout }}
   </main>
@@ -83,9 +89,11 @@
 
   {% render 'toast-notification' %}
 
-  {% comment %} Cart Drawer CSS (async) {% endcomment %}
+  {% comment %} Cart Drawer + Navigation CSS (async) {% endcomment %}
   <link rel="preload" href="{{ 'cart-drawer.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'cart-drawer.css' | asset_url }}"></noscript>
+  <link rel="preload" href="{{ 'navigation.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'navigation.css' | asset_url }}"></noscript>
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -93,5 +101,7 @@
   <script src="{{ 'cart-atc.js' | asset_url }}" defer></script>
   <script src="{{ 'free-shipping-bar.js' | asset_url }}" defer></script>
   <script src="{{ 'in-store-pickup.js' | asset_url }}" defer></script>
+  <script src="{{ 'mega-menu.js' | asset_url }}" defer></script>
+  <script src="{{ 'predictive-search.js' | asset_url }}" defer></script>
 </body>
 </html>

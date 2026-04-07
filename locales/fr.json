@@ -108,7 +108,14 @@
     "title": "Recherche",
     "placeholder": "Rechercher...",
     "no_results": "Aucun résultat pour \"{{ terms }}\"",
-    "results_count": "{{ count }} résultats"
+    "results_count": "{{ count }} résultats",
+    "view_all": "Voir tous les résultats",
+    "types": {
+      "products": "Produits",
+      "collections": "Collections",
+      "pages": "Pages",
+      "articles": "Articles"
+    }
   },
   "pages": {
     "title": "Pages"
@@ -131,6 +138,29 @@
         },
         "sticky": {
           "label": "En-tête fixe"
+        }
+      },
+      "blocks": {
+        "mega_featured": {
+          "name": "Méga menu vedette",
+          "settings": {
+            "parent_menu": {
+              "label": "Titre du menu parent",
+              "info": "Titre exact de l'élément de menu parent"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "heading": {
+              "label": "Titre"
+            },
+            "link": {
+              "label": "Lien"
+            },
+            "link_text": {
+              "label": "Texte du lien"
+            }
+          }
         }
       }
     },
@@ -485,6 +515,30 @@
           "info": "Styles au-dessus de la ligne de flottaison"
         }
       }
+    },
+    "navigation": {
+      "name": "Navigation",
+      "settings": {
+        "mega_menu_enabled": {
+          "label": "Activer le méga menu"
+        },
+        "predictive_search_enabled": {
+          "label": "Activer la recherche prédictive"
+        },
+        "predictive_search_max": {
+          "label": "Résultats max par type"
+        },
+        "breadcrumbs_enabled": {
+          "label": "Activer le fil d'Ariane"
+        },
+        "breadcrumbs_style": {
+          "label": "Style fil d'Ariane",
+          "options": {
+            "links": "Liens cliquables",
+            "text": "Texte simple"
+          }
+        }
+      }
     }
   },
   "blog": {
@@ -555,5 +609,19 @@
   },
   "seo": {
     "page": "Page {{ number }}"
+  },
+  "header": {
+    "mobile_menu": {
+      "open": "Ouvrir le menu",
+      "close": "Fermer le menu",
+      "title": "Menu",
+      "view_all": "Voir tout {{ title }}"
+    },
+    "search": {
+      "close": "Fermer la recherche"
+    }
+  },
+  "navigation": {
+    "breadcrumbs": "Fil d'Ariane"
   }
 }

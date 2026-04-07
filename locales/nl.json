@@ -108,7 +108,14 @@
     "title": "Zoeken",
     "placeholder": "Zoeken...",
     "no_results": "Geen resultaten voor \"{{ terms }}\"",
-    "results_count": "{{ count }} resultaten"
+    "results_count": "{{ count }} resultaten",
+    "view_all": "Alle resultaten bekijken",
+    "types": {
+      "products": "Producten",
+      "collections": "Collecties",
+      "pages": "Pagina's",
+      "articles": "Artikelen"
+    }
   },
   "pages": {
     "title": "Pagina's"
@@ -131,6 +138,29 @@
         },
         "sticky": {
           "label": "Vaste header"
+        }
+      },
+      "blocks": {
+        "mega_featured": {
+          "name": "Megamenu uitgelicht",
+          "settings": {
+            "parent_menu": {
+              "label": "Titel bovenliggend menu",
+              "info": "Exacte titel van het bovenliggende menu-item"
+            },
+            "image": {
+              "label": "Afbeelding"
+            },
+            "heading": {
+              "label": "Koptekst"
+            },
+            "link": {
+              "label": "Link"
+            },
+            "link_text": {
+              "label": "Linktekst"
+            }
+          }
         }
       }
     },
@@ -485,6 +515,30 @@
           "info": "Above-the-fold stijlen"
         }
       }
+    },
+    "navigation": {
+      "name": "Navigatie",
+      "settings": {
+        "mega_menu_enabled": {
+          "label": "Megamenu activeren"
+        },
+        "predictive_search_enabled": {
+          "label": "Voorspellend zoeken activeren"
+        },
+        "predictive_search_max": {
+          "label": "Max zoekresultaten per type"
+        },
+        "breadcrumbs_enabled": {
+          "label": "Broodkruimels activeren"
+        },
+        "breadcrumbs_style": {
+          "label": "Broodkruimelstijl",
+          "options": {
+            "links": "Klikbare links",
+            "text": "Alleen tekst"
+          }
+        }
+      }
     }
   },
   "blog": {
@@ -555,5 +609,19 @@
   },
   "seo": {
     "page": "Pagina {{ number }}"
+  },
+  "header": {
+    "mobile_menu": {
+      "open": "Menu openen",
+      "close": "Menu sluiten",
+      "title": "Menu",
+      "view_all": "Alles bekijken {{ title }}"
+    },
+    "search": {
+      "close": "Zoeken sluiten"
+    }
+  },
+  "navigation": {
+    "breadcrumbs": "Broodkruimels"
   }
 }

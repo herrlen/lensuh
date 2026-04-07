@@ -18,6 +18,29 @@
         "sticky": {
           "label": "En-tête fixe"
         }
+      },
+      "blocks": {
+        "mega_featured": {
+          "name": "Méga menu vedette",
+          "settings": {
+            "parent_menu": {
+              "label": "Titre du menu parent",
+              "info": "Titre exact de l'élément de menu parent"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "heading": {
+              "label": "Titre"
+            },
+            "link": {
+              "label": "Lien"
+            },
+            "link_text": {
+              "label": "Texte du lien"
+            }
+          }
+        }
       }
     },
     "footer": {
@@ -369,6 +392,30 @@
         "critical_css": {
           "label": "CSS critique en ligne",
           "info": "Styles au-dessus de la ligne de flottaison"
+        }
+      }
+    },
+    "navigation": {
+      "name": "Navigation",
+      "settings": {
+        "mega_menu_enabled": {
+          "label": "Activer le méga menu"
+        },
+        "predictive_search_enabled": {
+          "label": "Activer la recherche prédictive"
+        },
+        "predictive_search_max": {
+          "label": "Résultats max par type"
+        },
+        "breadcrumbs_enabled": {
+          "label": "Activer le fil d'Ariane"
+        },
+        "breadcrumbs_style": {
+          "label": "Style fil d'Ariane",
+          "options": {
+            "links": "Liens cliquables",
+            "text": "Texte simple"
+          }
         }
       }
     }

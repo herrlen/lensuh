@@ -18,6 +18,29 @@
         "sticky": {
           "label": "Vaste header"
         }
+      },
+      "blocks": {
+        "mega_featured": {
+          "name": "Megamenu uitgelicht",
+          "settings": {
+            "parent_menu": {
+              "label": "Titel bovenliggend menu",
+              "info": "Exacte titel van het bovenliggende menu-item"
+            },
+            "image": {
+              "label": "Afbeelding"
+            },
+            "heading": {
+              "label": "Koptekst"
+            },
+            "link": {
+              "label": "Link"
+            },
+            "link_text": {
+              "label": "Linktekst"
+            }
+          }
+        }
       }
     },
     "footer": {
@@ -369,6 +392,30 @@
         "critical_css": {
           "label": "Kritieke CSS inline",
           "info": "Above-the-fold stijlen"
+        }
+      }
+    },
+    "navigation": {
+      "name": "Navigatie",
+      "settings": {
+        "mega_menu_enabled": {
+          "label": "Megamenu activeren"
+        },
+        "predictive_search_enabled": {
+          "label": "Voorspellend zoeken activeren"
+        },
+        "predictive_search_max": {
+          "label": "Max zoekresultaten per type"
+        },
+        "breadcrumbs_enabled": {
+          "label": "Broodkruimels activeren"
+        },
+        "breadcrumbs_style": {
+          "label": "Broodkruimelstijl",
+          "options": {
+            "links": "Klikbare links",
+            "text": "Alleen tekst"
+          }
         }
       }
     }

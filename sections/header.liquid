@@ -1,5 +1,18 @@
 <header class="header" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="header__inner page-width">
+    {%- comment -%} Mobile menu toggle {%- endcomment -%}
+    <button
+      type="button"
+      class="header__menu-toggle"
+      data-mobile-menu-toggle
+      aria-label="{{ 'header.mobile_menu.open' | t }}"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      {% render 'icon', icon: 'menu' %}
+    </button>
+
+    {%- comment -%} Logo {%- endcomment -%}
     {%- if section.settings.logo -%}
       <a href="{{ routes.root_url }}" class="header__logo">
         {{ section.settings.logo | image_url: width: 200 | image_tag:
@@ -15,18 +28,98 @@
       </a>
     {%- endif -%}
 
+    {%- comment -%} Desktop Navigation with Mega Menu {%- endcomment -%}
     <nav class="header__nav" aria-label="{{ 'accessibility.navigation' | t }}">
       {%- for link in section.settings.menu.links -%}
-        <a href="{{ link.url }}" class="header__nav-link{% if link.active %} header__nav-link--active{% endif %}">
-          {{ link.title }}
-        </a>
+        {%- if link.links.size > 0 and settings.mega_menu_enabled -%}
+          <div class="header__nav-item header__nav-item--has-children" data-mega-menu-parent>
+            <button
+              type="button"
+              class="header__nav-link header__nav-link--parent{% if link.active %} header__nav-link--active{% endif %}"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="mega-menu-{{ forloop.index }}"
+            >
+              {{ link.title }}
+              {% render 'icon', icon: 'chevron-down' %}
+            </button>
+
+            <div
+              id="mega-menu-{{ forloop.index }}"
+              class="mega-menu"
+              role="menu"
+              aria-label="{{ link.title }}"
+              data-mega-menu-panel
+            >
+              <div class="mega-menu__inner page-width">
+                {%- comment -%} Level 2 links {%- endcomment -%}
+                {%- for child_link in link.links -%}
+                  <div class="mega-menu__column">
+                    {%- if child_link.links.size > 0 -%}
+                      <span class="mega-menu__heading" role="menuitem">{{ child_link.title }}</span>
+                      <ul class="mega-menu__list" role="menu">
+                        {%- for grandchild in child_link.links -%}
+                          <li role="none">
+                            <a href="{{ grandchild.url }}" class="mega-menu__link" role="menuitem">
+                              {{ grandchild.title }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- else -%}
+                      <a href="{{ child_link.url }}" class="mega-menu__heading mega-menu__heading--link" role="menuitem">
+                        {{ child_link.title }}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+
+                {%- comment -%} Featured content from blocks {%- endcomment -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'mega_featured' and block.settings.parent_menu == link.title -%}
+                    <div class="mega-menu__featured" {{ block.shopify_attributes }}>
+                      {%- if block.settings.image -%}
+                        {% render 'responsive-image',
+                          image: block.settings.image,
+                          max_width: 400,
+                          sizes: '300px',
+                          class: 'mega-menu__featured-image'
+                        %}
+                      {%- endif -%}
+                      {%- if block.settings.heading != blank -%}
+                        <p class="mega-menu__featured-heading">{{ block.settings.heading }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.link != blank -%}
+                        <a href="{{ block.settings.link }}" class="mega-menu__featured-link">
+                          {{ block.settings.link_text | default: 'Shop now' | t }}
+                        </a>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          </div>
+        {%- else -%}
+          <a href="{{ link.url }}" class="header__nav-link{% if link.active %} header__nav-link--active{% endif %}" role="menuitem">
+            {{ link.title }}
+          </a>
+        {%- endif -%}
       {%- endfor -%}
     </nav>
 
+    {%- comment -%} Actions: Search, Account, Cart {%- endcomment -%}
     <div class="header__actions">
-      <a href="{{ routes.search_url }}" class="header__action" aria-label="{{ 'accessibility.search' | t }}">
+      <button
+        type="button"
+        class="header__action"
+        data-search-toggle
+        aria-label="{{ 'accessibility.search' | t }}"
+        aria-expanded="false"
+        aria-controls="predictive-search"
+      >
         {% render 'icon', icon: 'search' %}
-      </a>
+      </button>
       <a href="{{ routes.account_url }}" class="header__action" aria-label="{{ 'accessibility.account' | t }}">
         {% render 'icon', icon: 'account' %}
       </a>
@@ -34,6 +127,74 @@
         {% render 'icon', icon: 'cart' %}
         <span class="header__cart-count" data-cart-count>{{ cart.item_count }}</span>
       </a>
+    </div>
+  </div>
+
+  {%- comment -%} Predictive Search {%- endcomment -%}
+  {% render 'predictive-search' %}
+
+  {%- comment -%} Mobile Menu Drawer {%- endcomment -%}
+  <div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true">
+    <div class="mobile-menu__overlay" data-mobile-menu-close></div>
+    <div class="mobile-menu__panel">
+      <div class="mobile-menu__header">
+        <span class="mobile-menu__title">{{ 'header.mobile_menu.title' | t }}</span>
+        <button type="button" class="mobile-menu__close" data-mobile-menu-close aria-label="{{ 'header.mobile_menu.close' | t }}">
+          {% render 'icon', icon: 'close' %}
+        </button>
+      </div>
+      <nav class="mobile-menu__nav" aria-label="{{ 'accessibility.navigation' | t }}">
+        {%- for link in section.settings.menu.links -%}
+          {%- if link.links.size > 0 -%}
+            <div class="mobile-menu__item mobile-menu__item--has-children" data-mobile-accordion>
+              <button
+                type="button"
+                class="mobile-menu__link mobile-menu__link--parent"
+                aria-expanded="false"
+                data-mobile-accordion-trigger
+              >
+                {{ link.title }}
+                {% render 'icon', icon: 'chevron-down' %}
+              </button>
+              <div class="mobile-menu__submenu" data-mobile-accordion-content hidden>
+                <a href="{{ link.url }}" class="mobile-menu__link mobile-menu__link--view-all">
+                  {{ 'header.mobile_menu.view_all' | t: title: link.title }}
+                </a>
+                {%- for child_link in link.links -%}
+                  {%- if child_link.links.size > 0 -%}
+                    <div class="mobile-menu__sub-item" data-mobile-accordion>
+                      <button
+                        type="button"
+                        class="mobile-menu__link mobile-menu__link--sub-parent"
+                        aria-expanded="false"
+                        data-mobile-accordion-trigger
+                      >
+                        {{ child_link.title }}
+                        {% render 'icon', icon: 'chevron-down' %}
+                      </button>
+                      <div class="mobile-menu__submenu" data-mobile-accordion-content hidden>
+                        {%- for grandchild in child_link.links -%}
+                          <a href="{{ grandchild.url }}" class="mobile-menu__link mobile-menu__link--level3">
+                            {{ grandchild.title }}
+                          </a>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  {%- else -%}
+                    <a href="{{ child_link.url }}" class="mobile-menu__link mobile-menu__link--child">
+                      {{ child_link.title }}
+                    </a>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- else -%}
+            <a href="{{ link.url }}" class="mobile-menu__link">
+              {{ link.title }}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
     </div>
   </div>
 </header>
@@ -59,6 +220,41 @@
       "id": "sticky",
       "label": "t:sections.header.settings.sticky.label",
       "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_featured",
+      "name": "t:sections.header.blocks.mega_featured.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "parent_menu",
+          "label": "t:sections.header.blocks.mega_featured.settings.parent_menu.label",
+          "info": "t:sections.header.blocks.mega_featured.settings.parent_menu.info"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.header.blocks.mega_featured.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.header.blocks.mega_featured.settings.heading.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.header.blocks.mega_featured.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "t:sections.header.blocks.mega_featured.settings.link_text.label",
+          "default": "Shop now"
+        }
+      ]
     }
   ]
 }

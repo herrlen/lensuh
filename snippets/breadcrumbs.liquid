@@ -1,0 +1,70 @@
+{%- comment -%}
+  Breadcrumbs — dynamic, SEO-friendly, responsive.
+  Uses schema-breadcrumb.liquid for Schema.org markup.
+  Mobile: truncated middle elements with "..."
+  Usage: {% render 'breadcrumbs' %}
+{%- endcomment -%}
+
+{%- if settings.breadcrumbs_enabled and template.name != 'index' -%}
+  {%- render 'schema-breadcrumb' -%}
+
+  <nav class="breadcrumbs" aria-label="{{ 'navigation.breadcrumbs' | t }}">
+    <ol class="breadcrumbs__list page-width">
+      <li class="breadcrumbs__item">
+        {%- if settings.breadcrumbs_style == 'links' -%}
+          <a href="{{ routes.root_url }}" class="breadcrumbs__link">{{ shop.name }}</a>
+        {%- else -%}
+          <span class="breadcrumbs__text">{{ shop.name }}</span>
+        {%- endif -%}
+      </li>
+
+      {%- if template.name == 'product' -%}
+        {%- if product.collections.size > 0 -%}
+          {%- assign primary_collection = product.collections.first -%}
+          <li class="breadcrumbs__item breadcrumbs__item--middle">
+            {%- if settings.breadcrumbs_style == 'links' -%}
+              <a href="{{ primary_collection.url }}" class="breadcrumbs__link">{{ primary_collection.title }}</a>
+            {%- else -%}
+              <span class="breadcrumbs__text">{{ primary_collection.title }}</span>
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          <span class="breadcrumbs__text">{{ product.title }}</span>
+        </li>
+
+      {%- elsif template.name == 'collection' -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          <span class="breadcrumbs__text">{{ collection.title }}</span>
+        </li>
+
+      {%- elsif template.name == 'page' -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          <span class="breadcrumbs__text">{{ page.title }}</span>
+        </li>
+
+      {%- elsif template.name == 'blog' -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          <span class="breadcrumbs__text">{{ blog.title }}</span>
+        </li>
+
+      {%- elsif template.name == 'article' -%}
+        <li class="breadcrumbs__item breadcrumbs__item--middle">
+          {%- if settings.breadcrumbs_style == 'links' -%}
+            <a href="{{ blog.url }}" class="breadcrumbs__link">{{ blog.title }}</a>
+          {%- else -%}
+            <span class="breadcrumbs__text">{{ blog.title }}</span>
+          {%- endif -%}
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          <span class="breadcrumbs__text">{{ article.title }}</span>
+        </li>
+
+      {%- elsif template.name == 'search' -%}
+        <li class="breadcrumbs__item breadcrumbs__item--current" aria-current="page">
+          <span class="breadcrumbs__text">{{ 'search.title' | t }}</span>
+        </li>
+      {%- endif -%}
+    </ol>
+  </nav>
+{%- endif -%}

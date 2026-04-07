@@ -108,7 +108,14 @@
     "title": "Search",
     "placeholder": "Search...",
     "no_results": "No results found for \"{{ terms }}\"",
-    "results_count": "{{ count }} results"
+    "results_count": "{{ count }} results",
+    "view_all": "View all results",
+    "types": {
+      "products": "Products",
+      "collections": "Collections",
+      "pages": "Pages",
+      "articles": "Articles"
+    }
   },
   "pages": {
     "title": "Pages"
@@ -131,6 +138,29 @@
         },
         "sticky": {
           "label": "Sticky header"
+        }
+      },
+      "blocks": {
+        "mega_featured": {
+          "name": "Mega menu featured",
+          "settings": {
+            "parent_menu": {
+              "label": "Parent menu title",
+              "info": "Exact title of the parent menu item"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "link": {
+              "label": "Link"
+            },
+            "link_text": {
+              "label": "Link text"
+            }
+          }
         }
       }
     },
@@ -485,6 +515,30 @@
           "info": "Inline above-the-fold styles for faster rendering"
         }
       }
+    },
+    "navigation": {
+      "name": "Navigation",
+      "settings": {
+        "mega_menu_enabled": {
+          "label": "Enable mega menu"
+        },
+        "predictive_search_enabled": {
+          "label": "Enable predictive search"
+        },
+        "predictive_search_max": {
+          "label": "Max search results per type"
+        },
+        "breadcrumbs_enabled": {
+          "label": "Enable breadcrumbs"
+        },
+        "breadcrumbs_style": {
+          "label": "Breadcrumbs style",
+          "options": {
+            "links": "Clickable links",
+            "text": "Plain text"
+          }
+        }
+      }
     }
   },
   "blog": {
@@ -555,5 +609,19 @@
   },
   "seo": {
     "page": "Page {{ number }}"
+  },
+  "header": {
+    "mobile_menu": {
+      "open": "Open menu",
+      "close": "Close menu",
+      "title": "Menu",
+      "view_all": "View all {{ title }}"
+    },
+    "search": {
+      "close": "Close search"
+    }
+  },
+  "navigation": {
+    "breadcrumbs": "Breadcrumbs"
   }
 }

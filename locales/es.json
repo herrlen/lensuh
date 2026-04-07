@@ -108,7 +108,14 @@
     "title": "Búsqueda",
     "placeholder": "Buscar...",
     "no_results": "Sin resultados para \"{{ terms }}\"",
-    "results_count": "{{ count }} resultados"
+    "results_count": "{{ count }} resultados",
+    "view_all": "Ver todos los resultados",
+    "types": {
+      "products": "Productos",
+      "collections": "Colecciones",
+      "pages": "Páginas",
+      "articles": "Artículos"
+    }
   },
   "pages": {
     "title": "Páginas"
@@ -131,6 +138,29 @@
         },
         "sticky": {
           "label": "Encabezado fijo"
+        }
+      },
+      "blocks": {
+        "mega_featured": {
+          "name": "Mega menú destacado",
+          "settings": {
+            "parent_menu": {
+              "label": "Título del menú padre",
+              "info": "Título exacto del elemento de menú padre"
+            },
+            "image": {
+              "label": "Imagen"
+            },
+            "heading": {
+              "label": "Título"
+            },
+            "link": {
+              "label": "Enlace"
+            },
+            "link_text": {
+              "label": "Texto del enlace"
+            }
+          }
         }
       }
     },
@@ -485,6 +515,30 @@
           "info": "Estilos above-the-fold"
         }
       }
+    },
+    "navigation": {
+      "name": "Navegación",
+      "settings": {
+        "mega_menu_enabled": {
+          "label": "Activar mega menú"
+        },
+        "predictive_search_enabled": {
+          "label": "Activar búsqueda predictiva"
+        },
+        "predictive_search_max": {
+          "label": "Resultados máx. por tipo"
+        },
+        "breadcrumbs_enabled": {
+          "label": "Activar migas de pan"
+        },
+        "breadcrumbs_style": {
+          "label": "Estilo migas de pan",
+          "options": {
+            "links": "Enlaces clicables",
+            "text": "Solo texto"
+          }
+        }
+      }
     }
   },
   "blog": {
@@ -555,5 +609,19 @@
   },
   "seo": {
     "page": "Página {{ number }}"
+  },
+  "header": {
+    "mobile_menu": {
+      "open": "Abrir menú",
+      "close": "Cerrar menú",
+      "title": "Menú",
+      "view_all": "Ver todo {{ title }}"
+    },
+    "search": {
+      "close": "Cerrar búsqueda"
+    }
+  },
+  "navigation": {
+    "breadcrumbs": "Migas de pan"
   }
 }
