@@ -1,0 +1,49 @@
+{%- comment -%}
+  Quick Buy Button for Product Cards (Collections, Search).
+  - Without variants: Direct Add-to-Cart
+  - With variants: Opens mini-modal for variant selection
+  - Ajax-based, Toast confirmation or Cart Drawer opens
+  Usage: {% render 'quick-buy-button', product: product %}
+{%- endcomment -%}
+
+{%- if settings.quick_buy_enabled and product.available -%}
+  <div class="quick-buy" data-quick-buy>
+    {%- if product.has_only_default_variant -%}
+      <button
+        type="button"
+        class="quick-buy__btn btn btn--primary"
+        data-quick-add
+        data-variant-id="{{ product.first_available_variant.id }}"
+        aria-label="{{ 'cart.quick_buy.add' | t: title: product.title }}"
+      >
+        {%- case settings.quick_buy_style -%}
+          {%- when 'icon' -%}
+            {% render 'icon', icon: 'cart' %}
+          {%- when 'text' -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- when 'both' -%}
+            {% render 'icon', icon: 'cart' %}
+            <span>{{ 'products.product.add_to_cart' | t }}</span>
+        {%- endcase -%}
+      </button>
+    {%- else -%}
+      <button
+        type="button"
+        class="quick-buy__btn btn btn--primary"
+        data-quick-buy-modal-trigger
+        data-product-url="{{ product.url }}"
+        aria-label="{{ 'cart.quick_buy.choose_options' | t: title: product.title }}"
+      >
+        {%- case settings.quick_buy_style -%}
+          {%- when 'icon' -%}
+            {% render 'icon', icon: 'cart' %}
+          {%- when 'text' -%}
+            {{ 'cart.quick_buy.choose_options_short' | t }}
+          {%- when 'both' -%}
+            {% render 'icon', icon: 'cart' %}
+            <span>{{ 'cart.quick_buy.choose_options_short' | t }}</span>
+        {%- endcase -%}
+      </button>
+    {%- endif -%}
+  </div>
+{%- endif -%}

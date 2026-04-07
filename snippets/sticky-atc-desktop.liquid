@@ -1,0 +1,55 @@
+{%- comment -%}
+  Sticky Add-to-Cart for Desktop — Slim bar at top.
+  Appears when regular ATC scrolls out of viewport.
+  CLS = 0 (position:fixed, no layout shift).
+  Usage: {% render 'sticky-atc-desktop', product: product %}
+{%- endcomment -%}
+
+{%- if product.available and settings.sticky_atc_desktop -%}
+  <div
+    class="sticky-atc-desktop"
+    data-sticky-atc-desktop
+    aria-hidden="true"
+    role="complementary"
+    aria-label="{{ 'cart.sticky_atc.label' | t }}"
+  >
+    <div class="sticky-atc-desktop__inner page-width">
+      {%- if product.featured_image -%}
+        <img
+          src="{{ product.featured_image | image_url: width: 80 }}"
+          alt="{{ product.title | escape }}"
+          width="40"
+          height="40"
+          loading="lazy"
+          class="sticky-atc-desktop__image"
+        >
+      {%- endif -%}
+
+      <span class="sticky-atc-desktop__title">{{ product.title }}</span>
+      <span class="sticky-atc-desktop__price" data-price-wrapper>{{ product.selected_or_first_available_variant.price | money }}</span>
+
+      {%- unless product.has_only_default_variant -%}
+        <select class="sticky-atc-desktop__variant" data-sticky-variant-select aria-label="{{ 'products.product.variant' | t }}">
+          {%- for variant in product.variants -%}
+            <option
+              value="{{ variant.id }}"
+              {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+              {% unless variant.available %}disabled{% endunless %}
+            >
+              {{ variant.title }} — {{ variant.price | money }}
+            </option>
+          {%- endfor -%}
+        </select>
+      {%- endunless -%}
+
+      <button
+        type="button"
+        class="btn btn--primary sticky-atc-desktop__btn"
+        data-sticky-atc-add
+        data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      >
+        {{ 'products.product.add_to_cart' | t }}
+      </button>
+    </div>
+  </div>
+{%- endif -%}

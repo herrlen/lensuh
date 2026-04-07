@@ -58,6 +58,22 @@
       "continue_shopping": "Seguir comprando",
       "remove": "Eliminar",
       "note": "Nota del pedido"
+    },
+    "drawer": {
+      "close": "Cerrar carrito",
+      "decrease": "Disminuir cantidad",
+      "increase": "Aumentar cantidad",
+      "discount_code": "Código de descuento",
+      "discount_placeholder": "Ingresar código",
+      "discount_apply": "Aplicar"
+    },
+    "sticky_atc": {
+      "label": "Añadir al carrito"
+    },
+    "quick_buy": {
+      "add": "Añadir {{ title }} al carrito",
+      "choose_options": "Elegir opciones para {{ title }}",
+      "choose_options_short": "Elegir opciones"
     }
   },
   "collections": {
@@ -269,6 +285,18 @@
       "presets": {
         "name": "Banner de imagen"
       }
+    },
+    "cart_drawer": {
+      "name": "Cajón del carrito",
+      "settings": {
+        "auto_open": {
+          "label": "Abrir tras añadir",
+          "info": "Abrir automáticamente el cajón tras añadir un producto"
+        },
+        "show_discount_field": {
+          "label": "Mostrar campo de código de descuento"
+        }
+      }
     }
   },
   "settings_schema": {
@@ -329,6 +357,28 @@
         "image": {
           "label": "Imagen favicon",
           "info": "32x32px .png recomendado"
+        }
+      }
+    },
+    "cart": {
+      "name": "Carrito",
+      "settings": {
+        "sticky_atc_mobile": {
+          "label": "Botón fijo (móvil)"
+        },
+        "sticky_atc_desktop": {
+          "label": "Botón fijo (escritorio)"
+        },
+        "quick_buy_enabled": {
+          "label": "Activar compra rápida"
+        },
+        "quick_buy_style": {
+          "label": "Estilo compra rápida",
+          "options": {
+            "icon": "Solo icono",
+            "text": "Solo texto",
+            "both": "Icono + Texto"
+          }
         }
       }
     }

@@ -54,8 +54,10 @@
       cartEmpty: {{ 'cart.general.empty' | t | json }},
       cartUpdated: {{ 'cart.general.updated' | t | json }},
       fetchError: {{ 'general.fetch_error' | t | json }},
-      searchNoResults: {{ 'search.no_results' | t | json }}
+      searchNoResults: {{ 'search.no_results' | t | json }},
+      continueShopping: {{ 'cart.general.continue_shopping' | t | json }}
     };
+    window.theme.currency = {{ cart.currency.iso_code | json }};
   </script>
 </head>
 
@@ -72,9 +74,18 @@
 
   {% sections 'footer-group' %}
 
+  {% comment %} Cart Drawer {% endcomment %}
+  {% section 'cart-drawer' %}
+
   {% render 'toast' %}
+
+  {% comment %} Cart Drawer CSS (async) {% endcomment %}
+  <link rel="preload" href="{{ 'cart-drawer.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'cart-drawer.css' | asset_url }}"></noscript>
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
+  <script src="{{ 'cart-atc.js' | asset_url }}" defer></script>
 </body>
 </html>

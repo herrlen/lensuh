@@ -192,6 +192,18 @@
       "presets": {
         "name": "Afbeeldingsbanner"
       }
+    },
+    "cart_drawer": {
+      "name": "Winkelwagenlade",
+      "settings": {
+        "auto_open": {
+          "label": "Openen na toevoegen",
+          "info": "Automatisch de lade openen na het toevoegen van een product"
+        },
+        "show_discount_field": {
+          "label": "Kortingscodeveld tonen"
+        }
+      }
     }
   },
   "settings_schema": {
@@ -252,6 +264,28 @@
         "image": {
           "label": "Favicon-afbeelding",
           "info": "32x32px .png aanbevolen"
+        }
+      }
+    },
+    "cart": {
+      "name": "Winkelwagen",
+      "settings": {
+        "sticky_atc_mobile": {
+          "label": "Vaste knop (mobiel)"
+        },
+        "sticky_atc_desktop": {
+          "label": "Vaste knop (desktop)"
+        },
+        "quick_buy_enabled": {
+          "label": "Snel kopen activeren"
+        },
+        "quick_buy_style": {
+          "label": "Stijl snel kopen",
+          "options": {
+            "icon": "Alleen icoon",
+            "text": "Alleen tekst",
+            "both": "Icoon + Tekst"
+          }
         }
       }
     }

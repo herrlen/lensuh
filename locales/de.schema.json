@@ -192,6 +192,18 @@
       "presets": {
         "name": "Bild-Banner"
       }
+    },
+    "cart_drawer": {
+      "name": "Warenkorb-Drawer",
+      "settings": {
+        "auto_open": {
+          "label": "Nach Hinzufügen öffnen",
+          "info": "Warenkorb-Drawer automatisch öffnen nach Hinzufügen eines Produkts"
+        },
+        "show_discount_field": {
+          "label": "Rabattcode-Feld anzeigen"
+        }
+      }
     }
   },
   "settings_schema": {
@@ -252,6 +264,28 @@
         "image": {
           "label": "Favicon-Bild",
           "info": "32x32px .png empfohlen"
+        }
+      }
+    },
+    "cart": {
+      "name": "Warenkorb",
+      "settings": {
+        "sticky_atc_mobile": {
+          "label": "Sticky Warenkorb-Button (mobil)"
+        },
+        "sticky_atc_desktop": {
+          "label": "Sticky Warenkorb-Button (Desktop)"
+        },
+        "quick_buy_enabled": {
+          "label": "Schnellkauf aktivieren"
+        },
+        "quick_buy_style": {
+          "label": "Schnellkauf-Stil",
+          "options": {
+            "icon": "Nur Icon",
+            "text": "Nur Text",
+            "both": "Icon + Text"
+          }
         }
       }
     }

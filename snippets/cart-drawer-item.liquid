@@ -1,0 +1,75 @@
+{%- comment -%}
+  Single cart line item inside the Cart Drawer.
+  Usage: {% render 'cart-drawer-item', item: item %}
+{%- endcomment -%}
+
+<div class="cart-drawer-item" data-cart-item data-line-key="{{ item.key }}">
+  <div class="cart-drawer-item__media">
+    {%- if item.image -%}
+      {% render 'responsive-image',
+        image: item.image,
+        max_width: 150,
+        sizes: '75px',
+        alt: item.product.title,
+        class: 'cart-drawer-item__image'
+      %}
+    {%- endif -%}
+  </div>
+
+  <div class="cart-drawer-item__info">
+    <a href="{{ item.url }}" class="cart-drawer-item__title">
+      {{ item.product.title }}
+    </a>
+    {%- unless item.product.has_only_default_variant -%}
+      <p class="cart-drawer-item__variant">{{ item.variant.title }}</p>
+    {%- endunless -%}
+
+    {%- if item.properties.size > 0 -%}
+      <ul class="cart-drawer-item__properties">
+        {%- for property in item.properties -%}
+          {%- unless property.last == blank -%}
+            <li>{{ property.first }}: {{ property.last }}</li>
+          {%- endunless -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <p class="cart-drawer-item__price" data-price-wrapper data-item-price>
+      {{ item.final_line_price | money }}
+    </p>
+
+    <div class="cart-drawer-item__quantity">
+      <button
+        type="button"
+        class="cart-drawer-item__qty-btn"
+        data-qty-minus
+        aria-label="{{ 'cart.drawer.decrease' | t }}"
+      >−</button>
+      <input
+        type="number"
+        value="{{ item.quantity }}"
+        min="0"
+        data-qty-input
+        data-line-key="{{ item.key }}"
+        aria-label="{{ 'products.product.quantity' | t }}"
+        class="cart-drawer-item__qty-input"
+      >
+      <button
+        type="button"
+        class="cart-drawer-item__qty-btn"
+        data-qty-plus
+        aria-label="{{ 'cart.drawer.increase' | t }}"
+      >+</button>
+    </div>
+
+    <button
+      type="button"
+      class="cart-drawer-item__remove"
+      data-remove-item
+      data-line-key="{{ item.key }}"
+      aria-label="{{ 'cart.general.remove' | t }}"
+    >
+      {{ 'cart.general.remove' | t }}
+    </button>
+  </div>
+</div>

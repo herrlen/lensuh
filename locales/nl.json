@@ -58,6 +58,22 @@
       "continue_shopping": "Verder winkelen",
       "remove": "Verwijderen",
       "note": "Opmerking bij bestelling"
+    },
+    "drawer": {
+      "close": "Winkelwagen sluiten",
+      "decrease": "Aantal verlagen",
+      "increase": "Aantal verhogen",
+      "discount_code": "Kortingscode",
+      "discount_placeholder": "Code invoeren",
+      "discount_apply": "Toepassen"
+    },
+    "sticky_atc": {
+      "label": "In winkelwagen"
+    },
+    "quick_buy": {
+      "add": "{{ title }} toevoegen aan winkelwagen",
+      "choose_options": "Opties kiezen voor {{ title }}",
+      "choose_options_short": "Opties kiezen"
     }
   },
   "collections": {
@@ -269,6 +285,18 @@
       "presets": {
         "name": "Afbeeldingsbanner"
       }
+    },
+    "cart_drawer": {
+      "name": "Winkelwagenlade",
+      "settings": {
+        "auto_open": {
+          "label": "Openen na toevoegen",
+          "info": "Automatisch de lade openen na het toevoegen van een product"
+        },
+        "show_discount_field": {
+          "label": "Kortingscodeveld tonen"
+        }
+      }
     }
   },
   "settings_schema": {
@@ -329,6 +357,28 @@
         "image": {
           "label": "Favicon-afbeelding",
           "info": "32x32px .png aanbevolen"
+        }
+      }
+    },
+    "cart": {
+      "name": "Winkelwagen",
+      "settings": {
+        "sticky_atc_mobile": {
+          "label": "Vaste knop (mobiel)"
+        },
+        "sticky_atc_desktop": {
+          "label": "Vaste knop (desktop)"
+        },
+        "quick_buy_enabled": {
+          "label": "Snel kopen activeren"
+        },
+        "quick_buy_style": {
+          "label": "Stijl snel kopen",
+          "options": {
+            "icon": "Alleen icoon",
+            "text": "Alleen tekst",
+            "both": "Icoon + Tekst"
+          }
         }
       }
     }

@@ -58,6 +58,22 @@
       "continue_shopping": "Continua gli acquisti",
       "remove": "Rimuovi",
       "note": "Nota dell'ordine"
+    },
+    "drawer": {
+      "close": "Chiudi carrello",
+      "decrease": "Diminuisci quantità",
+      "increase": "Aumenta quantità",
+      "discount_code": "Codice sconto",
+      "discount_placeholder": "Inserisci codice",
+      "discount_apply": "Applica"
+    },
+    "sticky_atc": {
+      "label": "Aggiungi al carrello"
+    },
+    "quick_buy": {
+      "add": "Aggiungi {{ title }} al carrello",
+      "choose_options": "Scegli opzioni per {{ title }}",
+      "choose_options_short": "Scegli opzioni"
     }
   },
   "collections": {
@@ -269,6 +285,18 @@
       "presets": {
         "name": "Banner immagine"
       }
+    },
+    "cart_drawer": {
+      "name": "Cassetto carrello",
+      "settings": {
+        "auto_open": {
+          "label": "Apri dopo aggiunta",
+          "info": "Aprire automaticamente il cassetto dopo l'aggiunta di un prodotto"
+        },
+        "show_discount_field": {
+          "label": "Mostra campo codice sconto"
+        }
+      }
     }
   },
   "settings_schema": {
@@ -329,6 +357,28 @@
         "image": {
           "label": "Immagine favicon",
           "info": "32x32px .png consigliato"
+        }
+      }
+    },
+    "cart": {
+      "name": "Carrello",
+      "settings": {
+        "sticky_atc_mobile": {
+          "label": "Pulsante fisso (mobile)"
+        },
+        "sticky_atc_desktop": {
+          "label": "Pulsante fisso (desktop)"
+        },
+        "quick_buy_enabled": {
+          "label": "Attiva acquisto rapido"
+        },
+        "quick_buy_style": {
+          "label": "Stile acquisto rapido",
+          "options": {
+            "icon": "Solo icona",
+            "text": "Solo testo",
+            "both": "Icona + Testo"
+          }
         }
       }
     }

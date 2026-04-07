@@ -1,0 +1,114 @@
+{%- comment -%}
+  Cart Drawer — Slide-in from right.
+  Opens on Add-to-Cart via Event-Bus: theme.subscribe('cart:item-added')
+  Ajax API: /cart.js, /cart/add.js, /cart/change.js
+{%- endcomment -%}
+
+<div
+  id="cart-drawer"
+  class="cart-drawer"
+  data-section-id="{{ section.id }}"
+  data-section-type="cart-drawer"
+  aria-modal="true"
+  role="dialog"
+  aria-label="{{ 'cart.general.title' | t }}"
+  aria-hidden="true"
+>
+  <div class="cart-drawer__overlay" data-cart-drawer-close></div>
+
+  <div class="cart-drawer__panel">
+    {% render 'focus-trap', type: 'start' %}
+
+    <header class="cart-drawer__header">
+      <h2 class="cart-drawer__title">{{ 'cart.general.title' | t }}</h2>
+      <button
+        type="button"
+        class="cart-drawer__close"
+        data-cart-drawer-close
+        aria-label="{{ 'cart.drawer.close' | t }}"
+      >
+        {% render 'icon', icon: 'close' %}
+      </button>
+    </header>
+
+    <div class="cart-drawer__body" data-cart-drawer-body aria-live="polite">
+      {%- if cart.item_count > 0 -%}
+        <div class="cart-drawer__items" data-cart-drawer-items>
+          {%- for item in cart.items -%}
+            {% render 'cart-drawer-item', item: item %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="cart-drawer__empty" data-cart-drawer-empty>
+          <p>{{ 'cart.general.empty' | t }}</p>
+          <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" data-cart-drawer-close>
+            {{ 'cart.general.continue_shopping' | t }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if cart.item_count > 0 -%}
+      <div class="cart-drawer__note">
+        <label for="cart-note" class="cart-drawer__note-label">{{ 'cart.general.note' | t }}</label>
+        <textarea
+          id="cart-note"
+          class="cart-drawer__note-input"
+          name="note"
+          data-cart-note
+        >{{ cart.note }}</textarea>
+      </div>
+    {%- endif -%}
+
+    <footer class="cart-drawer__footer" data-cart-drawer-footer {% if cart.item_count == 0 %}hidden{% endif %}>
+      <div class="cart-drawer__subtotal">
+        <span>{{ 'cart.general.subtotal' | t }}</span>
+        <span data-cart-drawer-subtotal data-price-wrapper>{{ cart.total_price | money }}</span>
+      </div>
+
+      {%- if section.settings.show_discount_field -%}
+        <details class="cart-drawer__discount">
+          <summary>{{ 'cart.drawer.discount_code' | t }}</summary>
+          <div class="cart-drawer__discount-field">
+            <input type="text" placeholder="{{ 'cart.drawer.discount_placeholder' | t }}" data-discount-input>
+            <button type="button" class="btn btn--secondary" data-discount-apply>
+              {{ 'cart.drawer.discount_apply' | t }}
+            </button>
+          </div>
+        </details>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}/checkout" class="btn btn--primary cart-drawer__checkout">
+        {{ 'cart.general.checkout' | t }}
+      </a>
+      <button type="button" class="cart-drawer__continue" data-cart-drawer-close>
+        {{ 'cart.general.continue_shopping' | t }}
+      </button>
+    </footer>
+
+    {% render 'focus-trap', type: 'end' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.cart_drawer.name",
+  "class": "section-cart-drawer",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "auto_open",
+      "label": "t:sections.cart_drawer.settings.auto_open.label",
+      "info": "t:sections.cart_drawer.settings.auto_open.info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount_field",
+      "label": "t:sections.cart_drawer.settings.show_discount_field.label",
+      "default": false
+    }
+  ]
+}
+{% endschema %}

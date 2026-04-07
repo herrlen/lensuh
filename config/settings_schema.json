@@ -126,6 +126,40 @@
     ]
   },
   {
+    "name": "t:settings_schema.cart.name",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sticky_atc_mobile",
+        "label": "t:settings_schema.cart.settings.sticky_atc_mobile.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sticky_atc_desktop",
+        "label": "t:settings_schema.cart.settings.sticky_atc_desktop.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "quick_buy_enabled",
+        "label": "t:settings_schema.cart.settings.quick_buy_enabled.label",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "quick_buy_style",
+        "label": "t:settings_schema.cart.settings.quick_buy_style.label",
+        "options": [
+          { "value": "icon", "label": "t:settings_schema.cart.settings.quick_buy_style.options.icon" },
+          { "value": "text", "label": "t:settings_schema.cart.settings.quick_buy_style.options.text" },
+          { "value": "both", "label": "t:settings_schema.cart.settings.quick_buy_style.options.both" }
+        ],
+        "default": "both"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.favicon.name",
     "settings": [
       {
