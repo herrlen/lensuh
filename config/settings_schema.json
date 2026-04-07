@@ -379,6 +379,123 @@
     ]
   },
   {
+    "name": "t:settings_schema.trust.name",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "trust_badges_enabled",
+        "label": "t:settings_schema.trust.settings.enabled.label",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "trust_badges_layout",
+        "label": "t:settings_schema.trust.settings.layout.label",
+        "options": [
+          { "value": "horizontal", "label": "t:settings_schema.trust.settings.layout.options.horizontal" },
+          { "value": "vertical", "label": "t:settings_schema.trust.settings.layout.options.vertical" }
+        ],
+        "default": "horizontal"
+      },
+      {
+        "type": "checkbox",
+        "id": "trust_badge_secure_payment",
+        "label": "t:settings_schema.trust.settings.secure_payment.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "trust_badge_free_shipping",
+        "label": "t:settings_schema.trust.settings.free_shipping.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "trust_badge_money_back",
+        "label": "t:settings_schema.trust.settings.money_back.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "trust_badge_fast_delivery",
+        "label": "t:settings_schema.trust.settings.fast_delivery.label",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "trust_badge_ssl",
+        "label": "t:settings_schema.trust.settings.ssl.label",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "trust_badge_made_in",
+        "label": "t:settings_schema.trust.settings.made_in.label",
+        "info": "t:settings_schema.trust.settings.made_in.info"
+      },
+      {
+        "type": "image_picker",
+        "id": "trust_badge_custom_image",
+        "label": "t:settings_schema.trust.settings.custom_image.label"
+      },
+      {
+        "type": "text",
+        "id": "trust_badge_custom_text",
+        "label": "t:settings_schema.trust.settings.custom_text.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "trust_show_payment_icons",
+        "label": "t:settings_schema.trust.settings.payment_icons.label",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.trust.settings.product_badges_header"
+      },
+      {
+        "type": "select",
+        "id": "product_badge_position",
+        "label": "t:settings_schema.trust.settings.badge_position.label",
+        "options": [
+          { "value": "top-left", "label": "t:settings_schema.trust.settings.badge_position.options.top_left" },
+          { "value": "top-right", "label": "t:settings_schema.trust.settings.badge_position.options.top_right" }
+        ],
+        "default": "top-left"
+      },
+      {
+        "type": "range",
+        "id": "product_badge_new_days",
+        "label": "t:settings_schema.trust.settings.new_days.label",
+        "info": "t:settings_schema.trust.settings.new_days.info",
+        "min": 0,
+        "max": 90,
+        "step": 1,
+        "default": 30
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.trust.settings.stock_header"
+      },
+      {
+        "type": "checkbox",
+        "id": "stock_indicator_enabled",
+        "label": "t:settings_schema.trust.settings.stock_enabled.label",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "stock_indicator_threshold",
+        "label": "t:settings_schema.trust.settings.stock_threshold.label",
+        "info": "t:settings_schema.trust.settings.stock_threshold.info",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "default": 5
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.favicon.name",
     "settings": [
       {

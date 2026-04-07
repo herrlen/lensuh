@@ -1,0 +1,45 @@
+{%- comment -%}
+  Stock Indicator — REAL inventory data only.
+  NO fake/simulated numbers. Theme Store Req. 8.
+  Color-coded: Green (in stock), Orange (low), Red (out of stock).
+  Threshold configurable via Settings.
+  Usage: {% render 'stock-indicator', product: product, variant: variant %}
+{%- endcomment -%}
+
+{%- if settings.stock_indicator_enabled -%}
+  {%- liquid
+    assign check_variant = variant | default: product.selected_or_first_available_variant
+    assign stock_threshold = settings.stock_indicator_threshold | default: 5
+    assign stock_status = 'in_stock'
+    assign show_quantity = false
+
+    if check_variant.inventory_management == 'shopify'
+      if check_variant.inventory_quantity <= 0
+        if check_variant.available
+          assign stock_status = 'pre_order'
+        else
+          assign stock_status = 'out_of_stock'
+        endif
+      elsif check_variant.inventory_quantity <= stock_threshold
+        assign stock_status = 'low_stock'
+        assign show_quantity = true
+      endif
+    endif
+  -%}
+
+  <div class="stock-indicator stock-indicator--{{ stock_status }}" aria-live="polite">
+    <span class="stock-indicator__dot"></span>
+    <span class="stock-indicator__text">
+      {%- case stock_status -%}
+        {%- when 'in_stock' -%}
+          {{ 'products.stock.in_stock' | t }}
+        {%- when 'low_stock' -%}
+          {{ 'products.stock.low_stock' | t: count: check_variant.inventory_quantity }}
+        {%- when 'out_of_stock' -%}
+          {{ 'products.stock.out_of_stock' | t }}
+        {%- when 'pre_order' -%}
+          {{ 'products.pre_order.badge' | t }}
+      {%- endcase -%}
+    </span>
+  </div>
+{%- endif -%}

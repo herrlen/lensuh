@@ -227,6 +227,36 @@
           "label": "Kortingscodeveld tonen"
         }
       }
+    },
+    "trust_global": {
+      "name": "Vertrouwensbadges",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        }
+      },
+      "blocks": {
+        "badge": {
+          "name": "Badge",
+          "settings": {
+            "image": {
+              "label": "Logo/Afbeelding"
+            },
+            "text": {
+              "label": "Tekst"
+            },
+            "alt": {
+              "label": "Alt-tekst"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Vertrouwensbadges"
+      }
     }
   },
   "settings_schema": {
@@ -436,6 +466,69 @@
             "always": "Altijd zichtbaar",
             "scroll_up": "Alleen bij omhoog scrollen"
           }
+        }
+      }
+    },
+    "trust": {
+      "name": "Vertrouwen & Badges",
+      "settings": {
+        "enabled": {
+          "label": "Badges activeren"
+        },
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "horizontal": "Horizontaal",
+            "vertical": "Verticaal"
+          }
+        },
+        "secure_payment": {
+          "label": "Veilig betalen"
+        },
+        "free_shipping": {
+          "label": "Gratis verzending"
+        },
+        "money_back": {
+          "label": "Geld-terug-garantie"
+        },
+        "fast_delivery": {
+          "label": "Snelle levering"
+        },
+        "ssl": {
+          "label": "SSL"
+        },
+        "made_in": {
+          "label": "Gemaakt in (land)",
+          "info": "Leeg laten om te verbergen"
+        },
+        "custom_image": {
+          "label": "Aangepast badge-icoon"
+        },
+        "custom_text": {
+          "label": "Aangepaste badge-tekst"
+        },
+        "payment_icons": {
+          "label": "Betaaliconen tonen"
+        },
+        "product_badges_header": "Productbadges",
+        "badge_position": {
+          "label": "Badgepositie",
+          "options": {
+            "top_left": "Linksboven",
+            "top_right": "Rechtsboven"
+          }
+        },
+        "new_days": {
+          "label": "Dagen \"Nieuw\" badge",
+          "info": "0 = uitgeschakeld"
+        },
+        "stock_header": "Voorraad indicator",
+        "stock_enabled": {
+          "label": "Voorraad tonen"
+        },
+        "stock_threshold": {
+          "label": "Drempel lage voorraad",
+          "info": "\"Nog maar X\" wanneer voorraad gelijk of lager is"
         }
       }
     }

@@ -1,0 +1,59 @@
+{%- comment -%}
+  Product Badges — Sale, New, Sold Out, Custom (Metafield).
+  Position: Top-Left or Top-Right (from Settings).
+  NO fake/simulated data — Theme Store Req. 8.
+  Usage: {% render 'product-badges', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  assign badge_position = settings.product_badge_position | default: 'top-left'
+  assign show_sale = false
+  assign show_new = false
+  assign show_sold_out = false
+  assign custom_badge = product.metafields.custom.badge.value
+
+  if product.compare_at_price > product.price
+    assign show_sale = true
+  endif
+
+  if settings.product_badge_new_days > 0
+    assign now_timestamp = 'now' | date: '%s' | times: 1
+    assign published_timestamp = product.published_at | date: '%s' | times: 1
+    assign diff_seconds = now_timestamp | minus: published_timestamp
+    assign diff_days = diff_seconds | divided_by: 86400
+    if diff_days <= settings.product_badge_new_days
+      assign show_new = true
+    endif
+  endif
+
+  if product.available == false
+    assign show_sold_out = true
+  endif
+-%}
+
+{%- if show_sale or show_new or show_sold_out or custom_badge != blank -%}
+  <div class="product-badges product-badges--{{ badge_position }}">
+    {%- if show_sold_out -%}
+      <span class="product-badge product-badge--sold-out">
+        {{ 'products.badges.sold_out' | t }}
+      </span>
+    {%- elsif show_sale -%}
+      {%- assign save_percent = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price -%}
+      <span class="product-badge product-badge--sale">
+        {{ 'products.badges.sale' | t }} -{{ save_percent }}%
+      </span>
+    {%- endif -%}
+
+    {%- if show_new and show_sold_out == false -%}
+      <span class="product-badge product-badge--new">
+        {{ 'products.badges.new' | t }}
+      </span>
+    {%- endif -%}
+
+    {%- if custom_badge != blank -%}
+      <span class="product-badge product-badge--custom">
+        {{ custom_badge }}
+      </span>
+    {%- endif -%}
+  </div>
+{%- endif -%}

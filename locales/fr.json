@@ -55,6 +55,16 @@
     "pickup": {
       "available": "Disponible en retrait",
       "unavailable": "Non disponible en retrait"
+    },
+    "badges": {
+      "sale": "Promo",
+      "new": "Nouveau",
+      "sold_out": "Épuisé"
+    },
+    "stock": {
+      "in_stock": "En stock",
+      "low_stock": "Plus que {{ count }} en stock",
+      "out_of_stock": "Rupture de stock"
     }
   },
   "cart": {
@@ -360,6 +370,36 @@
           "label": "Afficher le champ code de réduction"
         }
       }
+    },
+    "trust_global": {
+      "name": "Badges de confiance",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        }
+      },
+      "blocks": {
+        "badge": {
+          "name": "Badge",
+          "settings": {
+            "image": {
+              "label": "Logo/Image"
+            },
+            "text": {
+              "label": "Texte"
+            },
+            "alt": {
+              "label": "Texte alternatif"
+            },
+            "link": {
+              "label": "Lien"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Badges de confiance"
+      }
     }
   },
   "settings_schema": {
@@ -571,6 +611,69 @@
           }
         }
       }
+    },
+    "trust": {
+      "name": "Confiance & Badges",
+      "settings": {
+        "enabled": {
+          "label": "Activer les badges"
+        },
+        "layout": {
+          "label": "Disposition",
+          "options": {
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          }
+        },
+        "secure_payment": {
+          "label": "Paiement sécurisé"
+        },
+        "free_shipping": {
+          "label": "Livraison gratuite"
+        },
+        "money_back": {
+          "label": "Garantie remboursement"
+        },
+        "fast_delivery": {
+          "label": "Livraison rapide"
+        },
+        "ssl": {
+          "label": "SSL"
+        },
+        "made_in": {
+          "label": "Fabriqué en (pays)",
+          "info": "Laisser vide pour masquer"
+        },
+        "custom_image": {
+          "label": "Icône badge personnalisé"
+        },
+        "custom_text": {
+          "label": "Texte badge personnalisé"
+        },
+        "payment_icons": {
+          "label": "Afficher les icônes de paiement"
+        },
+        "product_badges_header": "Badges produit",
+        "badge_position": {
+          "label": "Position du badge",
+          "options": {
+            "top_left": "Haut gauche",
+            "top_right": "Haut droite"
+          }
+        },
+        "new_days": {
+          "label": "Jours badge \"Nouveau\"",
+          "info": "0 = désactivé"
+        },
+        "stock_header": "Indicateur de stock",
+        "stock_enabled": {
+          "label": "Afficher le stock"
+        },
+        "stock_threshold": {
+          "label": "Seuil stock faible",
+          "info": "\"Plus que X\" quand le stock est en dessous"
+        }
+      }
     }
   },
   "blog": {
@@ -655,5 +758,13 @@
   },
   "navigation": {
     "breadcrumbs": "Fil d'Ariane"
+  },
+  "trust": {
+    "secure_payment": "Paiement sécurisé",
+    "free_shipping": "Livraison gratuite",
+    "money_back": "Garantie remboursement",
+    "fast_delivery": "Livraison rapide",
+    "ssl": "Chiffrement SSL",
+    "made_in": "Fabriqué en {{ country }}"
   }
 }

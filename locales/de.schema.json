@@ -227,6 +227,36 @@
           "label": "Rabattcode-Feld anzeigen"
         }
       }
+    },
+    "trust_global": {
+      "name": "Trust-Badges",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        }
+      },
+      "blocks": {
+        "badge": {
+          "name": "Badge",
+          "settings": {
+            "image": {
+              "label": "Logo/Bild"
+            },
+            "text": {
+              "label": "Text"
+            },
+            "alt": {
+              "label": "Alt-Text"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Trust-Badges"
+      }
     }
   },
   "settings_schema": {
@@ -436,6 +466,69 @@
             "always": "Immer sichtbar",
             "scroll_up": "Nur beim Hochscrollen"
           }
+        }
+      }
+    },
+    "trust": {
+      "name": "Trust & Badges",
+      "settings": {
+        "enabled": {
+          "label": "Trust-Badges aktivieren"
+        },
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "horizontal": "Horizontal",
+            "vertical": "Vertikal"
+          }
+        },
+        "secure_payment": {
+          "label": "Sichere Zahlung"
+        },
+        "free_shipping": {
+          "label": "Kostenloser Versand"
+        },
+        "money_back": {
+          "label": "Geld-zurück-Garantie"
+        },
+        "fast_delivery": {
+          "label": "Schnelle Lieferung"
+        },
+        "ssl": {
+          "label": "SSL-verschlüsselt"
+        },
+        "made_in": {
+          "label": "Hergestellt in (Land)",
+          "info": "Leer lassen zum Ausblenden"
+        },
+        "custom_image": {
+          "label": "Eigenes Badge-Icon"
+        },
+        "custom_text": {
+          "label": "Eigener Badge-Text"
+        },
+        "payment_icons": {
+          "label": "Zahlungsmethoden-Icons anzeigen"
+        },
+        "product_badges_header": "Produkt-Badges",
+        "badge_position": {
+          "label": "Badge-Position",
+          "options": {
+            "top_left": "Oben links",
+            "top_right": "Oben rechts"
+          }
+        },
+        "new_days": {
+          "label": "\"Neu\"-Badge Tage",
+          "info": "Produkte neuer als X Tage erhalten ein Neu-Badge. 0 = deaktiviert"
+        },
+        "stock_header": "Lagerbestand",
+        "stock_enabled": {
+          "label": "Lagerbestand anzeigen"
+        },
+        "stock_threshold": {
+          "label": "Niedriger-Bestand-Schwelle",
+          "info": "\"Nur noch X verfügbar\" wenn Bestand gleich oder unter dieser Zahl"
         }
       }
     }

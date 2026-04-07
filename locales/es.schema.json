@@ -227,6 +227,36 @@
           "label": "Mostrar campo de código de descuento"
         }
       }
+    },
+    "trust_global": {
+      "name": "Insignias de confianza",
+      "settings": {
+        "heading": {
+          "label": "Título"
+        }
+      },
+      "blocks": {
+        "badge": {
+          "name": "Insignia",
+          "settings": {
+            "image": {
+              "label": "Logo/Imagen"
+            },
+            "text": {
+              "label": "Texto"
+            },
+            "alt": {
+              "label": "Texto alternativo"
+            },
+            "link": {
+              "label": "Enlace"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Insignias de confianza"
+      }
     }
   },
   "settings_schema": {
@@ -436,6 +466,69 @@
             "always": "Siempre visible",
             "scroll_up": "Solo al desplazar hacia arriba"
           }
+        }
+      }
+    },
+    "trust": {
+      "name": "Confianza & Insignias",
+      "settings": {
+        "enabled": {
+          "label": "Activar insignias"
+        },
+        "layout": {
+          "label": "Diseño",
+          "options": {
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          }
+        },
+        "secure_payment": {
+          "label": "Pago seguro"
+        },
+        "free_shipping": {
+          "label": "Envío gratis"
+        },
+        "money_back": {
+          "label": "Garantía de devolución"
+        },
+        "fast_delivery": {
+          "label": "Entrega rápida"
+        },
+        "ssl": {
+          "label": "SSL"
+        },
+        "made_in": {
+          "label": "Fabricado en (país)",
+          "info": "Dejar vacío para ocultar"
+        },
+        "custom_image": {
+          "label": "Icono personalizado"
+        },
+        "custom_text": {
+          "label": "Texto personalizado"
+        },
+        "payment_icons": {
+          "label": "Mostrar iconos de pago"
+        },
+        "product_badges_header": "Insignias de producto",
+        "badge_position": {
+          "label": "Posición",
+          "options": {
+            "top_left": "Arriba izquierda",
+            "top_right": "Arriba derecha"
+          }
+        },
+        "new_days": {
+          "label": "Días badge \"Nuevo\"",
+          "info": "0 = desactivado"
+        },
+        "stock_header": "Indicador de stock",
+        "stock_enabled": {
+          "label": "Mostrar stock"
+        },
+        "stock_threshold": {
+          "label": "Umbral stock bajo",
+          "info": "\"Solo quedan X\" cuando el stock está por debajo"
         }
       }
     }

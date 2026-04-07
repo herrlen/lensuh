@@ -1,0 +1,86 @@
+{%- comment -%}
+  Global Trust Badges Section — for footer or any page.
+  Partner logos, certifications, grid layout.
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+  <section class="trust-global" data-section-id="{{ section.id }}">
+    <div class="trust-global__inner page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="trust-global__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      <div class="trust-global__grid">
+        {%- for block in section.blocks -%}
+          <div class="trust-global__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 200 }}"
+                alt="{{ block.settings.alt | default: block.settings.text | escape }}"
+                width="100"
+                height="auto"
+                loading="lazy"
+                class="trust-global__logo"
+              >
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <span class="trust-global__text">{{ block.settings.text }}</span>
+            {%- endif -%}
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" class="trust-global__link" aria-label="{{ block.settings.text | escape }}">
+                <span class="visually-hidden">{{ block.settings.text }}</span>
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.trust_global.name",
+  "class": "section-trust-global",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.trust_global.settings.heading.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "t:sections.trust_global.blocks.badge.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.trust_global.blocks.badge.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.trust_global.blocks.badge.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "t:sections.trust_global.blocks.badge.settings.alt.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.trust_global.blocks.badge.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.trust_global.presets.name"
+    }
+  ]
+}
+{% endschema %}

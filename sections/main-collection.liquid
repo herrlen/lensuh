@@ -179,6 +179,7 @@
               <div class="main-collection__item" role="listitem">
                 <a href="{{ product.url }}" class="main-collection__card">
                   <div class="main-collection__card-media">
+                    {% render 'product-badges', product: product %}
                     {%- if product.featured_image -%}
                       {% render 'responsive-image',
                         image: product.featured_image,

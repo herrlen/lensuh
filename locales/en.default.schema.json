@@ -227,6 +227,36 @@
           "label": "Show discount code field"
         }
       }
+    },
+    "trust_global": {
+      "name": "Trust badges",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        }
+      },
+      "blocks": {
+        "badge": {
+          "name": "Badge",
+          "settings": {
+            "image": {
+              "label": "Logo/Image"
+            },
+            "text": {
+              "label": "Text"
+            },
+            "alt": {
+              "label": "Alt text"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Trust badges"
+      }
     }
   },
   "settings_schema": {
@@ -436,6 +466,69 @@
             "always": "Always visible",
             "scroll_up": "Show on scroll up only"
           }
+        }
+      }
+    },
+    "trust": {
+      "name": "Trust & Badges",
+      "settings": {
+        "enabled": {
+          "label": "Enable trust badges"
+        },
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "horizontal": "Horizontal",
+            "vertical": "Vertical"
+          }
+        },
+        "secure_payment": {
+          "label": "Secure payment"
+        },
+        "free_shipping": {
+          "label": "Free shipping"
+        },
+        "money_back": {
+          "label": "Money-back guarantee"
+        },
+        "fast_delivery": {
+          "label": "Fast delivery"
+        },
+        "ssl": {
+          "label": "SSL encrypted"
+        },
+        "made_in": {
+          "label": "Made in (country)",
+          "info": "Leave empty to hide"
+        },
+        "custom_image": {
+          "label": "Custom badge icon"
+        },
+        "custom_text": {
+          "label": "Custom badge text"
+        },
+        "payment_icons": {
+          "label": "Show payment method icons"
+        },
+        "product_badges_header": "Product badges",
+        "badge_position": {
+          "label": "Badge position",
+          "options": {
+            "top_left": "Top left",
+            "top_right": "Top right"
+          }
+        },
+        "new_days": {
+          "label": "\"New\" badge days",
+          "info": "Products newer than X days get a New badge. 0 = disabled"
+        },
+        "stock_header": "Stock indicator",
+        "stock_enabled": {
+          "label": "Show stock indicator"
+        },
+        "stock_threshold": {
+          "label": "Low stock threshold",
+          "info": "Show \"Only X left\" when stock is at or below this number"
         }
       }
     }
