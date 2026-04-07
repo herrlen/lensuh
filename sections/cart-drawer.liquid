@@ -31,6 +31,8 @@
       </button>
     </header>
 
+    {% render 'free-shipping-bar' %}
+
     <div class="cart-drawer__body" data-cart-drawer-body aria-live="polite">
       {%- if cart.item_count > 0 -%}
         <div class="cart-drawer__items" data-cart-drawer-items>
@@ -82,6 +84,8 @@
     </div>
 
     {%- if cart.item_count > 0 -%}
+      {% render 'gift-wrapping' %}
+
       <div class="cart-drawer__note">
         <label for="cart-note" class="cart-drawer__note-label">{{ 'cart.general.note' | t }}</label>
         <textarea

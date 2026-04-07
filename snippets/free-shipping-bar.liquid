@@ -1,0 +1,45 @@
+{%- comment -%}
+  Free Shipping Progress Bar.
+  Shows remaining amount until free shipping threshold.
+  Updates live via Event-Bus (cart:updated, cart:item-added).
+  Usage: {% render 'free-shipping-bar' %}
+{%- endcomment -%}
+
+{%- if settings.free_shipping_enabled -%}
+  {%- assign threshold_cents = settings.free_shipping_threshold | times: 100 -%}
+  {%- assign cart_total = cart.total_price -%}
+  {%- assign remaining = threshold_cents | minus: cart_total -%}
+  {%- if remaining < 0 -%}
+    {%- assign remaining = 0 -%}
+  {%- endif -%}
+  {%- assign progress = cart_total | times: 100 | divided_by: threshold_cents -%}
+  {%- if progress > 100 -%}
+    {%- assign progress = 100 -%}
+  {%- endif -%}
+
+  <div
+    class="free-shipping-bar"
+    data-free-shipping-bar
+    data-threshold="{{ threshold_cents }}"
+    aria-live="polite"
+  >
+    <p class="free-shipping-bar__message" data-shipping-message>
+      {%- if remaining <= 0 -%}
+        {{ 'cart.free_shipping.reached' | t }}
+      {%- else -%}
+        {{ 'cart.free_shipping.remaining' | t: amount: remaining | money }}
+      {%- endif -%}
+    </p>
+    <div class="free-shipping-bar__track">
+      <div
+        class="free-shipping-bar__progress"
+        data-shipping-progress
+        style="width: {{ progress }}%"
+        role="progressbar"
+        aria-valuenow="{{ progress }}"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+  </div>
+{%- endif -%}

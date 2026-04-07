@@ -1,0 +1,26 @@
+{%- comment -%}
+  In-Store Pickup availability display.
+  Uses Shopify Pickup Availability API.
+  Shows available locations with stock status.
+  Usage: {% render 'in-store-pickup', product: product %}
+{%- endcomment -%}
+
+{%- if settings.in_store_pickup_enabled -%}
+  <div
+    class="in-store-pickup"
+    data-in-store-pickup
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+    data-base-url="{{ routes.root_url }}"
+    aria-live="polite"
+  >
+    {%- comment -%} Content loaded via JS from /variants/{id}/pickup_availability {%- endcomment -%}
+  </div>
+
+  <script type="text/template" data-pickup-template>
+    <div class="in-store-pickup__location">
+      <span class="in-store-pickup__status" data-pickup-status></span>
+      <span class="in-store-pickup__name" data-pickup-name></span>
+      <span class="in-store-pickup__address" data-pickup-address></span>
+    </div>
+  </script>
+{%- endif -%}

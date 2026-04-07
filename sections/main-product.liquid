@@ -133,19 +133,33 @@
                     aria-label="{{ 'products.product.quantity' | t }}"
                   >
                 </div>
+                {%- liquid
+                  assign is_pre_order = false
+                  assign atc_variant = product.selected_or_first_available_variant
+                  if atc_variant.available and atc_variant.inventory_management == 'shopify' and atc_variant.inventory_quantity <= 0 and atc_variant.inventory_policy == 'continue' and settings.pre_order_enabled
+                    assign is_pre_order = true
+                  endif
+                -%}
                 <button
                   type="submit"
                   name="add"
                   class="main-product__add-to-cart btn btn--primary"
-                  {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+                  {% unless atc_variant.available %}disabled{% endunless %}
                 >
-                  {%- if product.selected_or_first_available_variant.available -%}
-                    {{ 'products.product.add_to_cart' | t }}
+                  {%- if atc_variant.available -%}
+                    {%- if is_pre_order -%}
+                      {{ 'products.pre_order.button' | t }}
+                    {%- else -%}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
                   {%- else -%}
                     {{ 'products.product.sold_out' | t }}
                   {%- endif -%}
                 </button>
+                {% render 'pre-order-badge', product: product, variant: atc_variant %}
               {%- endform -%}
+
+              {% render 'in-store-pickup', product: product %}
             </div>
 
           {%- when 'description' -%}

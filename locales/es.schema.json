@@ -307,6 +307,28 @@
         },
         "cart_drawer_text": {
           "label": "Texto del cajón"
+        },
+        "free_shipping_header": "Envío gratis",
+        "free_shipping_enabled": {
+          "label": "Activar barra envío gratis"
+        },
+        "free_shipping_threshold": {
+          "label": "Umbral envío gratis",
+          "info": "Monto en moneda de la tienda"
+        },
+        "extras_header": "Extras del carrito",
+        "pre_order_enabled": {
+          "label": "Activar preventa"
+        },
+        "gift_wrapping_enabled": {
+          "label": "Activar envoltorio de regalo"
+        },
+        "gift_wrapping_price": {
+          "label": "Precio envoltorio",
+          "info": "Monto en moneda"
+        },
+        "in_store_pickup_enabled": {
+          "label": "Activar recogida en tienda"
         }
       }
     },

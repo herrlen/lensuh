@@ -55,7 +55,11 @@
       cartUpdated: {{ 'cart.general.updated' | t | json }},
       fetchError: {{ 'general.fetch_error' | t | json }},
       searchNoResults: {{ 'search.no_results' | t | json }},
-      continueShopping: {{ 'cart.general.continue_shopping' | t | json }}
+      continueShopping: {{ 'cart.general.continue_shopping' | t | json }},
+      freeShippingReached: {{ 'cart.free_shipping.reached' | t | json }},
+      freeShippingRemaining: {{ 'cart.free_shipping.remaining_js' | t | json }},
+      pickupAvailable: {{ 'products.pickup.available' | t | json }},
+      pickupUnavailable: {{ 'products.pickup.unavailable' | t | json }}
     };
     window.theme.currency = {{ cart.currency.iso_code | json }};
   </script>
@@ -87,5 +91,7 @@
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
   <script src="{{ 'cart-drawer.js' | asset_url }}" defer></script>
   <script src="{{ 'cart-atc.js' | asset_url }}" defer></script>
+  <script src="{{ 'free-shipping-bar.js' | asset_url }}" defer></script>
+  <script src="{{ 'in-store-pickup.js' | asset_url }}" defer></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+{%- comment -%}
+  Pre-Order Badge for products that are out of stock but continue selling.
+  Logic: product.available AND inventory_quantity <= 0 AND continue_selling
+  Also switches ATC button text to "Pre-order" via data attribute.
+  Usage: {% render 'pre-order-badge', product: product, variant: variant %}
+{%- endcomment -%}
+
+{%- if settings.pre_order_enabled -%}
+  {%- liquid
+    assign check_variant = variant | default: product.selected_or_first_available_variant
+    assign is_pre_order = false
+
+    if product.available and check_variant.inventory_management == 'shopify'
+      if check_variant.inventory_quantity <= 0 and check_variant.inventory_policy == 'continue'
+        assign is_pre_order = true
+      endif
+    endif
+  -%}
+
+  {%- if is_pre_order -%}
+    <span class="pre-order-badge" data-pre-order-badge>
+      {{ 'products.pre_order.badge' | t }}
+    </span>
+
+    {%- if product.metafields.custom.pre_order_date != blank -%}
+      <p class="pre-order-badge__date">
+        {{ 'products.pre_order.estimated_date' | t: date: product.metafields.custom.pre_order_date.value }}
+      </p>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

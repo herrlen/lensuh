@@ -46,6 +46,15 @@
       "share": "Condividi",
       "sku": "Cod.",
       "variant": "Variante"
+    },
+    "pre_order": {
+      "badge": "Preordine",
+      "button": "Preordina",
+      "estimated_date": "Consegna stimata: {{ date }}"
+    },
+    "pickup": {
+      "available": "Disponibile per il ritiro",
+      "unavailable": "Non disponibile per il ritiro"
     }
   },
   "cart": {
@@ -78,6 +87,14 @@
       "add": "Aggiungi {{ title }} al carrello",
       "choose_options": "Scegli opzioni per {{ title }}",
       "choose_options_short": "Scegli opzioni"
+    },
+    "free_shipping": {
+      "remaining": "Solo {{ amount }} per la spedizione gratuita!",
+      "remaining_js": "Solo {amount} per la spedizione gratuita!",
+      "reached": "Spedizione gratuita sbloccata!"
+    },
+    "gift_wrapping": {
+      "label": "Aggiungi confezione regalo"
     }
   },
   "collections": {
@@ -404,6 +421,28 @@
         },
         "cart_drawer_text": {
           "label": "Testo cassetto"
+        },
+        "free_shipping_header": "Spedizione gratuita",
+        "free_shipping_enabled": {
+          "label": "Attiva barra spedizione gratuita"
+        },
+        "free_shipping_threshold": {
+          "label": "Soglia spedizione gratuita",
+          "info": "Importo in valuta del negozio"
+        },
+        "extras_header": "Extra carrello",
+        "pre_order_enabled": {
+          "label": "Attiva preordine"
+        },
+        "gift_wrapping_enabled": {
+          "label": "Attiva confezione regalo"
+        },
+        "gift_wrapping_price": {
+          "label": "Prezzo confezione",
+          "info": "Importo in valuta"
+        },
+        "in_store_pickup_enabled": {
+          "label": "Attiva ritiro in negozio"
         }
       }
     },

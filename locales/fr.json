@@ -46,6 +46,15 @@
       "share": "Partager",
       "sku": "Réf.",
       "variant": "Variante"
+    },
+    "pre_order": {
+      "badge": "Précommande",
+      "button": "Précommander",
+      "estimated_date": "Livraison estimée : {{ date }}"
+    },
+    "pickup": {
+      "available": "Disponible en retrait",
+      "unavailable": "Non disponible en retrait"
     }
   },
   "cart": {
@@ -78,6 +87,14 @@
       "add": "Ajouter {{ title }} au panier",
       "choose_options": "Choisir les options pour {{ title }}",
       "choose_options_short": "Choisir les options"
+    },
+    "free_shipping": {
+      "remaining": "Plus que {{ amount }} pour la livraison gratuite !",
+      "remaining_js": "Plus que {amount} pour la livraison gratuite !",
+      "reached": "Livraison gratuite débloquée !"
+    },
+    "gift_wrapping": {
+      "label": "Ajouter un emballage cadeau"
     }
   },
   "collections": {
@@ -404,6 +421,28 @@
         },
         "cart_drawer_text": {
           "label": "Texte du tiroir"
+        },
+        "free_shipping_header": "Livraison gratuite",
+        "free_shipping_enabled": {
+          "label": "Activer la barre livraison gratuite"
+        },
+        "free_shipping_threshold": {
+          "label": "Seuil livraison gratuite",
+          "info": "Montant en devise du magasin"
+        },
+        "extras_header": "Extras panier",
+        "pre_order_enabled": {
+          "label": "Activer la précommande"
+        },
+        "gift_wrapping_enabled": {
+          "label": "Activer l'emballage cadeau"
+        },
+        "gift_wrapping_price": {
+          "label": "Prix emballage cadeau",
+          "info": "Montant en devise"
+        },
+        "in_store_pickup_enabled": {
+          "label": "Activer le retrait en magasin"
         }
       }
     },

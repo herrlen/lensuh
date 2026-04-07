@@ -46,6 +46,15 @@
       "share": "Teilen",
       "sku": "Artikelnr.",
       "variant": "Variante"
+    },
+    "pre_order": {
+      "badge": "Vorbestellung",
+      "button": "Vorbestellen",
+      "estimated_date": "Voraussichtliche Lieferung: {{ date }}"
+    },
+    "pickup": {
+      "available": "Zur Abholung verfügbar",
+      "unavailable": "Nicht zur Abholung verfügbar"
     }
   },
   "cart": {
@@ -78,6 +87,14 @@
       "add": "{{ title }} in den Warenkorb",
       "choose_options": "Optionen für {{ title }} wählen",
       "choose_options_short": "Optionen wählen"
+    },
+    "free_shipping": {
+      "remaining": "Noch {{ amount }} bis kostenloser Versand!",
+      "remaining_js": "Noch {amount} bis kostenloser Versand!",
+      "reached": "Kostenloser Versand freigeschaltet!"
+    },
+    "gift_wrapping": {
+      "label": "Geschenkverpackung hinzufügen"
     }
   },
   "collections": {
@@ -404,6 +421,28 @@
         },
         "cart_drawer_text": {
           "label": "Drawer Textfarbe"
+        },
+        "free_shipping_header": "Kostenloser Versand",
+        "free_shipping_enabled": {
+          "label": "Kostenloser-Versand-Leiste aktivieren"
+        },
+        "free_shipping_threshold": {
+          "label": "Schwellenwert kostenloser Versand",
+          "info": "Betrag in Shop-Währung"
+        },
+        "extras_header": "Warenkorb-Extras",
+        "pre_order_enabled": {
+          "label": "Vorbestellung aktivieren"
+        },
+        "gift_wrapping_enabled": {
+          "label": "Geschenkverpackung aktivieren"
+        },
+        "gift_wrapping_price": {
+          "label": "Preis Geschenkverpackung",
+          "info": "Betrag in Shop-Währung"
+        },
+        "in_store_pickup_enabled": {
+          "label": "Abholung im Geschäft aktivieren"
         }
       }
     },

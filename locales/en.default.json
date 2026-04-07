@@ -46,6 +46,15 @@
       "share": "Share",
       "sku": "SKU",
       "variant": "Variant"
+    },
+    "pre_order": {
+      "badge": "Pre-order",
+      "button": "Pre-order",
+      "estimated_date": "Estimated delivery: {{ date }}"
+    },
+    "pickup": {
+      "available": "Available for pickup",
+      "unavailable": "Unavailable for pickup"
     }
   },
   "cart": {
@@ -78,6 +87,14 @@
       "add": "Add {{ title }} to cart",
       "choose_options": "Choose options for {{ title }}",
       "choose_options_short": "Choose options"
+    },
+    "free_shipping": {
+      "remaining": "Only {{ amount }} until free shipping!",
+      "remaining_js": "Only {amount} until free shipping!",
+      "reached": "Free shipping unlocked!"
+    },
+    "gift_wrapping": {
+      "label": "Add gift wrapping"
     }
   },
   "collections": {
@@ -404,6 +421,28 @@
         },
         "cart_drawer_text": {
           "label": "Cart drawer text color"
+        },
+        "free_shipping_header": "Free shipping",
+        "free_shipping_enabled": {
+          "label": "Enable free shipping bar"
+        },
+        "free_shipping_threshold": {
+          "label": "Free shipping threshold",
+          "info": "Amount in store currency (e.g. 50)"
+        },
+        "extras_header": "Cart extras",
+        "pre_order_enabled": {
+          "label": "Enable pre-order"
+        },
+        "gift_wrapping_enabled": {
+          "label": "Enable gift wrapping"
+        },
+        "gift_wrapping_price": {
+          "label": "Gift wrapping price",
+          "info": "Amount in store currency"
+        },
+        "in_store_pickup_enabled": {
+          "label": "Enable in-store pickup"
         }
       }
     },

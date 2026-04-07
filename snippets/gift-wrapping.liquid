@@ -1,0 +1,28 @@
+{%- comment -%}
+  Gift Wrapping option in Cart Drawer.
+  Checkbox adds gift wrapping as a line item property.
+  Price from Theme Settings.
+  Usage: {% render 'gift-wrapping' %}
+{%- endcomment -%}
+
+{%- if settings.gift_wrapping_enabled and cart.item_count > 0 -%}
+  <div class="gift-wrapping" data-gift-wrapping>
+    <label class="gift-wrapping__label">
+      <input
+        type="checkbox"
+        class="gift-wrapping__checkbox"
+        data-gift-wrapping-toggle
+        aria-describedby="gift-wrapping-price"
+      >
+      <span class="gift-wrapping__icon">
+        {% render 'icon', icon: 'gift' %}
+      </span>
+      <span class="gift-wrapping__text">
+        {{ 'cart.gift_wrapping.label' | t }}
+      </span>
+      <span class="gift-wrapping__price" id="gift-wrapping-price">
+        (+{{ settings.gift_wrapping_price | times: 100 | money }})
+      </span>
+    </label>
+  </div>
+{%- endif -%}

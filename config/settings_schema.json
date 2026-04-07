@@ -250,6 +250,52 @@
           { "value": "both", "label": "t:settings_schema.cart.settings.quick_buy_style.options.both" }
         ],
         "default": "both"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.free_shipping_header"
+      },
+      {
+        "type": "checkbox",
+        "id": "free_shipping_enabled",
+        "label": "t:settings_schema.cart.settings.free_shipping_enabled.label",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_threshold",
+        "label": "t:settings_schema.cart.settings.free_shipping_threshold.label",
+        "info": "t:settings_schema.cart.settings.free_shipping_threshold.info",
+        "default": "50"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.extras_header"
+      },
+      {
+        "type": "checkbox",
+        "id": "pre_order_enabled",
+        "label": "t:settings_schema.cart.settings.pre_order_enabled.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "gift_wrapping_enabled",
+        "label": "t:settings_schema.cart.settings.gift_wrapping_enabled.label",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "gift_wrapping_price",
+        "label": "t:settings_schema.cart.settings.gift_wrapping_price.label",
+        "info": "t:settings_schema.cart.settings.gift_wrapping_price.info",
+        "default": "5"
+      },
+      {
+        "type": "checkbox",
+        "id": "in_store_pickup_enabled",
+        "label": "t:settings_schema.cart.settings.in_store_pickup_enabled.label",
+        "default": false
       }
     ]
   },

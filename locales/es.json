@@ -46,6 +46,15 @@
       "share": "Compartir",
       "sku": "Ref.",
       "variant": "Variante"
+    },
+    "pre_order": {
+      "badge": "Preventa",
+      "button": "Reservar",
+      "estimated_date": "Entrega estimada: {{ date }}"
+    },
+    "pickup": {
+      "available": "Disponible para recoger",
+      "unavailable": "No disponible para recoger"
     }
   },
   "cart": {
@@ -78,6 +87,14 @@
       "add": "Añadir {{ title }} al carrito",
       "choose_options": "Elegir opciones para {{ title }}",
       "choose_options_short": "Elegir opciones"
+    },
+    "free_shipping": {
+      "remaining": "¡Solo {{ amount }} para envío gratis!",
+      "remaining_js": "¡Solo {amount} para envío gratis!",
+      "reached": "¡Envío gratis desbloqueado!"
+    },
+    "gift_wrapping": {
+      "label": "Añadir envoltorio de regalo"
     }
   },
   "collections": {
@@ -404,6 +421,28 @@
         },
         "cart_drawer_text": {
           "label": "Texto del cajón"
+        },
+        "free_shipping_header": "Envío gratis",
+        "free_shipping_enabled": {
+          "label": "Activar barra envío gratis"
+        },
+        "free_shipping_threshold": {
+          "label": "Umbral envío gratis",
+          "info": "Monto en moneda de la tienda"
+        },
+        "extras_header": "Extras del carrito",
+        "pre_order_enabled": {
+          "label": "Activar preventa"
+        },
+        "gift_wrapping_enabled": {
+          "label": "Activar envoltorio de regalo"
+        },
+        "gift_wrapping_price": {
+          "label": "Precio envoltorio",
+          "info": "Monto en moneda"
+        },
+        "in_store_pickup_enabled": {
+          "label": "Activar recogida en tienda"
         }
       }
     },
