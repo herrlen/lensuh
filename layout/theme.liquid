@@ -22,8 +22,18 @@
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
-  {% comment %} CSS {% endcomment %}
-  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {% comment %} Critical CSS — inline above-the-fold styles {% endcomment %}
+  {%- render 'critical-css' -%}
+
+  {% comment %} Main CSS — async loaded {% endcomment %}
+  <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>{{ 'base.css' | asset_url | stylesheet_tag }}</noscript>
+
+  {% comment %} Preload LCP font {% endcomment %}
+  {%- assign heading_font_url = settings.font_heading | font_url -%}
+  {%- if heading_font_url != blank -%}
+    <link rel="preload" href="{{ heading_font_url }}" as="font" type="font/woff2" crossorigin>
+  {%- endif -%}
 
   {% comment %} Structured Data {% endcomment %}
   {%- render 'schema-organization' -%}
@@ -33,6 +43,7 @@
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     window.theme = window.theme || {};
+    window.theme.assetUrl = {{ 'theme.js' | asset_url | json }};
     window.theme.strings = {
       addToCart: {{ 'products.product.add_to_cart' | t | json }},
       soldOut: {{ 'products.product.sold_out' | t | json }},

@@ -1,15 +1,15 @@
 /**
- * LenSuh — Theme JS (S0 Skeleton)
+ * LenSuh — Theme JS (S3 Core Web Vitals)
  */
 
 (function () {
   'use strict';
 
   /* ---- Pub/Sub Event-Bus ---- */
-  const EventBus = {
+  var EventBus = {
     _listeners: {},
 
-    subscribe(event, callback) {
+    subscribe: function (event, callback) {
       if (typeof callback !== 'function') return;
       if (!this._listeners[event]) {
         this._listeners[event] = [];
@@ -23,7 +23,7 @@
       };
     },
 
-    publish(event, data) {
+    publish: function (event, data) {
       if (!this._listeners[event]) return;
       this._listeners[event].forEach(function (callback) {
         try {
@@ -37,19 +37,21 @@
 
   /* ---- Utility: debounce ---- */
   function debounce(fn, delay) {
-    let timer;
-    return function (...args) {
+    var timer;
+    return function () {
+      var args = arguments;
+      var ctx = this;
       clearTimeout(timer);
-      timer = setTimeout(() => fn.apply(this, args), delay);
+      timer = setTimeout(function () { fn.apply(ctx, args); }, delay);
     };
   }
 
   /* ---- Utility: throttle ---- */
   function throttle(fn, limit) {
-    let waiting = false;
-    return function (...args) {
+    var waiting = false;
+    return function () {
       if (waiting) return;
-      fn.apply(this, args);
+      fn.apply(this, arguments);
       waiting = true;
       setTimeout(function () { waiting = false; }, limit);
     };
@@ -73,15 +75,15 @@
   }
 
   /* ---- Toast notifications ---- */
-  const Toast = {
+  var Toast = {
     el: null,
     timeout: null,
 
-    init() {
+    init: function () {
       this.el = document.getElementById('toast');
     },
 
-    show(message, duration) {
+    show: function (message, duration) {
       if (!this.el) return;
       duration = duration || 3000;
       this.el.textContent = message;
@@ -90,7 +92,7 @@
       this.timeout = setTimeout(function () { Toast.hide(); }, duration);
     },
 
-    hide() {
+    hide: function () {
       if (!this.el) return;
       this.el.classList.remove('toast--visible');
     }
@@ -125,24 +127,104 @@
     first.focus();
   }
 
+  /* ---- Intersection Observer: lazy-load sections ---- */
+  var LAZY_LOAD_MARGIN = '200px';
+
+  function observeSections() {
+    if (!('IntersectionObserver' in window)) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+
+        var section = entry.target;
+        var handler = section.getAttribute('data-lazy-section');
+
+        if (handler && window.theme._sectionHandlers[handler]) {
+          window.theme._sectionHandlers[handler](section);
+        }
+
+        section.classList.add('section--loaded');
+        observer.unobserve(section);
+      });
+    }, {
+      rootMargin: LAZY_LOAD_MARGIN
+    });
+
+    document.querySelectorAll('[data-lazy-section]').forEach(function (el) {
+      observer.observe(el);
+    });
+
+    return observer;
+  }
+
+  /**
+   * Register a section handler for lazy initialization.
+   * Usage: theme.registerSection('cart-drawer', function(el) { ... })
+   * Then in Liquid: <div data-lazy-section="cart-drawer">
+   */
+  function registerSection(name, handler) {
+    window.theme._sectionHandlers[name] = handler;
+  }
+
+  /* ---- Dynamic Import helper ---- */
+  /**
+   * Dynamically import a JS module from Shopify assets.
+   * Usage: theme.loadModule('cart-drawer.js').then(function(module) { ... })
+   * @param {string} filename - Asset filename (e.g. 'cart-drawer.js')
+   * @returns {Promise}
+   */
+  function loadModule(filename) {
+    var url = window.theme.assetUrl
+      ? window.theme.assetUrl.replace('theme.js', filename)
+      : '/assets/' + filename;
+
+    return import(url).catch(function (err) {
+      console.error('[loadModule] Failed to load: ' + filename, err);
+      throw err;
+    });
+  }
+
+  /* ---- requestIdleCallback polyfill + helper ---- */
+  var idle = window.requestIdleCallback || function (cb) {
+    return setTimeout(cb, 1);
+  };
+
+  /**
+   * Schedule non-critical work for idle time.
+   * Usage: theme.onIdle(function() { analytics.init(); })
+   */
+  function onIdle(callback) {
+    idle(callback);
+  }
+
   /* ---- Section load / unload events (OS 2.0) ---- */
   document.addEventListener('shopify:section:load', function (event) {
     initSection(event.target);
   });
 
   function initSection(section) {
-    // Placeholder for section-specific JS initialization
+    var type = section.getAttribute('data-section-type');
+    if (type && window.theme._sectionHandlers[type]) {
+      window.theme._sectionHandlers[type](section);
+    }
   }
 
   /* ---- DOM Ready ---- */
   document.addEventListener('DOMContentLoaded', function () {
     Toast.init();
+
+    // Initialize all visible sections
     document.querySelectorAll('[data-section-type]').forEach(initSection);
+
+    // Set up lazy-loading for below-the-fold sections
+    observeSections();
   });
 
   /* ---- Expose utilities globally ---- */
   window.theme = window.theme || {};
   window.theme.strings = window.theme.strings || {};
+  window.theme._sectionHandlers = window.theme._sectionHandlers || {};
   window.theme.debounce = debounce;
   window.theme.throttle = throttle;
   window.theme.fetchJSON = fetchJSON;
@@ -150,4 +232,8 @@
   window.theme.trapFocus = trapFocus;
   window.theme.subscribe = EventBus.subscribe.bind(EventBus);
   window.theme.publish = EventBus.publish.bind(EventBus);
+  window.theme.registerSection = registerSection;
+  window.theme.loadModule = loadModule;
+  window.theme.onIdle = onIdle;
+  window.theme.observeSections = observeSections;
 })();

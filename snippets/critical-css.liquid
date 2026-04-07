@@ -1,0 +1,66 @@
+{%- comment -%}
+  Critical CSS — Inline above-the-fold styles in <head>.
+  Max ~14KB (TCP first roundtrip). Covers: Reset, Typography, Header, Hero.
+  Include in layout/theme.liquid: {% render 'critical-css' %}
+{%- endcomment -%}
+
+<style>
+  /* --- Critical Reset --- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font-body-family, sans-serif);
+    font-weight: var(--font-body-weight, 400);
+    color: var(--color-text, #1A1A1A);
+    background-color: var(--color-background, #FFFFFF);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- Critical Typography --- */
+  h1, h2, h3 {
+    font-family: var(--font-heading-family, sans-serif);
+    font-weight: var(--font-heading-weight, 700);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  a { color: inherit; text-decoration: none; }
+  img, svg, video { display: block; max-width: 100%; height: auto; }
+
+  /* --- Critical Layout --- */
+  .page-width { max-width: var(--page-width, 1200px); margin: 0 auto; padding: 0 1.5rem; }
+  .visually-hidden {
+    position: absolute !important; width: 1px !important; height: 1px !important;
+    padding: 0 !important; margin: -1px !important; overflow: hidden !important;
+    clip: rect(0 0 0 0) !important; white-space: nowrap !important; border: 0 !important;
+  }
+
+  /* --- Critical Header --- */
+  .header { position: relative; z-index: var(--z-header, 100); border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; min-height: 4rem; }
+  .header__logo { text-decoration: none; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+  .header__logo-image { max-height: 40px; width: auto; }
+  .header__nav { display: flex; gap: 1.5rem; }
+  .header__nav-link { font-size: 0.875rem; font-weight: 500; text-decoration: none; }
+  .header__actions { display: flex; align-items: center; gap: 1rem; }
+  .header__action { display: flex; text-decoration: none; }
+
+  /* --- Critical Announcement Bar --- */
+  .announcement-bar { text-align: center; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+  .announcement-bar__message { display: block; padding: 0.5rem 1rem; text-decoration: none; }
+
+  /* --- Critical Hero / Image Banner --- */
+  .image-banner { position: relative; }
+  .image-banner__media { position: relative; overflow: hidden; }
+  .image-banner__image { width: 100%; height: auto; display: block; }
+  .image-banner__content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; z-index: 2; }
+
+  /* --- Mobile Critical --- */
+  @media (max-width: 749px) {
+    .header__nav { display: none; }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+  }
+</style>

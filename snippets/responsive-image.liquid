@@ -1,12 +1,15 @@
 {%- comment -%}
-  Renders a responsive image with lazy loading.
+  Renders a responsive image with lazy loading, srcset, and LQIP blur-up.
   Usage:
     {% render 'responsive-image',
       image: section.settings.image,
       max_width: 1200,
       sizes: '(min-width: 750px) 50vw, 100vw',
       alt: 'Alt text',
-      class: 'my-class'
+      class: 'my-class',
+      loading: 'eager',
+      fetchpriority: 'high',
+      lqip: true
     %}
 {%- endcomment -%}
 
@@ -35,13 +38,34 @@
 -%}
 
 {%- if image != blank -%}
+  {%- liquid
+    assign img_width = image.width | default: max_width
+    assign img_height = image.height | default: 0
+    if img_width > max_width
+      assign ratio = max_width | times: 1.0 | divided_by: img_width
+      assign img_width = max_width
+      assign img_height = image.height | times: ratio | round
+    endif
+  -%}
+
+  {%- if lqip -%}
+    <div class="responsive-image-wrapper{% if class %} {{ class }}{% endif %}" style="position:relative;background-size:cover;background-image:url('{{ image | image_url: width: 10 }}');">
+  {%- endif -%}
+
   {{ image | image_url: width: max_width | image_tag:
     alt: alt_text,
     loading: loading,
+    fetchpriority: fetchpriority,
     sizes: sizes,
-    widths: '165, 360, 535, 750, 1100, 1500',
+    widths: '200, 400, 600, 800, 1200, 1600',
+    width: img_width,
+    height: img_height,
     class: class
   }}
+
+  {%- if lqip -%}
+    </div>
+  {%- endif -%}
 {%- else -%}
   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
 {%- endif -%}
