@@ -65,10 +65,14 @@
       "increase": "Menge erhöhen",
       "discount_code": "Rabattcode",
       "discount_placeholder": "Code eingeben",
-      "discount_apply": "Anwenden"
+      "discount_apply": "Anwenden",
+      "item_removed": "Artikel entfernt",
+      "undo": "Rückgängig",
+      "recommendations_title": "Das könnte dir auch gefallen"
     },
     "sticky_atc": {
-      "label": "In den Warenkorb"
+      "label": "In den Warenkorb",
+      "buy_now": "Jetzt kaufen"
     },
     "quick_buy": {
       "add": "{{ title }} in den Warenkorb",
@@ -364,10 +368,15 @@
       "name": "Warenkorb",
       "settings": {
         "sticky_atc_mobile": {
-          "label": "Sticky Warenkorb-Button (mobil)"
+          "label": "Sticky Warenkorb (mobil)",
+          "options": {
+            "disabled": "Deaktiviert",
+            "button": "Nur Button",
+            "full": "Voll (Bild, Variante, Menge)"
+          }
         },
         "sticky_atc_desktop": {
-          "label": "Sticky Warenkorb-Button (Desktop)"
+          "label": "Sticky Warenkorb (Desktop)"
         },
         "quick_buy_enabled": {
           "label": "Schnellkauf aktivieren"
@@ -379,6 +388,62 @@
             "text": "Nur Text",
             "both": "Icon + Text"
           }
+        },
+        "cart_type": {
+          "label": "Warenkorb-Typ",
+          "options": {
+            "drawer": "Drawer",
+            "page": "Seite"
+          }
+        },
+        "sticky_atc_buy_now": {
+          "label": "Jetzt-kaufen-Button (Desktop Sticky)"
+        },
+        "cart_drawer_bg": {
+          "label": "Drawer Hintergrundfarbe"
+        },
+        "cart_drawer_text": {
+          "label": "Drawer Textfarbe"
+        }
+      }
+    },
+    "seo": {
+      "name": "SEO",
+      "settings": {
+        "json_ld": {
+          "label": "Strukturierte Daten aktivieren (JSON-LD)",
+          "info": "Schema.org Markup für Produkte, Breadcrumbs, Organisation"
+        },
+        "hreflang": {
+          "label": "Hreflang-Tags aktivieren",
+          "info": "Internationales SEO für mehrere Sprachen"
+        },
+        "og_tags": {
+          "label": "Open Graph Tags aktivieren"
+        },
+        "robots_tags": {
+          "label": "Tag-/Herstellerseiten Robots",
+          "info": "Indexierung von Tag- und Herstellerfilterseiten",
+          "options": {
+            "noindex": "noindex (empfohlen)",
+            "index": "index"
+          }
+        }
+      }
+    },
+    "performance": {
+      "name": "Performance",
+      "settings": {
+        "lazy_loading": {
+          "label": "Lazy Loading aktivieren",
+          "info": "Bilder unterhalb des sichtbaren Bereichs verzögert laden"
+        },
+        "preload_fonts": {
+          "label": "Überschrift-Font vorladen"
+        },
+        "critical_css": {
+          "label": "Kritisches CSS inline",
+          "info": "Above-the-fold Styles inline für schnelleres Rendering"
         }
       }
     }

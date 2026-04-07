@@ -83,13 +83,31 @@
       this.el = document.getElementById('toast');
     },
 
-    show: function (message, duration) {
+    /**
+     * @param {string} message
+     * @param {string|number} typeOrDuration - 'success'|'error'|'info'|'warning' or ms
+     * @param {number} [duration]
+     */
+    show: function (message, typeOrDuration, duration) {
       if (!this.el) return;
-      duration = duration || 3000;
-      this.el.textContent = message;
-      this.el.classList.add('toast--visible');
+      var type = 'info';
+      var ms = 3000;
+      if (typeof typeOrDuration === 'string') {
+        type = typeOrDuration;
+        ms = duration || 3000;
+      } else if (typeof typeOrDuration === 'number') {
+        ms = typeOrDuration;
+      }
+      var msgEl = this.el.querySelector('[data-toast-message]');
+      if (msgEl) {
+        msgEl.textContent = message;
+      } else {
+        this.el.textContent = message;
+      }
+      this.el.setAttribute('data-toast-type', type);
+      this.el.className = 'toast toast--' + type + ' toast--visible';
       clearTimeout(this.timeout);
-      this.timeout = setTimeout(function () { Toast.hide(); }, duration);
+      this.timeout = setTimeout(function () { Toast.hide(); }, ms);
     },
 
     hide: function () {

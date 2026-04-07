@@ -271,21 +271,82 @@
       "name": "Carrito",
       "settings": {
         "sticky_atc_mobile": {
-          "label": "Botón fijo (móvil)"
+          "label": "Botón fijo (móvil)",
+          "options": {
+            "disabled": "Desactivado",
+            "button": "Solo botón",
+            "full": "Completo"
+          }
         },
         "sticky_atc_desktop": {
           "label": "Botón fijo (escritorio)"
         },
         "quick_buy_enabled": {
-          "label": "Activar compra rápida"
+          "label": "Compra rápida"
         },
         "quick_buy_style": {
           "label": "Estilo compra rápida",
           "options": {
-            "icon": "Solo icono",
-            "text": "Solo texto",
+            "icon": "Icono",
+            "text": "Texto",
             "both": "Icono + Texto"
           }
+        },
+        "cart_type": {
+          "label": "Tipo de carrito",
+          "options": {
+            "drawer": "Cajón",
+            "page": "Página"
+          }
+        },
+        "sticky_atc_buy_now": {
+          "label": "Botón Comprar ahora"
+        },
+        "cart_drawer_bg": {
+          "label": "Fondo del cajón"
+        },
+        "cart_drawer_text": {
+          "label": "Texto del cajón"
+        }
+      }
+    },
+    "seo": {
+      "name": "SEO",
+      "settings": {
+        "json_ld": {
+          "label": "Activar datos estructurados",
+          "info": "Marcado Schema.org"
+        },
+        "hreflang": {
+          "label": "Activar etiquetas hreflang",
+          "info": "SEO internacional"
+        },
+        "og_tags": {
+          "label": "Activar etiquetas Open Graph"
+        },
+        "robots_tags": {
+          "label": "Robots páginas de etiquetas",
+          "info": "Indexación de páginas filtradas",
+          "options": {
+            "noindex": "noindex (recomendado)",
+            "index": "index"
+          }
+        }
+      }
+    },
+    "performance": {
+      "name": "Rendimiento",
+      "settings": {
+        "lazy_loading": {
+          "label": "Activar carga diferida",
+          "info": "Cargar imágenes fuera de pantalla"
+        },
+        "preload_fonts": {
+          "label": "Precargar fuente de títulos"
+        },
+        "critical_css": {
+          "label": "CSS crítico en línea",
+          "info": "Estilos above-the-fold"
         }
       }
     }

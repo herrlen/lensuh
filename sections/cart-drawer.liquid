@@ -44,8 +44,41 @@
           <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary" data-cart-drawer-close>
             {{ 'cart.general.continue_shopping' | t }}
           </a>
+
+          {%- if recommendations.products_count > 0 or collections.all.products.size > 0 -%}
+            <div class="cart-drawer__recommendations">
+              <h3 class="cart-drawer__recommendations-title">{{ 'cart.drawer.recommendations_title' | t }}</h3>
+              <div class="cart-drawer__recommendations-grid">
+                {%- assign rec_products = collections.all.products -%}
+                {%- for product in rec_products limit: 4 -%}
+                  <a href="{{ product.url }}" class="cart-drawer__rec-card">
+                    {%- if product.featured_image -%}
+                      <img
+                        src="{{ product.featured_image | image_url: width: 200 }}"
+                        alt="{{ product.title | escape }}"
+                        width="100"
+                        height="100"
+                        loading="lazy"
+                        class="cart-drawer__rec-image"
+                      >
+                    {%- endif -%}
+                    <span class="cart-drawer__rec-title">{{ product.title | truncate: 40 }}</span>
+                    <span class="cart-drawer__rec-price" data-price-wrapper>{{ product.price | money }}</span>
+                  </a>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
         </div>
       {%- endif -%}
+
+      {%- comment -%} Undo bar for removed items {%- endcomment -%}
+      <div class="cart-drawer__undo" data-undo-bar hidden>
+        <span>{{ 'cart.drawer.item_removed' | t }}</span>
+        <button type="button" class="cart-drawer__undo-btn" data-undo-btn>
+          {{ 'cart.drawer.undo' | t }}
+        </button>
+      </div>
     </div>
 
     {%- if cart.item_count > 0 -%}

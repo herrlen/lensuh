@@ -1,6 +1,6 @@
 /**
  * LenSuh — Sticky ATC + Quick Buy (S5)
- * Handles sticky add-to-cart bars and quick buy buttons.
+ * Handles sticky add-to-cart bars, quantity, variant sync, buy now, and quick buy.
  */
 
 (function () {
@@ -10,7 +10,6 @@
   var StickyATC = {
     mobileEl: null,
     desktopEl: null,
-    observer: null,
 
     init: function () {
       this.mobileEl = document.querySelector('[data-sticky-atc-mobile]');
@@ -27,12 +26,11 @@
       if (!mainATC || !('IntersectionObserver' in window)) return;
 
       var self = this;
-      this.observer = new IntersectionObserver(function (entries) {
-        var isVisible = entries[0].isIntersecting;
-        self.toggle(!isVisible);
+      var observer = new IntersectionObserver(function (entries) {
+        self.toggle(!entries[0].isIntersecting);
       }, { threshold: 0 });
 
-      this.observer.observe(mainATC);
+      observer.observe(mainATC);
     },
 
     toggle: function (show) {
@@ -47,24 +45,50 @@
     },
 
     bindEvents: function () {
-      document.querySelectorAll('[data-sticky-atc-add]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var variantId = btn.getAttribute('data-variant-id');
-          addToCart(variantId, 1);
-        });
+      // ATC buttons — read quantity from sibling input
+      document.addEventListener('click', function (e) {
+        var addBtn = e.target.closest('[data-sticky-atc-add]');
+        if (addBtn) {
+          var container = addBtn.closest('[data-sticky-atc-mobile], [data-sticky-atc-desktop]');
+          var qtyInput = container ? container.querySelector('[data-sticky-qty-input]') : null;
+          var qty = qtyInput ? parseInt(qtyInput.value, 10) : 1;
+          if (isNaN(qty) || qty < 1) qty = 1;
+          addToCart(addBtn.getAttribute('data-variant-id'), qty);
+          return;
+        }
+
+        // Buy Now button
+        var buyNow = e.target.closest('[data-sticky-buy-now]');
+        if (buyNow) {
+          var variantId = buyNow.getAttribute('data-variant-id');
+          buyNowRedirect(variantId);
+          return;
+        }
+
+        // Quantity +/- buttons
+        var minus = e.target.closest('[data-sticky-qty-minus]');
+        var plus = e.target.closest('[data-sticky-qty-plus]');
+        if (minus || plus) {
+          var parent = (minus || plus).closest('.sticky-atc-mobile__qty, .sticky-atc-desktop__qty');
+          if (!parent) return;
+          var input = parent.querySelector('[data-sticky-qty-input]');
+          if (!input) return;
+          var val = parseInt(input.value, 10) || 1;
+          input.value = Math.max(1, val + (minus ? -1 : 1));
+        }
       });
 
-      // Desktop variant select sync
-      var variantSelect = document.querySelector('[data-sticky-variant-select]');
-      if (variantSelect) {
-        variantSelect.addEventListener('change', function () {
-          var btn = variantSelect.closest('.sticky-atc-desktop__inner')
-            .querySelector('[data-sticky-atc-add]');
-          if (btn) {
-            btn.setAttribute('data-variant-id', variantSelect.value);
-          }
+      // Variant select sync (desktop + mobile)
+      document.querySelectorAll('[data-sticky-variant-select], [data-sticky-variant-select-mobile]').forEach(function (select) {
+        select.addEventListener('change', function () {
+          var container = select.closest('[data-sticky-atc-mobile], [data-sticky-atc-desktop]');
+          if (!container) return;
+          var btns = container.querySelectorAll('[data-sticky-atc-add], [data-sticky-buy-now]');
+          btns.forEach(function (btn) {
+            btn.setAttribute('data-variant-id', select.value);
+          });
         });
-      }
+      });
     }
   };
 
@@ -75,45 +99,35 @@
     },
 
     bindEvents: function () {
-      // Direct add (no variants)
       document.addEventListener('click', function (e) {
-        var btn = e.target.closest('[data-quick-add]');
-        if (!btn) return;
-        e.preventDefault();
-        var variantId = btn.getAttribute('data-variant-id');
-        btn.disabled = true;
-        addToCart(variantId, 1).finally(function () {
-          btn.disabled = false;
-        });
-      });
+        var addBtn = e.target.closest('[data-quick-add]');
+        if (addBtn) {
+          e.preventDefault();
+          addBtn.disabled = true;
+          addToCart(addBtn.getAttribute('data-variant-id'), 1)
+            .finally(function () { addBtn.disabled = false; });
+          return;
+        }
 
-      // Modal trigger (has variants)
-      document.addEventListener('click', function (e) {
-        var btn = e.target.closest('[data-quick-buy-modal-trigger]');
-        if (!btn) return;
-        e.preventDefault();
-        var productUrl = btn.getAttribute('data-product-url');
-        QuickBuy.openModal(productUrl);
+        var modalBtn = e.target.closest('[data-quick-buy-modal-trigger]');
+        if (modalBtn) {
+          e.preventDefault();
+          QuickBuy.openModal(modalBtn.getAttribute('data-product-url'));
+        }
       });
     },
 
     openModal: function (productUrl) {
-      // Fetch product section via Section Rendering API
       fetch(productUrl + '?section_id=main-product')
         .then(function (res) { return res.text(); })
         .then(function (html) {
           var parser = new DOMParser();
           var doc = parser.parseFromString(html, 'text/html');
-          var productForm = doc.querySelector('.main-product__variants, .main-product__buy');
 
-          if (!productForm) return;
-
-          // Create modal
           var modal = document.createElement('div');
           modal.className = 'quick-buy-modal';
           modal.setAttribute('role', 'dialog');
           modal.setAttribute('aria-modal', 'true');
-          modal.setAttribute('aria-label', 'Quick buy');
 
           var overlay = document.createElement('div');
           overlay.className = 'quick-buy-modal__overlay';
@@ -125,9 +139,8 @@
           closeBtn.type = 'button';
           closeBtn.className = 'quick-buy-modal__close';
           closeBtn.setAttribute('aria-label', 'Close');
-          closeBtn.innerHTML = '&times;';
+          closeBtn.textContent = '\u00D7';
 
-          // Get variants + buy section
           var variantsEl = doc.querySelector('.main-product__variants');
           var buyEl = doc.querySelector('.main-product__buy');
           if (variantsEl) content.appendChild(variantsEl.cloneNode(true));
@@ -138,18 +151,17 @@
           modal.appendChild(content);
           document.body.appendChild(modal);
 
-          // Focus trap + close handlers
           window.theme.trapFocus(content);
 
           var closeModal = function () {
-            document.body.removeChild(modal);
+            if (modal.parentNode) document.body.removeChild(modal);
             document.body.classList.remove('overflow-hidden');
           };
 
           overlay.addEventListener('click', closeModal);
           closeBtn.addEventListener('click', closeModal);
-          document.addEventListener('keydown', function handler(e) {
-            if (e.key === 'Escape') {
+          document.addEventListener('keydown', function handler(ev) {
+            if (ev.key === 'Escape') {
               closeModal();
               document.removeEventListener('keydown', handler);
             }
@@ -159,8 +171,10 @@
         })
         .catch(function (err) {
           console.error('[QuickBuy] Failed to load product:', err);
-          var msg = window.theme.strings.fetchError || 'Something went wrong.';
-          window.theme.Toast.show(msg, 4000);
+          window.theme.Toast.show(
+            window.theme.strings.fetchError || 'Something went wrong.',
+            'error', 4000
+          );
         });
     }
   };
@@ -181,16 +195,25 @@
       })
       .then(function (item) {
         window.theme.publish('cart:item-added', item);
-        var msg = window.theme.strings.cartUpdated || 'Cart updated';
-        window.theme.Toast.show(msg);
+        window.theme.Toast.show(
+          window.theme.strings.cartUpdated || 'Cart updated',
+          'success'
+        );
         return item;
       })
       .catch(function (err) {
         console.error('[addToCart]', err);
-        var msg = window.theme.strings.fetchError || 'Something went wrong.';
-        window.theme.Toast.show(msg, 4000);
+        window.theme.Toast.show(
+          window.theme.strings.fetchError || 'Something went wrong.',
+          'error', 4000
+        );
         throw err;
       });
+  }
+
+  /* ---- Buy Now: Skip cart, go straight to checkout ---- */
+  function buyNowRedirect(variantId) {
+    window.location.href = '/cart/' + variantId + ':1';
   }
 
   /* ---- Init ---- */
@@ -199,7 +222,6 @@
     QuickBuy.init();
   });
 
-  // Expose
   window.theme = window.theme || {};
   window.theme.addToCart = addToCart;
 })();

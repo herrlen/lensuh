@@ -271,21 +271,82 @@
       "name": "Winkelwagen",
       "settings": {
         "sticky_atc_mobile": {
-          "label": "Vaste knop (mobiel)"
+          "label": "Vaste knop (mobiel)",
+          "options": {
+            "disabled": "Uitgeschakeld",
+            "button": "Alleen knop",
+            "full": "Volledig"
+          }
         },
         "sticky_atc_desktop": {
           "label": "Vaste knop (desktop)"
         },
         "quick_buy_enabled": {
-          "label": "Snel kopen activeren"
+          "label": "Snel kopen"
         },
         "quick_buy_style": {
           "label": "Stijl snel kopen",
           "options": {
-            "icon": "Alleen icoon",
-            "text": "Alleen tekst",
+            "icon": "Icoon",
+            "text": "Tekst",
             "both": "Icoon + Tekst"
           }
+        },
+        "cart_type": {
+          "label": "Winkelwagentype",
+          "options": {
+            "drawer": "Lade",
+            "page": "Pagina"
+          }
+        },
+        "sticky_atc_buy_now": {
+          "label": "Nu kopen knop"
+        },
+        "cart_drawer_bg": {
+          "label": "Lade achtergrond"
+        },
+        "cart_drawer_text": {
+          "label": "Lade tekstkleur"
+        }
+      }
+    },
+    "seo": {
+      "name": "SEO",
+      "settings": {
+        "json_ld": {
+          "label": "Gestructureerde data activeren",
+          "info": "Schema.org markup"
+        },
+        "hreflang": {
+          "label": "Hreflang-tags activeren",
+          "info": "Internationaal SEO"
+        },
+        "og_tags": {
+          "label": "Open Graph tags activeren"
+        },
+        "robots_tags": {
+          "label": "Robots tag-/leverancierspagina's",
+          "info": "Indexering van gefilterde pagina's",
+          "options": {
+            "noindex": "noindex (aanbevolen)",
+            "index": "index"
+          }
+        }
+      }
+    },
+    "performance": {
+      "name": "Prestaties",
+      "settings": {
+        "lazy_loading": {
+          "label": "Lazy loading activeren",
+          "info": "Afbeeldingen buiten beeld uitstellen"
+        },
+        "preload_fonts": {
+          "label": "Koplettertype voorladen"
+        },
+        "critical_css": {
+          "label": "Kritieke CSS inline",
+          "info": "Above-the-fold stijlen"
         }
       }
     }

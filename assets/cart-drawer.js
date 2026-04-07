@@ -1,7 +1,7 @@
 /**
  * LenSuh — Cart Drawer (S5)
  * Slide-in cart with Ajax API, optimistic UI, body-scroll-lock.
- * Loaded via theme.loadModule('cart-drawer.js') or directly with defer.
+ * No innerHTML — uses DOMParser + cloneNode or DOM API.
  */
 
 (function () {
@@ -20,7 +20,9 @@
     qtyMinus: '[data-qty-minus]',
     qtyPlus: '[data-qty-plus]',
     qtyInput: '[data-qty-input]',
-    removeItem: '[data-remove-item]'
+    removeItem: '[data-remove-item]',
+    undoBar: '[data-undo-bar]',
+    undoBtn: '[data-undo-btn]'
   };
 
   var CLASSES = {
@@ -29,9 +31,13 @@
     updating: 'cart-drawer--updating'
   };
 
+  var UNDO_TIMEOUT_MS = 5000;
+
   var CartDrawer = {
     el: null,
     isOpen: false,
+    _undoTimer: null,
+    _undoData: null,
 
     init: function () {
       this.el = document.querySelector(SELECTORS.drawer);
@@ -44,9 +50,28 @@
     bindEvents: function () {
       var self = this;
 
-      // Close buttons + overlay
-      this.el.querySelectorAll(SELECTORS.overlay).forEach(function (btn) {
-        btn.addEventListener('click', function () { self.close(); });
+      // Close buttons + overlay (delegated)
+      this.el.addEventListener('click', function (e) {
+        if (e.target.closest(SELECTORS.overlay)) {
+          self.close();
+          return;
+        }
+
+        var minus = e.target.closest(SELECTORS.qtyMinus);
+        var plus = e.target.closest(SELECTORS.qtyPlus);
+        var remove = e.target.closest(SELECTORS.removeItem);
+        var undo = e.target.closest(SELECTORS.undoBtn);
+
+        if (minus) {
+          self.handleQuantity(minus, -1);
+        } else if (plus) {
+          self.handleQuantity(plus, 1);
+        } else if (remove) {
+          var key = remove.getAttribute('data-line-key');
+          self.removeWithUndo(key);
+        } else if (undo) {
+          self.undoRemove();
+        }
       });
 
       // ESC key
@@ -56,23 +81,7 @@
         }
       });
 
-      // Quantity + Remove (delegated)
-      this.el.addEventListener('click', function (e) {
-        var minus = e.target.closest(SELECTORS.qtyMinus);
-        var plus = e.target.closest(SELECTORS.qtyPlus);
-        var remove = e.target.closest(SELECTORS.removeItem);
-
-        if (minus) {
-          self.handleQuantity(minus, -1);
-        } else if (plus) {
-          self.handleQuantity(plus, 1);
-        } else if (remove) {
-          var key = remove.getAttribute('data-line-key');
-          self.updateItem(key, 0);
-        }
-      });
-
-      // Quantity direct input (debounced)
+      // Quantity direct input
       this.el.addEventListener('change', function (e) {
         var input = e.target.closest(SELECTORS.qtyInput);
         if (!input) return;
@@ -82,7 +91,7 @@
         self.updateItem(key, qty);
       });
 
-      // Cart note (debounced)
+      // Cart note
       var noteEl = this.el.querySelector(SELECTORS.note);
       if (noteEl) {
         noteEl.addEventListener('change', function () {
@@ -98,10 +107,6 @@
         self.refresh().then(function () {
           self.open();
         });
-      });
-
-      window.theme.subscribe('cart:updated', function () {
-        self.refresh();
       });
     },
 
@@ -130,10 +135,83 @@
       var input = item.querySelector(SELECTORS.qtyInput);
       var key = input.getAttribute('data-line-key');
       var newQty = Math.max(0, parseInt(input.value, 10) + delta);
-
-      // Optimistic UI
       input.value = newQty;
       this.updateItem(key, newQty);
+    },
+
+    /* ---- Remove with Undo ---- */
+    removeWithUndo: function (key) {
+      var self = this;
+      var itemEl = this.el.querySelector('[data-line-key="' + key + '"][data-cart-item]');
+      if (!itemEl) {
+        this.updateItem(key, 0);
+        return;
+      }
+
+      // Store undo data before removing
+      var input = itemEl.querySelector(SELECTORS.qtyInput);
+      var previousQty = input ? parseInt(input.value, 10) : 1;
+      this._undoData = { key: key, quantity: previousQty };
+
+      // Remove the item
+      this.updateItem(key, 0);
+
+      // Show undo bar
+      this.showUndoBar();
+    },
+
+    showUndoBar: function () {
+      var self = this;
+      var bar = this.el.querySelector(SELECTORS.undoBar);
+      if (bar) {
+        bar.hidden = false;
+      }
+      clearTimeout(this._undoTimer);
+      this._undoTimer = setTimeout(function () {
+        self.hideUndoBar();
+        self._undoData = null;
+      }, UNDO_TIMEOUT_MS);
+    },
+
+    hideUndoBar: function () {
+      var bar = this.el.querySelector(SELECTORS.undoBar);
+      if (bar) {
+        bar.hidden = true;
+      }
+    },
+
+    undoRemove: function () {
+      if (!this._undoData) return;
+      clearTimeout(this._undoTimer);
+      this.hideUndoBar();
+
+      var data = this._undoData;
+      this._undoData = null;
+
+      // Re-add with original quantity
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: data.key, quantity: data.quantity })
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function () {
+          window.theme.Toast.show(
+            window.theme.strings.cartUpdated || 'Cart updated',
+            'success'
+          );
+          window.theme.publish('cart:item-added');
+        })
+        .catch(function (err) {
+          console.error('[CartDrawer] undo failed:', err);
+          window.theme.Toast.show(
+            window.theme.strings.fetchError || 'Something went wrong.',
+            'error', 4000
+          );
+        });
     },
 
     updateItem: function (key, quantity) {
@@ -150,14 +228,15 @@
           return res.json();
         })
         .then(function (cart) {
-          self.renderCart(cart);
           self.updateCartCount(cart.item_count);
-          window.theme.publish('cart:updated', cart);
+          self.fetchSectionHTML();
         })
         .catch(function (err) {
           console.error('[CartDrawer] updateItem failed:', err);
-          var msg = window.theme.strings.fetchError || 'Something went wrong.';
-          window.theme.Toast.show(msg, 4000);
+          window.theme.Toast.show(
+            window.theme.strings.fetchError || 'Something went wrong.',
+            'error', 4000
+          );
           self.refresh();
         })
         .finally(function () {
@@ -177,12 +256,12 @@
 
     refresh: function () {
       var self = this;
+      self.fetchSectionHTML();
       return fetch('/cart.js', {
         headers: { 'Content-Type': 'application/json' }
       })
         .then(function (res) { return res.json(); })
         .then(function (cart) {
-          self.renderCart(cart);
           self.updateCartCount(cart.item_count);
         })
         .catch(function (err) {
@@ -190,44 +269,10 @@
         });
     },
 
-    renderCart: function (cart) {
-      var body = this.el.querySelector(SELECTORS.body);
-      var footer = this.el.querySelector(SELECTORS.footer);
-      var subtotal = this.el.querySelector(SELECTORS.subtotal);
-
-      if (cart.item_count === 0) {
-        body.innerHTML = '';
-        var emptyDiv = document.createElement('div');
-        emptyDiv.className = 'cart-drawer__empty';
-        emptyDiv.setAttribute('data-cart-drawer-empty', '');
-
-        var p = document.createElement('p');
-        p.textContent = window.theme.strings.cartEmpty || 'Your cart is empty';
-        emptyDiv.appendChild(p);
-
-        var link = document.createElement('a');
-        link.href = '/collections/all';
-        link.className = 'btn btn--primary';
-        link.setAttribute('data-cart-drawer-close', '');
-        link.textContent = window.theme.strings.continueShopping || 'Continue shopping';
-        emptyDiv.appendChild(link);
-
-        body.appendChild(emptyDiv);
-        if (footer) footer.hidden = true;
-        return;
-      }
-
-      if (footer) {
-        footer.hidden = false;
-      }
-      if (subtotal) {
-        subtotal.textContent = this.formatMoney(cart.total_price);
-      }
-
-      // Re-fetch section HTML for full re-render
-      this.fetchSectionHTML();
-    },
-
+    /**
+     * Re-render cart body+footer via Section Rendering API.
+     * Uses DOMParser + cloneNode — NO innerHTML assignment.
+     */
     fetchSectionHTML: function () {
       var self = this;
       var sectionId = this.el.getAttribute('data-section-id');
@@ -238,19 +283,22 @@
           var parser = new DOMParser();
           var doc = parser.parseFromString(html, 'text/html');
           var newDrawer = doc.querySelector(SELECTORS.drawer);
-          if (newDrawer && self.el) {
-            var newBody = newDrawer.querySelector(SELECTORS.body);
-            var newFooter = newDrawer.querySelector(SELECTORS.footer);
-            var currentBody = self.el.querySelector(SELECTORS.body);
-            var currentFooter = self.el.querySelector(SELECTORS.footer);
+          if (!newDrawer || !self.el) return;
 
-            if (newBody && currentBody) {
-              currentBody.innerHTML = newBody.innerHTML;
-            }
-            if (newFooter && currentFooter) {
-              currentFooter.innerHTML = newFooter.innerHTML;
-              currentFooter.hidden = newFooter.hidden;
-            }
+          // Replace body content via cloneNode (no innerHTML)
+          var newBody = newDrawer.querySelector(SELECTORS.body);
+          var currentBody = self.el.querySelector(SELECTORS.body);
+          if (newBody && currentBody) {
+            var clonedBody = newBody.cloneNode(true);
+            currentBody.replaceWith(clonedBody);
+          }
+
+          // Replace footer via cloneNode
+          var newFooter = newDrawer.querySelector(SELECTORS.footer);
+          var currentFooter = self.el.querySelector(SELECTORS.footer);
+          if (newFooter && currentFooter) {
+            var clonedFooter = newFooter.cloneNode(true);
+            currentFooter.replaceWith(clonedFooter);
           }
         })
         .catch(function (err) {
@@ -272,19 +320,16 @@
     }
   };
 
-  // Register as lazy section or init immediately
   if (window.theme && window.theme.registerSection) {
     window.theme.registerSection('cart-drawer', function () {
       CartDrawer.init();
     });
   }
 
-  // Also init on DOMContentLoaded for non-lazy loading
   document.addEventListener('DOMContentLoaded', function () {
     CartDrawer.init();
   });
 
-  // Expose for external access
   window.theme = window.theme || {};
   window.theme.CartDrawer = CartDrawer;
 })();

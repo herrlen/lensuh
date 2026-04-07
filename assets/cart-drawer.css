@@ -159,6 +159,121 @@
   pointer-events: none;
 }
 
+/* --- Undo Bar --- */
+.cart-drawer__undo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.cart-drawer__undo-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-decoration: underline;
+}
+
+/* --- Empty Cart Recommendations --- */
+.cart-drawer__recommendations {
+  margin-top: var(--spacing-lg);
+  text-align: left;
+}
+
+.cart-drawer__recommendations-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.cart-drawer__recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.cart-drawer__rec-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.cart-drawer__rec-card:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.cart-drawer__rec-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.cart-drawer__rec-title {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.cart-drawer__rec-price {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+/* --- Sticky ATC Quantity --- */
+.sticky-atc-mobile__qty,
+.sticky-atc-desktop__qty {
+  display: inline-flex;
+  align-items: center;
+  border: var(--input-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sticky-atc-mobile__qty-btn,
+.sticky-atc-desktop__qty-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-atc-mobile__qty-input,
+.sticky-atc-desktop__qty-input {
+  width: 2.5rem;
+  text-align: center;
+  border: none;
+  height: auto;
+  padding: 0;
+  font-weight: 600;
+}
+
+.sticky-atc-mobile__qty-input:focus,
+.sticky-atc-desktop__qty-input:focus {
+  box-shadow: none;
+}
+
+/* --- Buy Now Button --- */
+.sticky-atc-desktop__buy-now {
+  flex-shrink: 0;
+}
+
 /* --- Cart Drawer Item --- */
 .cart-drawer-item {
   display: flex;

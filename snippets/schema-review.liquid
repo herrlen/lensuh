@@ -6,21 +6,55 @@
   Expected metafields:
     product.metafields.reviews.rating       → { rating: "4.5", scale_min: "1", scale_max: "5" }
     product.metafields.reviews.rating_count  → number
-{%- endcomment -%}
-
-{%- comment -%}
-  Note: Review schema is embedded within schema-product.liquid as aggregateRating.
-  This snippet handles standalone review display if additional review data
-  is available via metafields (e.g., from a reviews app).
-
-  Individual reviews can be added here when the shop uses a reviews app
-  that stores review data in metafields.
+    product.metafields.reviews.reviews       → JSON array of { author, rating, title, body, date }
 {%- endcomment -%}
 
 {%- if product.metafields.reviews.rating.value != blank -%}
-  {%- comment -%}
-    aggregateRating is already included in schema-product.liquid.
-    This snippet is a placeholder for individual Review objects
-    when review content metafields become available.
-  {%- endcomment -%}
+  {%- assign has_reviews_data = false -%}
+  {%- if product.metafields.reviews.reviews.value != blank -%}
+    {%- assign has_reviews_data = true -%}
+  {%- endif -%}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": {{ product.metafields.reviews.rating.value.rating | json }},
+      "reviewCount": {{ product.metafields.reviews.rating_count.value | default: 1 | json }},
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+    {%- if has_reviews_data -%}
+    ,"review": [
+      {%- for review in product.metafields.reviews.reviews.value -%}
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": {{ review.author | default: 'Anonymous' | json }}
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": {{ review.rating | default: 5 | json }},
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+        {%- if review.title != blank -%}
+        ,"name": {{ review.title | json }}
+        {%- endif -%}
+        {%- if review.body != blank -%}
+        ,"reviewBody": {{ review.body | json }}
+        {%- endif -%}
+        {%- if review.date != blank -%}
+        ,"datePublished": {{ review.date | json }}
+        {%- endif -%}
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+    {%- endif -%}
+  }
+  </script>
 {%- endif -%}

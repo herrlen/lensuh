@@ -65,10 +65,14 @@
       "increase": "Increase quantity",
       "discount_code": "Discount code",
       "discount_placeholder": "Enter code",
-      "discount_apply": "Apply"
+      "discount_apply": "Apply",
+      "item_removed": "Item removed",
+      "undo": "Undo",
+      "recommendations_title": "You might also like"
     },
     "sticky_atc": {
-      "label": "Add to cart"
+      "label": "Add to cart",
+      "buy_now": "Buy now"
     },
     "quick_buy": {
       "add": "Add {{ title }} to cart",
@@ -364,7 +368,12 @@
       "name": "Cart",
       "settings": {
         "sticky_atc_mobile": {
-          "label": "Sticky add to cart (mobile)"
+          "label": "Sticky add to cart (mobile)",
+          "options": {
+            "disabled": "Disabled",
+            "button": "Button only",
+            "full": "Full (image, variant, quantity)"
+          }
         },
         "sticky_atc_desktop": {
           "label": "Sticky add to cart (desktop)"
@@ -379,6 +388,62 @@
             "text": "Text only",
             "both": "Icon + Text"
           }
+        },
+        "cart_type": {
+          "label": "Cart type",
+          "options": {
+            "drawer": "Drawer",
+            "page": "Page"
+          }
+        },
+        "sticky_atc_buy_now": {
+          "label": "Show Buy Now button (desktop sticky)"
+        },
+        "cart_drawer_bg": {
+          "label": "Cart drawer background"
+        },
+        "cart_drawer_text": {
+          "label": "Cart drawer text color"
+        }
+      }
+    },
+    "seo": {
+      "name": "SEO",
+      "settings": {
+        "json_ld": {
+          "label": "Enable structured data (JSON-LD)",
+          "info": "Schema.org markup for products, breadcrumbs, organization"
+        },
+        "hreflang": {
+          "label": "Enable hreflang tags",
+          "info": "International SEO for multiple languages"
+        },
+        "og_tags": {
+          "label": "Enable Open Graph tags"
+        },
+        "robots_tags": {
+          "label": "Tag/vendor pages robots",
+          "info": "Controls indexing of tag and vendor filter pages",
+          "options": {
+            "noindex": "noindex (recommended)",
+            "index": "index"
+          }
+        }
+      }
+    },
+    "performance": {
+      "name": "Performance",
+      "settings": {
+        "lazy_loading": {
+          "label": "Enable lazy loading",
+          "info": "Defer loading of below-the-fold images"
+        },
+        "preload_fonts": {
+          "label": "Preload heading font"
+        },
+        "critical_css": {
+          "label": "Inline critical CSS",
+          "info": "Inline above-the-fold styles for faster rendering"
         }
       }
     }

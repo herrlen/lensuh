@@ -65,10 +65,14 @@
       "increase": "Augmenter la quantité",
       "discount_code": "Code de réduction",
       "discount_placeholder": "Entrer le code",
-      "discount_apply": "Appliquer"
+      "discount_apply": "Appliquer",
+      "item_removed": "Article supprimé",
+      "undo": "Annuler",
+      "recommendations_title": "Vous aimerez aussi"
     },
     "sticky_atc": {
-      "label": "Ajouter au panier"
+      "label": "Ajouter au panier",
+      "buy_now": "Acheter maintenant"
     },
     "quick_buy": {
       "add": "Ajouter {{ title }} au panier",
@@ -364,21 +368,82 @@
       "name": "Panier",
       "settings": {
         "sticky_atc_mobile": {
-          "label": "Bouton fixe (mobile)"
+          "label": "Bouton fixe (mobile)",
+          "options": {
+            "disabled": "Désactivé",
+            "button": "Bouton seul",
+            "full": "Complet"
+          }
         },
         "sticky_atc_desktop": {
           "label": "Bouton fixe (desktop)"
         },
         "quick_buy_enabled": {
-          "label": "Activer l'achat rapide"
+          "label": "Achat rapide"
         },
         "quick_buy_style": {
           "label": "Style achat rapide",
           "options": {
-            "icon": "Icône seule",
-            "text": "Texte seul",
+            "icon": "Icône",
+            "text": "Texte",
             "both": "Icône + Texte"
           }
+        },
+        "cart_type": {
+          "label": "Type de panier",
+          "options": {
+            "drawer": "Tiroir",
+            "page": "Page"
+          }
+        },
+        "sticky_atc_buy_now": {
+          "label": "Bouton Acheter maintenant"
+        },
+        "cart_drawer_bg": {
+          "label": "Fond du tiroir"
+        },
+        "cart_drawer_text": {
+          "label": "Texte du tiroir"
+        }
+      }
+    },
+    "seo": {
+      "name": "SEO",
+      "settings": {
+        "json_ld": {
+          "label": "Activer les données structurées",
+          "info": "Balisage Schema.org"
+        },
+        "hreflang": {
+          "label": "Activer les balises hreflang",
+          "info": "SEO international"
+        },
+        "og_tags": {
+          "label": "Activer les balises Open Graph"
+        },
+        "robots_tags": {
+          "label": "Robots pages tags/fournisseurs",
+          "info": "Indexation des pages filtrées",
+          "options": {
+            "noindex": "noindex (recommandé)",
+            "index": "index"
+          }
+        }
+      }
+    },
+    "performance": {
+      "name": "Performance",
+      "settings": {
+        "lazy_loading": {
+          "label": "Activer le chargement différé",
+          "info": "Charger les images hors écran en différé"
+        },
+        "preload_fonts": {
+          "label": "Précharger la police des titres"
+        },
+        "critical_css": {
+          "label": "CSS critique en ligne",
+          "info": "Styles au-dessus de la ligne de flottaison"
         }
       }
     }

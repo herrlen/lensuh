@@ -271,21 +271,82 @@
       "name": "Carrello",
       "settings": {
         "sticky_atc_mobile": {
-          "label": "Pulsante fisso (mobile)"
+          "label": "Pulsante fisso (mobile)",
+          "options": {
+            "disabled": "Disattivato",
+            "button": "Solo pulsante",
+            "full": "Completo"
+          }
         },
         "sticky_atc_desktop": {
           "label": "Pulsante fisso (desktop)"
         },
         "quick_buy_enabled": {
-          "label": "Attiva acquisto rapido"
+          "label": "Acquisto rapido"
         },
         "quick_buy_style": {
           "label": "Stile acquisto rapido",
           "options": {
-            "icon": "Solo icona",
-            "text": "Solo testo",
+            "icon": "Icona",
+            "text": "Testo",
             "both": "Icona + Testo"
           }
+        },
+        "cart_type": {
+          "label": "Tipo carrello",
+          "options": {
+            "drawer": "Cassetto",
+            "page": "Pagina"
+          }
+        },
+        "sticky_atc_buy_now": {
+          "label": "Pulsante Acquista ora"
+        },
+        "cart_drawer_bg": {
+          "label": "Sfondo cassetto"
+        },
+        "cart_drawer_text": {
+          "label": "Testo cassetto"
+        }
+      }
+    },
+    "seo": {
+      "name": "SEO",
+      "settings": {
+        "json_ld": {
+          "label": "Attiva dati strutturati",
+          "info": "Markup Schema.org"
+        },
+        "hreflang": {
+          "label": "Attiva tag hreflang",
+          "info": "SEO internazionale"
+        },
+        "og_tags": {
+          "label": "Attiva tag Open Graph"
+        },
+        "robots_tags": {
+          "label": "Robots pagine tag/produttore",
+          "info": "Indicizzazione pagine filtrate",
+          "options": {
+            "noindex": "noindex (consigliato)",
+            "index": "index"
+          }
+        }
+      }
+    },
+    "performance": {
+      "name": "Prestazioni",
+      "settings": {
+        "lazy_loading": {
+          "label": "Attiva caricamento differito",
+          "info": "Carica immagini fuori schermo"
+        },
+        "preload_fonts": {
+          "label": "Precarica font titoli"
+        },
+        "critical_css": {
+          "label": "CSS critico inline",
+          "info": "Stili above-the-fold"
         }
       }
     }

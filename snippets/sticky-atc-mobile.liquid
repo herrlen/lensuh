@@ -1,12 +1,12 @@
 {%- comment -%}
   Sticky Add-to-Cart for Mobile.
   Appears when regular ATC scrolls out of viewport (Intersection Observer).
-  CLS = 0 (position:fixed, no layout shift).
-  Touch buttons min 48x48px.
+  CLS = 0, touch min 48x48px.
+  Modes: button-only (just ATC btn) or full (thumbnail, title, variant, qty, ATC)
   Usage: {% render 'sticky-atc-mobile', product: product %}
 {%- endcomment -%}
 
-{%- if product.available and settings.sticky_atc_mobile -%}
+{%- if product.available and settings.sticky_atc_mobile != 'disabled' -%}
   <div
     class="sticky-atc-mobile"
     data-sticky-atc-mobile
@@ -15,22 +15,44 @@
     aria-label="{{ 'cart.sticky_atc.label' | t }}"
   >
     <div class="sticky-atc-mobile__inner page-width">
-      <div class="sticky-atc-mobile__info">
-        {%- if product.featured_image -%}
-          <img
-            src="{{ product.featured_image | image_url: width: 80 }}"
-            alt="{{ product.title | escape }}"
-            width="40"
-            height="40"
-            loading="lazy"
-            class="sticky-atc-mobile__image"
-          >
-        {%- endif -%}
-        <div class="sticky-atc-mobile__text">
-          <span class="sticky-atc-mobile__title">{{ product.title | truncate: 30 }}</span>
-          <span class="sticky-atc-mobile__price" data-price-wrapper>{{ product.selected_or_first_available_variant.price | money }}</span>
+      {%- if settings.sticky_atc_mobile == 'full' -%}
+        <div class="sticky-atc-mobile__info">
+          {%- if product.featured_image -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 80 }}"
+              alt="{{ product.title | escape }}"
+              width="40"
+              height="40"
+              loading="lazy"
+              class="sticky-atc-mobile__image"
+            >
+          {%- endif -%}
+          <div class="sticky-atc-mobile__text">
+            <span class="sticky-atc-mobile__title">{{ product.title | truncate: 25 }}</span>
+            <span class="sticky-atc-mobile__price" data-price-wrapper>{{ product.selected_or_first_available_variant.price | money }}</span>
+          </div>
         </div>
-      </div>
+
+        {%- unless product.has_only_default_variant -%}
+          <select class="sticky-atc-mobile__variant" data-sticky-variant-select-mobile aria-label="{{ 'products.product.variant' | t }}">
+            {%- for variant in product.variants -%}
+              <option
+                value="{{ variant.id }}"
+                {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                {% unless variant.available %}disabled{% endunless %}
+              >
+                {{ variant.title }}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endunless -%}
+
+        <div class="sticky-atc-mobile__qty">
+          <button type="button" class="sticky-atc-mobile__qty-btn" data-sticky-qty-minus aria-label="{{ 'cart.drawer.decrease' | t }}">−</button>
+          <input type="number" value="1" min="1" class="sticky-atc-mobile__qty-input" data-sticky-qty-input aria-label="{{ 'products.product.quantity' | t }}">
+          <button type="button" class="sticky-atc-mobile__qty-btn" data-sticky-qty-plus aria-label="{{ 'cart.drawer.increase' | t }}">+</button>
+        </div>
+      {%- endif -%}
 
       <button
         type="button"

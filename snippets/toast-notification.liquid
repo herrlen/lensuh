@@ -1,0 +1,17 @@
+{%- comment -%}
+  Toast Notification System — success, error, info, warning.
+  JS: theme.Toast.show('message', 'success')
+  Include once in layout/theme.liquid before </body>.
+  Usage: {% render 'toast-notification' %}
+{%- endcomment -%}
+
+<div
+  id="toast"
+  class="toast"
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  data-toast-type="info"
+>
+  <span class="toast__message" data-toast-message></span>
+</div>

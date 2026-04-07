@@ -498,6 +498,11 @@ label {
   pointer-events: auto;
 }
 
+.toast--success { background: #0a8754; color: #fff; }
+.toast--error { background: #d72c0d; color: #fff; }
+.toast--warning { background: #b98900; color: #fff; }
+.toast--info { background: var(--color-primary); color: var(--color-background); }
+
 /* --- LQIP Responsive Image --- */
 .responsive-image-wrapper {
   overflow: hidden;
