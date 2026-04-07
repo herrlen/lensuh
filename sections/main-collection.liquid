@@ -117,7 +117,7 @@
                 <button type="submit" class="btn btn--primary collection-filters__apply">
                   {{ 'collections.filtering.apply' | t }}
                 </button>
-                {%- if collection.filters | map: 'active_values' | sum: 'size' > 0 -%}
+                {%- if active_filter_count > 0 -%}
                   <a href="{{ collection.url }}" class="collection-filters__clear" data-filter-clear>
                     {{ 'collections.filtering.clear_all' | t }}
                   </a>
