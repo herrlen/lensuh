@@ -27,11 +27,17 @@
             aria-expanded="false"
             aria-controls="filter-drawer"
           >
+            {%- liquid
+              assign active_filter_count = 0
+              for filter in collection.filters
+                assign active_filter_count = active_filter_count | plus: filter.active_values.size
+              endfor
+            -%}
             {% render 'icon', icon: 'menu' %}
             {{ 'collections.filtering.filter' | t }}
-            {%- if collection.filters | map: 'active_values' | sum: 'size' > 0 -%}
+            {%- if active_filter_count > 0 -%}
               <span class="collection-filters__active-count" data-active-filter-count>
-                ({{ collection.filters | map: 'active_values' | sum: 'size' }})
+                ({{ active_filter_count }})
               </span>
             {%- endif -%}
           </button>
@@ -92,7 +98,7 @@
                                     name="{{ value.param_name }}"
                                     value="{{ value.value }}"
                                     {% if value.active %}checked{% endif %}
-                                    {% if value.count === 0 and value.active == false %}disabled{% endif %}
+                                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
                                     data-filter-checkbox
                                   >
                                   <span>{{ value.label }}</span>
