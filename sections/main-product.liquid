@@ -160,6 +160,7 @@
                 {% render 'stock-indicator', product: product, variant: atc_variant %}
               {%- endform -%}
 
+              {% render 'back-in-stock', product: product, variant: atc_variant %}
               {% render 'trust-badges' %}
               {% render 'in-store-pickup', product: product %}
             </div>

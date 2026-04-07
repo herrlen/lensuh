@@ -79,6 +79,13 @@
         },
         "text_color": {
           "label": "Tekstkleur"
+        },
+        "dismissable": {
+          "label": "Sluiten toestaan"
+        },
+        "auto_rotate": {
+          "label": "Automatisch roteren",
+          "info": "Seconden tussen slides. 0 = uitgeschakeld"
         }
       },
       "blocks": {
@@ -90,10 +97,18 @@
             },
             "link": {
               "label": "Link"
+            },
+            "button_text": {
+              "label": "Knoptekst"
+            },
+            "countdown_end": {
+              "label": "Einddatum aftellen",
+              "info": "ISO-formaat: JJJJ-MM-DDTHH:MM. Leeg = geen aftellen."
             }
           }
         }
-      }
+      },
+      "dismiss": "Sluiten"
     },
     "main_product": {
       "name": "Product",
@@ -256,6 +271,20 @@
       },
       "presets": {
         "name": "Vertrouwensbadges"
+      }
+    },
+    "cross_selling": {
+      "name": "Cross-selling",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "max_products": {
+          "label": "Max producten"
+        }
+      },
+      "presets": {
+        "name": "Cross-selling"
       }
     }
   },

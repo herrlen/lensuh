@@ -222,6 +222,13 @@
         },
         "text_color": {
           "label": "Tekstkleur"
+        },
+        "dismissable": {
+          "label": "Sluiten toestaan"
+        },
+        "auto_rotate": {
+          "label": "Automatisch roteren",
+          "info": "Seconden tussen slides. 0 = uitgeschakeld"
         }
       },
       "blocks": {
@@ -233,10 +240,18 @@
             },
             "link": {
               "label": "Link"
+            },
+            "button_text": {
+              "label": "Knoptekst"
+            },
+            "countdown_end": {
+              "label": "Einddatum aftellen",
+              "info": "ISO-formaat: JJJJ-MM-DDTHH:MM. Leeg = geen aftellen."
             }
           }
         }
-      }
+      },
+      "dismiss": "Sluiten"
     },
     "main_product": {
       "name": "Product",
@@ -399,6 +414,20 @@
       },
       "presets": {
         "name": "Vertrouwensbadges"
+      }
+    },
+    "cross_selling": {
+      "name": "Cross-selling",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "max_products": {
+          "label": "Max producten"
+        }
+      },
+      "presets": {
+        "name": "Cross-selling"
       }
     }
   },
@@ -766,5 +795,21 @@
     "fast_delivery": "Snelle levering",
     "ssl": "SSL-versleuteld",
     "made_in": "Gemaakt in {{ country }}"
+  },
+  "promotions": {
+    "countdown": {
+      "label": "Aftellen",
+      "days": "Dagen",
+      "hours": "Uren",
+      "minutes": "Min",
+      "seconds": "Sec"
+    },
+    "back_in_stock": {
+      "text": "Ontvang een melding wanneer dit product weer beschikbaar is.",
+      "email_label": "E-mail",
+      "email_placeholder": "Je e-mail",
+      "submit": "Meld me aan",
+      "success": "Je ontvangt een melding wanneer het product beschikbaar is."
+    }
   }
 }

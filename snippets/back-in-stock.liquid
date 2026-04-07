@@ -1,0 +1,37 @@
+{%- comment -%}
+  Back-in-Stock Notification Form.
+  Shown on PDP when selected variant is sold out.
+  Stores email via Metafield or App-Hook endpoint.
+  Toast confirmation after signup.
+  Usage: {% render 'back-in-stock', product: product, variant: variant %}
+{%- endcomment -%}
+
+{%- liquid
+  assign check_variant = variant | default: product.selected_or_first_available_variant
+  assign show_form = false
+  if check_variant.available == false
+    assign show_form = true
+  endif
+-%}
+
+{%- if show_form -%}
+  <div class="back-in-stock" data-back-in-stock data-variant-id="{{ check_variant.id }}" data-product-title="{{ product.title | escape }}">
+    <p class="back-in-stock__text">{{ 'promotions.back_in_stock.text' | t }}</p>
+    <form class="back-in-stock__form" data-back-in-stock-form>
+      <label for="back-in-stock-email-{{ check_variant.id }}" class="visually-hidden">
+        {{ 'promotions.back_in_stock.email_label' | t }}
+      </label>
+      <input
+        type="email"
+        id="back-in-stock-email-{{ check_variant.id }}"
+        class="back-in-stock__input"
+        placeholder="{{ 'promotions.back_in_stock.email_placeholder' | t }}"
+        required
+        data-back-in-stock-email
+      >
+      <button type="submit" class="btn btn--primary back-in-stock__submit">
+        {{ 'promotions.back_in_stock.submit' | t }}
+      </button>
+    </form>
+  </div>
+{%- endif -%}

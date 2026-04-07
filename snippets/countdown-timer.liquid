@@ -1,0 +1,38 @@
+{%- comment -%}
+  Countdown Timer — NUR mit echtem Enddatum.
+  NO fake timers, NO artificial scarcity. Theme Store Req. 8.
+  Setting: Pflicht-Enddatum (ISO 8601 Format).
+  Timer = 0: Auto-hide or custom text.
+  Usage: {% render 'countdown-timer', end_date: '2026-12-31T23:59', block_id: block.id %}
+{%- endcomment -%}
+
+{%- if end_date != blank -%}
+  <div
+    class="countdown-timer"
+    data-countdown-timer
+    data-end-date="{{ end_date }}"
+    data-block-id="{{ block_id }}"
+    aria-live="polite"
+    aria-label="{{ 'promotions.countdown.label' | t }}"
+  >
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-countdown-days>00</span>
+      <span class="countdown-timer__label">{{ 'promotions.countdown.days' | t }}</span>
+    </div>
+    <span class="countdown-timer__separator">:</span>
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-countdown-hours>00</span>
+      <span class="countdown-timer__label">{{ 'promotions.countdown.hours' | t }}</span>
+    </div>
+    <span class="countdown-timer__separator">:</span>
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-countdown-minutes>00</span>
+      <span class="countdown-timer__label">{{ 'promotions.countdown.minutes' | t }}</span>
+    </div>
+    <span class="countdown-timer__separator">:</span>
+    <div class="countdown-timer__unit">
+      <span class="countdown-timer__number" data-countdown-seconds>00</span>
+      <span class="countdown-timer__label">{{ 'promotions.countdown.seconds' | t }}</span>
+    </div>
+  </div>
+{%- endif -%}

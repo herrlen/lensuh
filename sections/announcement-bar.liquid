@@ -1,15 +1,65 @@
 {%- if section.blocks.size > 0 -%}
-  <div class="announcement-bar" data-section-id="{{ section.id }}" role="region" aria-label="{{ 'sections.announcement_bar.label' | t }}">
+  <div
+    class="announcement-bar"
+    data-section-id="{{ section.id }}"
+    data-section-type="announcement-bar"
+    role="region"
+    aria-label="{{ 'sections.announcement_bar.label' | t }}"
+    style="background-color: {{ section.settings.background_color }};color: {{ section.settings.text_color }}"
+    data-dismissable="{{ section.settings.dismissable }}"
+  >
     <div class="announcement-bar__inner page-width">
-      {%- for block in section.blocks -%}
-        <a
-          {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
-          class="announcement-bar__message"
-          {{ block.shopify_attributes }}
+      <div class="announcement-bar__slider" data-announcement-slider>
+        {%- for block in section.blocks -%}
+          <div
+            class="announcement-bar__slide{% if forloop.first %} announcement-bar__slide--active{% endif %}"
+            data-announcement-slide="{{ forloop.index0 }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="announcement-bar__content">
+              {%- if block.settings.text != blank -%}
+                <span class="announcement-bar__text">{{ block.settings.text }}</span>
+              {%- endif -%}
+
+              {%- if block.settings.button_text != blank and block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="announcement-bar__cta">
+                  {{ block.settings.button_text }}
+                </a>
+              {%- elsif block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="announcement-bar__link visually-hidden">
+                  {{ block.settings.text }}
+                </a>
+              {%- endif -%}
+
+              {%- if block.settings.countdown_end != blank -%}
+                {% render 'countdown-timer', end_date: block.settings.countdown_end, block_id: block.id %}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="announcement-bar__nav">
+          <button type="button" class="announcement-bar__prev" data-announcement-prev aria-label="{{ 'accessibility.previous' | t }}">
+            &lsaquo;
+          </button>
+          <button type="button" class="announcement-bar__next" data-announcement-next aria-label="{{ 'accessibility.next' | t }}">
+            &rsaquo;
+          </button>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.dismissable -%}
+        <button
+          type="button"
+          class="announcement-bar__dismiss"
+          data-announcement-dismiss
+          aria-label="{{ 'sections.announcement_bar.dismiss' | t }}"
         >
-          {{ block.settings.text }}
-        </a>
-      {%- endfor -%}
+          {% render 'icon', icon: 'close' %}
+        </button>
+      {%- endif -%}
     </div>
   </div>
 {%- endif -%}
@@ -31,6 +81,23 @@
       "id": "text_color",
       "label": "t:sections.announcement_bar.settings.text_color.label",
       "default": "#FFFFFF"
+    },
+    {
+      "type": "checkbox",
+      "id": "dismissable",
+      "label": "t:sections.announcement_bar.settings.dismissable.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "auto_rotate",
+      "label": "t:sections.announcement_bar.settings.auto_rotate.label",
+      "info": "t:sections.announcement_bar.settings.auto_rotate.info",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "unit": "s"
     }
   ],
   "blocks": [
@@ -48,6 +115,17 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.announcement_bar.blocks.announcement.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.button_text.label"
+        },
+        {
+          "type": "text",
+          "id": "countdown_end",
+          "label": "t:sections.announcement_bar.blocks.announcement.settings.countdown_end.label",
+          "info": "t:sections.announcement_bar.blocks.announcement.settings.countdown_end.info"
         }
       ]
     }

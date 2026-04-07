@@ -79,6 +79,13 @@
         },
         "text_color": {
           "label": "Textfarbe"
+        },
+        "dismissable": {
+          "label": "Schließen erlauben"
+        },
+        "auto_rotate": {
+          "label": "Auto-Rotation",
+          "info": "Sekunden zwischen Slides. 0 = deaktiviert"
         }
       },
       "blocks": {
@@ -90,10 +97,18 @@
             },
             "link": {
               "label": "Link"
+            },
+            "button_text": {
+              "label": "Button-Text"
+            },
+            "countdown_end": {
+              "label": "Countdown-Enddatum",
+              "info": "ISO-Format: JJJJ-MM-TTTHH:MM. Leer = kein Countdown."
             }
           }
         }
-      }
+      },
+      "dismiss": "Schließen"
     },
     "main_product": {
       "name": "Produkt",
@@ -256,6 +271,20 @@
       },
       "presets": {
         "name": "Trust-Badges"
+      }
+    },
+    "cross_selling": {
+      "name": "Cross-Selling",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "max_products": {
+          "label": "Max Produkte"
+        }
+      },
+      "presets": {
+        "name": "Cross-Selling"
       }
     }
   },

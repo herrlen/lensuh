@@ -79,6 +79,13 @@
         },
         "text_color": {
           "label": "Colore del testo"
+        },
+        "dismissable": {
+          "label": "Permetti di chiudere"
+        },
+        "auto_rotate": {
+          "label": "Rotazione automatica",
+          "info": "Secondi tra le slide. 0 = disattivato"
         }
       },
       "blocks": {
@@ -90,10 +97,18 @@
             },
             "link": {
               "label": "Link"
+            },
+            "button_text": {
+              "label": "Testo del pulsante"
+            },
+            "countdown_end": {
+              "label": "Data fine conto alla rovescia",
+              "info": "Formato ISO: AAAA-MM-GGTHH:MM. Vuoto = nessun conto alla rovescia."
             }
           }
         }
-      }
+      },
+      "dismiss": "Chiudi"
     },
     "main_product": {
       "name": "Prodotto",
@@ -256,6 +271,20 @@
       },
       "presets": {
         "name": "Badge di fiducia"
+      }
+    },
+    "cross_selling": {
+      "name": "Cross-selling",
+      "settings": {
+        "heading": {
+          "label": "Titolo"
+        },
+        "max_products": {
+          "label": "Max prodotti"
+        }
+      },
+      "presets": {
+        "name": "Cross-selling"
       }
     }
   },

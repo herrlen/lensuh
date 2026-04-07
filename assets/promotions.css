@@ -1,0 +1,59 @@
+/* ============================================================
+   Promotions — Announcement Bar, Cross-Selling, Countdown, Back-in-Stock (S10)
+   ============================================================ */
+
+/* --- Announcement Bar Enhanced --- */
+.announcement-bar__slider { position: relative; }
+.announcement-bar__slide { display: none; }
+.announcement-bar__slide--active { display: block; }
+.announcement-bar__content { display: flex; align-items: center; justify-content: center; gap: var(--spacing-sm); padding: var(--spacing-sm) 0; }
+.announcement-bar__cta {
+  font-size: var(--font-size-sm); font-weight: 600;
+  text-decoration: underline; white-space: nowrap;
+}
+.announcement-bar__nav { display: flex; gap: var(--spacing-xs); position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+.announcement-bar__prev,
+.announcement-bar__next {
+  background: none; border: none; color: inherit; cursor: pointer;
+  font-size: var(--font-size-lg); padding: var(--spacing-xs);
+  min-width: 32px; min-height: 32px; display: flex; align-items: center; justify-content: center;
+  opacity: 0.6; transition: opacity var(--duration-fast);
+}
+.announcement-bar__prev:hover, .announcement-bar__next:hover { opacity: 1; }
+.announcement-bar__dismiss {
+  background: none; border: none; color: inherit; cursor: pointer;
+  min-width: 32px; min-height: 32px; display: flex; align-items: center; justify-content: center;
+  opacity: 0.6; transition: opacity var(--duration-fast); margin-left: var(--spacing-sm);
+}
+.announcement-bar__dismiss:hover { opacity: 1; }
+
+/* --- Countdown Timer --- */
+.countdown-timer { display: inline-flex; align-items: center; gap: var(--spacing-xs); }
+.countdown-timer__unit { text-align: center; }
+.countdown-timer__number { font-size: var(--font-size-base); font-weight: 700; font-variant-numeric: tabular-nums; }
+.countdown-timer__label { font-size: var(--font-size-xs); text-transform: uppercase; opacity: 0.7; display: block; }
+.countdown-timer__separator { font-weight: 700; opacity: 0.5; }
+
+/* --- Cross-Selling --- */
+.cross-selling { padding: var(--spacing-xl) 0; }
+.cross-selling__heading { text-align: center; margin-bottom: var(--spacing-lg); }
+.cross-selling__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--spacing-md); }
+.cross-selling__card { text-decoration: none; color: inherit; display: block; }
+.cross-selling__card:hover { text-decoration: none; }
+.cross-selling__card-media { position: relative; overflow: hidden; border-radius: var(--radius-md); margin-bottom: var(--spacing-sm); }
+.cross-selling__card-title { font-size: var(--font-size-base); font-weight: 500; margin-bottom: var(--spacing-xs); }
+.cross-selling__card-price { font-size: var(--font-size-base); font-weight: 600; }
+
+/* --- Back-in-Stock --- */
+.back-in-stock { margin-top: var(--spacing-md); padding: var(--spacing-md); background: var(--color-secondary); border-radius: var(--radius-md); }
+.back-in-stock__text { font-size: var(--font-size-sm); margin-bottom: var(--spacing-sm); }
+.back-in-stock__form { display: flex; gap: var(--spacing-sm); }
+.back-in-stock__input { flex: 1; }
+.back-in-stock__submit { flex-shrink: 0; }
+.back-in-stock__confirmed { font-size: var(--font-size-sm); font-weight: 500; color: #0a8754; }
+
+@media (max-width: 749px) {
+  .announcement-bar__nav { display: none; }
+  .back-in-stock__form { flex-direction: column; }
+  .cross-selling__grid { grid-template-columns: repeat(2, 1fr); }
+}

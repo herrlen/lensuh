@@ -222,6 +222,13 @@
         },
         "text_color": {
           "label": "Textfarbe"
+        },
+        "dismissable": {
+          "label": "Schließen erlauben"
+        },
+        "auto_rotate": {
+          "label": "Auto-Rotation",
+          "info": "Sekunden zwischen Slides. 0 = deaktiviert"
         }
       },
       "blocks": {
@@ -233,10 +240,18 @@
             },
             "link": {
               "label": "Link"
+            },
+            "button_text": {
+              "label": "Button-Text"
+            },
+            "countdown_end": {
+              "label": "Countdown-Enddatum",
+              "info": "ISO-Format: JJJJ-MM-TTTHH:MM. Leer = kein Countdown."
             }
           }
         }
-      }
+      },
+      "dismiss": "Schließen"
     },
     "main_product": {
       "name": "Produkt",
@@ -399,6 +414,20 @@
       },
       "presets": {
         "name": "Trust-Badges"
+      }
+    },
+    "cross_selling": {
+      "name": "Cross-Selling",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "max_products": {
+          "label": "Max Produkte"
+        }
+      },
+      "presets": {
+        "name": "Cross-Selling"
       }
     }
   },
@@ -766,5 +795,21 @@
     "fast_delivery": "Schnelle Lieferung",
     "ssl": "SSL-verschlüsselt",
     "made_in": "Hergestellt in {{ country }}"
+  },
+  "promotions": {
+    "countdown": {
+      "label": "Countdown",
+      "days": "Tage",
+      "hours": "Std",
+      "minutes": "Min",
+      "seconds": "Sek"
+    },
+    "back_in_stock": {
+      "text": "Benachrichtigung erhalten, wenn dieses Produkt wieder verfügbar ist.",
+      "email_label": "E-Mail",
+      "email_placeholder": "E-Mail-Adresse eingeben",
+      "submit": "Benachrichtigen",
+      "success": "Du wirst benachrichtigt, wenn dieses Produkt wieder verfügbar ist."
+    }
   }
 }

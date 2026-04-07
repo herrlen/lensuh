@@ -63,7 +63,8 @@
       searchProducts: {{ 'search.types.products' | t | json }},
       searchCollections: {{ 'search.types.collections' | t | json }},
       searchPages: {{ 'search.types.pages' | t | json }},
-      searchArticles: {{ 'search.types.articles' | t | json }}
+      searchArticles: {{ 'search.types.articles' | t | json }},
+      backInStockSuccess: {{ 'promotions.back_in_stock.success' | t | json }}
     };
     window.theme.currency = {{ cart.currency.iso_code | json }};
   </script>
@@ -98,6 +99,8 @@
   <noscript><link rel="stylesheet" href="{{ 'collection-filters.css' | asset_url }}"></noscript>
   <link rel="preload" href="{{ 'trust-badges.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'trust-badges.css' | asset_url }}"></noscript>
+  <link rel="preload" href="{{ 'promotions.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'promotions.css' | asset_url }}"></noscript>
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -109,5 +112,9 @@
   <script src="{{ 'predictive-search.js' | asset_url }}" defer></script>
   <script src="{{ 'collection-filters.js' | asset_url }}" defer></script>
   <script src="{{ 'sticky-header.js' | asset_url }}" defer></script>
+  <script src="{{ 'announcement-bar.js' | asset_url }}" defer></script>
+  <script src="{{ 'countdown-timer.js' | asset_url }}" defer></script>
+  <script src="{{ 'cross-selling.js' | asset_url }}" defer></script>
+  <script src="{{ 'back-in-stock.js' | asset_url }}" defer></script>
 </body>
 </html>

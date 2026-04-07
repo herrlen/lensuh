@@ -222,6 +222,13 @@
         },
         "text_color": {
           "label": "Couleur du texte"
+        },
+        "dismissable": {
+          "label": "Permettre de fermer"
+        },
+        "auto_rotate": {
+          "label": "Rotation automatique",
+          "info": "Secondes entre les slides. 0 = désactivé"
         }
       },
       "blocks": {
@@ -233,10 +240,18 @@
             },
             "link": {
               "label": "Lien"
+            },
+            "button_text": {
+              "label": "Texte du bouton"
+            },
+            "countdown_end": {
+              "label": "Date de fin du compte à rebours",
+              "info": "Format ISO: AAAA-MM-JJTHH:MM. Vide = pas de compte à rebours."
             }
           }
         }
-      }
+      },
+      "dismiss": "Fermer"
     },
     "main_product": {
       "name": "Produit",
@@ -399,6 +414,20 @@
       },
       "presets": {
         "name": "Badges de confiance"
+      }
+    },
+    "cross_selling": {
+      "name": "Ventes croisées",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "max_products": {
+          "label": "Max produits"
+        }
+      },
+      "presets": {
+        "name": "Ventes croisées"
       }
     }
   },
@@ -766,5 +795,21 @@
     "fast_delivery": "Livraison rapide",
     "ssl": "Chiffrement SSL",
     "made_in": "Fabriqué en {{ country }}"
+  },
+  "promotions": {
+    "countdown": {
+      "label": "Compte à rebours",
+      "days": "Jours",
+      "hours": "Heures",
+      "minutes": "Min",
+      "seconds": "Sec"
+    },
+    "back_in_stock": {
+      "text": "Soyez averti quand ce produit sera de nouveau disponible.",
+      "email_label": "E-mail",
+      "email_placeholder": "Votre e-mail",
+      "submit": "Me notifier",
+      "success": "Vous serez averti quand ce produit sera disponible."
+    }
   }
 }
