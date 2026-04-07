@@ -416,6 +416,26 @@
             "links": "Enlaces clicables",
             "text": "Solo texto"
           }
+        },
+        "filter_header": "Filtrado",
+        "filter_layout": {
+          "label": "Disposición de filtros",
+          "options": {
+            "sidebar": "Barra lateral",
+            "drawer": "Cajón",
+            "horizontal": "Horizontal"
+          }
+        },
+        "sticky_header_header": "Encabezado fijo",
+        "sticky_header_enabled": {
+          "label": "Activar encabezado fijo"
+        },
+        "sticky_header_style": {
+          "label": "Estilo encabezado fijo",
+          "options": {
+            "always": "Siempre visible",
+            "scroll_up": "Solo al desplazar hacia arriba"
+          }
         }
       }
     }

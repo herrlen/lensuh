@@ -1,0 +1,47 @@
+{%- comment -%}
+  Color Swatch Filter — circle with color, tooltip, multi-select.
+  Accessible: role="checkbox", aria-checked, aria-label.
+  Color from: option name mapping or metafield.
+  Usage: {% render 'swatch-filter', value: value, filter: filter %}
+{%- endcomment -%}
+
+{%- liquid
+  assign swatch_color = value.value | handleize | replace: '-', ''
+  assign color_map = 'black:000000,white:FFFFFF,red:CC0000,blue:0055FF,green:008000,yellow:FFD700,pink:FFC0CB,orange:FF6600,purple:6B21A8,grey:808080,gray:808080,beige:F5F5DC,navy:000080,brown:8B4513,cream:FFFDD0,gold:FFD700,silver:C0C0C0'
+  assign mapped_color = ''
+  assign color_pairs = color_map | split: ','
+  for pair in color_pairs
+    assign parts = pair | split: ':'
+    if swatch_color == parts[0]
+      assign mapped_color = parts[1]
+      break
+    endif
+  endfor
+-%}
+
+<label
+  class="swatch-filter{% if value.active %} swatch-filter--active{% endif %}{% if value.count == 0 and value.active == false %} swatch-filter--disabled{% endif %}"
+  role="checkbox"
+  aria-checked="{{ value.active }}"
+  aria-label="{{ value.label }}"
+  title="{{ value.label }}"
+>
+  <input
+    type="checkbox"
+    name="{{ value.param_name }}"
+    value="{{ value.value }}"
+    {% if value.active %}checked{% endif %}
+    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+    class="visually-hidden"
+    data-filter-checkbox
+  >
+  <span
+    class="swatch-filter__color"
+    {%- if mapped_color != blank -%}
+      style="background-color: #{{ mapped_color }}"
+    {%- else -%}
+      style="background-color: {{ value.value | handleize }}"
+    {%- endif -%}
+  ></span>
+  <span class="swatch-filter__tooltip">{{ value.label }} ({{ value.count }})</span>
+</label>

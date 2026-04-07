@@ -1,0 +1,16 @@
+{%- comment -%}
+  Sticky Header — slim version on scroll.
+  CLS = 0: Uses transform (not position change).
+  Scroll-Direction-Aware: Hide on scroll down, show on scroll up (mobile).
+  Include in layout/theme.liquid or via section.
+  JS in assets/sticky-header.js.
+  Usage: {% render 'sticky-header' %}
+{%- endcomment -%}
+
+{%- if section.settings.sticky or settings.sticky_header_enabled -%}
+  <div
+    class="sticky-header-sentinel"
+    data-sticky-sentinel
+    aria-hidden="true"
+  ></div>
+{%- endif -%}

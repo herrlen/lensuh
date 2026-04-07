@@ -416,6 +416,26 @@
             "links": "Link cliccabili",
             "text": "Solo testo"
           }
+        },
+        "filter_header": "Filtraggio",
+        "filter_layout": {
+          "label": "Layout filtri",
+          "options": {
+            "sidebar": "Barra laterale",
+            "drawer": "Cassetto",
+            "horizontal": "Orizzontale"
+          }
+        },
+        "sticky_header_header": "Intestazione fissa",
+        "sticky_header_enabled": {
+          "label": "Attiva intestazione fissa"
+        },
+        "sticky_header_style": {
+          "label": "Stile intestazione fissa",
+          "options": {
+            "always": "Sempre visibile",
+            "scroll_up": "Solo scorrendo verso l'alto"
+          }
         }
       }
     }

@@ -416,6 +416,26 @@
             "links": "Liens cliquables",
             "text": "Texte simple"
           }
+        },
+        "filter_header": "Filtrage",
+        "filter_layout": {
+          "label": "Disposition des filtres",
+          "options": {
+            "sidebar": "Barre latérale",
+            "drawer": "Tiroir",
+            "horizontal": "Horizontal"
+          }
+        },
+        "sticky_header_header": "En-tête fixe",
+        "sticky_header_enabled": {
+          "label": "Activer l'en-tête fixe"
+        },
+        "sticky_header_style": {
+          "label": "Style en-tête fixe",
+          "options": {
+            "always": "Toujours visible",
+            "scroll_up": "Visible au défilement vers le haut"
+          }
         }
       }
     }

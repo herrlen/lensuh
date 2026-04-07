@@ -416,6 +416,26 @@
             "links": "Klikbare links",
             "text": "Alleen tekst"
           }
+        },
+        "filter_header": "Filteren",
+        "filter_layout": {
+          "label": "Filterindeling",
+          "options": {
+            "sidebar": "Zijbalk",
+            "drawer": "Lade",
+            "horizontal": "Horizontaal"
+          }
+        },
+        "sticky_header_header": "Vaste header",
+        "sticky_header_enabled": {
+          "label": "Vaste header activeren"
+        },
+        "sticky_header_style": {
+          "label": "Stijl vaste header",
+          "options": {
+            "always": "Altijd zichtbaar",
+            "scroll_up": "Alleen bij omhoog scrollen"
+          }
         }
       }
     }

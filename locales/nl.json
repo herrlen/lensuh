@@ -102,6 +102,18 @@
       "title": "Collecties",
       "no_products": "Geen producten gevonden",
       "items_count": "{{ count }} producten"
+    },
+    "filtering": {
+      "filter": "Filteren",
+      "close": "Filters sluiten",
+      "from": "Van",
+      "to": "Tot",
+      "apply": "Toepassen",
+      "clear_all": "Alles wissen",
+      "remove": "Filter {{ label }} verwijderen"
+    },
+    "sorting": {
+      "title": "Sorteren op"
     }
   },
   "search": {
@@ -536,6 +548,26 @@
           "options": {
             "links": "Klikbare links",
             "text": "Alleen tekst"
+          }
+        },
+        "filter_header": "Filteren",
+        "filter_layout": {
+          "label": "Filterindeling",
+          "options": {
+            "sidebar": "Zijbalk",
+            "drawer": "Lade",
+            "horizontal": "Horizontaal"
+          }
+        },
+        "sticky_header_header": "Vaste header",
+        "sticky_header_enabled": {
+          "label": "Vaste header activeren"
+        },
+        "sticky_header_style": {
+          "label": "Stijl vaste header",
+          "options": {
+            "always": "Altijd zichtbaar",
+            "scroll_up": "Alleen bij omhoog scrollen"
           }
         }
       }

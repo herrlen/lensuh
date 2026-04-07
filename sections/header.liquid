@@ -1,4 +1,5 @@
-<header class="header" data-section-id="{{ section.id }}" data-section-type="header">
+{% render 'sticky-header' %}
+<header class="header" data-section-id="{{ section.id }}" data-section-type="header" data-sticky-style="{{ settings.sticky_header_style | default: 'always' }}">
   <div class="header__inner page-width">
     {%- comment -%} Mobile menu toggle {%- endcomment -%}
     <button

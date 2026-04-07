@@ -416,6 +416,26 @@
             "links": "Clickable links",
             "text": "Plain text"
           }
+        },
+        "filter_header": "Filtering",
+        "filter_layout": {
+          "label": "Filter layout",
+          "options": {
+            "sidebar": "Sidebar",
+            "drawer": "Drawer",
+            "horizontal": "Horizontal"
+          }
+        },
+        "sticky_header_header": "Sticky header",
+        "sticky_header_enabled": {
+          "label": "Enable sticky header"
+        },
+        "sticky_header_style": {
+          "label": "Sticky header style",
+          "options": {
+            "always": "Always visible",
+            "scroll_up": "Show on scroll up only"
+          }
         }
       }
     }

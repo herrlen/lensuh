@@ -94,6 +94,8 @@
   <noscript><link rel="stylesheet" href="{{ 'cart-drawer.css' | asset_url }}"></noscript>
   <link rel="preload" href="{{ 'navigation.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'navigation.css' | asset_url }}"></noscript>
+  <link rel="preload" href="{{ 'collection-filters.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'collection-filters.css' | asset_url }}"></noscript>
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -103,5 +105,7 @@
   <script src="{{ 'in-store-pickup.js' | asset_url }}" defer></script>
   <script src="{{ 'mega-menu.js' | asset_url }}" defer></script>
   <script src="{{ 'predictive-search.js' | asset_url }}" defer></script>
+  <script src="{{ 'collection-filters.js' | asset_url }}" defer></script>
+  <script src="{{ 'sticky-header.js' | asset_url }}" defer></script>
 </body>
 </html>
