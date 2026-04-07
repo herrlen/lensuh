@@ -1,0 +1,23 @@
+{%- comment -%}
+  Font Face declarations with font-display: swap.
+  Uses Shopify native font_picker settings — no Google Fonts dependency.
+  Shopify CDN handles font delivery.
+  Include in layout/theme.liquid <head>: {% render 'font-face' %}
+{%- endcomment -%}
+
+{% style %}
+  {{ settings.font_heading | font_face: font_display: 'swap' }}
+  {{ settings.font_body | font_face: font_display: 'swap' }}
+
+  {%- if settings.font_heading.variants -%}
+    {%- for variant in settings.font_heading.variants -%}
+      {{ variant | font_face: font_display: 'swap' }}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if settings.font_body.variants -%}
+    {%- for variant in settings.font_body.variants -%}
+      {{ variant | font_face: font_display: 'swap' }}
+    {%- endfor -%}
+  {%- endif -%}
+{% endstyle %}

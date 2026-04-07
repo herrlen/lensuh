@@ -22,6 +22,9 @@
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
   <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 
+  {% comment %} Font Faces — swap, Shopify CDN {% endcomment %}
+  {%- render 'font-face' -%}
+
   {% comment %} Critical CSS — inline above-the-fold styles {% endcomment %}
   {%- render 'critical-css' -%}
 
