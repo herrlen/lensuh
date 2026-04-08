@@ -286,6 +286,101 @@
       "presets": {
         "name": "Ventes croisées"
       }
+    },
+    "image_hotspots": {
+      "name": "Points d'intérêt",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "image": {
+          "label": "Image"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Point",
+          "settings": {
+            "product": {
+              "label": "Produit"
+            },
+            "x_position": {
+              "label": "Position horizontale"
+            },
+            "y_position": {
+              "label": "Position verticale"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Points d'intérêt"
+      }
+    },
+    "before_after": {
+      "name": "Avant/Après",
+      "label": "Comparaison avant/après",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "before_image": {
+          "label": "Image avant"
+        },
+        "after_image": {
+          "label": "Image après"
+        },
+        "before_label": {
+          "label": "Texte avant"
+        },
+        "after_label": {
+          "label": "Texte après"
+        }
+      },
+      "presets": {
+        "name": "Avant/Après"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "columns": {
+          "label": "Colonnes"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Élément",
+          "settings": {
+            "image": {
+              "label": "Image"
+            },
+            "product": {
+              "label": "Produit"
+            },
+            "caption": {
+              "label": "Légende"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "complete_look": {
+      "name": "Complétez le look",
+      "heading": "Complétez le look",
+      "total": "Total",
+      "add_all": "Tout ajouter au panier",
+      "adding": "Ajout en cours...",
+      "added": "Ajouté !",
+      "presets": {
+        "name": "Complétez le look"
+      }
     }
   },
   "settings_schema": {

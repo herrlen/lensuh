@@ -445,6 +445,101 @@
       "presets": {
         "name": "Venta cruzada"
       }
+    },
+    "image_hotspots": {
+      "name": "Puntos de imagen",
+      "settings": {
+        "heading": {
+          "label": "Título"
+        },
+        "image": {
+          "label": "Imagen"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Pin",
+          "settings": {
+            "product": {
+              "label": "Producto"
+            },
+            "x_position": {
+              "label": "Posición horizontal"
+            },
+            "y_position": {
+              "label": "Posición vertical"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Puntos de imagen"
+      }
+    },
+    "before_after": {
+      "name": "Antes/Después",
+      "label": "Comparación antes/después",
+      "settings": {
+        "heading": {
+          "label": "Título"
+        },
+        "before_image": {
+          "label": "Imagen antes"
+        },
+        "after_image": {
+          "label": "Imagen después"
+        },
+        "before_label": {
+          "label": "Texto antes"
+        },
+        "after_label": {
+          "label": "Texto después"
+        }
+      },
+      "presets": {
+        "name": "Antes/Después"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "heading": {
+          "label": "Título"
+        },
+        "columns": {
+          "label": "Columnas"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Elemento",
+          "settings": {
+            "image": {
+              "label": "Imagen"
+            },
+            "product": {
+              "label": "Producto"
+            },
+            "caption": {
+              "label": "Leyenda"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "complete_look": {
+      "name": "Completa el look",
+      "heading": "Completa el look",
+      "total": "Total",
+      "add_all": "Añadir todo al carrito",
+      "adding": "Añadiendo...",
+      "added": "¡Añadido!",
+      "presets": {
+        "name": "Completa el look"
+      }
     }
   },
   "settings_schema": {

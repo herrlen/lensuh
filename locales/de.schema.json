@@ -286,6 +286,101 @@
       "presets": {
         "name": "Cross-Selling"
       }
+    },
+    "image_hotspots": {
+      "name": "Bild-Hotspots",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "image": {
+          "label": "Bild"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Hotspot-Pin",
+          "settings": {
+            "product": {
+              "label": "Produkt"
+            },
+            "x_position": {
+              "label": "Horizontale Position"
+            },
+            "y_position": {
+              "label": "Vertikale Position"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Bild-Hotspots"
+      }
+    },
+    "before_after": {
+      "name": "Vorher/Nachher",
+      "label": "Vorher-Nachher-Vergleich",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "before_image": {
+          "label": "Vorher-Bild"
+        },
+        "after_image": {
+          "label": "Nachher-Bild"
+        },
+        "before_label": {
+          "label": "Vorher-Text"
+        },
+        "after_label": {
+          "label": "Nachher-Text"
+        }
+      },
+      "presets": {
+        "name": "Vorher/Nachher"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "columns": {
+          "label": "Spalten"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Lookbook-Eintrag",
+          "settings": {
+            "image": {
+              "label": "Bild"
+            },
+            "product": {
+              "label": "Produkt"
+            },
+            "caption": {
+              "label": "Beschriftung"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "complete_look": {
+      "name": "Komplettiere den Look",
+      "heading": "Komplettiere den Look",
+      "total": "Gesamt",
+      "add_all": "Alle in den Warenkorb",
+      "adding": "Wird hinzugefügt...",
+      "added": "Hinzugefügt!",
+      "presets": {
+        "name": "Komplettiere den Look"
+      }
     }
   },
   "settings_schema": {

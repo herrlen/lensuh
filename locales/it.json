@@ -445,6 +445,101 @@
       "presets": {
         "name": "Cross-selling"
       }
+    },
+    "image_hotspots": {
+      "name": "Punti immagine",
+      "settings": {
+        "heading": {
+          "label": "Titolo"
+        },
+        "image": {
+          "label": "Immagine"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Pin",
+          "settings": {
+            "product": {
+              "label": "Prodotto"
+            },
+            "x_position": {
+              "label": "Posizione orizzontale"
+            },
+            "y_position": {
+              "label": "Posizione verticale"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Punti immagine"
+      }
+    },
+    "before_after": {
+      "name": "Prima/Dopo",
+      "label": "Confronto prima/dopo",
+      "settings": {
+        "heading": {
+          "label": "Titolo"
+        },
+        "before_image": {
+          "label": "Immagine prima"
+        },
+        "after_image": {
+          "label": "Immagine dopo"
+        },
+        "before_label": {
+          "label": "Testo prima"
+        },
+        "after_label": {
+          "label": "Testo dopo"
+        }
+      },
+      "presets": {
+        "name": "Prima/Dopo"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "heading": {
+          "label": "Titolo"
+        },
+        "columns": {
+          "label": "Colonne"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Elemento",
+          "settings": {
+            "image": {
+              "label": "Immagine"
+            },
+            "product": {
+              "label": "Prodotto"
+            },
+            "caption": {
+              "label": "Didascalia"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "complete_look": {
+      "name": "Completa il look",
+      "heading": "Completa il look",
+      "total": "Totale",
+      "add_all": "Aggiungi tutto al carrello",
+      "adding": "Aggiunta in corso...",
+      "added": "Aggiunto!",
+      "presets": {
+        "name": "Completa il look"
+      }
     }
   },
   "settings_schema": {

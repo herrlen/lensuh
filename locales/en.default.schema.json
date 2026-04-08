@@ -286,6 +286,101 @@
       "presets": {
         "name": "Cross-selling"
       }
+    },
+    "image_hotspots": {
+      "name": "Image hotspots",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "image": {
+          "label": "Image"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Hotspot pin",
+          "settings": {
+            "product": {
+              "label": "Product"
+            },
+            "x_position": {
+              "label": "Horizontal position"
+            },
+            "y_position": {
+              "label": "Vertical position"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Image hotspots"
+      }
+    },
+    "before_after": {
+      "name": "Before/After",
+      "label": "Before after comparison",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "before_image": {
+          "label": "Before image"
+        },
+        "after_image": {
+          "label": "After image"
+        },
+        "before_label": {
+          "label": "Before label"
+        },
+        "after_label": {
+          "label": "After label"
+        }
+      },
+      "presets": {
+        "name": "Before/After"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "columns": {
+          "label": "Columns"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Lookbook item",
+          "settings": {
+            "image": {
+              "label": "Image"
+            },
+            "product": {
+              "label": "Product"
+            },
+            "caption": {
+              "label": "Caption"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "complete_look": {
+      "name": "Complete the look",
+      "heading": "Complete the look",
+      "total": "Total",
+      "add_all": "Add all to cart",
+      "adding": "Adding...",
+      "added": "Added!",
+      "presets": {
+        "name": "Complete the look"
+      }
     }
   },
   "settings_schema": {

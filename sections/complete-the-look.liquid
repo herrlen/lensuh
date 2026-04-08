@@ -1,0 +1,62 @@
+{%- comment -%}
+  Complete the Look — products from Metafield references.
+  "Add all" button, total price display.
+{%- endcomment -%}
+
+{%- liquid
+  assign look_products = product.metafields.custom.complete_the_look.value
+-%}
+
+{%- if look_products != blank and look_products.size > 0 -%}
+<section class="complete-look" data-section-id="{{ section.id }}" data-section-type="complete-the-look">
+  <div class="complete-look__inner page-width">
+    <h2 class="complete-look__heading">{{ 'sections.complete_look.heading' | t }}</h2>
+
+    <div class="complete-look__grid" role="list">
+      {%- assign total_price = 0 -%}
+      {%- for item in look_products -%}
+        {%- assign total_price = total_price | plus: item.price -%}
+        <div class="complete-look__item" role="listitem" data-look-item data-variant-id="{{ item.first_available_variant.id }}">
+          <a href="{{ item.url }}" class="complete-look__card">
+            {%- if item.featured_image -%}
+              <img
+                src="{{ item.featured_image | image_url: width: 300 }}"
+                alt="{{ item.title | escape }}"
+                width="150"
+                height="150"
+                loading="lazy"
+                class="complete-look__image"
+              >
+            {%- endif -%}
+            <span class="complete-look__title">{{ item.title }}</span>
+            <span class="complete-look__price" data-price-wrapper>{{ item.price | money }}</span>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="complete-look__footer">
+      <div class="complete-look__total">
+        <span>{{ 'sections.complete_look.total' | t }}</span>
+        <span class="complete-look__total-price" data-price-wrapper>{{ total_price | money }}</span>
+      </div>
+      <button
+        type="button"
+        class="btn btn--primary complete-look__add-all"
+        data-add-all-look
+        aria-live="polite"
+      >
+        {{ 'sections.complete_look.add_all' | t }}
+      </button>
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.complete_look.name",
+  "class": "section-complete-look",
+  "presets": [{ "name": "t:sections.complete_look.presets.name" }]
+}
+{% endschema %}

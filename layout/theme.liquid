@@ -64,7 +64,10 @@
       searchCollections: {{ 'search.types.collections' | t | json }},
       searchPages: {{ 'search.types.pages' | t | json }},
       searchArticles: {{ 'search.types.articles' | t | json }},
-      backInStockSuccess: {{ 'promotions.back_in_stock.success' | t | json }}
+      backInStockSuccess: {{ 'promotions.back_in_stock.success' | t | json }},
+      adding: {{ 'sections.complete_look.adding' | t | json }},
+      added: {{ 'sections.complete_look.added' | t | json }},
+      addAll: {{ 'sections.complete_look.add_all' | t | json }}
     };
     window.theme.currency = {{ cart.currency.iso_code | json }};
   </script>
@@ -103,6 +106,8 @@
   <noscript><link rel="stylesheet" href="{{ 'promotions.css' | asset_url }}"></noscript>
   <link rel="preload" href="{{ 'pdp-features.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'pdp-features.css' | asset_url }}"></noscript>
+  <link rel="preload" href="{{ 'visual-merch.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'visual-merch.css' | asset_url }}"></noscript>
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -122,5 +127,8 @@
   <script src="{{ 'size-chart.js' | asset_url }}" defer></script>
   <script src="{{ 'color-swatches.js' | asset_url }}" defer></script>
   <script src="{{ 'image-zoom.js' | asset_url }}" defer></script>
+  <script src="{{ 'image-hotspots.js' | asset_url }}" defer></script>
+  <script src="{{ 'before-after.js' | asset_url }}" defer></script>
+  <script src="{{ 'complete-the-look.js' | asset_url }}" defer></script>
 </body>
 </html>

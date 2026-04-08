@@ -1,0 +1,75 @@
+{%- comment -%}
+  Before/After Comparison Slider.
+  Drag-handle, touch+mouse, keyboard (Arrow Keys).
+{%- endcomment -%}
+
+<section class="before-after" data-section-id="{{ section.id }}" data-section-type="before-after">
+  <div class="before-after__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="before-after__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div
+      class="before-after__container"
+      data-before-after
+      role="slider"
+      aria-label="{{ 'sections.before_after.label' | t }}"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="50"
+      tabindex="0"
+    >
+      <div class="before-after__before">
+        {%- if section.settings.before_image != blank -%}
+          {% render 'responsive-image',
+            image: section.settings.before_image,
+            max_width: 1200,
+            sizes: '(min-width: 750px) 50vw, 100vw',
+            class: 'before-after__image'
+          %}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        {%- if section.settings.before_label != blank -%}
+          <span class="before-after__label before-after__label--before">{{ section.settings.before_label }}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="before-after__after" data-after-clip style="clip-path: inset(0 50% 0 0)">
+        {%- if section.settings.after_image != blank -%}
+          {% render 'responsive-image',
+            image: section.settings.after_image,
+            max_width: 1200,
+            sizes: '(min-width: 750px) 50vw, 100vw',
+            class: 'before-after__image'
+          %}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        {%- if section.settings.after_label != blank -%}
+          <span class="before-after__label before-after__label--after">{{ section.settings.after_label }}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="before-after__handle" data-slider-handle style="left: 50%">
+        <div class="before-after__handle-line"></div>
+        <div class="before-after__handle-grip" aria-hidden="true">&harr;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.before_after.name",
+  "class": "section-before-after",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "t:sections.before_after.settings.heading.label" },
+    { "type": "image_picker", "id": "before_image", "label": "t:sections.before_after.settings.before_image.label" },
+    { "type": "image_picker", "id": "after_image", "label": "t:sections.before_after.settings.after_image.label" },
+    { "type": "text", "id": "before_label", "label": "t:sections.before_after.settings.before_label.label", "default": "Before" },
+    { "type": "text", "id": "after_label", "label": "t:sections.before_after.settings.after_label.label", "default": "After" }
+  ],
+  "presets": [{ "name": "t:sections.before_after.presets.name" }]
+}
+{% endschema %}

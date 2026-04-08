@@ -286,6 +286,101 @@
       "presets": {
         "name": "Cross-selling"
       }
+    },
+    "image_hotspots": {
+      "name": "Afbeelding hotspots",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "image": {
+          "label": "Afbeelding"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Pin",
+          "settings": {
+            "product": {
+              "label": "Product"
+            },
+            "x_position": {
+              "label": "Horizontale positie"
+            },
+            "y_position": {
+              "label": "Verticale positie"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Afbeelding hotspots"
+      }
+    },
+    "before_after": {
+      "name": "Voor/Na",
+      "label": "Voor-na vergelijking",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "before_image": {
+          "label": "Afbeelding voor"
+        },
+        "after_image": {
+          "label": "Afbeelding na"
+        },
+        "before_label": {
+          "label": "Tekst voor"
+        },
+        "after_label": {
+          "label": "Tekst na"
+        }
+      },
+      "presets": {
+        "name": "Voor/Na"
+      }
+    },
+    "lookbook": {
+      "name": "Lookbook",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "columns": {
+          "label": "Kolommen"
+        }
+      },
+      "blocks": {
+        "item": {
+          "name": "Item",
+          "settings": {
+            "image": {
+              "label": "Afbeelding"
+            },
+            "product": {
+              "label": "Product"
+            },
+            "caption": {
+              "label": "Bijschrift"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Lookbook"
+      }
+    },
+    "complete_look": {
+      "name": "Maak de look compleet",
+      "heading": "Maak de look compleet",
+      "total": "Totaal",
+      "add_all": "Alles toevoegen",
+      "adding": "Toevoegen...",
+      "added": "Toegevoegd!",
+      "presets": {
+        "name": "Maak de look compleet"
+      }
     }
   },
   "settings_schema": {

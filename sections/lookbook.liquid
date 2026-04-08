@@ -1,0 +1,74 @@
+{%- comment -%}
+  Lookbook — Image gallery with linked products.
+  Grid or Masonry layout, hover product quick-info.
+{%- endcomment -%}
+
+<section class="lookbook" data-section-id="{{ section.id }}">
+  <div class="lookbook__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="lookbook__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="lookbook__grid lookbook__grid--{{ section.settings.columns }}col">
+      {%- for block in section.blocks -%}
+        <div class="lookbook__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <div class="lookbook__image-wrapper">
+              {% render 'responsive-image',
+                image: block.settings.image,
+                max_width: 800,
+                sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
+                class: 'lookbook__image'
+              %}
+
+              {%- if block.settings.product != blank -%}
+                {%- assign lb_product = block.settings.product -%}
+                <div class="lookbook__product-info">
+                  <a href="{{ lb_product.url }}" class="lookbook__product-link">
+                    <span class="lookbook__product-title">{{ lb_product.title }}</span>
+                    <span class="lookbook__product-price" data-price-wrapper>{{ lb_product.price | money }}</span>
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.caption != blank -%}
+            <p class="lookbook__caption">{{ block.settings.caption }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.lookbook.name",
+  "class": "section-lookbook",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "t:sections.lookbook.settings.heading.label" },
+    {
+      "type": "select", "id": "columns", "label": "t:sections.lookbook.settings.columns.label",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "lookbook_item",
+      "name": "t:sections.lookbook.blocks.item.name",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:sections.lookbook.blocks.item.settings.image.label" },
+        { "type": "product", "id": "product", "label": "t:sections.lookbook.blocks.item.settings.product.label" },
+        { "type": "text", "id": "caption", "label": "t:sections.lookbook.blocks.item.settings.caption.label" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.lookbook.presets.name" }]
+}
+{% endschema %}
