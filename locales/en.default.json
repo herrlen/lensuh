@@ -65,6 +65,22 @@
       "in_stock": "In stock",
       "low_stock": "Only {{ count }} left",
       "out_of_stock": "Out of stock"
+    },
+    "tabs": {
+      "label": "Product information",
+      "description": "Description",
+      "details": "Details",
+      "shipping": "Shipping",
+      "reviews": "Reviews"
+    },
+    "size_chart": {
+      "trigger": "Size chart",
+      "title": "Size chart",
+      "close": "Close size chart"
+    },
+    "image_zoom": {
+      "lightbox": "Image gallery",
+      "close": "Close gallery"
     }
   },
   "cart": {
@@ -701,6 +717,18 @@
         "stock_threshold": {
           "label": "Low stock threshold",
           "info": "Show \"Only X left\" when stock is at or below this number"
+        }
+      }
+    },
+    "product": {
+      "name": "Product page",
+      "settings": {
+        "tabs_style": {
+          "label": "Content style",
+          "options": {
+            "tabs": "Tabs",
+            "accordion": "Accordion"
+          }
         }
       }
     }

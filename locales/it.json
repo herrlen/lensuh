@@ -65,6 +65,22 @@
       "in_stock": "Disponibile",
       "low_stock": "Solo {{ count }} rimasti",
       "out_of_stock": "Esaurito"
+    },
+    "tabs": {
+      "label": "Informazioni prodotto",
+      "description": "Descrizione",
+      "details": "Dettagli",
+      "shipping": "Spedizione",
+      "reviews": "Recensioni"
+    },
+    "size_chart": {
+      "trigger": "Guida alle taglie",
+      "title": "Guida alle taglie",
+      "close": "Chiudi guida"
+    },
+    "image_zoom": {
+      "lightbox": "Galleria immagini",
+      "close": "Chiudi galleria"
     }
   },
   "cart": {
@@ -701,6 +717,18 @@
         "stock_threshold": {
           "label": "Soglia stock basso",
           "info": "\"Solo X rimasti\" quando lo stock è pari o inferiore"
+        }
+      }
+    },
+    "product": {
+      "name": "Pagina prodotto",
+      "settings": {
+        "tabs_style": {
+          "label": "Stile contenuto",
+          "options": {
+            "tabs": "Schede",
+            "accordion": "Fisarmonica"
+          }
         }
       }
     }

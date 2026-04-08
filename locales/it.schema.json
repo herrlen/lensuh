@@ -560,6 +560,18 @@
           "info": "\"Solo X rimasti\" quando lo stock è pari o inferiore"
         }
       }
+    },
+    "product": {
+      "name": "Pagina prodotto",
+      "settings": {
+        "tabs_style": {
+          "label": "Stile contenuto",
+          "options": {
+            "tabs": "Schede",
+            "accordion": "Fisarmonica"
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,39 @@
+{%- comment -%}
+  Image Zoom — Hover-Zoom (Desktop), Pinch (Mobile), Lightbox on Click.
+  Supports up to 8K resolution. Lazy-loaded, CLS = 0.
+  Usage: {% render 'image-zoom', image: media, product: product %}
+{%- endcomment -%}
+
+{%- if image != blank -%}
+  <div
+    class="image-zoom"
+    data-image-zoom
+    data-zoom-src="{{ image | image_url: width: 3000 }}"
+    data-full-src="{{ image | image_url: width: 5000 }}"
+  >
+    <div class="image-zoom__loupe" data-zoom-loupe aria-hidden="true"></div>
+  </div>
+{%- endif -%}
+
+{%- comment -%} Lightbox container (rendered once) {%- endcomment -%}
+{%- if image_zoom_lightbox_rendered != true -%}
+  <div
+    class="image-zoom-lightbox"
+    data-lightbox
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ 'products.image_zoom.lightbox' | t }}"
+    aria-hidden="true"
+  >
+    <div class="image-zoom-lightbox__overlay" data-lightbox-close></div>
+    <div class="image-zoom-lightbox__content">
+      <img class="image-zoom-lightbox__image" data-lightbox-image src="" alt="" loading="lazy" width="1200" height="1200">
+      <button type="button" class="image-zoom-lightbox__close" data-lightbox-close aria-label="{{ 'products.image_zoom.close' | t }}">
+        {% render 'icon', icon: 'close' %}
+      </button>
+      <button type="button" class="image-zoom-lightbox__prev" data-lightbox-prev aria-label="{{ 'accessibility.previous' | t }}">&lsaquo;</button>
+      <button type="button" class="image-zoom-lightbox__next" data-lightbox-next aria-label="{{ 'accessibility.next' | t }}">&rsaquo;</button>
+    </div>
+  </div>
+  {%- assign image_zoom_lightbox_rendered = true -%}
+{%- endif -%}

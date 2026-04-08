@@ -1,0 +1,170 @@
+{%- comment -%}
+  Product Tabs / Accordion — setting wählbar.
+  Tabs: Beschreibung, Details, Versand, Reviews + Custom via Metafields.
+  Keyboard: Arrow-Keys, Enter/Space, role="tablist"/"tab"/"tabpanel".
+  Usage: {% render 'product-tabs', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  assign tab_style = settings.product_tabs_style | default: 'tabs'
+  assign tabs = '' | split: ','
+  assign tab_count = 0
+
+  if product.description != blank
+    assign tab_count = tab_count | plus: 1
+  endif
+
+  if product.metafields.custom.tab_details.value != blank
+    assign tab_count = tab_count | plus: 1
+  endif
+
+  if product.metafields.custom.tab_shipping.value != blank
+    assign tab_count = tab_count | plus: 1
+  endif
+
+  if product.metafields.custom.tab_reviews.value != blank
+    assign tab_count = tab_count | plus: 1
+  endif
+-%}
+
+{%- if tab_count > 0 -%}
+  <div class="product-tabs product-tabs--{{ tab_style }}" data-product-tabs data-tab-style="{{ tab_style }}">
+
+    {%- if tab_style == 'tabs' -%}
+      <div class="product-tabs__nav" role="tablist" aria-label="{{ 'products.tabs.label' | t }}">
+        {%- if product.description != blank -%}
+          <button
+            type="button"
+            class="product-tabs__tab product-tabs__tab--active"
+            role="tab"
+            id="tab-description"
+            aria-selected="true"
+            aria-controls="panel-description"
+            data-tab-trigger="description"
+          >
+            {{ 'products.tabs.description' | t }}
+          </button>
+        {%- endif -%}
+        {%- if product.metafields.custom.tab_details.value != blank -%}
+          <button
+            type="button"
+            class="product-tabs__tab"
+            role="tab"
+            id="tab-details"
+            aria-selected="false"
+            aria-controls="panel-details"
+            tabindex="-1"
+            data-tab-trigger="details"
+          >
+            {{ 'products.tabs.details' | t }}
+          </button>
+        {%- endif -%}
+        {%- if product.metafields.custom.tab_shipping.value != blank -%}
+          <button
+            type="button"
+            class="product-tabs__tab"
+            role="tab"
+            id="tab-shipping"
+            aria-selected="false"
+            aria-controls="panel-shipping"
+            tabindex="-1"
+            data-tab-trigger="shipping"
+          >
+            {{ 'products.tabs.shipping' | t }}
+          </button>
+        {%- endif -%}
+        {%- if product.metafields.custom.tab_reviews.value != blank -%}
+          <button
+            type="button"
+            class="product-tabs__tab"
+            role="tab"
+            id="tab-reviews"
+            aria-selected="false"
+            aria-controls="panel-reviews"
+            tabindex="-1"
+            data-tab-trigger="reviews"
+          >
+            {{ 'products.tabs.reviews' | t }}
+          </button>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="product-tabs__panels">
+      {%- if product.description != blank -%}
+        {%- if tab_style == 'accordion' -%}
+          <button type="button" class="product-tabs__accordion-trigger product-tabs__accordion-trigger--active" data-accordion-trigger="description" aria-expanded="true" aria-controls="panel-description">
+            {{ 'products.tabs.description' | t }}
+            {% render 'icon', icon: 'chevron-down' %}
+          </button>
+        {%- endif -%}
+        <div
+          class="product-tabs__panel{% if tab_style == 'tabs' %} product-tabs__panel--active{% endif %}"
+          role="tabpanel"
+          id="panel-description"
+          aria-labelledby="tab-description"
+          data-tab-panel="description"
+        >
+          <div class="rte">{{ product.description }}</div>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.tab_details.value != blank -%}
+        {%- if tab_style == 'accordion' -%}
+          <button type="button" class="product-tabs__accordion-trigger" data-accordion-trigger="details" aria-expanded="false" aria-controls="panel-details">
+            {{ 'products.tabs.details' | t }}
+            {% render 'icon', icon: 'chevron-down' %}
+          </button>
+        {%- endif -%}
+        <div
+          class="product-tabs__panel"
+          role="tabpanel"
+          id="panel-details"
+          aria-labelledby="tab-details"
+          data-tab-panel="details"
+          {% if tab_style == 'tabs' %}hidden{% endif %}
+        >
+          <div class="rte">{{ product.metafields.custom.tab_details.value }}</div>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.tab_shipping.value != blank -%}
+        {%- if tab_style == 'accordion' -%}
+          <button type="button" class="product-tabs__accordion-trigger" data-accordion-trigger="shipping" aria-expanded="false" aria-controls="panel-shipping">
+            {{ 'products.tabs.shipping' | t }}
+            {% render 'icon', icon: 'chevron-down' %}
+          </button>
+        {%- endif -%}
+        <div
+          class="product-tabs__panel"
+          role="tabpanel"
+          id="panel-shipping"
+          aria-labelledby="tab-shipping"
+          data-tab-panel="shipping"
+          {% if tab_style == 'tabs' %}hidden{% endif %}
+        >
+          <div class="rte">{{ product.metafields.custom.tab_shipping.value }}</div>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.tab_reviews.value != blank -%}
+        {%- if tab_style == 'accordion' -%}
+          <button type="button" class="product-tabs__accordion-trigger" data-accordion-trigger="reviews" aria-expanded="false" aria-controls="panel-reviews">
+            {{ 'products.tabs.reviews' | t }}
+            {% render 'icon', icon: 'chevron-down' %}
+          </button>
+        {%- endif -%}
+        <div
+          class="product-tabs__panel"
+          role="tabpanel"
+          id="panel-reviews"
+          aria-labelledby="tab-reviews"
+          data-tab-panel="reviews"
+          {% if tab_style == 'tabs' %}hidden{% endif %}
+        >
+          <div class="rte">{{ product.metafields.custom.tab_reviews.value }}</div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}

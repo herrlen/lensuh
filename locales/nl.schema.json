@@ -560,6 +560,18 @@
           "info": "\"Nog maar X\" wanneer voorraad gelijk of lager is"
         }
       }
+    },
+    "product": {
+      "name": "Productpagina",
+      "settings": {
+        "tabs_style": {
+          "label": "Inhoudsstijl",
+          "options": {
+            "tabs": "Tabbladen",
+            "accordion": "Accordeon"
+          }
+        }
+      }
     }
   }
 }

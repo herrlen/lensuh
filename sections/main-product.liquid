@@ -37,6 +37,7 @@
                   loading: media_loading,
                   class: 'main-product__image'
                 %}
+                {% render 'image-zoom', image: media, product: product %}
               {%- when 'video' -%}
                 {{ media | video_tag: autoplay: false, controls: true, loading: 'lazy' }}
               {%- when 'external_video' -%}
@@ -81,6 +82,8 @@
 
           {%- when 'variant_picker' -%}
             <div class="main-product__variants" {{ block.shopify_attributes }}>
+              {% render 'color-swatches', product: product %}
+              {% render 'size-chart', product: product %}
               {%- unless product.has_only_default_variant -%}
                 {%- for option in product.options_with_values -%}
                   <fieldset class="main-product__option" data-option-index="{{ forloop.index0 }}">
@@ -166,11 +169,9 @@
             </div>
 
           {%- when 'description' -%}
-            {%- if product.description != blank -%}
-              <div class="main-product__description rte" {{ block.shopify_attributes }}>
-                {{ product.description }}
-              </div>
-            {%- endif -%}
+            <div class="main-product__description" {{ block.shopify_attributes }}>
+              {% render 'product-tabs', product: product %}
+            </div>
 
           {%- when 'share' -%}
             <div class="main-product__share" {{ block.shopify_attributes }}>

@@ -1,0 +1,83 @@
+{%- comment -%}
+  Color Swatches — PDP + Collection Cards.
+  Color from: Option Name Mapping, Metafield, or Custom CSS.
+  Variant image switches on hover/click, price updates.
+  Usage: {% render 'color-swatches', product: product, option_index: 0 %}
+{%- endcomment -%}
+
+{%- liquid
+  assign swatch_option = null
+  for option in product.options_with_values
+    assign option_name_down = option.name | downcase
+    if option_name_down == 'color' or option_name_down == 'colour' or option_name_down == 'farbe' or option_name_down == 'couleur' or option_name_down == 'colore' or option_name_down == 'kleur'
+      assign swatch_option = option
+      assign swatch_index = forloop.index0
+      break
+    endif
+  endfor
+-%}
+
+{%- if swatch_option -%}
+  <div class="color-swatches" data-color-swatches data-option-index="{{ swatch_index }}">
+    <span class="color-swatches__label">{{ swatch_option.name }}:</span>
+    <div class="color-swatches__list" role="radiogroup" aria-label="{{ swatch_option.name }}">
+      {%- for value in swatch_option.values -%}
+        {%- liquid
+          assign swatch_handle = value | handleize
+          assign color_map = 'black:000000,white:FFFFFF,red:CC0000,blue:0055FF,green:008000,yellow:FFD700,pink:FFC0CB,orange:FF6600,purple:6B21A8,grey:808080,gray:808080,beige:F5F5DC,navy:000080,brown:8B4513,cream:FFFDD0,gold:FFD700,silver:C0C0C0'
+          assign mapped = ''
+          assign pairs = color_map | split: ','
+          for pair in pairs
+            assign parts = pair | split: ':'
+            if swatch_handle == parts[0]
+              assign mapped = parts[1]
+              break
+            endif
+          endfor
+
+          assign variant_for_swatch = null
+          for variant in product.variants
+            assign variant_option = variant.options[swatch_index]
+            if variant_option == value
+              assign variant_for_swatch = variant
+              break
+            endif
+          endfor
+        -%}
+
+        <label
+          class="color-swatches__swatch{% if swatch_option.selected_value == value %} color-swatches__swatch--active{% endif %}"
+          role="radio"
+          {%- if swatch_option.selected_value == value -%}aria-checked="true"{%- else -%}aria-checked="false"{%- endif -%}
+          aria-label="{{ value }}"
+          title="{{ value }}"
+          data-swatch-value="{{ value | escape }}"
+          {%- if variant_for_swatch -%}
+            data-variant-id="{{ variant_for_swatch.id }}"
+            data-variant-price="{{ variant_for_swatch.price }}"
+            {%- if variant_for_swatch.featured_image -%}
+              data-variant-image="{{ variant_for_swatch.featured_image | image_url: width: 800 }}"
+            {%- endif -%}
+          {%- endif -%}
+        >
+          <input
+            type="radio"
+            name="color-swatch-{{ product.id }}"
+            value="{{ value | escape }}"
+            {% if swatch_option.selected_value == value %}checked{% endif %}
+            class="visually-hidden"
+            data-swatch-input
+          >
+          <span
+            class="color-swatches__color"
+            {%- if mapped != blank -%}
+              style="background-color: #{{ mapped }}"
+            {%- else -%}
+              style="background-color: {{ swatch_handle }}"
+            {%- endif -%}
+          ></span>
+        </label>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}

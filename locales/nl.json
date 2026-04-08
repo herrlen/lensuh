@@ -65,6 +65,22 @@
       "in_stock": "Op voorraad",
       "low_stock": "Nog maar {{ count }} beschikbaar",
       "out_of_stock": "Uitverkocht"
+    },
+    "tabs": {
+      "label": "Productinformatie",
+      "description": "Beschrijving",
+      "details": "Details",
+      "shipping": "Verzending",
+      "reviews": "Beoordelingen"
+    },
+    "size_chart": {
+      "trigger": "Maattabel",
+      "title": "Maattabel",
+      "close": "Maattabel sluiten"
+    },
+    "image_zoom": {
+      "lightbox": "Afbeeldingsgalerij",
+      "close": "Galerij sluiten"
     }
   },
   "cart": {
@@ -701,6 +717,18 @@
         "stock_threshold": {
           "label": "Drempel lage voorraad",
           "info": "\"Nog maar X\" wanneer voorraad gelijk of lager is"
+        }
+      }
+    },
+    "product": {
+      "name": "Productpagina",
+      "settings": {
+        "tabs_style": {
+          "label": "Inhoudsstijl",
+          "options": {
+            "tabs": "Tabbladen",
+            "accordion": "Accordeon"
+          }
         }
       }
     }

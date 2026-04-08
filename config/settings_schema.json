@@ -187,6 +187,21 @@
     ]
   },
   {
+    "name": "t:settings_schema.product.name",
+    "settings": [
+      {
+        "type": "select",
+        "id": "product_tabs_style",
+        "label": "t:settings_schema.product.settings.tabs_style.label",
+        "options": [
+          { "value": "tabs", "label": "t:settings_schema.product.settings.tabs_style.options.tabs" },
+          { "value": "accordion", "label": "t:settings_schema.product.settings.tabs_style.options.accordion" }
+        ],
+        "default": "tabs"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.navigation.name",
     "settings": [
       {

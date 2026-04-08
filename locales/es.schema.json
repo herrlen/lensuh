@@ -560,6 +560,18 @@
           "info": "\"Solo quedan X\" cuando el stock está por debajo"
         }
       }
+    },
+    "product": {
+      "name": "Página de producto",
+      "settings": {
+        "tabs_style": {
+          "label": "Estilo de contenido",
+          "options": {
+            "tabs": "Pestañas",
+            "accordion": "Acordeón"
+          }
+        }
+      }
     }
   }
 }

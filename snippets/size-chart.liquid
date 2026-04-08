@@ -1,0 +1,56 @@
+{%- comment -%}
+  Size Chart Modal — data from Metafield (JSON) or Page reference.
+  Responsive table, Focus-Trap, ESC to close.
+  Usage: {% render 'size-chart', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  assign has_size_chart = false
+  if product.metafields.custom.size_chart.value != blank
+    assign has_size_chart = true
+  elsif product.metafields.custom.size_chart_page.value != blank
+    assign has_size_chart = true
+  endif
+-%}
+
+{%- if has_size_chart -%}
+  <button
+    type="button"
+    class="size-chart__trigger"
+    data-size-chart-open
+    aria-haspopup="dialog"
+  >
+    {{ 'products.size_chart.trigger' | t }}
+  </button>
+
+  <div
+    class="size-chart-modal"
+    data-size-chart-modal
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ 'products.size_chart.title' | t }}"
+    aria-hidden="true"
+  >
+    <div class="size-chart-modal__overlay" data-size-chart-close></div>
+    <div class="size-chart-modal__content">
+      <div class="size-chart-modal__header">
+        <h3 class="size-chart-modal__title">{{ 'products.size_chart.title' | t }}</h3>
+        <button type="button" class="size-chart-modal__close" data-size-chart-close aria-label="{{ 'products.size_chart.close' | t }}">
+          {% render 'icon', icon: 'close' %}
+        </button>
+      </div>
+      <div class="size-chart-modal__body">
+        {%- if product.metafields.custom.size_chart_page.value != blank -%}
+          {%- assign chart_page = product.metafields.custom.size_chart_page.value -%}
+          <div class="rte">{{ chart_page.content }}</div>
+        {%- elsif product.metafields.custom.size_chart.value != blank -%}
+          <div class="size-chart__table-wrapper">
+            <table class="size-chart__table" data-size-chart-table>
+              {%- comment -%} JS parses JSON metafield and builds table rows {%- endcomment -%}
+            </table>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

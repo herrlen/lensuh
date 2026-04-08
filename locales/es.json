@@ -65,6 +65,22 @@
       "in_stock": "En stock",
       "low_stock": "Solo quedan {{ count }}",
       "out_of_stock": "Agotado"
+    },
+    "tabs": {
+      "label": "Información del producto",
+      "description": "Descripción",
+      "details": "Detalles",
+      "shipping": "Envío",
+      "reviews": "Reseñas"
+    },
+    "size_chart": {
+      "trigger": "Guía de tallas",
+      "title": "Guía de tallas",
+      "close": "Cerrar guía"
+    },
+    "image_zoom": {
+      "lightbox": "Galería de imágenes",
+      "close": "Cerrar galería"
     }
   },
   "cart": {
@@ -701,6 +717,18 @@
         "stock_threshold": {
           "label": "Umbral stock bajo",
           "info": "\"Solo quedan X\" cuando el stock está por debajo"
+        }
+      }
+    },
+    "product": {
+      "name": "Página de producto",
+      "settings": {
+        "tabs_style": {
+          "label": "Estilo de contenido",
+          "options": {
+            "tabs": "Pestañas",
+            "accordion": "Acordeón"
+          }
         }
       }
     }

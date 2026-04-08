@@ -560,6 +560,18 @@
           "info": "Show \"Only X left\" when stock is at or below this number"
         }
       }
+    },
+    "product": {
+      "name": "Product page",
+      "settings": {
+        "tabs_style": {
+          "label": "Content style",
+          "options": {
+            "tabs": "Tabs",
+            "accordion": "Accordion"
+          }
+        }
+      }
     }
   }
 }

@@ -65,6 +65,22 @@
       "in_stock": "Auf Lager",
       "low_stock": "Nur noch {{ count }} verfügbar",
       "out_of_stock": "Ausverkauft"
+    },
+    "tabs": {
+      "label": "Produktinformationen",
+      "description": "Beschreibung",
+      "details": "Details",
+      "shipping": "Versand",
+      "reviews": "Bewertungen"
+    },
+    "size_chart": {
+      "trigger": "Größentabelle",
+      "title": "Größentabelle",
+      "close": "Größentabelle schließen"
+    },
+    "image_zoom": {
+      "lightbox": "Bildergalerie",
+      "close": "Galerie schließen"
     }
   },
   "cart": {
@@ -701,6 +717,18 @@
         "stock_threshold": {
           "label": "Niedriger-Bestand-Schwelle",
           "info": "\"Nur noch X verfügbar\" wenn Bestand gleich oder unter dieser Zahl"
+        }
+      }
+    },
+    "product": {
+      "name": "Produktseite",
+      "settings": {
+        "tabs_style": {
+          "label": "Inhaltsstil",
+          "options": {
+            "tabs": "Tabs",
+            "accordion": "Akkordeon"
+          }
         }
       }
     }
