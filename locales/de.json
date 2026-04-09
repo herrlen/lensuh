@@ -1087,7 +1087,8 @@
       "related": "Ähnliche Artikel"
     },
     "sidebar": {
-      "categories": "Kategorien"
+      "categories": "Kategorien",
+      "featured": "Beliebte Beiträge"
     }
   },
   "customer": {

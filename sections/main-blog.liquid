@@ -81,6 +81,17 @@
       {%- comment -%} Sidebar {%- endcomment -%}
       {%- if section.settings.show_sidebar -%}
         <aside class="main-blog__sidebar">
+          {%- comment -%} Search {%- endcomment -%}
+          <div class="main-blog__sidebar-block">
+            <h3 class="main-blog__sidebar-title">{{ 'search.title' | t }}</h3>
+            <form action="{{ routes.search_url }}" method="get" role="search" class="main-blog__sidebar-search">
+              <label for="blog-search" class="visually-hidden">{{ 'search.title' | t }}</label>
+              <input type="search" id="blog-search" name="q" placeholder="{{ 'search.placeholder' | t }}" class="main-blog__sidebar-input">
+              <input type="hidden" name="type" value="article">
+            </form>
+          </div>
+
+          {%- comment -%} Categories / Tags {%- endcomment -%}
           {%- if blog.tags.size > 0 -%}
             <div class="main-blog__sidebar-block">
               <h3 class="main-blog__sidebar-title">{{ 'blog.sidebar.categories' | t }}</h3>
@@ -89,6 +100,30 @@
                   <li><a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a></li>
                 {%- endfor -%}
               </ul>
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} Featured Posts {%- endcomment -%}
+          {%- if blog.articles.size > 0 -%}
+            <div class="main-blog__sidebar-block">
+              <h3 class="main-blog__sidebar-title">{{ 'blog.sidebar.featured' | t }}</h3>
+              <div class="main-blog__sidebar-featured">
+                {%- for article in blog.articles limit: 3 -%}
+                  <a href="{{ article.url }}" class="main-blog__sidebar-post">
+                    {%- if article.image -%}
+                      <img
+                        src="{{ article.image | image_url: width: 120 }}"
+                        alt="{{ article.title | escape }}"
+                        width="60"
+                        height="60"
+                        loading="lazy"
+                        class="main-blog__sidebar-post-image"
+                      >
+                    {%- endif -%}
+                    <span class="main-blog__sidebar-post-title">{{ article.title | truncate: 50 }}</span>
+                  </a>
+                {%- endfor -%}
+              </div>
             </div>
           {%- endif -%}
         </aside>

@@ -33,6 +33,15 @@
 .main-blog__tag-list a { font-size: var(--font-size-base); text-decoration: none; opacity: 0.7; }
 .main-blog__tag-list a:hover { opacity: 1; }
 
+.main-blog__sidebar-search { margin-bottom: 0; }
+.main-blog__sidebar-input { width: 100%; }
+.main-blog__sidebar-featured { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.main-blog__sidebar-post { display: flex; align-items: center; gap: var(--spacing-sm); text-decoration: none; color: inherit; }
+.main-blog__sidebar-post:hover { text-decoration: none; }
+.main-blog__sidebar-post-image { width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
+.main-blog__sidebar-post-title { font-size: var(--font-size-sm); font-weight: 500; }
+.main-blog__sidebar-block { margin-bottom: var(--spacing-lg); }
+
 /* --- Article Enhancements --- */
 .main-article__share { margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
 .main-article__share-label { font-weight: 600; margin-right: var(--spacing-sm); }

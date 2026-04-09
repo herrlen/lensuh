@@ -43,34 +43,7 @@
 
   {{ content_for_header }}
 
-  <script>
-    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-    window.theme = window.theme || {};
-    window.theme.assetUrl = {{ 'theme.js' | asset_url | json }};
-    window.theme.strings = {
-      addToCart: {{ 'products.product.add_to_cart' | t | json }},
-      soldOut: {{ 'products.product.sold_out' | t | json }},
-      unavailable: {{ 'products.product.unavailable' | t | json }},
-      cartEmpty: {{ 'cart.general.empty' | t | json }},
-      cartUpdated: {{ 'cart.general.updated' | t | json }},
-      fetchError: {{ 'general.fetch_error' | t | json }},
-      searchNoResults: {{ 'search.no_results' | t | json }},
-      continueShopping: {{ 'cart.general.continue_shopping' | t | json }},
-      freeShippingReached: {{ 'cart.free_shipping.reached' | t | json }},
-      freeShippingRemaining: {{ 'cart.free_shipping.remaining_js' | t | json }},
-      pickupAvailable: {{ 'products.pickup.available' | t | json }},
-      pickupUnavailable: {{ 'products.pickup.unavailable' | t | json }},
-      searchProducts: {{ 'search.types.products' | t | json }},
-      searchCollections: {{ 'search.types.collections' | t | json }},
-      searchPages: {{ 'search.types.pages' | t | json }},
-      searchArticles: {{ 'search.types.articles' | t | json }},
-      backInStockSuccess: {{ 'promotions.back_in_stock.success' | t | json }},
-      adding: {{ 'sections.complete_look.adding' | t | json }},
-      added: {{ 'sections.complete_look.added' | t | json }},
-      addAll: {{ 'sections.complete_look.add_all' | t | json }}
-    };
-    window.theme.currency = {{ cart.currency.iso_code | json }};
-  </script>
+  {%- render 'theme-strings' -%}
 </head>
 
 <body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
