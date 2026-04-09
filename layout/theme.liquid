@@ -110,6 +110,8 @@
   <noscript><link rel="stylesheet" href="{{ 'visual-merch.css' | asset_url }}"></noscript>
   <link rel="preload" href="{{ 'video.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'video.css' | asset_url }}"></noscript>
+  <link rel="preload" href="{{ 'content.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'content.css' | asset_url }}"></noscript>
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -135,5 +137,6 @@
   <script src="{{ 'product-video.js' | asset_url }}" defer></script>
   <script src="{{ 'video-background.js' | asset_url }}" defer></script>
   <script src="{{ 'shoppable-video.js' | asset_url }}" defer></script>
+  <script src="{{ 'faq.js' | asset_url }}" defer></script>
 </body>
 </html>

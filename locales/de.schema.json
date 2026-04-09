@@ -159,7 +159,25 @@
       "name": "Seite"
     },
     "main_blog": {
-      "name": "Blog"
+      "name": "Blog",
+      "settings": {
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "grid": "Raster",
+            "list": "Liste"
+          }
+        },
+        "show_featured": {
+          "label": "Featured-Post anzeigen"
+        },
+        "show_author": {
+          "label": "Autor anzeigen"
+        },
+        "show_sidebar": {
+          "label": "Seitenleiste anzeigen"
+        }
+      }
     },
     "main_article": {
       "name": "Artikel",
@@ -169,6 +187,12 @@
         },
         "show_date": {
           "label": "Datum anzeigen"
+        },
+        "show_share": {
+          "label": "Teilen-Buttons anzeigen"
+        },
+        "show_related": {
+          "label": "Ähnliche Artikel anzeigen"
         }
       }
     },
@@ -499,6 +523,101 @@
       },
       "presets": {
         "name": "Split-Screen"
+      }
+    },
+    "faq_section": {
+      "name": "FAQ",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        }
+      },
+      "blocks": {
+        "faq_item": {
+          "name": "FAQ-Eintrag",
+          "settings": {
+            "question": {
+              "label": "Frage"
+            },
+            "answer": {
+              "label": "Antwort"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "FAQ"
+      }
+    },
+    "press_coverage": {
+      "name": "Presseberichte",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        }
+      },
+      "blocks": {
+        "logo": {
+          "name": "Presse-Logo",
+          "settings": {
+            "logo": {
+              "label": "Logo"
+            },
+            "name": {
+              "label": "Name"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Presseberichte"
+      }
+    },
+    "editorial": {
+      "name": "Editorial",
+      "settings": {
+        "full_width": {
+          "label": "Volle Breite"
+        }
+      },
+      "blocks": {
+        "content": {
+          "name": "Inhaltsblock",
+          "settings": {
+            "image": {
+              "label": "Bild"
+            },
+            "subheading": {
+              "label": "Unterüberschrift"
+            },
+            "heading": {
+              "label": "Überschrift"
+            },
+            "text": {
+              "label": "Text"
+            },
+            "button_label": {
+              "label": "Button-Text"
+            },
+            "button_link": {
+              "label": "Button-Link"
+            },
+            "layout": {
+              "label": "Layout",
+              "options": {
+                "image_left": "Bild links",
+                "image_right": "Bild rechts",
+                "image_full": "Bild volle Breite"
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Editorial"
       }
     }
   },

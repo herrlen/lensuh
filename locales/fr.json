@@ -319,7 +319,25 @@
       "name": "Page"
     },
     "main_blog": {
-      "name": "Blog"
+      "name": "Blog",
+      "settings": {
+        "layout": {
+          "label": "Disposition",
+          "options": {
+            "grid": "Grille",
+            "list": "Liste"
+          }
+        },
+        "show_featured": {
+          "label": "Afficher l'article vedette"
+        },
+        "show_author": {
+          "label": "Afficher l'auteur"
+        },
+        "show_sidebar": {
+          "label": "Afficher la barre latérale"
+        }
+      }
     },
     "main_article": {
       "name": "Article",
@@ -329,6 +347,12 @@
         },
         "show_date": {
           "label": "Afficher la date"
+        },
+        "show_share": {
+          "label": "Afficher les boutons de partage"
+        },
+        "show_related": {
+          "label": "Afficher les articles similaires"
         }
       }
     },
@@ -660,6 +684,101 @@
       "presets": {
         "name": "Écran partagé"
       }
+    },
+    "faq_section": {
+      "name": "FAQ",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        }
+      },
+      "blocks": {
+        "faq_item": {
+          "name": "Élément FAQ",
+          "settings": {
+            "question": {
+              "label": "Question"
+            },
+            "answer": {
+              "label": "Réponse"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "FAQ"
+      }
+    },
+    "press_coverage": {
+      "name": "Couverture presse",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        }
+      },
+      "blocks": {
+        "logo": {
+          "name": "Logo presse",
+          "settings": {
+            "logo": {
+              "label": "Logo"
+            },
+            "name": {
+              "label": "Nom"
+            },
+            "link": {
+              "label": "Lien"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Couverture presse"
+      }
+    },
+    "editorial": {
+      "name": "Éditorial",
+      "settings": {
+        "full_width": {
+          "label": "Pleine largeur"
+        }
+      },
+      "blocks": {
+        "content": {
+          "name": "Bloc contenu",
+          "settings": {
+            "image": {
+              "label": "Image"
+            },
+            "subheading": {
+              "label": "Sous-titre"
+            },
+            "heading": {
+              "label": "Titre"
+            },
+            "text": {
+              "label": "Texte"
+            },
+            "button_label": {
+              "label": "Texte du bouton"
+            },
+            "button_link": {
+              "label": "Lien du bouton"
+            },
+            "layout": {
+              "label": "Disposition",
+              "options": {
+                "image_left": "Image à gauche",
+                "image_right": "Image à droite",
+                "image_full": "Image pleine largeur"
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Éditorial"
+      }
     }
   },
   "settings_schema": {
@@ -956,6 +1075,19 @@
       "email": "E-mail",
       "body": "Commentaire",
       "submit": "Publier"
+    },
+    "article": {
+      "share": "Partager",
+      "share_facebook": "Partager sur Facebook",
+      "share_x": "Partager sur X",
+      "share_email": "Partager par e-mail",
+      "navigation": "Navigation article",
+      "previous": "Article précédent",
+      "next": "Article suivant",
+      "related": "Articles similaires"
+    },
+    "sidebar": {
+      "categories": "Catégories"
     }
   },
   "customer": {

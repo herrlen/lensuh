@@ -1,0 +1,80 @@
+{%- comment -%}
+  Editorial Layout — Magazine-style content section.
+  Text + image combinations with different layout options.
+{%- endcomment -%}
+
+<section class="editorial" data-section-id="{{ section.id }}">
+  <div class="editorial__inner{% unless section.settings.full_width %} page-width{% endunless %}">
+    {%- for block in section.blocks -%}
+      <div
+        class="editorial__block editorial__block--{{ block.settings.layout | default: 'image-left' }}"
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.image != blank -%}
+          <div class="editorial__media">
+            {% render 'responsive-image',
+              image: block.settings.image,
+              max_width: 800,
+              sizes: '(min-width: 750px) 50vw, 100vw',
+              class: 'editorial__image'
+            %}
+          </div>
+        {%- endif -%}
+
+        <div class="editorial__content">
+          {%- if block.settings.subheading != blank -%}
+            <span class="editorial__subheading">{{ block.settings.subheading }}</span>
+          {%- endif -%}
+          {%- if block.settings.heading != blank -%}
+            <h2 class="editorial__heading">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="editorial__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+          {%- if block.settings.button_label != blank -%}
+            <a
+              {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
+              class="btn btn--primary editorial__btn"
+            >
+              {{ block.settings.button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.editorial.name",
+  "class": "section-editorial",
+  "settings": [
+    { "type": "checkbox", "id": "full_width", "label": "t:sections.editorial.settings.full_width.label", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "t:sections.editorial.blocks.content.name",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:sections.editorial.blocks.content.settings.image.label" },
+        { "type": "text", "id": "subheading", "label": "t:sections.editorial.blocks.content.settings.subheading.label" },
+        { "type": "text", "id": "heading", "label": "t:sections.editorial.blocks.content.settings.heading.label" },
+        { "type": "richtext", "id": "text", "label": "t:sections.editorial.blocks.content.settings.text.label" },
+        { "type": "text", "id": "button_label", "label": "t:sections.editorial.blocks.content.settings.button_label.label" },
+        { "type": "url", "id": "button_link", "label": "t:sections.editorial.blocks.content.settings.button_link.label" },
+        {
+          "type": "select", "id": "layout", "label": "t:sections.editorial.blocks.content.settings.layout.label",
+          "options": [
+            { "value": "image-left", "label": "t:sections.editorial.blocks.content.settings.layout.options.image_left" },
+            { "value": "image-right", "label": "t:sections.editorial.blocks.content.settings.layout.options.image_right" },
+            { "value": "image-full", "label": "t:sections.editorial.blocks.content.settings.layout.options.image_full" }
+          ],
+          "default": "image-left"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.editorial.presets.name" }]
+}
+{% endschema %}

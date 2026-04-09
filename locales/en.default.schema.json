@@ -159,7 +159,25 @@
       "name": "Page"
     },
     "main_blog": {
-      "name": "Blog"
+      "name": "Blog",
+      "settings": {
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "grid": "Grid",
+            "list": "List"
+          }
+        },
+        "show_featured": {
+          "label": "Show featured post"
+        },
+        "show_author": {
+          "label": "Show author"
+        },
+        "show_sidebar": {
+          "label": "Show sidebar"
+        }
+      }
     },
     "main_article": {
       "name": "Article",
@@ -169,6 +187,12 @@
         },
         "show_date": {
           "label": "Show date"
+        },
+        "show_share": {
+          "label": "Show share buttons"
+        },
+        "show_related": {
+          "label": "Show related articles"
         }
       }
     },
@@ -499,6 +523,101 @@
       },
       "presets": {
         "name": "Split screen"
+      }
+    },
+    "faq_section": {
+      "name": "FAQ",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        }
+      },
+      "blocks": {
+        "faq_item": {
+          "name": "FAQ item",
+          "settings": {
+            "question": {
+              "label": "Question"
+            },
+            "answer": {
+              "label": "Answer"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "FAQ"
+      }
+    },
+    "press_coverage": {
+      "name": "Press coverage",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        }
+      },
+      "blocks": {
+        "logo": {
+          "name": "Press logo",
+          "settings": {
+            "logo": {
+              "label": "Logo"
+            },
+            "name": {
+              "label": "Name"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Press coverage"
+      }
+    },
+    "editorial": {
+      "name": "Editorial",
+      "settings": {
+        "full_width": {
+          "label": "Full width"
+        }
+      },
+      "blocks": {
+        "content": {
+          "name": "Content block",
+          "settings": {
+            "image": {
+              "label": "Image"
+            },
+            "subheading": {
+              "label": "Subheading"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "text": {
+              "label": "Text"
+            },
+            "button_label": {
+              "label": "Button label"
+            },
+            "button_link": {
+              "label": "Button link"
+            },
+            "layout": {
+              "label": "Layout",
+              "options": {
+                "image_left": "Image left",
+                "image_right": "Image right",
+                "image_full": "Full width image"
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Editorial"
       }
     }
   },

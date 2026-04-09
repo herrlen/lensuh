@@ -1,0 +1,59 @@
+{%- comment -%}
+  Press Coverage — Logo row: "As seen in..."
+  Logos + optional links, responsive grid.
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+<section class="press-coverage" data-section-id="{{ section.id }}">
+  <div class="press-coverage__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="press-coverage__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="press-coverage__grid">
+      {%- for block in section.blocks -%}
+        <div class="press-coverage__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.logo != blank -%}
+            {%- if block.settings.link != blank -%}
+              <a href="{{ block.settings.link }}" target="_blank" rel="noopener" class="press-coverage__link" aria-label="{{ block.settings.name | default: 'Press' | escape }}">
+            {%- endif -%}
+              <img
+                src="{{ block.settings.logo | image_url: width: 300 }}"
+                alt="{{ block.settings.name | default: '' | escape }}"
+                width="150"
+                height="auto"
+                loading="lazy"
+                class="press-coverage__logo"
+              >
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.press_coverage.name",
+  "class": "section-press-coverage",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "t:sections.press_coverage.settings.heading.label", "default": "As seen in" }
+  ],
+  "blocks": [
+    {
+      "type": "press_logo",
+      "name": "t:sections.press_coverage.blocks.logo.name",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "t:sections.press_coverage.blocks.logo.settings.logo.label" },
+        { "type": "text", "id": "name", "label": "t:sections.press_coverage.blocks.logo.settings.name.label" },
+        { "type": "url", "id": "link", "label": "t:sections.press_coverage.blocks.logo.settings.link.label" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.press_coverage.presets.name" }]
+}
+{% endschema %}

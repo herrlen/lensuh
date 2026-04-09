@@ -159,7 +159,25 @@
       "name": "Pagina"
     },
     "main_blog": {
-      "name": "Blog"
+      "name": "Blog",
+      "settings": {
+        "layout": {
+          "label": "Layout",
+          "options": {
+            "grid": "Raster",
+            "list": "Lijst"
+          }
+        },
+        "show_featured": {
+          "label": "Uitgelicht artikel tonen"
+        },
+        "show_author": {
+          "label": "Auteur tonen"
+        },
+        "show_sidebar": {
+          "label": "Zijbalk tonen"
+        }
+      }
     },
     "main_article": {
       "name": "Artikel",
@@ -169,6 +187,12 @@
         },
         "show_date": {
           "label": "Datum tonen"
+        },
+        "show_share": {
+          "label": "Deelknoppen tonen"
+        },
+        "show_related": {
+          "label": "Gerelateerde artikelen tonen"
         }
       }
     },
@@ -499,6 +523,101 @@
       },
       "presets": {
         "name": "Gesplitst scherm"
+      }
+    },
+    "faq_section": {
+      "name": "FAQ",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        }
+      },
+      "blocks": {
+        "faq_item": {
+          "name": "FAQ-item",
+          "settings": {
+            "question": {
+              "label": "Vraag"
+            },
+            "answer": {
+              "label": "Antwoord"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "FAQ"
+      }
+    },
+    "press_coverage": {
+      "name": "Persberichten",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        }
+      },
+      "blocks": {
+        "logo": {
+          "name": "Perslogo",
+          "settings": {
+            "logo": {
+              "label": "Logo"
+            },
+            "name": {
+              "label": "Naam"
+            },
+            "link": {
+              "label": "Link"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Persberichten"
+      }
+    },
+    "editorial": {
+      "name": "Redactioneel",
+      "settings": {
+        "full_width": {
+          "label": "Volledige breedte"
+        }
+      },
+      "blocks": {
+        "content": {
+          "name": "Inhoudsblok",
+          "settings": {
+            "image": {
+              "label": "Afbeelding"
+            },
+            "subheading": {
+              "label": "Onderkop"
+            },
+            "heading": {
+              "label": "Koptekst"
+            },
+            "text": {
+              "label": "Tekst"
+            },
+            "button_label": {
+              "label": "Knoptekst"
+            },
+            "button_link": {
+              "label": "Knoplink"
+            },
+            "layout": {
+              "label": "Layout",
+              "options": {
+                "image_left": "Afbeelding links",
+                "image_right": "Afbeelding rechts",
+                "image_full": "Volledige breedte"
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Redactioneel"
       }
     }
   },

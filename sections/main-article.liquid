@@ -68,6 +68,76 @@
         {%- endform -%}
       </div>
     {%- endif -%}
+
+    {%- comment -%} Social Share Buttons {%- endcomment -%}
+    {%- if section.settings.show_share -%}
+      <div class="main-article__share">
+        <span class="main-article__share-label">{{ 'blog.article.share' | t }}</span>
+        <div class="main-article__share-buttons">
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u={{ request.origin | append: article.url | url_encode }}"
+            target="_blank"
+            rel="noopener"
+            aria-label="{{ 'blog.article.share_facebook' | t }}"
+            class="main-article__share-btn"
+          >Facebook</a>
+          <a
+            href="https://x.com/intent/tweet?url={{ request.origin | append: article.url | url_encode }}&text={{ article.title | url_encode }}"
+            target="_blank"
+            rel="noopener"
+            aria-label="{{ 'blog.article.share_x' | t }}"
+            class="main-article__share-btn"
+          >X</a>
+          <a
+            href="mailto:?subject={{ article.title | url_encode }}&body={{ request.origin | append: article.url | url_encode }}"
+            aria-label="{{ 'blog.article.share_email' | t }}"
+            class="main-article__share-btn"
+          >Email</a>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Previous / Next Article Navigation {%- endcomment -%}
+    {%- if blog.previous_article or blog.next_article -%}
+      <nav class="main-article__nav" aria-label="{{ 'blog.article.navigation' | t }}">
+        {%- if blog.previous_article -%}
+          <a href="{{ blog.previous_article }}" class="main-article__nav-link main-article__nav-link--prev">
+            <span class="main-article__nav-label">{{ 'blog.article.previous' | t }}</span>
+          </a>
+        {%- endif -%}
+        {%- if blog.next_article -%}
+          <a href="{{ blog.next_article }}" class="main-article__nav-link main-article__nav-link--next">
+            <span class="main-article__nav-label">{{ 'blog.article.next' | t }}</span>
+          </a>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
+
+    {%- comment -%} Related Posts {%- endcomment -%}
+    {%- if section.settings.show_related and blog.articles.size > 1 -%}
+      <div class="main-article__related">
+        <h2 class="main-article__related-title">{{ 'blog.article.related' | t }}</h2>
+        <div class="main-article__related-grid">
+          {%- for related in blog.articles limit: 3 -%}
+            {%- if related.id != article.id -%}
+              <a href="{{ related.url }}" class="main-article__related-card">
+                {%- if related.image -%}
+                  <img
+                    src="{{ related.image | image_url: width: 400 }}"
+                    alt="{{ related.title | escape }}"
+                    width="200"
+                    height="130"
+                    loading="lazy"
+                    class="main-article__related-image"
+                  >
+                {%- endif -%}
+                <span class="main-article__related-card-title">{{ related.title }}</span>
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </article>
 
@@ -87,6 +157,18 @@
       "type": "checkbox",
       "id": "show_date",
       "label": "t:sections.main_article.settings.show_date.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share",
+      "label": "t:sections.main_article.settings.show_share.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_related",
+      "label": "t:sections.main_article.settings.show_related.label",
       "default": true
     }
   ]
