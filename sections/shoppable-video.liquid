@@ -1,0 +1,112 @@
+{%- comment -%}
+  Shoppable Video — Video with product hotspots at specific timestamps.
+  Blocks: video_product_pin (timestamp, product, x_position, y_position).
+  Click/Tap: Product card overlay with Quick-Add.
+{%- endcomment -%}
+
+<section class="shoppable-video" data-section-id="{{ section.id }}" data-section-type="shoppable-video">
+  <div class="shoppable-video__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="shoppable-video__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="shoppable-video__container">
+      <div class="shoppable-video__player-wrapper">
+        {%- if section.settings.video_url != blank -%}
+          {% render 'product-video',
+            video_url: section.settings.video_url,
+            poster: section.settings.poster_image,
+            aspect: '16:9'
+          %}
+        {%- elsif section.settings.poster_image != blank -%}
+          {% render 'responsive-image',
+            image: section.settings.poster_image,
+            max_width: 1200,
+            sizes: '(min-width: 750px) 66vw, 100vw'
+          %}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+
+        {%- comment -%} Hotspot pins — shown/hidden based on video timestamp {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.product != blank -%}
+            {%- assign pin_product = block.settings.product -%}
+            <button
+              type="button"
+              class="shoppable-video__pin"
+              style="left: {{ block.settings.x_position }}%; top: {{ block.settings.y_position }}%"
+              data-shoppable-pin="{{ forloop.index }}"
+              data-timestamp-start="{{ block.settings.timestamp_start }}"
+              data-timestamp-end="{{ block.settings.timestamp_end }}"
+              aria-label="{{ pin_product.title | escape }}"
+              aria-expanded="false"
+              hidden
+              {{ block.shopify_attributes }}
+            >
+              <span class="shoppable-video__pin-dot"></span>
+            </button>
+
+            <div class="shoppable-video__card" data-shoppable-card="{{ forloop.index }}" aria-hidden="true">
+              {%- if pin_product.featured_image -%}
+                <img
+                  src="{{ pin_product.featured_image | image_url: width: 200 }}"
+                  alt="{{ pin_product.title | escape }}"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                  class="shoppable-video__card-image"
+                >
+              {%- endif -%}
+              <div class="shoppable-video__card-info">
+                <a href="{{ pin_product.url }}" class="shoppable-video__card-title">
+                  {{ pin_product.title }}
+                </a>
+                <span class="shoppable-video__card-price" data-price-wrapper>{{ pin_product.price | money }}</span>
+                {%- if pin_product.available -%}
+                  <button
+                    type="button"
+                    class="btn btn--primary shoppable-video__card-atc"
+                    data-quick-add
+                    data-variant-id="{{ pin_product.first_available_variant.id }}"
+                  >
+                    {{ 'products.product.add_to_cart' | t }}
+                  </button>
+                {%- endif -%}
+              </div>
+              <button type="button" class="shoppable-video__card-close" data-shoppable-card-close aria-label="{{ 'accessibility.close' | t }}">
+                {% render 'icon', icon: 'close' %}
+              </button>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.shoppable_video.name",
+  "class": "section-shoppable-video",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "t:sections.shoppable_video.settings.heading.label" },
+    { "type": "text", "id": "video_url", "label": "t:sections.shoppable_video.settings.video_url.label", "info": "t:sections.shoppable_video.settings.video_url.info" },
+    { "type": "image_picker", "id": "poster_image", "label": "t:sections.shoppable_video.settings.poster_image.label" }
+  ],
+  "blocks": [
+    {
+      "type": "video_product_pin",
+      "name": "t:sections.shoppable_video.blocks.pin.name",
+      "settings": [
+        { "type": "product", "id": "product", "label": "t:sections.shoppable_video.blocks.pin.settings.product.label" },
+        { "type": "range", "id": "timestamp_start", "label": "t:sections.shoppable_video.blocks.pin.settings.timestamp_start.label", "min": 0, "max": 300, "step": 1, "default": 0, "unit": "s" },
+        { "type": "range", "id": "timestamp_end", "label": "t:sections.shoppable_video.blocks.pin.settings.timestamp_end.label", "min": 0, "max": 300, "step": 1, "default": 10, "unit": "s" },
+        { "type": "range", "id": "x_position", "label": "t:sections.shoppable_video.blocks.pin.settings.x_position.label", "min": 0, "max": 100, "step": 1, "default": 50, "unit": "%" },
+        { "type": "range", "id": "y_position", "label": "t:sections.shoppable_video.blocks.pin.settings.y_position.label", "min": 0, "max": 100, "step": 1, "default": 50, "unit": "%" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.shoppable_video.presets.name" }]
+}
+{% endschema %}

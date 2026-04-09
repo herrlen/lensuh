@@ -6,7 +6,8 @@
     "account": "Account",
     "cart": "Winkelwagen",
     "previous": "Vorige",
-    "next": "Volgende"
+    "next": "Volgende",
+    "close": "Sluiten"
   },
   "footer": {
     "rights": "Alle rechten voorbehouden."
@@ -576,6 +577,88 @@
       },
       "presets": {
         "name": "Video hero"
+      }
+    },
+    "shoppable_video": {
+      "name": "Shopbaar video",
+      "settings": {
+        "heading": {
+          "label": "Koptekst"
+        },
+        "video_url": {
+          "label": "Video-URL",
+          "info": "Directe MP4 of YouTube/Vimeo URL"
+        },
+        "poster_image": {
+          "label": "Posterafbeelding"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Productpin",
+          "settings": {
+            "product": {
+              "label": "Product"
+            },
+            "timestamp_start": {
+              "label": "Tonen vanaf (seconden)"
+            },
+            "timestamp_end": {
+              "label": "Tonen tot (seconden)"
+            },
+            "x_position": {
+              "label": "Horizontale positie"
+            },
+            "y_position": {
+              "label": "Verticale positie"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Shopbaar video"
+      }
+    },
+    "split_screen": {
+      "name": "Gesplitst scherm",
+      "settings": {
+        "video_url": {
+          "label": "Video-URL"
+        },
+        "image": {
+          "label": "Afbeelding"
+        },
+        "heading": {
+          "label": "Koptekst"
+        },
+        "text": {
+          "label": "Tekst"
+        },
+        "button_label": {
+          "label": "Knoptekst"
+        },
+        "button_link": {
+          "label": "Knoplink"
+        },
+        "reverse": {
+          "label": "Layout omkeren"
+        },
+        "full_width": {
+          "label": "Volledige breedte"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Product",
+          "settings": {
+            "product": {
+              "label": "Product"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Gesplitst scherm"
       }
     }
   },

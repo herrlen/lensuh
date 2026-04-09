@@ -6,7 +6,8 @@
     "account": "Konto",
     "cart": "Warenkorb",
     "previous": "Zurück",
-    "next": "Weiter"
+    "next": "Weiter",
+    "close": "Schließen"
   },
   "footer": {
     "rights": "Alle Rechte vorbehalten."
@@ -576,6 +577,88 @@
       },
       "presets": {
         "name": "Video-Hero"
+      }
+    },
+    "shoppable_video": {
+      "name": "Shoppable Video",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "video_url": {
+          "label": "Video-URL",
+          "info": "Direkte MP4- oder YouTube/Vimeo-URL"
+        },
+        "poster_image": {
+          "label": "Vorschaubild"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Produkt-Pin",
+          "settings": {
+            "product": {
+              "label": "Produkt"
+            },
+            "timestamp_start": {
+              "label": "Anzeigen ab (Sekunden)"
+            },
+            "timestamp_end": {
+              "label": "Anzeigen bis (Sekunden)"
+            },
+            "x_position": {
+              "label": "Horizontale Position"
+            },
+            "y_position": {
+              "label": "Vertikale Position"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Shoppable Video"
+      }
+    },
+    "split_screen": {
+      "name": "Split-Screen",
+      "settings": {
+        "video_url": {
+          "label": "Video-URL"
+        },
+        "image": {
+          "label": "Bild"
+        },
+        "heading": {
+          "label": "Überschrift"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button-Text"
+        },
+        "button_link": {
+          "label": "Button-Link"
+        },
+        "reverse": {
+          "label": "Layout umkehren"
+        },
+        "full_width": {
+          "label": "Volle Breite"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Produkt",
+          "settings": {
+            "product": {
+              "label": "Produkt"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Split-Screen"
       }
     }
   },

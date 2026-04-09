@@ -6,7 +6,8 @@
     "account": "Cuenta",
     "cart": "Carrito",
     "previous": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "close": "Cerrar"
   },
   "footer": {
     "rights": "Todos los derechos reservados."
@@ -576,6 +577,88 @@
       },
       "presets": {
         "name": "Video hero"
+      }
+    },
+    "shoppable_video": {
+      "name": "Video comprable",
+      "settings": {
+        "heading": {
+          "label": "Título"
+        },
+        "video_url": {
+          "label": "URL del video",
+          "info": "MP4 directo o URL YouTube/Vimeo"
+        },
+        "poster_image": {
+          "label": "Imagen de portada"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Pin de producto",
+          "settings": {
+            "product": {
+              "label": "Producto"
+            },
+            "timestamp_start": {
+              "label": "Mostrar desde (segundos)"
+            },
+            "timestamp_end": {
+              "label": "Mostrar hasta (segundos)"
+            },
+            "x_position": {
+              "label": "Posición horizontal"
+            },
+            "y_position": {
+              "label": "Posición vertical"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Video comprable"
+      }
+    },
+    "split_screen": {
+      "name": "Pantalla dividida",
+      "settings": {
+        "video_url": {
+          "label": "URL del video"
+        },
+        "image": {
+          "label": "Imagen"
+        },
+        "heading": {
+          "label": "Título"
+        },
+        "text": {
+          "label": "Texto"
+        },
+        "button_label": {
+          "label": "Texto del botón"
+        },
+        "button_link": {
+          "label": "Enlace del botón"
+        },
+        "reverse": {
+          "label": "Invertir diseño"
+        },
+        "full_width": {
+          "label": "Ancho completo"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Producto",
+          "settings": {
+            "product": {
+              "label": "Producto"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Pantalla dividida"
       }
     }
   },

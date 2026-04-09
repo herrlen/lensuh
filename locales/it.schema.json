@@ -418,6 +418,88 @@
       "presets": {
         "name": "Video hero"
       }
+    },
+    "shoppable_video": {
+      "name": "Video acquistabile",
+      "settings": {
+        "heading": {
+          "label": "Titolo"
+        },
+        "video_url": {
+          "label": "URL del video",
+          "info": "MP4 diretto o URL YouTube/Vimeo"
+        },
+        "poster_image": {
+          "label": "Immagine di anteprima"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Pin prodotto",
+          "settings": {
+            "product": {
+              "label": "Prodotto"
+            },
+            "timestamp_start": {
+              "label": "Mostra da (secondi)"
+            },
+            "timestamp_end": {
+              "label": "Mostra fino a (secondi)"
+            },
+            "x_position": {
+              "label": "Posizione orizzontale"
+            },
+            "y_position": {
+              "label": "Posizione verticale"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Video acquistabile"
+      }
+    },
+    "split_screen": {
+      "name": "Schermo diviso",
+      "settings": {
+        "video_url": {
+          "label": "URL video"
+        },
+        "image": {
+          "label": "Immagine"
+        },
+        "heading": {
+          "label": "Titolo"
+        },
+        "text": {
+          "label": "Testo"
+        },
+        "button_label": {
+          "label": "Testo pulsante"
+        },
+        "button_link": {
+          "label": "Link pulsante"
+        },
+        "reverse": {
+          "label": "Inverti layout"
+        },
+        "full_width": {
+          "label": "Larghezza piena"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Prodotto",
+          "settings": {
+            "product": {
+              "label": "Prodotto"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Schermo diviso"
+      }
     }
   },
   "settings_schema": {

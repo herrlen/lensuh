@@ -6,7 +6,8 @@
     "account": "Compte",
     "cart": "Panier",
     "previous": "Précédent",
-    "next": "Suivant"
+    "next": "Suivant",
+    "close": "Fermer"
   },
   "footer": {
     "rights": "Tous droits réservés."
@@ -576,6 +577,88 @@
       },
       "presets": {
         "name": "Héros vidéo"
+      }
+    },
+    "shoppable_video": {
+      "name": "Vidéo shopping",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "video_url": {
+          "label": "URL de la vidéo",
+          "info": "MP4 direct ou URL YouTube/Vimeo"
+        },
+        "poster_image": {
+          "label": "Image d'aperçu"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Point produit",
+          "settings": {
+            "product": {
+              "label": "Produit"
+            },
+            "timestamp_start": {
+              "label": "Afficher à partir de (secondes)"
+            },
+            "timestamp_end": {
+              "label": "Afficher jusqu'à (secondes)"
+            },
+            "x_position": {
+              "label": "Position horizontale"
+            },
+            "y_position": {
+              "label": "Position verticale"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Vidéo shopping"
+      }
+    },
+    "split_screen": {
+      "name": "Écran partagé",
+      "settings": {
+        "video_url": {
+          "label": "URL vidéo"
+        },
+        "image": {
+          "label": "Image"
+        },
+        "heading": {
+          "label": "Titre"
+        },
+        "text": {
+          "label": "Texte"
+        },
+        "button_label": {
+          "label": "Texte du bouton"
+        },
+        "button_link": {
+          "label": "Lien du bouton"
+        },
+        "reverse": {
+          "label": "Inverser la disposition"
+        },
+        "full_width": {
+          "label": "Pleine largeur"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Produit",
+          "settings": {
+            "product": {
+              "label": "Produit"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Écran partagé"
       }
     }
   },

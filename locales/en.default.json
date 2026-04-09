@@ -6,7 +6,8 @@
     "account": "Account",
     "cart": "Cart",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "close": "Close"
   },
   "footer": {
     "rights": "All rights reserved."
@@ -576,6 +577,88 @@
       },
       "presets": {
         "name": "Video hero"
+      }
+    },
+    "shoppable_video": {
+      "name": "Shoppable video",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "video_url": {
+          "label": "Video URL",
+          "info": "Direct MP4 or YouTube/Vimeo URL"
+        },
+        "poster_image": {
+          "label": "Poster image"
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Product pin",
+          "settings": {
+            "product": {
+              "label": "Product"
+            },
+            "timestamp_start": {
+              "label": "Show from (seconds)"
+            },
+            "timestamp_end": {
+              "label": "Show until (seconds)"
+            },
+            "x_position": {
+              "label": "Horizontal position"
+            },
+            "y_position": {
+              "label": "Vertical position"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Shoppable video"
+      }
+    },
+    "split_screen": {
+      "name": "Split screen",
+      "settings": {
+        "video_url": {
+          "label": "Video URL"
+        },
+        "image": {
+          "label": "Image"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link"
+        },
+        "reverse": {
+          "label": "Reverse layout"
+        },
+        "full_width": {
+          "label": "Full width"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Product",
+          "settings": {
+            "product": {
+              "label": "Product"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Split screen"
       }
     }
   },
