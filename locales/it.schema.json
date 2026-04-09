@@ -465,10 +465,12 @@
               "label": "Prodotto"
             },
             "timestamp_start": {
-              "label": "Mostra da (secondi)"
+              "label": "Mostra da (secondi)",
+              "info": "Secondi (es. 5)"
             },
             "timestamp_end": {
-              "label": "Mostra fino a (secondi)"
+              "label": "Mostra fino a (secondi)",
+              "info": "Secondi (es. 15)"
             },
             "x_position": {
               "label": "Posizione orizzontale"

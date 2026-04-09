@@ -465,10 +465,12 @@
               "label": "Producto"
             },
             "timestamp_start": {
-              "label": "Mostrar desde (segundos)"
+              "label": "Mostrar desde (segundos)",
+              "info": "Segundos (ej. 5)"
             },
             "timestamp_end": {
-              "label": "Mostrar hasta (segundos)"
+              "label": "Mostrar hasta (segundos)",
+              "info": "Segundos (ej. 15)"
             },
             "x_position": {
               "label": "Posición horizontal"

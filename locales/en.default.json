@@ -625,10 +625,12 @@
               "label": "Product"
             },
             "timestamp_start": {
-              "label": "Show from (seconds)"
+              "label": "Show from (seconds)",
+              "info": "Seconds (e.g. 5)"
             },
             "timestamp_end": {
-              "label": "Show until (seconds)"
+              "label": "Show until (seconds)",
+              "info": "Seconds (e.g. 15)"
             },
             "x_position": {
               "label": "Horizontal position"

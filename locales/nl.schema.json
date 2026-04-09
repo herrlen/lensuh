@@ -465,10 +465,12 @@
               "label": "Product"
             },
             "timestamp_start": {
-              "label": "Tonen vanaf (seconden)"
+              "label": "Tonen vanaf (seconden)",
+              "info": "Seconden (bijv. 5)"
             },
             "timestamp_end": {
-              "label": "Tonen tot (seconden)"
+              "label": "Tonen tot (seconden)",
+              "info": "Seconden (bijv. 15)"
             },
             "x_position": {
               "label": "Horizontale positie"
