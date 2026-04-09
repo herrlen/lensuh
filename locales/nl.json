@@ -1192,5 +1192,10 @@
   },
   "video": {
     "play": "Video afspelen"
+  },
+  "currency": {
+    "label": "Land/Valuta",
+    "language": "Taal",
+    "update": "Bijwerken"
   }
 }

@@ -1,0 +1,67 @@
+{%- comment -%}
+  Currency Switcher — Shopify Markets Multi-Currency.
+  Dropdown with currency code + symbol.
+  Uses Shopify localization form for proper Markets integration.
+  Usage: {% render 'currency-switcher' %}
+{%- endcomment -%}
+
+{%- if localization.available_countries.size > 1 -%}
+  <div class="currency-switcher" data-currency-switcher>
+    {%- form 'localization', id: 'currency-form', class: 'currency-switcher__form' -%}
+      <label for="currency-select" class="visually-hidden">
+        {{ 'currency.label' | t }}
+      </label>
+      <select
+        id="currency-select"
+        name="country_code"
+        class="currency-switcher__select"
+        data-currency-select
+      >
+        {%- for country in localization.available_countries -%}
+          <option
+            value="{{ country.iso_code }}"
+            {% if country.iso_code == localization.country.iso_code %}selected{% endif %}
+          >
+            {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+          </option>
+        {%- endfor -%}
+      </select>
+      <noscript>
+        <button type="submit" class="btn btn--secondary currency-switcher__submit">
+          {{ 'currency.update' | t }}
+        </button>
+      </noscript>
+    {%- endform -%}
+  </div>
+{%- endif -%}
+
+{%- comment -%} Language switcher if multiple locales {%- endcomment -%}
+{%- if localization.available_languages.size > 1 -%}
+  <div class="language-switcher" data-language-switcher>
+    {%- form 'localization', id: 'language-form', class: 'language-switcher__form' -%}
+      <label for="language-select" class="visually-hidden">
+        {{ 'currency.language' | t }}
+      </label>
+      <select
+        id="language-select"
+        name="locale_code"
+        class="language-switcher__select"
+        data-language-select
+      >
+        {%- for language in localization.available_languages -%}
+          <option
+            value="{{ language.iso_code }}"
+            {% if language.iso_code == localization.language.iso_code %}selected{% endif %}
+          >
+            {{ language.endonym_name }}
+          </option>
+        {%- endfor -%}
+      </select>
+      <noscript>
+        <button type="submit" class="btn btn--secondary language-switcher__submit">
+          {{ 'currency.update' | t }}
+        </button>
+      </noscript>
+    {%- endform -%}
+  </div>
+{%- endif -%}

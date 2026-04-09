@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}">
+<html class="no-js" lang="{{ request.locale.iso_code }}" {% if request.locale.iso_code == 'ar' or request.locale.iso_code == 'he' %}dir="rtl"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -85,6 +85,9 @@
   <noscript><link rel="stylesheet" href="{{ 'video.css' | asset_url }}"></noscript>
   <link rel="preload" href="{{ 'content.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'content.css' | asset_url }}"></noscript>
+  {%- if request.locale.iso_code == 'ar' or request.locale.iso_code == 'he' -%}
+    <link rel="stylesheet" href="{{ 'rtl.css' | asset_url }}">
+  {%- endif -%}
 
   {% comment %} Theme JS {% endcomment %}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
@@ -111,5 +114,6 @@
   <script src="{{ 'video-background.js' | asset_url }}" defer></script>
   <script src="{{ 'shoppable-video.js' | asset_url }}" defer></script>
   <script src="{{ 'faq.js' | asset_url }}" defer></script>
+  <script src="{{ 'currency-switcher.js' | asset_url }}" defer></script>
 </body>
 </html>

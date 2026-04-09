@@ -1192,5 +1192,10 @@
   },
   "video": {
     "play": "Video abspielen"
+  },
+  "currency": {
+    "label": "Land/Währung",
+    "language": "Sprache",
+    "update": "Aktualisieren"
   }
 }

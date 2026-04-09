@@ -1,0 +1,141 @@
+/* ============================================================
+   RTL Support — CSS Logical Properties + Direction Reversal (S16)
+   Applied via html[dir="rtl"] selector.
+   ============================================================ */
+
+/* --- Base direction override --- */
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+/* --- Logical Properties replacements --- */
+html[dir="rtl"] .page-width {
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
+}
+
+/* --- Flexbox direction reversal --- */
+html[dir="rtl"] .header__inner,
+html[dir="rtl"] .header__nav,
+html[dir="rtl"] .header__actions,
+html[dir="rtl"] .trust-badges--horizontal,
+html[dir="rtl"] .collection-chips,
+html[dir="rtl"] .main-collection__toolbar,
+html[dir="rtl"] .cart-drawer__subtotal,
+html[dir="rtl"] .cart-drawer-item,
+html[dir="rtl"] .sticky-atc-mobile__inner,
+html[dir="rtl"] .sticky-atc-desktop__inner,
+html[dir="rtl"] .color-swatches__list,
+html[dir="rtl"] .before-after__handle-grip {
+  flex-direction: row-reverse;
+}
+
+/* --- Grid direction --- */
+html[dir="rtl"] .footer__bottom {
+  direction: rtl;
+}
+
+/* --- Text alignment --- */
+html[dir="rtl"] .announcement-bar {
+  text-align: center;
+}
+
+html[dir="rtl"] .mobile-menu__link {
+  text-align: right;
+}
+
+/* --- Cart drawer slide from left instead of right --- */
+html[dir="rtl"] .cart-drawer__panel {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+html[dir="rtl"] .cart-drawer--open .cart-drawer__panel {
+  transform: translateX(0);
+}
+
+/* --- Mobile menu: slide from right instead of left --- */
+html[dir="rtl"] .mobile-menu__panel {
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+}
+
+html[dir="rtl"] .mobile-menu--open .mobile-menu__panel {
+  transform: translateX(0);
+}
+
+/* --- Sticky ATC position --- */
+html[dir="rtl"] .sticky-atc-desktop__inner {
+  flex-direction: row-reverse;
+}
+
+/* --- Cart drawer item layout --- */
+html[dir="rtl"] .cart-drawer-item__remove {
+  text-align: right;
+}
+
+/* --- Icon mirroring (directional icons) --- */
+html[dir="rtl"] .header__nav-link--parent svg,
+html[dir="rtl"] .mobile-menu__link--parent svg,
+html[dir="rtl"] .breadcrumbs__item::before {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .mega-menu {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* --- Breadcrumb separator --- */
+html[dir="rtl"] .breadcrumbs__item::before {
+  content: '\\';
+}
+
+/* --- Margin/Padding logical properties --- */
+html[dir="rtl"] .cart-drawer__close {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
+html[dir="rtl"] .header__cart-count {
+  right: auto;
+  left: -8px;
+}
+
+/* --- Filter drawer from right --- */
+html[dir="rtl"] .collection-filters__panel {
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
+}
+
+html[dir="rtl"] .collection-filters__panel--open {
+  transform: translateX(0);
+}
+
+/* --- Predictive search alignment --- */
+html[dir="rtl"] .predictive-search__item-link {
+  flex-direction: row-reverse;
+}
+
+/* --- Product tabs nav scroll --- */
+html[dir="rtl"] .product-tabs__nav {
+  flex-direction: row-reverse;
+}
+
+/* --- Editorial reverse layout --- */
+html[dir="rtl"] .editorial__block--image-left .editorial__media {
+  order: 2;
+}
+html[dir="rtl"] .editorial__block--image-left .editorial__content {
+  order: 1;
+}
+html[dir="rtl"] .editorial__block--image-right .editorial__media {
+  order: 1;
+}
+html[dir="rtl"] .editorial__block--image-right .editorial__content {
+  order: 2;
+}
