@@ -540,6 +540,43 @@
       "presets": {
         "name": "Komplettiere den Look"
       }
+    },
+    "video_hero": {
+      "name": "Video-Hero",
+      "settings": {
+        "video_url": {
+          "label": "Video-URL",
+          "info": "Direkter MP4-Link oder Shopify-gehostete Video-URL"
+        },
+        "poster_image": {
+          "label": "Vorschaubild"
+        },
+        "mobile_static": {
+          "label": "Statisches Bild auf Mobilgeräten",
+          "info": "Vorschaubild statt Video auf Mobilgeräten"
+        },
+        "heading": {
+          "label": "Überschrift"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button-Text"
+        },
+        "button_link": {
+          "label": "Button-Link"
+        },
+        "overlay_color": {
+          "label": "Overlay-Farbe"
+        },
+        "overlay_opacity": {
+          "label": "Overlay-Deckkraft"
+        }
+      },
+      "presets": {
+        "name": "Video-Hero"
+      }
     }
   },
   "settings_schema": {
@@ -934,5 +971,8 @@
       "submit": "Benachrichtigen",
       "success": "Du wirst benachrichtigt, wenn dieses Produkt wieder verfügbar ist."
     }
+  },
+  "video": {
+    "play": "Video abspielen"
   }
 }

@@ -1,0 +1,37 @@
+{%- comment -%}
+  Video Background — Reusable for any section.
+  Muted autoplay loop. Overlay color + opacity configurable.
+  Intersection Observer: Play when visible, Pause when not.
+  Usage:
+    {% render 'video-background',
+      video_url: section.settings.bg_video,
+      overlay_color: '#000',
+      overlay_opacity: 40,
+      poster: section.settings.bg_image
+    %}
+{%- endcomment -%}
+
+{%- if video_url != blank -%}
+  <div class="video-bg" data-video-background>
+    <video
+      class="video-bg__video"
+      muted
+      loop
+      playsinline
+      data-video-bg-el
+      {%- if poster != blank %}
+        poster="{{ poster | image_url: width: 1600 }}"
+      {%- endif %}
+    >
+      <source src="{{ video_url }}" type="video/mp4">
+    </video>
+
+    {%- assign bg_opacity = overlay_opacity | default: 0 -%}
+    {%- if bg_opacity > 0 -%}
+      <div
+        class="video-bg__overlay"
+        style="background-color: {{ overlay_color | default: '#000' }};opacity: {{ bg_opacity | divided_by: 100.0 }}"
+      ></div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

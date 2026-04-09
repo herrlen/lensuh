@@ -381,6 +381,43 @@
       "presets": {
         "name": "Maak de look compleet"
       }
+    },
+    "video_hero": {
+      "name": "Video hero",
+      "settings": {
+        "video_url": {
+          "label": "Video-URL",
+          "info": "Directe MP4-link of Shopify-gehoste video-URL"
+        },
+        "poster_image": {
+          "label": "Posterafbeelding"
+        },
+        "mobile_static": {
+          "label": "Statische afbeelding op mobiel",
+          "info": "Toon afbeelding in plaats van video op mobiel"
+        },
+        "heading": {
+          "label": "Koptekst"
+        },
+        "text": {
+          "label": "Tekst"
+        },
+        "button_label": {
+          "label": "Knoptekst"
+        },
+        "button_link": {
+          "label": "Knoplink"
+        },
+        "overlay_color": {
+          "label": "Overlay-kleur"
+        },
+        "overlay_opacity": {
+          "label": "Overlay-dekking"
+        }
+      },
+      "presets": {
+        "name": "Video hero"
+      }
     }
   },
   "settings_schema": {

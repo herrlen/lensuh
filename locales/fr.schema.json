@@ -381,6 +381,43 @@
       "presets": {
         "name": "Complétez le look"
       }
+    },
+    "video_hero": {
+      "name": "Héros vidéo",
+      "settings": {
+        "video_url": {
+          "label": "URL de la vidéo",
+          "info": "Lien MP4 direct ou URL vidéo hébergée Shopify"
+        },
+        "poster_image": {
+          "label": "Image d'aperçu"
+        },
+        "mobile_static": {
+          "label": "Image statique sur mobile",
+          "info": "Afficher l'image au lieu de la vidéo sur mobile"
+        },
+        "heading": {
+          "label": "Titre"
+        },
+        "text": {
+          "label": "Texte"
+        },
+        "button_label": {
+          "label": "Texte du bouton"
+        },
+        "button_link": {
+          "label": "Lien du bouton"
+        },
+        "overlay_color": {
+          "label": "Couleur de superposition"
+        },
+        "overlay_opacity": {
+          "label": "Opacité de superposition"
+        }
+      },
+      "presets": {
+        "name": "Héros vidéo"
+      }
     }
   },
   "settings_schema": {

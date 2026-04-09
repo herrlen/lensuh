@@ -381,6 +381,43 @@
       "presets": {
         "name": "Complete the look"
       }
+    },
+    "video_hero": {
+      "name": "Video hero",
+      "settings": {
+        "video_url": {
+          "label": "Video URL",
+          "info": "Direct MP4 link or Shopify hosted video URL"
+        },
+        "poster_image": {
+          "label": "Poster image"
+        },
+        "mobile_static": {
+          "label": "Static image on mobile",
+          "info": "Show poster image instead of video on mobile"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_label": {
+          "label": "Button label"
+        },
+        "button_link": {
+          "label": "Button link"
+        },
+        "overlay_color": {
+          "label": "Overlay color"
+        },
+        "overlay_opacity": {
+          "label": "Overlay opacity"
+        }
+      },
+      "presets": {
+        "name": "Video hero"
+      }
     }
   },
   "settings_schema": {

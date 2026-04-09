@@ -1,0 +1,62 @@
+/* ============================================================
+   Video — Product Video, Video Hero, Video Background (S13)
+   ============================================================ */
+
+/* --- Product Video (Facade Pattern) --- */
+.product-video { position: relative; overflow: hidden; border-radius: var(--radius-md); background: #000; }
+.product-video--16-9 { aspect-ratio: 16/9; }
+.product-video--4-3 { aspect-ratio: 4/3; }
+.product-video--1-1 { aspect-ratio: 1/1; }
+
+.product-video__facade { position: relative; width: 100%; height: 100%; cursor: pointer; }
+.product-video__poster { width: 100%; height: 100%; object-fit: cover; }
+
+.product-video__play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: none; border: none; cursor: pointer; z-index: 2;
+  transition: transform var(--duration-fast);
+}
+.product-video__play:hover { transform: translate(-50%, -50%) scale(1.1); }
+
+.product-video__player { width: 100%; height: 100%; }
+.product-video__player video,
+.product-video__iframe { width: 100%; height: 100%; object-fit: cover; border: none; }
+
+/* --- Video Hero --- */
+.video-hero { position: relative; overflow: hidden; min-height: 60vh; display: flex; align-items: center; }
+.video-hero__media { position: absolute; inset: 0; z-index: 0; }
+.video-hero__video-wrapper { width: 100%; height: 100%; }
+
+.video-hero__video {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; inset: 0;
+}
+
+.video-hero__poster,
+.video-hero__poster-image { width: 100%; height: 100%; object-fit: cover; }
+
+.video-hero__overlay { position: absolute; inset: 0; z-index: 1; }
+
+.video-hero__content {
+  position: relative; z-index: 2; text-align: center; color: #fff;
+  padding: var(--spacing-xl) 0; max-width: 700px; margin: 0 auto;
+}
+.video-hero__heading { font-size: var(--font-size-3xl); margin-bottom: var(--spacing-md); }
+.video-hero__text { font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg); opacity: 0.9; }
+.video-hero__btn { font-size: var(--font-size-md); }
+
+/* --- Video Background --- */
+.video-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.video-bg__video { width: 100%; height: 100%; object-fit: cover; }
+.video-bg__overlay { position: absolute; inset: 0; }
+
+/* --- Mobile: Static image fallback --- */
+@media (max-width: 749px) {
+  .video-hero__video { display: none; }
+  .video-hero { min-height: 50vh; }
+  .video-hero__heading { font-size: var(--font-size-2xl); }
+}
+
+@media (min-width: 750px) {
+  .video-hero__poster--desktop-only { display: none; }
+}

@@ -1,0 +1,87 @@
+{%- comment -%}
+  Product Video — YouTube, Vimeo, Shopify Hosted.
+  Facade Pattern: Thumbnail + Play button until click (Performance).
+  No autoplay with sound. Responsive aspect ratios.
+  Usage: {% render 'product-video', video_url: 'https://...', aspect: '16:9', poster: image %}
+  Or for Shopify media: {% render 'product-video', media: media %}
+{%- endcomment -%}
+
+{%- liquid
+  assign ratio = aspect | default: '16-9'
+  assign ratio_class = ratio | replace: ':', '-'
+-%}
+
+{%- if media != blank and media.media_type == 'video' -%}
+  {%- comment -%} Shopify Hosted Video {%- endcomment -%}
+  <div class="product-video product-video--{{ ratio_class }}" data-product-video>
+    <div class="product-video__facade" data-video-facade>
+      {%- if media.preview_image -%}
+        <img
+          src="{{ media.preview_image | image_url: width: 800 }}"
+          alt="{{ 'video.play' | t }}"
+          width="800"
+          height="450"
+          loading="lazy"
+          class="product-video__poster"
+        >
+      {%- endif -%}
+      <button type="button" class="product-video__play" data-video-play aria-label="{{ 'video.play' | t }}">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.6)"/>
+          <polygon points="26,20 26,44 46,32" fill="#fff"/>
+        </svg>
+      </button>
+    </div>
+    <div class="product-video__player" data-video-player hidden>
+      {{ media | video_tag: autoplay: true, controls: true, muted: false, loop: false }}
+    </div>
+  </div>
+
+{%- elsif media != blank and media.media_type == 'external_video' -%}
+  {%- comment -%} YouTube / Vimeo via Shopify media {%- endcomment -%}
+  <div class="product-video product-video--{{ ratio_class }}" data-product-video>
+    <div class="product-video__facade" data-video-facade>
+      {%- if media.preview_image -%}
+        <img
+          src="{{ media.preview_image | image_url: width: 800 }}"
+          alt="{{ 'video.play' | t }}"
+          width="800"
+          height="450"
+          loading="lazy"
+          class="product-video__poster"
+        >
+      {%- endif -%}
+      <button type="button" class="product-video__play" data-video-play aria-label="{{ 'video.play' | t }}">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.6)"/>
+          <polygon points="26,20 26,44 46,32" fill="#fff"/>
+        </svg>
+      </button>
+    </div>
+    <div class="product-video__player" data-video-player hidden>
+      {{ media | external_video_tag: autoplay: true }}
+    </div>
+  </div>
+
+{%- elsif video_url != blank -%}
+  {%- comment -%} Custom URL (YouTube/Vimeo) — Facade with manual embed {%- endcomment -%}
+  <div class="product-video product-video--{{ ratio_class }}" data-product-video data-video-url="{{ video_url | escape }}">
+    <div class="product-video__facade" data-video-facade>
+      {%- if poster != blank -%}
+        {% render 'responsive-image',
+          image: poster,
+          max_width: 800,
+          sizes: '(min-width: 750px) 50vw, 100vw',
+          class: 'product-video__poster'
+        %}
+      {%- endif -%}
+      <button type="button" class="product-video__play" data-video-play aria-label="{{ 'video.play' | t }}">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="rgba(0,0,0,0.6)"/>
+          <polygon points="26,20 26,44 46,32" fill="#fff"/>
+        </svg>
+      </button>
+    </div>
+    <div class="product-video__player" data-video-player hidden></div>
+  </div>
+{%- endif -%}
