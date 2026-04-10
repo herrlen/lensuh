@@ -1197,5 +1197,9 @@
     "label": "País/Moneda",
     "language": "Idioma",
     "update": "Actualizar"
+  },
+  "theme": {
+    "toggle_dark": "Cambiar a modo oscuro",
+    "toggle_light": "Cambiar a modo claro"
   }
 }

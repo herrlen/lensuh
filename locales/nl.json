@@ -1197,5 +1197,9 @@
     "label": "Land/Valuta",
     "language": "Taal",
     "update": "Bijwerken"
+  },
+  "theme": {
+    "toggle_dark": "Schakel naar donkere modus",
+    "toggle_light": "Schakel naar lichte modus"
   }
 }

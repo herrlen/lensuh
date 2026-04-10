@@ -1197,5 +1197,9 @@
     "label": "Paese/Valuta",
     "language": "Lingua",
     "update": "Aggiorna"
+  },
+  "theme": {
+    "toggle_dark": "Passa alla modalità scura",
+    "toggle_light": "Passa alla modalità chiara"
   }
 }

@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
 
+  {% comment %} Theme init — sets data-theme before paint (prevents flash) {% endcomment %}
+  {%- render 'theme-toggle-init' -%}
+
   {% comment %} SEO: Title + Meta + Canonical + Robots {% endcomment %}
   {%- render 'seo-meta' -%}
 
@@ -115,5 +118,7 @@
   <script src="{{ 'shoppable-video.js' | asset_url }}" defer></script>
   <script src="{{ 'faq.js' | asset_url }}" defer></script>
   <script src="{{ 'currency-switcher.js' | asset_url }}" defer></script>
+  <script src="{{ 'theme-toggle.js' | asset_url }}" defer></script>
+  <script src="{{ 'parallax.js' | asset_url }}" defer></script>
 </body>
 </html>

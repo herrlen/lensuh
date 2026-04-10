@@ -1197,5 +1197,9 @@
     "label": "Country/Currency",
     "language": "Language",
     "update": "Update"
+  },
+  "theme": {
+    "toggle_dark": "Switch to dark mode",
+    "toggle_light": "Switch to light mode"
   }
 }

@@ -1197,5 +1197,9 @@
     "label": "Land/Währung",
     "language": "Sprache",
     "update": "Aktualisieren"
+  },
+  "theme": {
+    "toggle_dark": "Zum Dunkelmodus wechseln",
+    "toggle_light": "Zum Hellmodus wechseln"
   }
 }

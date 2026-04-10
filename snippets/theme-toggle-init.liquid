@@ -1,0 +1,16 @@
+{%- comment -%}
+  Theme toggle init — runs before paint to prevent FOUC/flash.
+  Set theme from localStorage or system preference.
+  Include in <head> as early as possible.
+{%- endcomment -%}
+
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var system = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (system ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch (e) {}
+  })();
+</script>

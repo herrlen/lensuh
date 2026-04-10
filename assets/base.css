@@ -31,8 +31,9 @@ body {
 }
 
 /* --- CSS Custom Properties --- */
-:root {
-  /* Colors (from Shopify Settings) */
+:root,
+[data-theme="light"] {
+  /* Colors — Light Mode (from Shopify Settings) */
   --color-primary: {{ settings.color_primary }};
   --color-secondary: {{ settings.color_secondary }};
   --color-accent: {{ settings.color_accent }};
@@ -40,6 +41,31 @@ body {
   --color-text: {{ settings.color_text }};
   --color-border: rgba(0, 0, 0, 0.08);
   --color-overlay: rgba(0, 0, 0, 0.4);
+}
+
+/* --- Dark Mode --- */
+[data-theme="dark"] {
+  --color-primary: #FFFFFF;
+  --color-secondary: #1F1F1F;
+  --color-accent: #4D8FFF;
+  --color-background: #0A0A0A;
+  --color-text: #F5F5F5;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* --- Smooth theme transitions --- */
+html {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+body, .header, .footer, .cart-drawer__panel, .mobile-menu__panel,
+.mega-menu, .predictive-search, .quick-buy-modal__content,
+.size-chart-modal__content {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+:root {
 
   /* Typography (from Shopify Font Picker) */
   --font-heading-family: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
@@ -386,6 +412,23 @@ label {
 .header__cart {
   position: relative;
 }
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+.theme-toggle__icon { display: none; }
+[data-theme="light"] .theme-toggle__icon--moon,
+:root:not([data-theme="dark"]) .theme-toggle__icon--moon { display: block; }
+[data-theme="dark"] .theme-toggle__icon--sun { display: block; }
 
 .header__cart-count {
   font-size: var(--font-size-xs);
