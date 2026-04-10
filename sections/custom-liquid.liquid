@@ -1,0 +1,16 @@
+<section class="custom-liquid" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="custom-liquid__inner page-width">
+    {{ section.settings.custom_liquid }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.custom_liquid.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "liquid", "id": "custom_liquid", "label": "t:sections.custom_liquid.code", "info": "t:sections.custom_liquid.info" }
+  ],
+  "presets": [{ "name": "t:sections.custom_liquid.name" }]
+}
+{% endschema %}

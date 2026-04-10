@@ -1,0 +1,36 @@
+<section class="timeline" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="timeline__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="timeline__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+    <ol class="timeline__list">
+      {%- for block in section.blocks -%}
+        <li class="timeline__item" {{ block.shopify_attributes }}>
+          <span class="timeline__year">{{ block.settings.year }}</span>
+          <h3 class="timeline__title">{{ block.settings.title }}</h3>
+          {%- if block.settings.description != blank -%}<p class="timeline__description">{{ block.settings.description }}</p>{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.timeline.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "t:sections.timeline.milestone",
+      "settings": [
+        { "type": "text", "id": "year", "label": "t:sections.timeline.year" },
+        { "type": "text", "id": "title", "label": "t:common.title" },
+        { "type": "textarea", "id": "description", "label": "t:common.description" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.timeline.name" }]
+}
+{% endschema %}

@@ -82,7 +82,8 @@
     "image_zoom": {
       "lightbox": "Afbeeldingsgalerij",
       "close": "Galerij sluiten"
-    }
+    },
+    "view_details": "Details bekijken"
   },
   "cart": {
     "general": {
@@ -141,7 +142,8 @@
     },
     "sorting": {
       "title": "Sorteren op"
-    }
+    },
+    "view_all": "Alles bekijken"
   },
   "search": {
     "title": "Zoeken",
@@ -781,6 +783,147 @@
       "presets": {
         "name": "Redactioneel"
       }
+    },
+    "age_verifier": {
+      "name": "Leeftijdscontrole",
+      "settings": {
+        "enabled": {
+          "label": "Leeftijdscontrole activeren"
+        },
+        "logo": {
+          "label": "Logo"
+        },
+        "heading": {
+          "label": "Koptekst"
+        },
+        "text": {
+          "label": "Tekst"
+        },
+        "redirect_url": {
+          "label": "Redirect URL voor 'Nee'",
+          "info": "Waar minderjarigen naartoe sturen"
+        }
+      }
+    },
+    "hero_banner": {
+      "name": "Hero-banner"
+    },
+    "featured_collection": {
+      "name": "Uitgelichte collectie",
+      "collection": "Collectie",
+      "product_count": "Aantal producten",
+      "show_view_all": "'Alles bekijken' knop"
+    },
+    "featured_product": {
+      "name": "Uitgelicht product",
+      "product": "Product"
+    },
+    "testimonials": {
+      "name": "Testimonials",
+      "quote": "Citaat",
+      "avatar": "Avatar",
+      "rating_label": "Sterrenbeoordeling",
+      "blocks": {
+        "item": "Testimonial"
+      }
+    },
+    "newsletter": {
+      "name": "Nieuwsbrief"
+    },
+    "image_with_text": {
+      "name": "Afbeelding met tekst",
+      "image_position": "Afbeeldingspositie"
+    },
+    "multicolumn": {
+      "name": "Meerkoloms",
+      "column": "Kolom",
+      "icon": "Icoon"
+    },
+    "collapsible": {
+      "name": "Inklapbare inhoud",
+      "item": "Item",
+      "content": "Inhoud"
+    },
+    "rich_text": {
+      "name": "Rich text"
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "auto_rotate": "Automatisch roteren",
+      "slide": "Slide"
+    },
+    "collection_list": {
+      "name": "Collectielijst",
+      "collection": "Collectie",
+      "collection_block": "Collectie"
+    },
+    "logo_list": {
+      "name": "Logolijst",
+      "logo": "Logo",
+      "logo_image": "Logo-afbeelding"
+    },
+    "map": {
+      "name": "Kaart",
+      "address": "Adres",
+      "address_info": "Volledig adres voor Google Maps"
+    },
+    "contact_form": {
+      "name": "Contactformulier"
+    },
+    "gallery": {
+      "name": "Galerij",
+      "image": "Afbeelding",
+      "caption": "Bijschrift"
+    },
+    "countdown": {
+      "name": "Aftellen",
+      "end_date": "Einddatum",
+      "end_date_info": "ISO-formaat: JJJJ-MM-DDTHH:MM"
+    },
+    "tabs": {
+      "name": "Tabbladen",
+      "tab": "Tabblad"
+    },
+    "timeline": {
+      "name": "Tijdlijn",
+      "milestone": "Mijlpaal",
+      "year": "Jaar"
+    },
+    "team": {
+      "name": "Team",
+      "member": "Teamlid",
+      "photo": "Foto",
+      "role": "Rol",
+      "bio": "Bio"
+    },
+    "store_locator": {
+      "name": "Winkelzoeker",
+      "store": "Winkel",
+      "address": "Adres",
+      "phone": "Telefoon",
+      "hours": "Openingstijden"
+    },
+    "instagram": {
+      "name": "Instagram-feed",
+      "handle": "Instagram-handle (zonder @)",
+      "post": "Bericht"
+    },
+    "video": {
+      "name": "Video",
+      "video_url": "Video-URL",
+      "poster": "Posterafbeelding",
+      "aspect": "Verhouding"
+    },
+    "banner_products": {
+      "name": "Banner met producten"
+    },
+    "recently_viewed": {
+      "name": "Recent bekeken"
+    },
+    "custom_liquid": {
+      "name": "Aangepaste Liquid",
+      "code": "Liquid-code",
+      "info": "Alleen voor power users"
     }
   },
   "settings_schema": {
@@ -1201,5 +1344,53 @@
   "theme": {
     "toggle_dark": "Schakel naar donkere modus",
     "toggle_light": "Schakel naar lichte modus"
+  },
+  "common": {
+    "enabled": "Sectie activeren",
+    "image": "Afbeelding",
+    "heading": "Koptekst",
+    "subheading": "Subkop",
+    "text": "Tekst",
+    "title": "Titel",
+    "description": "Beschrijving",
+    "name": "Naam",
+    "button_label": "Knoptekst",
+    "button_link": "Knoplink",
+    "link": "Link",
+    "alt": "Alt-tekst",
+    "columns": "Kolommen",
+    "alignment": "Uitlijning"
+  },
+  "testimonials": {
+    "rating": "Beoordeling: {{ rating }} sterren"
+  },
+  "newsletter": {
+    "email": "E-mail",
+    "placeholder": "Je e-mail",
+    "submit": "Abonneren",
+    "success": "Bedankt voor je inschrijving!"
+  },
+  "contact": {
+    "name": "Naam",
+    "email": "E-mail",
+    "message": "Bericht",
+    "submit": "Versturen",
+    "success": "Bedankt, we nemen contact op!"
+  },
+  "instagram": {
+    "post": "Instagram-bericht"
+  },
+  "map": {
+    "title": "Kaart"
+  },
+  "slideshow": {
+    "label": "Slideshow"
+  },
+  "recently_viewed": {
+    "empty": "Je hebt nog geen producten bekeken."
+  },
+  "age_verifier": {
+    "yes": "Ja, ik ben ouder dan 18",
+    "no": "Nee, ik ben jonger dan 18"
   }
 }

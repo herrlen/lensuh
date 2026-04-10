@@ -1,0 +1,25 @@
+<section class="countdown-section" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="countdown-section__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+    {% render 'countdown-timer', end_date: section.settings.end_date, block_id: section.id %}
+    {%- if section.settings.button_label != blank -%}
+      <a {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% endif %} class="btn btn--primary">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.countdown.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" },
+    { "type": "text", "id": "text", "label": "t:common.text" },
+    { "type": "text", "id": "end_date", "label": "t:sections.countdown.end_date", "info": "t:sections.countdown.end_date_info" },
+    { "type": "text", "id": "button_label", "label": "t:common.button_label" },
+    { "type": "url", "id": "button_link", "label": "t:common.button_link" }
+  ],
+  "presets": [{ "name": "t:sections.countdown.name" }]
+}
+{% endschema %}

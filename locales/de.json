@@ -82,7 +82,8 @@
     "image_zoom": {
       "lightbox": "Bildergalerie",
       "close": "Galerie schließen"
-    }
+    },
+    "view_details": "Details ansehen"
   },
   "cart": {
     "general": {
@@ -141,7 +142,8 @@
     },
     "sorting": {
       "title": "Sortieren nach"
-    }
+    },
+    "view_all": "Alle anzeigen"
   },
   "search": {
     "title": "Suche",
@@ -781,6 +783,147 @@
       "presets": {
         "name": "Editorial"
       }
+    },
+    "age_verifier": {
+      "name": "Altersprüfung",
+      "settings": {
+        "enabled": {
+          "label": "Altersprüfung aktivieren"
+        },
+        "logo": {
+          "label": "Logo"
+        },
+        "heading": {
+          "label": "Überschrift"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "redirect_url": {
+          "label": "Weiterleitung bei 'Nein'",
+          "info": "URL für minderjährige Besucher"
+        }
+      }
+    },
+    "hero_banner": {
+      "name": "Hero-Banner"
+    },
+    "featured_collection": {
+      "name": "Featured-Kollektion",
+      "collection": "Kollektion",
+      "product_count": "Anzahl Produkte",
+      "show_view_all": "'Alle anzeigen'-Button"
+    },
+    "featured_product": {
+      "name": "Featured-Produkt",
+      "product": "Produkt"
+    },
+    "testimonials": {
+      "name": "Kundenstimmen",
+      "quote": "Zitat",
+      "avatar": "Avatar",
+      "rating_label": "Sterne-Bewertung",
+      "blocks": {
+        "item": "Kundenstimme"
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter"
+    },
+    "image_with_text": {
+      "name": "Bild mit Text",
+      "image_position": "Bild-Position"
+    },
+    "multicolumn": {
+      "name": "Mehrspaltig",
+      "column": "Spalte",
+      "icon": "Icon"
+    },
+    "collapsible": {
+      "name": "Ausklappbare Inhalte",
+      "item": "Eintrag",
+      "content": "Inhalt"
+    },
+    "rich_text": {
+      "name": "Rich Text"
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "auto_rotate": "Auto-Rotation",
+      "slide": "Folie"
+    },
+    "collection_list": {
+      "name": "Kollektionsliste",
+      "collection": "Kollektion",
+      "collection_block": "Kollektion"
+    },
+    "logo_list": {
+      "name": "Logo-Liste",
+      "logo": "Logo",
+      "logo_image": "Logo-Bild"
+    },
+    "map": {
+      "name": "Karte",
+      "address": "Adresse",
+      "address_info": "Vollständige Adresse für Google Maps"
+    },
+    "contact_form": {
+      "name": "Kontaktformular"
+    },
+    "gallery": {
+      "name": "Galerie",
+      "image": "Bild",
+      "caption": "Bildunterschrift"
+    },
+    "countdown": {
+      "name": "Countdown",
+      "end_date": "Enddatum",
+      "end_date_info": "ISO-Format: JJJJ-MM-TTTHH:MM"
+    },
+    "tabs": {
+      "name": "Tabs",
+      "tab": "Tab"
+    },
+    "timeline": {
+      "name": "Timeline",
+      "milestone": "Meilenstein",
+      "year": "Jahr"
+    },
+    "team": {
+      "name": "Team",
+      "member": "Team-Mitglied",
+      "photo": "Foto",
+      "role": "Rolle",
+      "bio": "Biografie"
+    },
+    "store_locator": {
+      "name": "Filial-Finder",
+      "store": "Filiale",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "hours": "Öffnungszeiten"
+    },
+    "instagram": {
+      "name": "Instagram-Feed",
+      "handle": "Instagram-Handle (ohne @)",
+      "post": "Beitrag"
+    },
+    "video": {
+      "name": "Video",
+      "video_url": "Video-URL",
+      "poster": "Vorschaubild",
+      "aspect": "Seitenverhältnis"
+    },
+    "banner_products": {
+      "name": "Banner mit Produkten"
+    },
+    "recently_viewed": {
+      "name": "Zuletzt angesehen"
+    },
+    "custom_liquid": {
+      "name": "Custom Liquid",
+      "code": "Liquid-Code",
+      "info": "Nur für Power-User"
     }
   },
   "settings_schema": {
@@ -1201,5 +1344,53 @@
   "theme": {
     "toggle_dark": "Zum Dunkelmodus wechseln",
     "toggle_light": "Zum Hellmodus wechseln"
+  },
+  "common": {
+    "enabled": "Sektion aktivieren",
+    "image": "Bild",
+    "heading": "Überschrift",
+    "subheading": "Unterüberschrift",
+    "text": "Text",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "name": "Name",
+    "button_label": "Button-Text",
+    "button_link": "Button-Link",
+    "link": "Link",
+    "alt": "Alt-Text",
+    "columns": "Spalten",
+    "alignment": "Ausrichtung"
+  },
+  "testimonials": {
+    "rating": "Bewertung: {{ rating }} Sterne"
+  },
+  "newsletter": {
+    "email": "E-Mail",
+    "placeholder": "Deine E-Mail-Adresse",
+    "submit": "Abonnieren",
+    "success": "Danke fürs Abonnieren!"
+  },
+  "contact": {
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "submit": "Senden",
+    "success": "Danke, wir melden uns!"
+  },
+  "instagram": {
+    "post": "Instagram-Beitrag"
+  },
+  "map": {
+    "title": "Karte"
+  },
+  "slideshow": {
+    "label": "Slideshow"
+  },
+  "recently_viewed": {
+    "empty": "Du hast noch keine Produkte angesehen."
+  },
+  "age_verifier": {
+    "yes": "Ja, ich bin über 18",
+    "no": "Nein, ich bin unter 18"
   }
 }

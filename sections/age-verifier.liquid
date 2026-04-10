@@ -1,0 +1,61 @@
+{%- comment -%}
+  Age Verifier Popup — First-visit, cookie-based (30 days).
+  Focus-Trap, aria-modal, NOT dismissable via ESC (compliance).
+  On "No": redirect to external URL.
+{%- endcomment -%}
+
+{%- if section.settings.enabled -%}
+  <div
+    class="age-verifier"
+    data-age-verifier
+    data-redirect-url="{{ section.settings.redirect_url | escape }}"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="age-verifier-title"
+    aria-hidden="true"
+  >
+    <div class="age-verifier__overlay"></div>
+    <div class="age-verifier__content">
+      {% render 'focus-trap', type: 'start' %}
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 200 }}"
+          alt="{{ shop.name | escape }}"
+          width="100"
+          height="auto"
+          class="age-verifier__logo"
+        >
+      {%- endif -%}
+      <h2 id="age-verifier-title" class="age-verifier__title">
+        {{ section.settings.heading | default: 'Are you over 18?' }}
+      </h2>
+      {%- if section.settings.text != blank -%}
+        <p class="age-verifier__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+      <div class="age-verifier__actions">
+        <button type="button" class="btn btn--primary age-verifier__btn" data-age-yes>
+          {{ 'age_verifier.yes' | t }}
+        </button>
+        <button type="button" class="btn btn--outline age-verifier__btn" data-age-no>
+          {{ 'age_verifier.no' | t }}
+        </button>
+      </div>
+      {% render 'focus-trap', type: 'end' %}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.age_verifier.name",
+  "class": "section-age-verifier",
+  "limit": 1,
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:sections.age_verifier.settings.enabled.label", "default": false },
+    { "type": "image_picker", "id": "logo", "label": "t:sections.age_verifier.settings.logo.label" },
+    { "type": "text", "id": "heading", "label": "t:sections.age_verifier.settings.heading.label", "default": "Are you over 18?" },
+    { "type": "textarea", "id": "text", "label": "t:sections.age_verifier.settings.text.label" },
+    { "type": "url", "id": "redirect_url", "label": "t:sections.age_verifier.settings.redirect_url.label", "info": "t:sections.age_verifier.settings.redirect_url.info" }
+  ]
+}
+{% endschema %}

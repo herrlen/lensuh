@@ -1,0 +1,46 @@
+<section class="slideshow" data-section-id="{{ section.id }}" data-section-type="slideshow" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="slideshow__slider" data-slideshow role="region" aria-label="{{ 'slideshow.label' | t }}">
+    {%- for block in section.blocks -%}
+      <div class="slideshow__slide{% if forloop.first %} slideshow__slide--active{% endif %}" data-slide="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          {% render 'responsive-image', image: block.settings.image, max_width: 1600, sizes: '100vw', loading: forloop.first | default: false, class: 'slideshow__image' %}
+        {%- endif -%}
+        <div class="slideshow__content page-width">
+          {%- if block.settings.heading != blank -%}<h2 class="slideshow__heading">{{ block.settings.heading }}</h2>{%- endif -%}
+          {%- if block.settings.text != blank -%}<p class="slideshow__text">{{ block.settings.text }}</p>{%- endif -%}
+          {%- if block.settings.button_label != blank -%}
+            <a {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %} class="btn btn--primary">{{ block.settings.button_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+    {%- if section.blocks.size > 1 -%}
+      <button type="button" class="slideshow__prev" data-slideshow-prev aria-label="{{ 'accessibility.previous' | t }}">&lsaquo;</button>
+      <button type="button" class="slideshow__next" data-slideshow-next aria-label="{{ 'accessibility.next' | t }}">&rsaquo;</button>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.slideshow.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "range", "id": "auto_rotate", "label": "t:sections.slideshow.auto_rotate", "min": 0, "max": 10, "step": 1, "default": 5, "unit": "s" }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "t:sections.slideshow.slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:common.image" },
+        { "type": "text", "id": "heading", "label": "t:common.heading" },
+        { "type": "text", "id": "text", "label": "t:common.text" },
+        { "type": "text", "id": "button_label", "label": "t:common.button_label" },
+        { "type": "url", "id": "button_link", "label": "t:common.button_link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.slideshow.name" }]
+}
+{% endschema %}

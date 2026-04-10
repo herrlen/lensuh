@@ -1,0 +1,48 @@
+<section class="featured-collection" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="featured-collection__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="featured-collection__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.collection != blank -%}
+      {%- assign coll = section.settings.collection -%}
+      <div class="featured-collection__grid" role="list">
+        {%- for product in coll.products limit: section.settings.product_count -%}
+          <div class="featured-collection__item" role="listitem">
+            <a href="{{ product.url }}" class="featured-collection__card">
+              <div class="featured-collection__card-media">
+                {% render 'product-badges', product: product %}
+                {%- if product.featured_image -%}
+                  {% render 'responsive-image', image: product.featured_image, max_width: 400, sizes: '(min-width: 750px) 25vw, 50vw', alt: product.title %}
+                {%- endif -%}
+              </div>
+              <h3 class="featured-collection__title">{{ product.title }}</h3>
+              <p class="featured-collection__price" data-price-wrapper>{{ product.price | money }}</p>
+            </a>
+            {% render 'quick-buy-button', product: product %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.show_view_all -%}
+        <div class="featured-collection__footer">
+          <a href="{{ coll.url }}" class="btn btn--secondary">{{ 'collections.view_all' | t }}</a>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.featured_collection.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" },
+    { "type": "collection", "id": "collection", "label": "t:sections.featured_collection.collection" },
+    { "type": "range", "id": "product_count", "label": "t:sections.featured_collection.product_count", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "show_view_all", "label": "t:sections.featured_collection.show_view_all", "default": true }
+  ],
+  "presets": [{ "name": "t:sections.featured_collection.name" }]
+}
+{% endschema %}

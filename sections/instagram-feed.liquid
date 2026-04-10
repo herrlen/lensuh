@@ -1,0 +1,43 @@
+<section class="instagram-feed" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="instagram-feed__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="instagram-feed__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.settings.handle != blank -%}
+      <p class="instagram-feed__handle">
+        <a href="https://instagram.com/{{ section.settings.handle | remove: '@' }}" target="_blank" rel="noopener">@{{ section.settings.handle | remove: '@' }}</a>
+      </p>
+    {%- endif -%}
+    <div class="instagram-feed__grid">
+      {%- for block in section.blocks -%}
+        <div class="instagram-feed__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" target="_blank" rel="noopener">{%- endif -%}
+            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ 'instagram.post' | t }}" width="200" height="200" loading="lazy" class="instagram-feed__image">
+            {%- if block.settings.link != blank -%}</a>{%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.instagram.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" },
+    { "type": "text", "id": "handle", "label": "t:sections.instagram.handle" }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "t:sections.instagram.post",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:common.image" },
+        { "type": "url", "id": "link", "label": "t:common.link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.instagram.name" }]
+}
+{% endschema %}

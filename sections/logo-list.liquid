@@ -1,0 +1,38 @@
+<section class="logo-list" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="logo-list__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="logo-list__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="logo-list__grid">
+      {%- for block in section.blocks -%}
+        <div class="logo-list__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{%- endif -%}
+          {%- if block.settings.logo != blank -%}
+            <img src="{{ block.settings.logo | image_url: width: 200 }}" alt="{{ block.settings.alt | default: 'Logo' | escape }}" width="100" height="auto" loading="lazy" class="logo-list__image">
+          {%- endif -%}
+          {%- if block.settings.link != blank -%}</a>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.logo_list.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "t:sections.logo_list.logo",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "t:sections.logo_list.logo_image" },
+        { "type": "text", "id": "alt", "label": "t:common.alt" },
+        { "type": "url", "id": "link", "label": "t:common.link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.logo_list.name" }]
+}
+{% endschema %}

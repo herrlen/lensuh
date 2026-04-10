@@ -621,6 +621,147 @@
       "presets": {
         "name": "Editorial"
       }
+    },
+    "age_verifier": {
+      "name": "Verificación de edad",
+      "settings": {
+        "enabled": {
+          "label": "Activar verificación de edad"
+        },
+        "logo": {
+          "label": "Logo"
+        },
+        "heading": {
+          "label": "Título"
+        },
+        "text": {
+          "label": "Texto"
+        },
+        "redirect_url": {
+          "label": "URL de redirección",
+          "info": "Donde enviar a menores"
+        }
+      }
+    },
+    "hero_banner": {
+      "name": "Banner hero"
+    },
+    "featured_collection": {
+      "name": "Colección destacada",
+      "collection": "Colección",
+      "product_count": "Número de productos",
+      "show_view_all": "Mostrar 'Ver todo'"
+    },
+    "featured_product": {
+      "name": "Producto destacado",
+      "product": "Producto"
+    },
+    "testimonials": {
+      "name": "Testimonios",
+      "quote": "Cita",
+      "avatar": "Avatar",
+      "rating_label": "Calificación",
+      "blocks": {
+        "item": "Testimonio"
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter"
+    },
+    "image_with_text": {
+      "name": "Imagen con texto",
+      "image_position": "Posición de la imagen"
+    },
+    "multicolumn": {
+      "name": "Multicolumna",
+      "column": "Columna",
+      "icon": "Icono"
+    },
+    "collapsible": {
+      "name": "Contenido colapsable",
+      "item": "Elemento",
+      "content": "Contenido"
+    },
+    "rich_text": {
+      "name": "Texto enriquecido"
+    },
+    "slideshow": {
+      "name": "Presentación",
+      "auto_rotate": "Rotación automática",
+      "slide": "Diapositiva"
+    },
+    "collection_list": {
+      "name": "Lista de colecciones",
+      "collection": "Colección",
+      "collection_block": "Colección"
+    },
+    "logo_list": {
+      "name": "Lista de logos",
+      "logo": "Logo",
+      "logo_image": "Imagen logo"
+    },
+    "map": {
+      "name": "Mapa",
+      "address": "Dirección",
+      "address_info": "Dirección completa para Google Maps"
+    },
+    "contact_form": {
+      "name": "Formulario contacto"
+    },
+    "gallery": {
+      "name": "Galería",
+      "image": "Imagen",
+      "caption": "Leyenda"
+    },
+    "countdown": {
+      "name": "Cuenta atrás",
+      "end_date": "Fecha fin",
+      "end_date_info": "Formato ISO: AAAA-MM-DDTHH:MM"
+    },
+    "tabs": {
+      "name": "Pestañas",
+      "tab": "Pestaña"
+    },
+    "timeline": {
+      "name": "Cronología",
+      "milestone": "Hito",
+      "year": "Año"
+    },
+    "team": {
+      "name": "Equipo",
+      "member": "Miembro",
+      "photo": "Foto",
+      "role": "Rol",
+      "bio": "Bio"
+    },
+    "store_locator": {
+      "name": "Localizador tiendas",
+      "store": "Tienda",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "hours": "Horario"
+    },
+    "instagram": {
+      "name": "Feed Instagram",
+      "handle": "Handle Instagram (sin @)",
+      "post": "Publicación"
+    },
+    "video": {
+      "name": "Video",
+      "video_url": "URL del video",
+      "poster": "Imagen póster",
+      "aspect": "Proporción"
+    },
+    "banner_products": {
+      "name": "Banner con productos"
+    },
+    "recently_viewed": {
+      "name": "Vistos recientemente"
+    },
+    "custom_liquid": {
+      "name": "Liquid personalizado",
+      "code": "Código Liquid",
+      "info": "Solo para usuarios avanzados"
     }
   },
   "settings_schema": {
@@ -908,5 +1049,21 @@
         }
       }
     }
+  },
+  "common": {
+    "enabled": "Activar sección",
+    "image": "Imagen",
+    "heading": "Título",
+    "subheading": "Subtítulo",
+    "text": "Texto",
+    "title": "Título",
+    "description": "Descripción",
+    "name": "Nombre",
+    "button_label": "Texto del botón",
+    "button_link": "Enlace del botón",
+    "link": "Enlace",
+    "alt": "Texto alt",
+    "columns": "Columnas",
+    "alignment": "Alineación"
   }
 }

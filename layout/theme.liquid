@@ -64,8 +64,9 @@
 
   {% sections 'footer-group' %}
 
-  {% comment %} Cart Drawer {% endcomment %}
+  {% comment %} Cart Drawer + Age Verifier {% endcomment %}
   {% section 'cart-drawer' %}
+  {% section 'age-verifier' %}
 
   {% render 'toast-notification' %}
 
@@ -120,5 +121,9 @@
   <script src="{{ 'currency-switcher.js' | asset_url }}" defer></script>
   <script src="{{ 'theme-toggle.js' | asset_url }}" defer></script>
   <script src="{{ 'parallax.js' | asset_url }}" defer></script>
+  <script src="{{ 'age-verifier.js' | asset_url }}" defer></script>
+  <script src="{{ 'slideshow.js' | asset_url }}" defer></script>
+  <script src="{{ 'recently-viewed.js' | asset_url }}" defer></script>
+  <script src="{{ 'tabs-section.js' | asset_url }}" defer></script>
 </body>
 </html>

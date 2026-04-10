@@ -1,0 +1,38 @@
+<section class="store-locator" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="store-locator__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="store-locator__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="store-locator__list">
+      {%- for block in section.blocks -%}
+        <div class="store-locator__store" {{ block.shopify_attributes }}>
+          <h3 class="store-locator__store-name">{{ block.settings.name }}</h3>
+          {%- if block.settings.address != blank -%}<p class="store-locator__address">{{ block.settings.address }}</p>{%- endif -%}
+          {%- if block.settings.phone != blank -%}<p class="store-locator__phone">{{ block.settings.phone }}</p>{%- endif -%}
+          {%- if block.settings.hours != blank -%}<p class="store-locator__hours">{{ block.settings.hours }}</p>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.store_locator.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading", "default": "Our stores" }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "t:sections.store_locator.store",
+      "settings": [
+        { "type": "text", "id": "name", "label": "t:common.name" },
+        { "type": "textarea", "id": "address", "label": "t:sections.store_locator.address" },
+        { "type": "text", "id": "phone", "label": "t:sections.store_locator.phone" },
+        { "type": "textarea", "id": "hours", "label": "t:sections.store_locator.hours" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.store_locator.name" }]
+}
+{% endschema %}

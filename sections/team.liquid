@@ -1,0 +1,40 @@
+<section class="team-section" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="team-section__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="team-section__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+    <div class="team-section__grid">
+      {%- for block in section.blocks -%}
+        <div class="team-section__member" {{ block.shopify_attributes }}>
+          {%- if block.settings.photo != blank -%}
+            <img src="{{ block.settings.photo | image_url: width: 400 }}" alt="{{ block.settings.name | escape }}" width="200" height="200" loading="lazy" class="team-section__photo">
+          {%- endif -%}
+          <h3 class="team-section__name">{{ block.settings.name }}</h3>
+          {%- if block.settings.role != blank -%}<p class="team-section__role">{{ block.settings.role }}</p>{%- endif -%}
+          {%- if block.settings.bio != blank -%}<p class="team-section__bio">{{ block.settings.bio }}</p>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.team.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "t:sections.team.member",
+      "settings": [
+        { "type": "image_picker", "id": "photo", "label": "t:sections.team.photo" },
+        { "type": "text", "id": "name", "label": "t:common.name", "default": "Team member" },
+        { "type": "text", "id": "role", "label": "t:sections.team.role" },
+        { "type": "textarea", "id": "bio", "label": "t:sections.team.bio" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.team.name" }]
+}
+{% endschema %}

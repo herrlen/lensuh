@@ -1,0 +1,59 @@
+<section class="tabs-section" data-section-id="{{ section.id }}" data-section-type="tabs" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="tabs-section__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="tabs-section__nav" role="tablist">
+        {%- for block in section.blocks -%}
+          <button
+            type="button"
+            class="tabs-section__tab{% if forloop.first %} tabs-section__tab--active{% endif %}"
+            role="tab"
+            id="tabsec-tab-{{ block.id }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="tabsec-panel-{{ block.id }}"
+            tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+            data-tab-trigger="{{ block.id }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.title }}
+          </button>
+        {%- endfor -%}
+      </div>
+      <div class="tabs-section__panels">
+        {%- for block in section.blocks -%}
+          <div
+            class="tabs-section__panel{% if forloop.first %} tabs-section__panel--active{% endif %}"
+            role="tabpanel"
+            id="tabsec-panel-{{ block.id }}"
+            aria-labelledby="tabsec-tab-{{ block.id }}"
+            data-tab-panel="{{ block.id }}"
+            {% unless forloop.first %}hidden{% endunless %}
+          >
+            <div class="rte">{{ block.settings.content }}</div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.tabs.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "t:sections.tabs.tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:common.title" },
+        { "type": "richtext", "id": "content", "label": "t:sections.collapsible.content" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.tabs.name" }]
+}
+{% endschema %}

@@ -1,0 +1,50 @@
+<section class="testimonials" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="testimonials__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="testimonials__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="testimonials__grid">
+        {%- for block in section.blocks -%}
+          <figure class="testimonials__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.rating > 0 -%}
+              <div class="testimonials__rating" aria-label="{{ 'testimonials.rating' | t: rating: block.settings.rating }}">
+                {%- for i in (1..block.settings.rating) -%}&#9733;{%- endfor -%}
+              </div>
+            {%- endif -%}
+            <blockquote class="testimonials__quote">{{ block.settings.quote }}</blockquote>
+            <figcaption class="testimonials__author">
+              {%- if block.settings.avatar != blank -%}
+                <img src="{{ block.settings.avatar | image_url: width: 80 }}" alt="{{ block.settings.name | escape }}" width="40" height="40" loading="lazy" class="testimonials__avatar">
+              {%- endif -%}
+              <span class="testimonials__name">{{ block.settings.name }}</span>
+            </figcaption>
+          </figure>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.testimonials.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.testimonials.blocks.item",
+      "settings": [
+        { "type": "richtext", "id": "quote", "label": "t:sections.testimonials.quote" },
+        { "type": "text", "id": "name", "label": "t:common.name" },
+        { "type": "image_picker", "id": "avatar", "label": "t:sections.testimonials.avatar" },
+        { "type": "range", "id": "rating", "label": "t:sections.testimonials.rating_label", "min": 0, "max": 5, "step": 1, "default": 5 }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.testimonials.name" }]
+}
+{% endschema %}

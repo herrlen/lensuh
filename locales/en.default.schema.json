@@ -621,6 +621,147 @@
       "presets": {
         "name": "Editorial"
       }
+    },
+    "age_verifier": {
+      "name": "Age verifier",
+      "settings": {
+        "enabled": {
+          "label": "Enable age verifier"
+        },
+        "logo": {
+          "label": "Logo"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "redirect_url": {
+          "label": "Redirect URL for 'No'",
+          "info": "Where to send visitors who are under age"
+        }
+      }
+    },
+    "hero_banner": {
+      "name": "Hero banner"
+    },
+    "featured_collection": {
+      "name": "Featured collection",
+      "collection": "Collection",
+      "product_count": "Number of products",
+      "show_view_all": "Show 'View all' button"
+    },
+    "featured_product": {
+      "name": "Featured product",
+      "product": "Product"
+    },
+    "testimonials": {
+      "name": "Testimonials",
+      "quote": "Quote",
+      "avatar": "Avatar",
+      "rating_label": "Star rating",
+      "blocks": {
+        "item": "Testimonial"
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter"
+    },
+    "image_with_text": {
+      "name": "Image with text",
+      "image_position": "Image position"
+    },
+    "multicolumn": {
+      "name": "Multicolumn",
+      "column": "Column",
+      "icon": "Icon"
+    },
+    "collapsible": {
+      "name": "Collapsible content",
+      "item": "Item",
+      "content": "Content"
+    },
+    "rich_text": {
+      "name": "Rich text"
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "auto_rotate": "Auto-rotate speed",
+      "slide": "Slide"
+    },
+    "collection_list": {
+      "name": "Collection list",
+      "collection": "Collection",
+      "collection_block": "Collection"
+    },
+    "logo_list": {
+      "name": "Logo list",
+      "logo": "Logo",
+      "logo_image": "Logo image"
+    },
+    "map": {
+      "name": "Map",
+      "address": "Address",
+      "address_info": "Full address for Google Maps embed"
+    },
+    "contact_form": {
+      "name": "Contact form"
+    },
+    "gallery": {
+      "name": "Gallery",
+      "image": "Image",
+      "caption": "Caption"
+    },
+    "countdown": {
+      "name": "Countdown",
+      "end_date": "End date",
+      "end_date_info": "ISO format: YYYY-MM-DDTHH:MM"
+    },
+    "tabs": {
+      "name": "Tabs",
+      "tab": "Tab"
+    },
+    "timeline": {
+      "name": "Timeline",
+      "milestone": "Milestone",
+      "year": "Year"
+    },
+    "team": {
+      "name": "Team",
+      "member": "Team member",
+      "photo": "Photo",
+      "role": "Role",
+      "bio": "Bio"
+    },
+    "store_locator": {
+      "name": "Store locator",
+      "store": "Store",
+      "address": "Address",
+      "phone": "Phone",
+      "hours": "Hours"
+    },
+    "instagram": {
+      "name": "Instagram feed",
+      "handle": "Instagram handle (without @)",
+      "post": "Post"
+    },
+    "video": {
+      "name": "Video",
+      "video_url": "Video URL",
+      "poster": "Poster image",
+      "aspect": "Aspect ratio"
+    },
+    "banner_products": {
+      "name": "Banner with products"
+    },
+    "recently_viewed": {
+      "name": "Recently viewed"
+    },
+    "custom_liquid": {
+      "name": "Custom Liquid",
+      "code": "Liquid code",
+      "info": "For power users only"
     }
   },
   "settings_schema": {
@@ -908,5 +1049,21 @@
         }
       }
     }
+  },
+  "common": {
+    "enabled": "Enable section",
+    "image": "Image",
+    "heading": "Heading",
+    "subheading": "Subheading",
+    "text": "Text",
+    "title": "Title",
+    "description": "Description",
+    "name": "Name",
+    "button_label": "Button label",
+    "button_link": "Button link",
+    "link": "Link",
+    "alt": "Alt text",
+    "columns": "Columns",
+    "alignment": "Alignment"
   }
 }

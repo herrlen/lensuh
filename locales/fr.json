@@ -82,7 +82,8 @@
     "image_zoom": {
       "lightbox": "Galerie d'images",
       "close": "Fermer la galerie"
-    }
+    },
+    "view_details": "Voir les détails"
   },
   "cart": {
     "general": {
@@ -141,7 +142,8 @@
     },
     "sorting": {
       "title": "Trier par"
-    }
+    },
+    "view_all": "Voir tout"
   },
   "search": {
     "title": "Recherche",
@@ -781,6 +783,147 @@
       "presets": {
         "name": "Éditorial"
       }
+    },
+    "age_verifier": {
+      "name": "Vérification d'âge",
+      "settings": {
+        "enabled": {
+          "label": "Activer la vérification d'âge"
+        },
+        "logo": {
+          "label": "Logo"
+        },
+        "heading": {
+          "label": "Titre"
+        },
+        "text": {
+          "label": "Texte"
+        },
+        "redirect_url": {
+          "label": "URL de redirection pour 'Non'",
+          "info": "Où envoyer les visiteurs mineurs"
+        }
+      }
+    },
+    "hero_banner": {
+      "name": "Bannière hero"
+    },
+    "featured_collection": {
+      "name": "Collection vedette",
+      "collection": "Collection",
+      "product_count": "Nombre de produits",
+      "show_view_all": "Afficher 'Voir tout'"
+    },
+    "featured_product": {
+      "name": "Produit vedette",
+      "product": "Produit"
+    },
+    "testimonials": {
+      "name": "Témoignages",
+      "quote": "Citation",
+      "avatar": "Avatar",
+      "rating_label": "Note étoiles",
+      "blocks": {
+        "item": "Témoignage"
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter"
+    },
+    "image_with_text": {
+      "name": "Image avec texte",
+      "image_position": "Position de l'image"
+    },
+    "multicolumn": {
+      "name": "Multicolonnes",
+      "column": "Colonne",
+      "icon": "Icône"
+    },
+    "collapsible": {
+      "name": "Contenu repliable",
+      "item": "Élément",
+      "content": "Contenu"
+    },
+    "rich_text": {
+      "name": "Texte riche"
+    },
+    "slideshow": {
+      "name": "Diaporama",
+      "auto_rotate": "Rotation auto",
+      "slide": "Diapositive"
+    },
+    "collection_list": {
+      "name": "Liste collections",
+      "collection": "Collection",
+      "collection_block": "Collection"
+    },
+    "logo_list": {
+      "name": "Liste logos",
+      "logo": "Logo",
+      "logo_image": "Image logo"
+    },
+    "map": {
+      "name": "Carte",
+      "address": "Adresse",
+      "address_info": "Adresse complète pour Google Maps"
+    },
+    "contact_form": {
+      "name": "Formulaire contact"
+    },
+    "gallery": {
+      "name": "Galerie",
+      "image": "Image",
+      "caption": "Légende"
+    },
+    "countdown": {
+      "name": "Compte à rebours",
+      "end_date": "Date de fin",
+      "end_date_info": "Format ISO: AAAA-MM-JJTHH:MM"
+    },
+    "tabs": {
+      "name": "Onglets",
+      "tab": "Onglet"
+    },
+    "timeline": {
+      "name": "Chronologie",
+      "milestone": "Jalon",
+      "year": "Année"
+    },
+    "team": {
+      "name": "Équipe",
+      "member": "Membre",
+      "photo": "Photo",
+      "role": "Rôle",
+      "bio": "Bio"
+    },
+    "store_locator": {
+      "name": "Localisateur magasin",
+      "store": "Magasin",
+      "address": "Adresse",
+      "phone": "Téléphone",
+      "hours": "Horaires"
+    },
+    "instagram": {
+      "name": "Flux Instagram",
+      "handle": "Handle Instagram (sans @)",
+      "post": "Publication"
+    },
+    "video": {
+      "name": "Vidéo",
+      "video_url": "URL vidéo",
+      "poster": "Image d'aperçu",
+      "aspect": "Ratio"
+    },
+    "banner_products": {
+      "name": "Bannière avec produits"
+    },
+    "recently_viewed": {
+      "name": "Récemment vus"
+    },
+    "custom_liquid": {
+      "name": "Liquid personnalisé",
+      "code": "Code Liquid",
+      "info": "Pour utilisateurs avancés"
     }
   },
   "settings_schema": {
@@ -1201,5 +1344,53 @@
   "theme": {
     "toggle_dark": "Passer au mode sombre",
     "toggle_light": "Passer au mode clair"
+  },
+  "common": {
+    "enabled": "Activer la section",
+    "image": "Image",
+    "heading": "Titre",
+    "subheading": "Sous-titre",
+    "text": "Texte",
+    "title": "Titre",
+    "description": "Description",
+    "name": "Nom",
+    "button_label": "Texte du bouton",
+    "button_link": "Lien du bouton",
+    "link": "Lien",
+    "alt": "Texte alt",
+    "columns": "Colonnes",
+    "alignment": "Alignement"
+  },
+  "testimonials": {
+    "rating": "Note : {{ rating }} étoiles"
+  },
+  "newsletter": {
+    "email": "E-mail",
+    "placeholder": "Votre e-mail",
+    "submit": "S'abonner",
+    "success": "Merci de votre inscription !"
+  },
+  "contact": {
+    "name": "Nom",
+    "email": "E-mail",
+    "message": "Message",
+    "submit": "Envoyer",
+    "success": "Merci, nous vous recontacterons !"
+  },
+  "instagram": {
+    "post": "Publication Instagram"
+  },
+  "map": {
+    "title": "Carte"
+  },
+  "slideshow": {
+    "label": "Diaporama"
+  },
+  "recently_viewed": {
+    "empty": "Vous n'avez pas encore consulté de produits."
+  },
+  "age_verifier": {
+    "yes": "Oui, j'ai plus de 18 ans",
+    "no": "Non, j'ai moins de 18 ans"
   }
 }

@@ -1,0 +1,32 @@
+<section class="collapsible" data-section-id="{{ section.id }}" {% if section.settings.enabled == false %}hidden{% endif %}>
+  <div class="collapsible__inner page-width">
+    {%- if section.settings.heading != blank -%}<h2 class="collapsible__heading">{{ section.settings.heading }}</h2>{%- endif -%}
+    {%- for block in section.blocks -%}
+      <details class="collapsible__item" {{ block.shopify_attributes }}>
+        <summary class="collapsible__summary">{{ block.settings.title }}</summary>
+        <div class="collapsible__content rte">{{ block.settings.content }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.collapsible.name",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "t:common.enabled", "default": true },
+    { "type": "text", "id": "heading", "label": "t:common.heading" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.collapsible.item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "t:common.title" },
+        { "type": "richtext", "id": "content", "label": "t:sections.collapsible.content" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "t:sections.collapsible.name" }]
+}
+{% endschema %}

@@ -621,6 +621,147 @@
       "presets": {
         "name": "Editoriale"
       }
+    },
+    "age_verifier": {
+      "name": "Verifica età",
+      "settings": {
+        "enabled": {
+          "label": "Attiva verifica età"
+        },
+        "logo": {
+          "label": "Logo"
+        },
+        "heading": {
+          "label": "Titolo"
+        },
+        "text": {
+          "label": "Testo"
+        },
+        "redirect_url": {
+          "label": "URL di reindirizzamento",
+          "info": "Dove inviare i minorenni"
+        }
+      }
+    },
+    "hero_banner": {
+      "name": "Hero banner"
+    },
+    "featured_collection": {
+      "name": "Collezione in evidenza",
+      "collection": "Collezione",
+      "product_count": "Numero di prodotti",
+      "show_view_all": "Mostra 'Vedi tutto'"
+    },
+    "featured_product": {
+      "name": "Prodotto in evidenza",
+      "product": "Prodotto"
+    },
+    "testimonials": {
+      "name": "Testimonianze",
+      "quote": "Citazione",
+      "avatar": "Avatar",
+      "rating_label": "Valutazione",
+      "blocks": {
+        "item": "Testimonianza"
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter"
+    },
+    "image_with_text": {
+      "name": "Immagine con testo",
+      "image_position": "Posizione immagine"
+    },
+    "multicolumn": {
+      "name": "Multicolonna",
+      "column": "Colonna",
+      "icon": "Icona"
+    },
+    "collapsible": {
+      "name": "Contenuto a fisarmonica",
+      "item": "Elemento",
+      "content": "Contenuto"
+    },
+    "rich_text": {
+      "name": "Testo ricco"
+    },
+    "slideshow": {
+      "name": "Slideshow",
+      "auto_rotate": "Rotazione automatica",
+      "slide": "Diapositiva"
+    },
+    "collection_list": {
+      "name": "Elenco collezioni",
+      "collection": "Collezione",
+      "collection_block": "Collezione"
+    },
+    "logo_list": {
+      "name": "Elenco loghi",
+      "logo": "Logo",
+      "logo_image": "Immagine logo"
+    },
+    "map": {
+      "name": "Mappa",
+      "address": "Indirizzo",
+      "address_info": "Indirizzo completo per Google Maps"
+    },
+    "contact_form": {
+      "name": "Modulo contatto"
+    },
+    "gallery": {
+      "name": "Galleria",
+      "image": "Immagine",
+      "caption": "Didascalia"
+    },
+    "countdown": {
+      "name": "Conto alla rovescia",
+      "end_date": "Data fine",
+      "end_date_info": "Formato ISO: AAAA-MM-GGTHH:MM"
+    },
+    "tabs": {
+      "name": "Schede",
+      "tab": "Scheda"
+    },
+    "timeline": {
+      "name": "Timeline",
+      "milestone": "Traguardo",
+      "year": "Anno"
+    },
+    "team": {
+      "name": "Team",
+      "member": "Membro",
+      "photo": "Foto",
+      "role": "Ruolo",
+      "bio": "Bio"
+    },
+    "store_locator": {
+      "name": "Localizzatore negozi",
+      "store": "Negozio",
+      "address": "Indirizzo",
+      "phone": "Telefono",
+      "hours": "Orari"
+    },
+    "instagram": {
+      "name": "Feed Instagram",
+      "handle": "Handle Instagram (senza @)",
+      "post": "Post"
+    },
+    "video": {
+      "name": "Video",
+      "video_url": "URL video",
+      "poster": "Immagine anteprima",
+      "aspect": "Proporzioni"
+    },
+    "banner_products": {
+      "name": "Banner con prodotti"
+    },
+    "recently_viewed": {
+      "name": "Visti di recente"
+    },
+    "custom_liquid": {
+      "name": "Liquid personalizzato",
+      "code": "Codice Liquid",
+      "info": "Solo per utenti avanzati"
     }
   },
   "settings_schema": {
@@ -908,5 +1049,21 @@
         }
       }
     }
+  },
+  "common": {
+    "enabled": "Attiva sezione",
+    "image": "Immagine",
+    "heading": "Titolo",
+    "subheading": "Sottotitolo",
+    "text": "Testo",
+    "title": "Titolo",
+    "description": "Descrizione",
+    "name": "Nome",
+    "button_label": "Testo pulsante",
+    "button_link": "Link pulsante",
+    "link": "Link",
+    "alt": "Testo alt",
+    "columns": "Colonne",
+    "alignment": "Allineamento"
   }
 }
