@@ -89,6 +89,8 @@
   <noscript><link rel="stylesheet" href="{{ 'video.css' | asset_url }}"></noscript>
   <link rel="preload" href="{{ 'content.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ 'content.css' | asset_url }}"></noscript>
+  <link rel="preload" href="{{ 'seo-audit.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ 'seo-audit.css' | asset_url }}"></noscript>
   {%- if request.locale.iso_code == 'ar' or request.locale.iso_code == 'he' -%}
     <link rel="stylesheet" href="{{ 'rtl.css' | asset_url }}">
   {%- endif -%}
@@ -125,5 +127,6 @@
   <script src="{{ 'slideshow.js' | asset_url }}" defer></script>
   <script src="{{ 'recently-viewed.js' | asset_url }}" defer></script>
   <script src="{{ 'tabs-section.js' | asset_url }}" defer></script>
+  <script src="{{ 'seo-audit.js' | asset_url }}" defer></script>
 </body>
 </html>

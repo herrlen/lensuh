@@ -1,0 +1,70 @@
+{%- comment -%}
+  Internal Linking — Automatic related content based on tags/collections/type.
+  Max 3-5 links, configurable.
+  Usage: {% render 'internal-linking', context: 'product' %} or 'article' / 'collection'
+{%- endcomment -%}
+
+{%- liquid
+  assign max_links = settings.internal_links_max | default: 4
+  assign current_context = context | default: template.name
+-%}
+
+{%- if current_context == 'product' and product != blank -%}
+  {%- comment -%} Related products from same collection {%- endcomment -%}
+  {%- if product.collections.size > 0 -%}
+    {%- assign related_collection = product.collections.first -%}
+    <nav class="internal-linking" aria-label="{{ 'seo.internal_linking.related_products' | t }}">
+      <h3 class="internal-linking__heading">{{ 'seo.internal_linking.related_products' | t }}</h3>
+      <ul class="internal-linking__list">
+        {%- assign count = 0 -%}
+        {%- for related in related_collection.products -%}
+          {%- if related.id != product.id and count < max_links -%}
+            <li><a href="{{ related.url }}" rel="related">{{ related.title }}</a></li>
+            {%- assign count = count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+
+{%- elsif current_context == 'article' and article != blank -%}
+  {%- comment -%} Related articles by tag {%- endcomment -%}
+  {%- if article.tags.size > 0 -%}
+    <nav class="internal-linking" aria-label="{{ 'seo.internal_linking.related_articles' | t }}">
+      <h3 class="internal-linking__heading">{{ 'seo.internal_linking.related_articles' | t }}</h3>
+      <ul class="internal-linking__list">
+        {%- assign count = 0 -%}
+        {%- for related in blog.articles -%}
+          {%- if related.id != article.id and count < max_links -%}
+            {%- assign has_match = false -%}
+            {%- for tag in article.tags -%}
+              {%- if related.tags contains tag -%}
+                {%- assign has_match = true -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if has_match -%}
+              <li><a href="{{ related.url }}" rel="related">{{ related.title }}</a></li>
+              {%- assign count = count | plus: 1 -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+
+{%- elsif current_context == 'collection' and collection != blank -%}
+  {%- comment -%} Other collections {%- endcomment -%}
+  <nav class="internal-linking" aria-label="{{ 'seo.internal_linking.other_collections' | t }}">
+    <h3 class="internal-linking__heading">{{ 'seo.internal_linking.other_collections' | t }}</h3>
+    <ul class="internal-linking__list">
+      {%- assign count = 0 -%}
+      {%- for c in collections -%}
+        {%- if c.id != collection.id and c.handle != 'frontpage' and count < max_links -%}
+          <li><a href="{{ c.url }}" rel="related">{{ c.title }}</a></li>
+          {%- assign count = count | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </nav>
+{%- endif -%}

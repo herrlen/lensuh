@@ -127,6 +127,39 @@
         ],
         "default": "noindex",
         "info": "t:settings_schema.seo.settings.robots_tags.info"
+      },
+      {
+        "type": "select",
+        "id": "seo_robots_vendor",
+        "label": "t:settings_schema.seo.settings.robots_vendor.label",
+        "options": [
+          { "value": "noindex", "label": "t:settings_schema.seo.settings.robots_tags.options.noindex" },
+          { "value": "index", "label": "t:settings_schema.seo.settings.robots_tags.options.index" }
+        ],
+        "default": "noindex",
+        "info": "t:settings_schema.seo.settings.robots_vendor.info"
+      },
+      {
+        "type": "checkbox",
+        "id": "seo_robots_search",
+        "label": "t:settings_schema.seo.settings.robots_search.label",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "internal_links_max",
+        "label": "t:settings_schema.seo.settings.internal_links_max.label",
+        "info": "t:settings_schema.seo.settings.internal_links_max.info",
+        "min": 3,
+        "max": 8,
+        "step": 1,
+        "default": 4
+      },
+      {
+        "type": "textarea",
+        "id": "seo_robots_disallow",
+        "label": "t:settings_schema.seo.settings.robots_disallow.label",
+        "info": "t:settings_schema.seo.settings.robots_disallow.info"
       }
     ]
   },

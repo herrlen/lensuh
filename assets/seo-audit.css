@@ -1,0 +1,41 @@
+/* ============================================================
+   SEO Audit Dashboard + Internal Linking (S19)
+   ============================================================ */
+
+/* --- SEO Audit --- */
+.seo-audit { padding: var(--spacing-xl) 0; background: var(--color-secondary); }
+.seo-audit__heading { margin-bottom: var(--spacing-sm); }
+.seo-audit__intro { margin-bottom: var(--spacing-lg); opacity: 0.7; }
+
+.seo-audit__results { display: flex; flex-direction: column; gap: var(--spacing-md); }
+
+.seo-audit__check {
+  display: flex; gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-border);
+}
+.seo-audit__check--ok { border-left-color: #0a8754; }
+.seo-audit__check--warn { border-left-color: #b98900; }
+.seo-audit__check--fail { border-left-color: #d72c0d; }
+
+.seo-audit__indicator {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--color-border); flex-shrink: 0; margin-top: 4px;
+}
+.seo-audit__indicator--ok { background: #0a8754; }
+.seo-audit__indicator--warn { background: #b98900; }
+.seo-audit__indicator--fail { background: #d72c0d; }
+
+.seo-audit__check-content { flex: 1; }
+.seo-audit__check-title { font-size: var(--font-size-base); font-weight: 600; margin-bottom: var(--spacing-xs); }
+.seo-audit__check-status { font-size: var(--font-size-sm); margin-bottom: var(--spacing-xs); }
+.seo-audit__check-recommendation { font-size: var(--font-size-sm); opacity: 0.7; }
+
+/* --- Internal Linking --- */
+.internal-linking { margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border); }
+.internal-linking__heading { font-size: var(--font-size-base); font-weight: 600; text-transform: uppercase; letter-spacing: var(--letter-spacing-caps); margin-bottom: var(--spacing-sm); }
+.internal-linking__list { list-style: none; display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.internal-linking__list a { font-size: var(--font-size-sm); color: var(--color-accent); text-decoration: underline; }
+.internal-linking__list a:hover { opacity: 0.8; }

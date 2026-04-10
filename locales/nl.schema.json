@@ -762,6 +762,11 @@
       "name": "Aangepaste Liquid",
       "code": "Liquid-code",
       "info": "Alleen voor power users"
+    },
+    "seo_audit": {
+      "name": "SEO Dashboard",
+      "show_to_all": "Aan iedereen tonen",
+      "show_to_all_info": "Standaard alleen zichtbaar voor ingelogde klanten"
     }
   },
   "settings_schema": {
@@ -911,6 +916,21 @@
             "noindex": "noindex (aanbevolen)",
             "index": "index"
           }
+        },
+        "robots_vendor": {
+          "label": "Robots leverancierspagina's",
+          "info": "Indexering van leveranciersfilterpagina's"
+        },
+        "robots_search": {
+          "label": "Noindex zoekresultaten"
+        },
+        "internal_links_max": {
+          "label": "Interne links per pagina",
+          "info": "Max gerelateerde links"
+        },
+        "robots_disallow": {
+          "label": "Aangepaste disallow regels",
+          "info": "Extra paden om te blokkeren"
         }
       }
     },

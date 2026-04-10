@@ -924,6 +924,11 @@
       "name": "Liquid personnalisé",
       "code": "Code Liquid",
       "info": "Pour utilisateurs avancés"
+    },
+    "seo_audit": {
+      "name": "Tableau SEO",
+      "show_to_all": "Afficher à tous",
+      "show_to_all_info": "Par défaut visible uniquement pour les clients connectés"
     }
   },
   "settings_schema": {
@@ -1073,6 +1078,21 @@
             "noindex": "noindex (recommandé)",
             "index": "index"
           }
+        },
+        "robots_vendor": {
+          "label": "Robots pages fournisseur",
+          "info": "Indexation des pages de filtre fournisseur"
+        },
+        "robots_search": {
+          "label": "Noindex résultats de recherche"
+        },
+        "internal_links_max": {
+          "label": "Liens internes par page",
+          "info": "Nombre max de liens liés"
+        },
+        "robots_disallow": {
+          "label": "Règles disallow personnalisées",
+          "info": "Chemins supplémentaires à interdire"
         }
       }
     },
@@ -1293,7 +1313,12 @@
     }
   },
   "seo": {
-    "page": "Page {{ number }}"
+    "page": "Page {{ number }}",
+    "internal_linking": {
+      "related_products": "Produits associés",
+      "related_articles": "Articles associés",
+      "other_collections": "Autres collections"
+    }
   },
   "header": {
     "mobile_menu": {
@@ -1392,5 +1417,46 @@
   "age_verifier": {
     "yes": "Oui, j'ai plus de 18 ans",
     "no": "Non, j'ai moins de 18 ans"
+  },
+  "seo_audit": {
+    "title": "Tableau SEO",
+    "intro": "Vérifications SEO en temps réel pour cette page",
+    "h1": {
+      "title": "Titre H1",
+      "ok": "Exactement un H1 trouvé",
+      "warn": "Plusieurs balises H1 trouvées",
+      "fail": "Aucun H1 trouvé",
+      "rec_ok": "Chaque page doit avoir exactement un H1.",
+      "rec_fail": "Ajoutez exactement une balise H1."
+    },
+    "meta": {
+      "title": "Meta Description",
+      "ok": "Meta description présente et bien dimensionnée",
+      "warn": "Meta description trop courte ou trop longue",
+      "fail": "Meta description manquante",
+      "rec_ok": "Longueur entre 50-160 caractères est optimale.",
+      "rec_fail": "Ajoutez une meta description entre 50-160 caractères."
+    },
+    "schema": {
+      "title": "Données structurées (JSON-LD)",
+      "ok": "JSON-LD valide trouvé",
+      "fail": "Aucun JSON-LD valide trouvé",
+      "rec_ok": "Le balisage Schema.org aide les moteurs de recherche.",
+      "rec_fail": "Ajoutez des données structurées JSON-LD."
+    },
+    "alt": {
+      "title": "Textes ALT des images",
+      "ok": "Toutes les images ont un texte ALT",
+      "fail": "{count} images sans texte ALT",
+      "rec_ok": "Le texte ALT aide l'accessibilité.",
+      "rec_fail": "Ajoutez un texte ALT descriptif à toutes les images."
+    },
+    "canonical": {
+      "title": "URL canonique",
+      "ok": "URL canonique définie",
+      "fail": "URL canonique manquante",
+      "rec_ok": "Évite les problèmes de contenu dupliqué.",
+      "rec_fail": "Ajoutez une balise canonical."
+    }
   }
 }

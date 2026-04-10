@@ -207,6 +207,8 @@
         {%- else -%}
           <p class="main-collection__empty">{{ 'collections.general.no_products' | t }}</p>
         {%- endif -%}
+
+        {% render 'internal-linking', context: 'collection' %}
       </div>
     </div>
   </div>

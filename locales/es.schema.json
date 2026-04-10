@@ -762,6 +762,11 @@
       "name": "Liquid personalizado",
       "code": "Código Liquid",
       "info": "Solo para usuarios avanzados"
+    },
+    "seo_audit": {
+      "name": "Panel SEO",
+      "show_to_all": "Mostrar a todos",
+      "show_to_all_info": "Por defecto visible solo para clientes registrados"
     }
   },
   "settings_schema": {
@@ -911,6 +916,21 @@
             "noindex": "noindex (recomendado)",
             "index": "index"
           }
+        },
+        "robots_vendor": {
+          "label": "Robots páginas proveedor",
+          "info": "Indexación de páginas filtro proveedor"
+        },
+        "robots_search": {
+          "label": "Noindex resultados de búsqueda"
+        },
+        "internal_links_max": {
+          "label": "Enlaces internos por página",
+          "info": "Máx enlaces relacionados"
+        },
+        "robots_disallow": {
+          "label": "Reglas disallow personalizadas",
+          "info": "Rutas adicionales a bloquear"
         }
       }
     },

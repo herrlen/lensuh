@@ -113,6 +113,8 @@
       </nav>
     {%- endif -%}
 
+    {% render 'internal-linking', context: 'article' %}
+
     {%- comment -%} Related Posts {%- endcomment -%}
     {%- if section.settings.show_related and blog.articles.size > 1 -%}
       <div class="main-article__related">

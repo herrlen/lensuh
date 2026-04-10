@@ -166,6 +166,7 @@
               {% render 'back-in-stock', product: product, variant: atc_variant %}
               {% render 'trust-badges' %}
               {% render 'in-store-pickup', product: product %}
+              {% render 'internal-linking', context: 'product' %}
             </div>
 
           {%- when 'description' -%}

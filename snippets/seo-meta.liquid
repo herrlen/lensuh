@@ -65,11 +65,15 @@
 {%- liquid
   assign robots_content = 'index, follow'
 
-  if template.name == 'search'
+  if template.name == 'search' and settings.seo_robots_search
     assign robots_content = 'noindex, follow'
   endif
 
-  if current_tags.size > 0
+  if current_tags.size > 0 and settings.seo_robots_tags == 'noindex'
+    assign robots_content = 'noindex, follow'
+  endif
+
+  if current_vendor != blank and settings.seo_robots_vendor == 'noindex'
     assign robots_content = 'noindex, follow'
   endif
 

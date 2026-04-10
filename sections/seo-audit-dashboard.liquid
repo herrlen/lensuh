@@ -1,0 +1,110 @@
+{%- comment -%}
+  SEO Audit Dashboard — Admin-only client-side audit.
+  Visible only when logged in customer (proxy for admin in this context).
+  Checks: H1, Meta Description, JSON-LD Schema, Image ALTs.
+  Traffic-light system: Green / Yellow / Red.
+{%- endcomment -%}
+
+{%- if customer != blank or section.settings.show_to_all -%}
+  <section class="seo-audit" data-section-id="{{ section.id }}" data-section-type="seo-audit">
+    <div class="seo-audit__inner page-width">
+      <h2 class="seo-audit__heading">{{ 'seo_audit.title' | t }}</h2>
+      <p class="seo-audit__intro">{{ 'seo_audit.intro' | t }}</p>
+
+      <div class="seo-audit__results" data-seo-results aria-live="polite">
+        <div class="seo-audit__check" data-seo-check="h1">
+          <span class="seo-audit__indicator" data-seo-indicator></span>
+          <div class="seo-audit__check-content">
+            <h3 class="seo-audit__check-title">{{ 'seo_audit.h1.title' | t }}</h3>
+            <p class="seo-audit__check-status" data-seo-status></p>
+            <p class="seo-audit__check-recommendation" data-seo-recommendation></p>
+          </div>
+        </div>
+
+        <div class="seo-audit__check" data-seo-check="meta">
+          <span class="seo-audit__indicator" data-seo-indicator></span>
+          <div class="seo-audit__check-content">
+            <h3 class="seo-audit__check-title">{{ 'seo_audit.meta.title' | t }}</h3>
+            <p class="seo-audit__check-status" data-seo-status></p>
+            <p class="seo-audit__check-recommendation" data-seo-recommendation></p>
+          </div>
+        </div>
+
+        <div class="seo-audit__check" data-seo-check="schema">
+          <span class="seo-audit__indicator" data-seo-indicator></span>
+          <div class="seo-audit__check-content">
+            <h3 class="seo-audit__check-title">{{ 'seo_audit.schema.title' | t }}</h3>
+            <p class="seo-audit__check-status" data-seo-status></p>
+            <p class="seo-audit__check-recommendation" data-seo-recommendation></p>
+          </div>
+        </div>
+
+        <div class="seo-audit__check" data-seo-check="alt">
+          <span class="seo-audit__indicator" data-seo-indicator></span>
+          <div class="seo-audit__check-content">
+            <h3 class="seo-audit__check-title">{{ 'seo_audit.alt.title' | t }}</h3>
+            <p class="seo-audit__check-status" data-seo-status></p>
+            <p class="seo-audit__check-recommendation" data-seo-recommendation></p>
+          </div>
+        </div>
+
+        <div class="seo-audit__check" data-seo-check="canonical">
+          <span class="seo-audit__indicator" data-seo-indicator></span>
+          <div class="seo-audit__check-content">
+            <h3 class="seo-audit__check-title">{{ 'seo_audit.canonical.title' | t }}</h3>
+            <p class="seo-audit__check-status" data-seo-status></p>
+            <p class="seo-audit__check-recommendation" data-seo-recommendation></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} Translation strings injected for client-side use {%- endcomment -%}
+  <script type="application/json" data-seo-strings>
+    {
+      "h1": {
+        "ok": {{ 'seo_audit.h1.ok' | t | json }},
+        "warn": {{ 'seo_audit.h1.warn' | t | json }},
+        "fail": {{ 'seo_audit.h1.fail' | t | json }},
+        "rec_ok": {{ 'seo_audit.h1.rec_ok' | t | json }},
+        "rec_fail": {{ 'seo_audit.h1.rec_fail' | t | json }}
+      },
+      "meta": {
+        "ok": {{ 'seo_audit.meta.ok' | t | json }},
+        "warn": {{ 'seo_audit.meta.warn' | t | json }},
+        "fail": {{ 'seo_audit.meta.fail' | t | json }},
+        "rec_ok": {{ 'seo_audit.meta.rec_ok' | t | json }},
+        "rec_fail": {{ 'seo_audit.meta.rec_fail' | t | json }}
+      },
+      "schema": {
+        "ok": {{ 'seo_audit.schema.ok' | t | json }},
+        "fail": {{ 'seo_audit.schema.fail' | t | json }},
+        "rec_ok": {{ 'seo_audit.schema.rec_ok' | t | json }},
+        "rec_fail": {{ 'seo_audit.schema.rec_fail' | t | json }}
+      },
+      "alt": {
+        "ok": {{ 'seo_audit.alt.ok' | t | json }},
+        "fail": {{ 'seo_audit.alt.fail' | t | json }},
+        "rec_ok": {{ 'seo_audit.alt.rec_ok' | t | json }},
+        "rec_fail": {{ 'seo_audit.alt.rec_fail' | t | json }}
+      },
+      "canonical": {
+        "ok": {{ 'seo_audit.canonical.ok' | t | json }},
+        "fail": {{ 'seo_audit.canonical.fail' | t | json }},
+        "rec_ok": {{ 'seo_audit.canonical.rec_ok' | t | json }},
+        "rec_fail": {{ 'seo_audit.canonical.rec_fail' | t | json }}
+      }
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.seo_audit.name",
+  "settings": [
+    { "type": "checkbox", "id": "show_to_all", "label": "t:sections.seo_audit.show_to_all", "info": "t:sections.seo_audit.show_to_all_info", "default": false }
+  ],
+  "presets": [{ "name": "t:sections.seo_audit.name" }]
+}
+{% endschema %}

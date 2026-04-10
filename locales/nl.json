@@ -924,6 +924,11 @@
       "name": "Aangepaste Liquid",
       "code": "Liquid-code",
       "info": "Alleen voor power users"
+    },
+    "seo_audit": {
+      "name": "SEO Dashboard",
+      "show_to_all": "Aan iedereen tonen",
+      "show_to_all_info": "Standaard alleen zichtbaar voor ingelogde klanten"
     }
   },
   "settings_schema": {
@@ -1073,6 +1078,21 @@
             "noindex": "noindex (aanbevolen)",
             "index": "index"
           }
+        },
+        "robots_vendor": {
+          "label": "Robots leverancierspagina's",
+          "info": "Indexering van leveranciersfilterpagina's"
+        },
+        "robots_search": {
+          "label": "Noindex zoekresultaten"
+        },
+        "internal_links_max": {
+          "label": "Interne links per pagina",
+          "info": "Max gerelateerde links"
+        },
+        "robots_disallow": {
+          "label": "Aangepaste disallow regels",
+          "info": "Extra paden om te blokkeren"
         }
       }
     },
@@ -1293,7 +1313,12 @@
     }
   },
   "seo": {
-    "page": "Pagina {{ number }}"
+    "page": "Pagina {{ number }}",
+    "internal_linking": {
+      "related_products": "Gerelateerde producten",
+      "related_articles": "Gerelateerde artikelen",
+      "other_collections": "Andere collecties"
+    }
   },
   "header": {
     "mobile_menu": {
@@ -1392,5 +1417,46 @@
   "age_verifier": {
     "yes": "Ja, ik ben ouder dan 18",
     "no": "Nee, ik ben jonger dan 18"
+  },
+  "seo_audit": {
+    "title": "SEO Dashboard",
+    "intro": "Realtime SEO-controles voor deze pagina",
+    "h1": {
+      "title": "H1 Koptekst",
+      "ok": "Precies één H1 gevonden",
+      "warn": "Meerdere H1-tags gevonden",
+      "fail": "Geen H1 gevonden",
+      "rec_ok": "Elke pagina moet precies één H1 hebben.",
+      "rec_fail": "Voeg precies één H1-tag toe."
+    },
+    "meta": {
+      "title": "Meta Description",
+      "ok": "Meta description aanwezig",
+      "warn": "Meta description te kort of te lang",
+      "fail": "Meta description ontbreekt",
+      "rec_ok": "Lengte tussen 50-160 tekens is optimaal.",
+      "rec_fail": "Voeg een meta description toe tussen 50-160 tekens."
+    },
+    "schema": {
+      "title": "Gestructureerde data (JSON-LD)",
+      "ok": "Geldige JSON-LD gevonden",
+      "fail": "Geen geldige JSON-LD gevonden",
+      "rec_ok": "Schema.org markup helpt zoekmachines.",
+      "rec_fail": "Voeg JSON-LD gestructureerde data toe."
+    },
+    "alt": {
+      "title": "ALT-teksten van afbeeldingen",
+      "ok": "Alle afbeeldingen hebben ALT",
+      "fail": "{count} afbeeldingen zonder ALT",
+      "rec_ok": "ALT-tekst helpt toegankelijkheid.",
+      "rec_fail": "Voeg beschrijvende ALT-tekst toe."
+    },
+    "canonical": {
+      "title": "Canonical URL",
+      "ok": "Canonical URL is ingesteld",
+      "fail": "Canonical URL ontbreekt",
+      "rec_ok": "Voorkomt duplicate content problemen.",
+      "rec_fail": "Voeg een canonical URL tag toe."
+    }
   }
 }

@@ -762,6 +762,11 @@
       "name": "Custom Liquid",
       "code": "Liquid-Code",
       "info": "Nur für Power-User"
+    },
+    "seo_audit": {
+      "name": "SEO Audit Dashboard",
+      "show_to_all": "Allen Besuchern anzeigen",
+      "show_to_all_info": "Standardmäßig nur für eingeloggte Kunden sichtbar"
     }
   },
   "settings_schema": {
@@ -911,6 +916,21 @@
             "noindex": "noindex (empfohlen)",
             "index": "index"
           }
+        },
+        "robots_vendor": {
+          "label": "Hersteller-Seiten Robots",
+          "info": "Indexierung von Hersteller-Filterseiten"
+        },
+        "robots_search": {
+          "label": "Suchergebnisse noindex"
+        },
+        "internal_links_max": {
+          "label": "Interne Links pro Seite",
+          "info": "Max verwandte Links auf Produkt-/Artikel-/Kollektionsseiten"
+        },
+        "robots_disallow": {
+          "label": "Eigene Disallow-Regeln",
+          "info": "Zusätzliche Pfade zum Sperren (einer pro Zeile)"
         }
       }
     },
